@@ -11,6 +11,21 @@
 /* Text
 ========================================================================== */
 /* ==========================================================================
+   Custom font loading
+   ========================================================================== */
+/* ==========================================================================
+   Mixin for generating variations on font-face
+   ========================================================================== */
+/* String replace
+========================================================================== */
+/* Font face
+========================================================================== */
+@font-face {
+  font-family: "Proxima Nova";
+  font-weight: 300;
+  src: url("https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont.woff") format("woff"), url("https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont.eot?") format("eot"), url("https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont.ttf") format("truetype"), url("https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont.svg#Proxima_Nova") format("svg"), url("https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont.woff2") format("woff2"); }
+
+/* ==========================================================================
    Typography
    ========================================================================== */
 /* Body text
