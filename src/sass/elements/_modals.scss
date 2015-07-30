@@ -6,7 +6,7 @@ $modal-transition-speed: 0.2s;
 $modal-bg-opacity: 0.6;
 
 body.ngdialog-open {
-    overflow: inherit; // keep page from jumping when scrollbar disappears
+    overflow: inherit !important; // keep page from jumping when scrollbar disappears
     .ngdialog-overlay {
         opacity: $modal-bg-opacity;
     }

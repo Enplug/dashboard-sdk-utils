@@ -801,7 +801,7 @@ hr {
    Modal windows based on ngDialog
    ========================================================================== */
 body.ngdialog-open {
-  overflow: inherit; }
+  overflow: inherit !important; }
   body.ngdialog-open .ngdialog-overlay {
     opacity: 0.6; }
 
