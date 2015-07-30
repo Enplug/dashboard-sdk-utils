@@ -11,52 +11,12 @@
 /* Text
 ========================================================================== */
 /* ==========================================================================
-   Custom font loading
-   ========================================================================== */
-/* ==========================================================================
-   Mixin for generating variations on font-face
-   ========================================================================== */
-/* String replace
-========================================================================== */
-/* Font face
-========================================================================== */
-@font-face {
-  font-family: "Lato";
-  font-weight: 300;
-  src: url("https://cdn.enplug.net/fonts/lato/lato-light-webfont.woff") format("woff"), url("https://cdn.enplug.net/fonts/lato/lato-light-webfont.eot?") format("eot"), url("https://cdn.enplug.net/fonts/lato/lato-light-webfont.ttf") format("truetype"), url("https://cdn.enplug.net/fonts/lato/lato-light-webfont.svg#Lato") format("svg"), url("https://cdn.enplug.net/fonts/lato/lato-light-webfont.woff2") format("woff2"); }
-
-@font-face {
-  font-family: "Lato";
-  src: url("https://cdn.enplug.net/fonts/lato/lato-regular-webfont.woff") format("woff"), url("https://cdn.enplug.net/fonts/lato/lato-regular-webfont.eot?") format("eot"), url("https://cdn.enplug.net/fonts/lato/lato-regular-webfont.ttf") format("truetype"), url("https://cdn.enplug.net/fonts/lato/lato-regular-webfont.svg#Lato") format("svg"), url("https://cdn.enplug.net/fonts/lato/lato-regular-webfont.woff2") format("woff2"); }
-
-@font-face {
-  font-family: "Lato";
-  font-style: italic;
-  font-weight: 400;
-  src: url("https://cdn.enplug.net/fonts/lato/lato-italic-webfont.woff") format("woff"), url("https://cdn.enplug.net/fonts/lato/lato-italic-webfont.eot?") format("eot"), url("https://cdn.enplug.net/fonts/lato/lato-italic-webfont.ttf") format("truetype"), url("https://cdn.enplug.net/fonts/lato/lato-italic-webfont.svg#Lato") format("svg"), url("https://cdn.enplug.net/fonts/lato/lato-italic-webfont.woff2") format("woff2"); }
-
-@font-face {
-  font-family: "Lato";
-  font-weight: 500;
-  src: url("https://cdn.enplug.net/fonts/lato/lato-semibold-webfont.woff") format("woff"), url("https://cdn.enplug.net/fonts/lato/lato-semibold-webfont.eot?") format("eot"), url("https://cdn.enplug.net/fonts/lato/lato-semibold-webfont.ttf") format("truetype"), url("https://cdn.enplug.net/fonts/lato/lato-semibold-webfont.svg#Lato") format("svg"), url("https://cdn.enplug.net/fonts/lato/lato-semibold-webfont.woff2") format("woff2"); }
-
-@font-face {
-  font-family: "Lato";
-  font-weight: 700;
-  src: url("https://cdn.enplug.net/fonts/lato/lato-bold-webfont.woff") format("woff"), url("https://cdn.enplug.net/fonts/lato/lato-bold-webfont.eot?") format("eot"), url("https://cdn.enplug.net/fonts/lato/lato-bold-webfont.ttf") format("truetype"), url("https://cdn.enplug.net/fonts/lato/lato-bold-webfont.svg#Lato") format("svg"), url("https://cdn.enplug.net/fonts/lato/lato-bold-webfont.woff2") format("woff2"); }
-
-@font-face {
-  font-family: "Lato";
-  font-weight: 900;
-  src: url("https://cdn.enplug.net/fonts/lato/lato-black-webfont.woff") format("woff"), url("https://cdn.enplug.net/fonts/lato/lato-black-webfont.eot?") format("eot"), url("https://cdn.enplug.net/fonts/lato/lato-black-webfont.ttf") format("truetype"), url("https://cdn.enplug.net/fonts/lato/lato-black-webfont.svg#Lato") format("svg"), url("https://cdn.enplug.net/fonts/lato/lato-black-webfont.woff2") format("woff2"); }
-
-/* ==========================================================================
    Typography
    ========================================================================== */
 /* Body text
 ========================================================================== */
 body {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #2a3239;
   font-size: 14px; }
 
