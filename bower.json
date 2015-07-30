@@ -24,7 +24,7 @@
     "*.iml",
     "Gruntfile.js",
     "package.json",
-    "grunt/*"
+    "grunt"
   ],
   "dependencies": {
     "lodash": "~3.10.0"
