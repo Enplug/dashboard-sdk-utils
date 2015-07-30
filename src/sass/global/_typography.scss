@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/* Body text
+========================================================================== */
+body {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: $text-color;
+    font-size: $text-size;
+}
+
+p { margin: 0; }
+
+/* Headers
+========================================================================== */
+h1 {
+    font-size: 48px;
+    font-weight: 300;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {  }
+
+/* Links
+========================================================================== */
+a {
+    color: $brand-primary;
+    font-weight: 500; // semibold links to add weight
+    outline: none;
+
+    // External links
+    &[target="_blank"]:after {
+        opacity: 0.5;
+        content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+        margin: 0 3px 0 5px;
+    }
+
+    // Reset
+    &.link-reset {  font-size: $text-size !important;  color: $brand-primary !important;  }
+}
+
+// Pointer cursor for all AngularJS clickable elements
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
+/* Text transformations
+========================================================================== */
+.text-sm            { font-size: $text-sm; }
+.text-md            { font-size: $text-md; }
+.text-lg            { font-size: $text-lg; }
+
+.text-thin          { font-weight: 100 !important; }
+.text-normal        { font-weight: normal !important; }
+.text-bold          { font-weight: bold !important; }
+
+.uppercase          { text-transform: uppercase }
+.lowercase          { text-transform: lowercase }
+.underline          { text-decoration: underline }
+.italic             { font-style: italic }
+
+.text-nowrap        { white-space: nowrap; }
+.tr                 { text-align: right!important; }
+.tl                 { text-align: left!important; }
+.tc                 { text-align: center!important; }
+
+.text-white         { color: #fff; }
+.text-success       { color: $brand-success; }
+.text-primary       { color: $brand-primary; }
+
+.text-gray-darker   { color: $gray-darker; }
+.text-gray-dark     { color: $gray-dark; }
+.text-gray          { color: $gray; }
+.text-gray-light    { color: $gray-light; }
+.text-gray-lighter  { color: $gray-lighter; }
+
+// Shorthand
+.text-gdr           { color: $gray-darker; }
+.text-gd            { color: $gray-dark; }
+.text-g             { color: $gray; }
+.text-gl            { color: $gray-light; }
+.text-glr           { color: $gray-lighter; }
+
+
+.text-reset         { font-size: $text-size !important; color: $gray-darker !important; }

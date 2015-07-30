@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Custom tooltips
+   ========================================================================== */
+
+.glossaryTip {
+    position: relative;
+
+    /* Indicator that shows before hovering. Can be icon or text
+    ========================================================================== */
+    sup,
+    .tipText {
+        top: auto;
+        padding-left: 3px;
+        vertical-align: top;
+        font-size: smaller;
+        line-height: inherit;
+        font-weight: bold;
+        text-decoration: none!important;
+        cursor: pointer;
+    }
+
+    sup {
+        font-size: 14px;
+        &:hover {
+            color: $gray-dark;
+        }
+    }
+
+    /* Tooltip
+    ========================================================================== */
+    .tip {
+        position: absolute;
+        bottom: 100%;
+        width: 250px;
+        padding: 5px 0;
+        text-align: left;
+        background: #fff;
+
+        // Box model of contents
+        .tipTitle,
+        .tipBody,
+        a {
+            display: block;
+            padding: 5px 10px;
+        }
+
+        /* Animation
+        ========================================================================== */
+        transform: scale(0.8);
+        visibility: hidden;
+        opacity: 0;
+        transition: transform 0.1s ease, opacity 0.1s ease;
+        &.isActive {
+            visibility: visible;
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Title styling. Reset anything inhereted
+        ========================================================================== */
+        .tipTitle {
+            // Important to override anything inhereted
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            font-size: 12px;
+        }
+
+        /* Body text & footer link styling. Reset anything inhereted
+        ========================================================================== */
+        .tipBody,
+        a {
+            font-weight: 500 !important;
+            text-transform: none !important;
+            letter-spacing: 0 !important;
+            text-decoration: none;
+        }
+
+        /* Arrow
+        ========================================================================== */
+        .tipArrow {
+            position: absolute;
+            left: 50%;
+            top: -20px;
+            width: 20px;
+            height: 20px;
+            overflow: hidden;
+            pointer-events: none;
+            &:after {
+                content: "";
+                position: absolute;
+                top: 15px;
+                left: 50%;
+                transform: rotate(45deg);
+                margin-left: -5px;
+                display: block;
+                height: 10px;
+                width: 10px;
+                background-color: #fff;
+                box-shadow: 0 0 0 1px rgba(39,44,48,0.05),0 2px 7px 1px rgba(39,44,48,0.16);
+            }
+        }
+    }
+
+    /* Positioning. Must include top/bottom and left/right
+    ========================================================================== */
+    .tip {
+        &.top {
+            margin-bottom: 10px;
+            .tipArrow {
+                top: auto;
+                bottom: -20px;
+                transform: rotate(180deg);
+            }
+        }
+        &.bottom {
+            bottom: auto;
+            top: 100%;
+            margin-top: 10px;
+            .tipArrow {
+                top: -20px;
+            }
+        }
+        &.right {
+            right: -13px;
+            left: auto;
+            .tipArrow {
+                left: auto;
+                right: 10px;
+            }
+        }
+        &.left {
+            left: -10px;
+            .tipArrow {
+                left: 10px;
+            }
+        }
+        &.inlineRight {
+            left: 100%!important;
+            margin-left: 10px;
+            top: -50%;
+            padding: 4px 0 0;
+            .tipArrow {
+                left:-5px;
+                top: 15px;
+                transform: rotate(-90deg);
+            }
+        }
+        &.center {
+            right: -117px;
+            left: auto;
+            .tipArrow {
+                right: 117px;
+                left: auto;
+            }
+        }
+    }
+}

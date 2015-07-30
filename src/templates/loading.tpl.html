@@ -1,0 +1,11 @@
+<div class="loading-directive" ng-show="loading">
+    <div class="loader" ng-hide="error">
+        <svg class="circular">
+            <circle class="path" cx="32" cy="32" r="30" fill="none" stroke-width="2"></circle>
+        </svg>
+    </div>
+    <div ng-show="error">
+        <p>There was an error.</p>
+    </div>
+</div>
+<ng-transclude ng-hide="loading"></ng-transclude>

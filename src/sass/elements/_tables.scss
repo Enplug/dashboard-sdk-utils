@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Tables based on Bootstrap 3
+   ========================================================================== */
+
+.table {
+
+    /* Header
+    ========================================================================== */
+    > thead {
+        > tr > th {
+            text-transform: uppercase;
+            color: $gray;
+            font-size: 11px;
+            letter-spacing: .05em;
+            font-weight: 900;
+            border-bottom: 1px solid #ebeef0;
+            padding: 12px 10px;
+            vertical-align: middle;
+            border-bottom: 1px solid #ebeef0;
+            user-select: none;
+
+            // Sortable column headers
+            &.sortable, &[st-sort] {
+                cursor: pointer;
+                &:after {
+                    margin-left: 5px;
+                    font-family: 'Ionicons';
+                    display: inline-block;
+                    content: '\f123';
+                    opacity: 0;
+                    transition: all $transition-speed;
+                }
+                &.sort-ascent, &.sort-descent, &.st-sort-ascent, &.st-sort-descent {
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+                &.sort-ascent, &.st-sort-ascent {
+                    &:after {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+
+    /* Body
+    ========================================================================== */
+    > tbody {
+        > tr > td {
+            vertical-align: middle;
+            border-bottom: 1px solid #ebeef0;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    /* Footer
+    ========================================================================== */
+    > tfoot {
+
+        // Table results summary
+        .summary {
+            margin-top: 20px;
+            display: block;
+            font-size: 14px;
+            color: $gray-light;
+        }
+
+        // Simple pagination - forward/back
+        .pagination.plain {
+            user-select: none;
+            margin-top: 15px;
+            a {
+                padding-left: 19px;
+                padding-right: 19px;
+                &.disabled {
+                    cursor: default;
+                    box-shadow: none;
+                    background: #fafbfc;
+                    color: #c3cfd8;
+                    border: 1px solid #d3dbe2;
+                }
+            }
+        }
+    }
+
+    /* Custom tables
+    ========================================================================== */
+    &.table-hover {
+        tr:hover td {
+            background: #eff9fd;
+        }
+    }
+
+    &.table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: #fafbfc;
+    }
+}

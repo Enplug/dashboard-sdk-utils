@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Empty page format. Should be used in place of a card when no content.
+   ========================================================================== */
+
+.blank-slate {
+    text-align: center;
+
+    h4 {
+        padding: 5px 0 35px 0;
+        margin: 0;
+        font-size: 22px;
+        font-weight: 300;
+    }
+    .btn {
+        font-size: 120%;
+        padding: 15px 50px;
+    }
+    p {
+        font-size: 16px;
+        margin-top: 80px;
+        padding-bottom: 90px;
+    }
+    i {
+        font-size: 80px;
+    }
+}

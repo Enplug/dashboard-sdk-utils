@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Brand variables
+   ========================================================================== */
+
+$border-radius:         2px;
+$transition-speed:      0.15s; // global transition speed for consistent animations
+$box-shadow:            0 0 0 1px rgba(39,44,48,0.05), 0 2px 7px 1px rgba(39,44,48,0.16);
+
+/* Colors
+========================================================================== */
+$brand-primary:         #479ccf ; // we need a rich blue
+$brand-success:         #6cbd7d ;
+$brand-info:            #23b7e5 ;
+$brand-warning:         #ff902b ;
+$brand-danger:          #f05050 ;
+
+$gray:                  #798c9c;
+$gray-dark:             darken($gray, 20);
+$gray-darker:           darken($gray, 35);
+$gray-light:            lighten($gray, 10);
+$gray-lighter:          lighten($gray, 40);
+$border-color:          #ebeef0;
+
+/* Text
+========================================================================== */
+$text-size:             14px;
+$text-color:            $gray-darker;
+$alt-text-color:        $gray-light;
+$text-sm:               $text-size * .85;
+$text-md:               $text-size * 1.9;
+$text-lg:               $text-size * 3;

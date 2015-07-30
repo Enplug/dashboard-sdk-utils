@@ -1,0 +1,26 @@
+{
+    "build": [
+        "clean:build",
+        "html2js:build",
+        "concat:modules",
+        "concat:components",
+        "uglify:build",
+        "sass:build",
+        "postcss:build",
+        "cssmin:build"
+    ],
+    "version": [
+        "build",
+        "checkbranch:!master",
+        "checkrepo:version",
+        "prompt:version",
+        "bump"
+    ],
+    "release": [
+        "checkbranch:master",
+        "checkrepo:release",
+        "gittag:release",
+        "gitpush:release",
+        "s3:release"
+    ]
+}

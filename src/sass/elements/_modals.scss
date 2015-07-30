@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Modal windows based on ngDialog
+   ========================================================================== */
+
+$modal-transition-speed: 0.2s;
+$modal-bg-opacity: 0.6;
+
+body.ngdialog-open {
+    overflow: inherit; // keep page from jumping when scrollbar disappears
+    .ngdialog-overlay {
+        opacity: $modal-bg-opacity;
+    }
+}
+
+.ngdialog {
+    z-index: 1000;
+
+    &.ngdialog-closing {
+        display: none;
+    }
+
+    /* Modal overlay
+    ========================================================================== */
+    .ngdialog-overlay {
+        background-color: #323A45;
+        opacity: 0;
+        animation: modalBgOpen $modal-transition-speed ease-out;
+        animation-duration: $modal-transition-speed!important;
+    }
+
+    /* Modal window
+    ========================================================================== */
+    .ngdialog-content {
+        width: 620px;
+        animation: modalOpen;
+        animation-duration: $modal-transition-speed!important;
+
+        top: 60px;
+        max-height: calc(100vh - 100px);
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        border-radius: $border-radius;
+        position: relative;
+        margin: 0 auto;
+
+        /* Header (title, close icon)
+        ========================================================================== */
+        header {
+            padding: 30px;
+            h2 {
+                margin: 0;
+                font-size: 32px;
+                font-weight: 300;
+                text-align: center;
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .ngdialog-close {
+            position: absolute;
+            top: -27px;
+            right: -32px;
+            width: 34px;
+            height: 34px;
+            font-size: 26px;
+            line-height: 30px; // content has extra height padding in it
+            text-align: center;
+            font-weight: 500;
+            cursor: pointer;
+            color: $gray-light;
+            &:hover {
+                color: $gray;
+            }
+        }
+
+        /* Body
+        ========================================================================== */
+        section {
+            padding: 30px;
+            overflow: auto;
+            max-height: calc(100vh - 270px); // 270 = top/bottom padding for dialog, plus header and footer height
+        }
+
+        /* Footer (action buttons)
+        ========================================================================== */
+        footer {
+            padding: 10px 30px 30px 30px;
+            text-align: right;
+
+            &.single-button {
+                text-align: center;
+                .btn {
+                    text-transform: uppercase;
+                    padding: 15px 50px;
+                }
+            }
+        }
+    }
+
+    /* Dialog sizes
+    ========================================================================== */
+    &.dialog-xs {
+        .ngdialog-content {
+            width: 300px;
+        }
+    }
+    &.dialog-sm {
+        .ngdialog-content {
+            width: 460px;
+        }
+    }
+    &.dialog-lg {
+        .ngdialog-content {
+            width: 900px;
+        }
+    }
+}
+
+/* Animations
+========================================================================== */
+@keyframes modalBgOpen {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: $modal-bg-opacity;
+    }
+}
+
+@keyframes modalOpen {
+    0% {
+        transform: scale(0.8);
+        opacity: 0
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1
+    }
+}

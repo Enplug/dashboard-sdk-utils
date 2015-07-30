@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Confirm modal windows based on ngDialog and _modals.scss
+   ========================================================================== */
+
+.ngdialog.confirm-dialog {
+    // Inherits from _modals.scss
+    z-index: 1000;
+
+    /* Modal overlay
+    ========================================================================== */
+    .ngdialog-overlay {
+        opacity: 0.70;
+        animation-name: confirmBgOpen;
+    }
+
+    /* Modal content
+    ========================================================================== */
+    .ngdialog-content {
+        top: 100px;
+        width: 300px;
+
+        /* Header. Note - no close X should show
+        ========================================================================== */
+        header {
+            padding-bottom: 0;
+        }
+
+        /* Body
+        ========================================================================== */
+        section {
+            padding-top: 25px;
+            padding-bottom: 25px;
+            font-size: 16px;
+        }
+
+        /* Footer (action buttons)
+        ========================================================================== */
+        footer {
+            padding-top: 0;
+            text-align: center;
+        }
+    }
+}
+
+/* Animation. Less opacity so that it shows more of the context behind it
+========================================================================== */
+@keyframes confirmBgOpen {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0.7;
+    }
+}

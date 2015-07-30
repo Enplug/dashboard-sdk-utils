@@ -1,0 +1,173 @@
+/* ==========================================================================
+   Color picker based on jQuery Colpick
+   ========================================================================== */
+
+/* Directive swatch/label style
+========================================================================== */
+.color-picker {
+    display: flex;
+    .swatch {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        border-radius: 3px;
+        box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+        cursor: pointer;
+    }
+
+    .color-picker-label {
+        align-self: center;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+}
+
+/* Color picker style - overrides colpick.css
+========================================================================== */
+.colpick.colpick_hex {
+    background: #fff;
+    box-shadow: $box-shadow;
+    border: none;
+    border-radius: $border-radius;
+    overflow: visible;
+    margin-top: 10px;
+    height: 210px;
+    animation: reveal $transition-speed ease-out;
+    z-index: 1000;
+
+    .colpick_color {
+        left: 10px;
+    }
+
+    .colpick_color,
+    .colpick_color_overlay1,
+    .colpick_color_overlay2 {
+        outline: none;
+        border-radius: $border-radius;
+        cursor: default;
+    }
+
+    .colpick_selector_outer {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid rgb(255, 255, 255);
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.34902) 0px 1px 1px;
+        background: transparent;
+        .colpick_selector_inner {
+            display: none;
+        }
+    }
+
+    .colpick_field_letter {
+        width: 16px;
+        padding-right: 2px;
+    }
+
+    .colpick_hue {
+        left: 178px;
+        width: 16px;
+        border-radius: $border-radius;
+        border: 0;
+        cursor: default;
+        .colpick_hue_arrs {
+            border: 1px solid $border-color;
+            background: #fff;
+            border-radius: $border-radius;
+            width: 24px;
+            height: 10px;
+            left: -4px;
+            cursor: pointer;
+            .colpick_hue_rarr, .colpick_hue_larr {
+                display: none;
+            }
+        }
+    }
+
+    .colpick_new_color,
+    .colpick_current_color,
+    .colpick_hex_field {
+        top: 173px;
+    }
+
+    .colpick_new_color {
+        left: 10px;
+        width: 35px;
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+        border: none;
+        cursor: pointer;
+    }
+
+    .colpick_current_color {
+        left: 45px;
+        width: 35px;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+        border: none;
+        cursor: pointer;
+    }
+
+    .colpick_hex_field {
+        left: 98px;
+        width: 94px;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        color: $gray-darker;
+        box-shadow: 0 1px 0 $border-color;
+        .colpick_field_letter {
+            border: none;
+            color: $gray;
+            font-weight: normal;
+            background: transparent;
+            font-size: 15px;
+        }
+        input {
+            font-size: 15px;
+        }
+    }
+
+    // Hack: we repurpose this div because we don't need it, can't easily add html,
+    // and want an arrow with box shadow
+    .colpick_submit {
+        position: absolute;
+        left: 2px;
+        top: -20px;
+        width: 20px;
+        height: 20px;
+        overflow: hidden;
+        pointer-events: none;
+        text-indent: -1000px;
+        background: transparent;
+        user-select: none;
+        border: none;
+        &:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: rotate(45deg);
+            margin-left: -5px;
+            display: block;
+            height: 10px;
+            width: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 0 1px rgba(39,44,48,0.05),0 2px 7px 1px rgba(39,44,48,0.16);
+        }
+    }
+}
+
+/* Animations
+========================================================================== */
+@keyframes reveal {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Material design inputs based off of Bootstrap
+   ========================================================================== */
+
+/* All forms
+========================================================================== */
+.form-control, label, .form-label {
+    font-size: 16px;
+}
+
+.help-block {
+    color: $gray;
+}
+
+// Non-material form controls
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #dde6e9;
+    font-weight: normal;
+    color: $gray-darker;
+    &:focus {
+        border-color: $brand-primary;
+        outline: 0;
+        box-shadow: none;
+    }
+}
+
+/* Material forms
+========================================================================== */
+.form-material .form-group {
+    position: relative;
+    margin-bottom: 0;
+    padding: 10px 0 40px 0;
+    display: block;
+    transition: none; // to keep underline from animating when form-group is applied dynamically
+
+    /* Labels
+    ========================================================================== */
+    label {
+        // Positioning when not focused or active
+        position: absolute;
+        top: 15px;
+        left: 0;
+        cursor: text;
+        z-index: 10;
+        transform: translateY(0);
+    }
+
+    label, .form-label {
+        color: $gray;
+        font-weight: 400;
+        transition: all $transition-speed ease-out;
+    }
+
+    .selected .form-label {
+        color: $gray-darker;
+    }
+
+    /* Inputs
+    ========================================================================== */
+    .form-control {
+        padding-left: 0;
+        padding-right: 0;
+        border: 0;
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: 0 1px 0 $border-color;
+        transition: all $transition-speed ease-out;
+
+        /* Focus state
+        ========================================================================== */
+        &:focus, &.active {
+            // Positioning for label when active/focused
+            +label {
+                font-size: 12px;
+                cursor: default;
+                transform: translateY(-26px);
+                color: $gray-light;
+                font-weight: 500;
+            }
+        }
+
+        &:focus {
+            // Color change when focused
+            background-color: transparent;
+            box-shadow: 0 2px 0 $brand-primary;
+            +label {
+                color: $brand-primary;
+            }
+            ~.input-group-addon {
+                box-shadow: 0 2px 0 $brand-primary;
+                color: $brand-primary;
+                i {
+                    color: $brand-primary;
+                }
+            }
+        }
+
+        /* Disabled state
+        ========================================================================== */
+        &[disabled], &[readonly] {
+            border-bottom-color: transparent;
+            color: $gray-light;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.26) 0%, rgba(0,0,0,0.26) 33%, transparent 0%);
+            background-image: -ms-linear-gradient(left, transparent 0%, rgba(0,0,0,0.26) 100%);
+            background-position: 0 bottom;
+            background-size: 4px 1px;
+            background-repeat: repeat-x;
+            margin-bottom: -1px;
+            cursor: default;
+            box-shadow: none;
+
+            +label {
+                cursor: default;
+            }
+
+            ~.input-group-addon {
+                border-bottom-color: transparent;
+                color: $gray-light;
+                background-image: linear-gradient(to right, rgba(0,0,0,0.26) 0%, rgba(0,0,0,0.26) 33%, transparent 0%);
+                background-image: -ms-linear-gradient(left, transparent 0%, rgba(0,0,0,0.26) 100%);
+                background-position: 0 bottom;
+                background-size: 4px 1px;
+                background-repeat: repeat-x;
+                margin-bottom: -1px;
+                cursor: default;
+                box-shadow: none;
+                i {
+                    color: $gray-light;
+                }
+            }
+        }
+    }
+
+    /* Input addons
+    ========================================================================== */
+    .input-group {
+        position: static;
+        .input-group-addon {
+            color: $gray-light;
+            border: none;
+            background-color: transparent;
+            border-radius: 0 !important;
+            box-shadow: 0 1px 0 $border-color;
+            transition: all $transition-speed ease-out;
+            i {
+                font-size: 21px;
+            }
+        }
+    }
+
+    /* Validation messages
+    ========================================================================== */
+    .validation {
+        position: absolute;
+        left: 0;
+        bottom: 18px;
+        span {
+            font-size: 12px;
+        }
+    }
+}

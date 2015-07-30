@@ -1,0 +1,6 @@
+<button class="status-button">
+    <i class="ion-load-a" ng-show="isLoading"></i>
+    <i class="ion-checkmark-circled" ng-show="!isLoading && success"></i>
+    <i class="ion-alert-circled" ng-show="!isLoading && error"></i>
+    <ng-transclude></ng-transclude>
+</button>

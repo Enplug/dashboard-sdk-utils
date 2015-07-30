@@ -1,0 +1,14 @@
+<span class="glossaryTip">
+
+    <!-- Triggers showing tooltip -->
+    <sup ng-hide="::config.tooltip" class="icon ion-help-circled text-gray-light"></sup>
+    <span class="tipText text-gray-light" ng-show="::config.tooltip" ng-bind="::config.tooltip"></span>
+
+    <!-- Tip body -->
+    <span class="tip radius shadow" ng-class="::config.position">
+        <span class="tipTitle bb text-gray" ng-bind="::config.title"></span>
+        <span class="tipBody text-reset" ng-bind="::config.text"></span>
+        <a ng-show="::config.link" class="link-reset bt" ng-href="{{ ::config.link.location }}" target="_blank" ng-bind="::config.link.title"></a>
+        <span class="tipArrow"></span>
+    </span>
+</span>

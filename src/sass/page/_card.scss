@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Card - standard content module
+   ========================================================================== */
+
+.section-summary {
+    h3 {
+        font-size: 22px;
+        font-weight: normal;
+        margin-bottom: 15px;
+    }
+    p {
+        color: #798c9c;
+        margin-bottom: 15px;
+    }
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 2px; // matches y offset for shadow, for apps in iFrame
+
+    &.card-form {
+        .card-content {
+            padding: 30px;
+        }
+    }
+
+    .card-heading {
+        font-weight: 400;
+        font-size: 21px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .card-section {
+        padding: 20px;
+    }
+
+    .section-title {
+
+    }
+
+    /* Tabbed card header
+    ========================================================================== */
+    .tab-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        background-color: #f5f6f7;
+        overflow: visible;
+        border-radius: 3px 3px 0 0;
+        flex-wrap: nowrap;
+        display: flex;
+        align-items: stretch;
+
+        li {
+            position: relative;
+            flex-grow: 0;
+            flex-shrink: 0;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: stretch;
+
+            a {
+                padding: 15px 20px;
+                text-decoration: none;
+                color: #798c9c;
+                border-right: 1px solid #ebeef0;
+                border-bottom: 1px solid #ebeef0;
+                text-align: center;
+                cursor: pointer;
+                position: relative;
+                flex-grow: 1;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:focus, &:hover {
+                    outline: none;
+                    background-color: #fafbfc;
+                    color: $brand-primary;
+                    text-decoration: none;
+                }
+                &.active {
+                    background-color: white;
+                    color: #31373d;
+                    border-bottom-color: white;
+                    cursor: default;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &:after {
+            // Finishes the border
+            content: '';
+            display: block;
+            flex-grow: 1;
+            border-bottom: 1px solid #ebeef0;
+        }
+    }
+
+    /* Content
+    ========================================================================== */
+    .card-content {
+        position: relative;
+        padding: 20px;
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+    }
+
+    .card-notice {
+        font-size: 12px;
+        padding: 10px;
+        position: relative;
+        background-color: #f5f6f7;
+        border-top: 1px solid #d3dbe2;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.025);
+    }
+
+    /* Sidebar content
+    ========================================================================== */
+    &.card-aside {
+        background-color: #f5f6f7;
+    }
+}
+
+

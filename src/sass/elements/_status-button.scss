@@ -1,0 +1,13 @@
+.status-button {
+    .ion-load-a {
+        animation: rotation 1s infinite linear;
+    }
+    i {
+        margin-right: 2px;
+    }
+}
+
+@keyframes rotation {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(359deg); }
+}

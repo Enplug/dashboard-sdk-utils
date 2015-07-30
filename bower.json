@@ -1,0 +1,32 @@
+{
+  "name": "enplug-dashboard-sdk-utils",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Enplug/dashboard-sdk-utils",
+  "authors": [
+    "Alex Ross <alex@enplug.com>"
+  ],
+  "description": "Helper classes for internal Enplug app development",
+  "main": [
+    "dist/dashboard-sdk-utils.js",
+    "dist/dashboard-sdk-utils.css"
+  ],
+  "keywords": [
+    "enplug"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "tmp/*",
+    "*.iml",
+    "Gruntfile.js",
+    "package.json",
+    "grunt/*"
+  ],
+  "dependencies": {
+    "lodash": "~3.10.0"
+  }
+}
