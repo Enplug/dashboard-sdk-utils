@@ -135,8 +135,21 @@ $padding-sm:    5px;
 
 /* Background helpers
 ========================================================================== */
-.bg-glr  { background-color: $gray-lighter; }
-.bg-gl    { background-color: $gray-light; }
-.bg-g          { background-color: $gray; }
-.bg-gd     { background-color: $gray-dark; }
-.bg-gdr   { background-color: $gray-darker; }
+.bg-g           { background-color: $gray-bg; }
+
+/* Custom slim scrollbar
+========================================================================== */
+.scroll {
+   &::-webkit-scrollbar-thumb {
+      border-radius: 0;
+      background-color: darken($border-color, 5);
+   }
+
+   &::-webkit-scrollbar-track {
+      border-left: 1px solid darken($border-color, 5);
+   }
+
+   &::-webkit-scrollbar {
+      width: 5px;
+   }
+}

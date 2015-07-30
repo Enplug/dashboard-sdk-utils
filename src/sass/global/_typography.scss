@@ -8,6 +8,7 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: $text-color;
     font-size: $text-size;
+    text-rendering: optimizeLegibility;
 }
 
 p { margin: 0; }
@@ -20,11 +21,7 @@ h1 {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2 {
     font-family: 'Proxima Nova', 'Helvetica Neue', Helvetica, sans-serif;
     font-weight: 300;
 }
@@ -41,6 +38,20 @@ a {
         opacity: 0.5;
         content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
         margin: 0 3px 0 5px;
+    }
+
+    &:hover, &:active, &:focus {
+        color: $brand-primary;
+        outline: 0;
+    }
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    &:active, &:focus {
+        text-decoration: none;
     }
 
     // Reset

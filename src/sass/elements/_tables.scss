@@ -36,6 +36,7 @@
                     }
                 }
                 &.sort-ascent, &.st-sort-ascent {
+                    backface-visibility: hidden; // fixes text shift bug
                     &:after {
                         transform: rotate(180deg);
                     }
@@ -68,18 +69,36 @@
         }
 
         // Simple pagination - forward/back
-        .pagination.plain {
+        .pagination {
+            list-style-type: none;
             user-select: none;
-            margin-top: 15px;
-            a {
-                padding-left: 19px;
-                padding-right: 19px;
-                &.disabled {
-                    cursor: default;
-                    box-shadow: none;
-                    background: #fafbfc;
-                    color: #c3cfd8;
-                    border: 1px solid #d3dbe2;
+            margin: 15px 0;
+            padding: 0;
+            > li {
+                display: inline-block;
+                > a {
+                    float: left;
+                    padding: 6px 19px;
+                    border: 1px solid $border-color-dark;
+                    margin-left: -1px; // overlapping borders;
+                    &:hover {
+                        background: $gray-lighter;
+                    }
+                    &.disabled {
+                        cursor: default;
+                        box-shadow: none;
+                        background: lighten($gray-lighter, 2);
+                        opacity: .7;
+                        color: $gray;
+                    }
+                }
+                &:first-child a {
+                    border-top-left-radius: $border-radius;
+                    border-bottom-left-radius: $border-radius;
+                }
+                &:last-child a {
+                    border-top-right-radius: $border-radius;
+                    border-bottom-right-radius: $border-radius;
                 }
             }
         }

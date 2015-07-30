@@ -701,6 +701,83 @@ angular.module('enplug.sdk.utils').directive('downloadCsv', ['$document', '$log'
 
 /**
  * @ngdoc directive
+ * @name dropdownMenu
+ * @module enplug.sdk.utils
+ */
+angular.module('enplug.sdk.utils').directive('dropdownMenu', function () {
+    'use strict';
+    return {
+        link: function (scope, element) {
+
+            element.addClass('dropdown-menu');
+
+            // Close dropdown menu when we click on links in the dropdown menu that take us to a new page
+            element.on('click', function (event) {
+                var target = angular.element(event.target);
+                if (target.attr('href') || target.parent().attr('href')) {
+                    scope.$emit('dropdown:toggle');
+                }
+            });
+        }
+    }
+});
+
+/**
+ * @ngdoc directive
+ * @name dropdownToggle
+ * @module enplug.sdk.utils
+ */
+angular.module('enplug.sdk.utils').directive('dropdownToggle', function () {
+   'use strict';
+    return {
+        link: function (scope, element) {
+
+            element.addClass('dropdown-toggle');
+            element.on('click', function () {
+               scope.$apply(function () {
+                  scope.$broadcast('dropdown:toggle');
+               });
+            });
+        }
+    }
+});
+
+/**
+ * @ngdoc directive
+ * @name dropdown
+ * @module enplug.sdk.utils
+ *
+ */
+angular.module('enplug.sdk.utils').directive('dropdown', function ($document) {
+    return {
+        scope: true,
+        link: function (scope, element) {
+            element.addClass('dropdown-wrap');
+            angular.element(element[0].querySelector('.root')).on('click', function () {
+                if (element.hasClass('open')) {
+                    element.removeClass('open');
+                } else {
+                    element.addClass('open');
+                }
+            });
+
+            function closeDropdown(event) {
+                if (!element[0].contains(event.target)) {
+                    element.removeClass('open');
+                }
+            }
+
+            $document.on('click', closeDropdown);
+
+            scope.$on('$destroy', function () {
+                $document.off('click', closeDropdown);
+            });
+        }
+    }
+});
+
+/**
+ * @ngdoc directive
  * @name colorPicker
  * @module enplug.sdk.utils
  * @description requires jQuery and colpick.js
@@ -1341,11 +1418,6 @@ angular.module('enplug.sdk.utils').directive('tooltip', ['Tooltips', '$log', fun
                 $log.error('Did not find tooltip config for path:', path);
                 $element.hide();
             }
-
-            // Showing/hiding tooltip on hover
-            $element.bind('mouseenter mouseleave', function () {
-                $element.find('.tip').toggleClass('isActive');
-            });
         }
     };
 }]);
@@ -1496,7 +1568,7 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/material-checkbox.tpl",
         "<div class=checkbox><label for=\"{{ id }}\"><input id=\"{{ id }}\" type=checkbox ng-model=model> <span class=checkbox-material><span class=check></span></span> <span class=checkbox-label><span ng-bind=label></span></span></label></div>");
     $templateCache.put("sdk-utils/material-input.tpl",
-        "<input id=\"{{ id }}\" class=form-control ng-model=model ng-class=\"{ active: model }\" ng-model-options=\"{ allowInvalid: true }\"><label for=\"{{ id }}\" ng-bind=label></label><div class=validation ng-messages=formField.$error ng-if=formField.$dirty><span class=text-danger ng-message=required>This is required.</span> <span class=text-danger ng-message=email>Please enter a valid email address.</span> <span class=text-danger ng-message=url>Please enter a valid URL starting with http:// or https://</span> <span class=text-danger ng-message=equals>Passwords must match.</span></div>");
+        "<input id=\"{{ ::id }}\" class=form-control ng-model=model ng-class=\"{ active: model }\" ng-model-options=\"{ allowInvalid: true, debounce: 300 }\"><label for=\"{{ ::id }}\" ng-bind=::label></label><div class=validation ng-messages=formField.$error ng-if=formField.$dirty><span class=text-danger ng-message=required>This is required.</span> <span class=text-danger ng-message=email>Please enter a valid email address.</span> <span class=text-danger ng-message=url>Please enter a valid URL starting with http:// or https://</span> <span class=text-danger ng-message=equals>Passwords must match.</span></div>");
     $templateCache.put("sdk-utils/material-radio.tpl",
         "<div class=radio><label><input type=radio name=\"{{ name }}\" value=\"{{ value }}\" ng-model=model> <span class=radio-on></span> <span class=radio-off></span><ng-transclude></ng-transclude></label></div>");
     $templateCache.put("sdk-utils/material-select.tpl",
@@ -1504,5 +1576,5 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/status-button.tpl",
         "<button class=status-button><i class=ion-load-a ng-show=isLoading></i> <i class=ion-checkmark-circled ng-show=\"!isLoading && success\"></i> <i class=ion-alert-circled ng-show=\"!isLoading && error\"></i><ng-transclude></ng-transclude></button>");
     $templateCache.put("sdk-utils/tooltip.tpl",
-        "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=\"tipText text-gray-light\" ng-show=::config.tooltip ng-bind=::config.tooltip></span> <span class=\"tip radius shadow\" ng-class=::config.position><span class=\"tipTitle bb text-gray\" ng-bind=::config.title></span> <span class=\"tipBody text-reset\" ng-bind=::config.text></span> <a ng-show=::config.link class=\"link-reset bt\" ng-href=\"{{ ::config.link.location }}\" target=_blank ng-bind=::config.link.title></a> <span class=tipArrow></span></span></span>");
+        "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=\"tipText text-gray-light\" ng-show=::config.tooltip ng-bind=::config.tooltip></span> <span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span class=\"tipTitle text-gd\" ng-bind=::config.title></span> <span class=\"tipBody text-reset\" ng-bind=::config.text></span> <a ng-show=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" target=_blank ng-bind=::config.link.title></a> <span class=tipArrow></span></span></span></span>");
 }]);

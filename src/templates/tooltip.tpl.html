@@ -5,10 +5,12 @@
     <span class="tipText text-gray-light" ng-show="::config.tooltip" ng-bind="::config.tooltip"></span>
 
     <!-- Tip body -->
-    <span class="tip radius shadow" ng-class="::config.position">
-        <span class="tipTitle bb text-gray" ng-bind="::config.title"></span>
-        <span class="tipBody text-reset" ng-bind="::config.text"></span>
-        <a ng-show="::config.link" class="link-reset bt" ng-href="{{ ::config.link.location }}" target="_blank" ng-bind="::config.link.title"></a>
-        <span class="tipArrow"></span>
+    <span class="tip" ng-class="::config.position">
+        <span class="tip-content radius shadow">
+            <span class="tipTitle text-gd" ng-bind="::config.title"></span>
+            <span class="tipBody text-reset" ng-bind="::config.text"></span>
+            <a ng-show="::config.link" class="link-reset" ng-href="{{ ::config.link.location }}" target="_blank" ng-bind="::config.link.title"></a>
+            <span class="tipArrow"></span>
+        </span>
     </span>
 </span>

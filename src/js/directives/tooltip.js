@@ -29,11 +29,6 @@ angular.module('enplug.sdk.utils').directive('tooltip', ['Tooltips', '$log', fun
                 $log.error('Did not find tooltip config for path:', path);
                 $element.hide();
             }
-
-            // Showing/hiding tooltip on hover
-            $element.bind('mouseenter mouseleave', function () {
-                $element.find('.tip').toggleClass('isActive');
-            });
         }
     };
 }]);

@@ -3,11 +3,23 @@
    ========================================================================== */
 
 .btn {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent; // FIXME: do we need this?
     padding: 8.5px 15px;
     height: auto;
-    border-radius: 3px;
+    border-radius: $border-radius;
     font-weight: 500;
     line-height: 1;
+    font-size: $text-size;
+
+    &:hover, &:active, &:focus {
+        text-decoration: none;
+        outline: none;
+    }
 
     /* Disabled state for all buttons defaults to white
     ========================================================================== */
@@ -26,11 +38,11 @@
     /* Default buttons
     ========================================================================== */
     &.btn-default {
+        background: #fff;
         color: $brand-primary;
         border: 1px solid #d3dbe2;
-        font-weight: normal;
         &:hover, &:active, &.active, &:focus, &.focus {
-            color: #479ccf;
+            color: $brand-primary;
             border: 1px solid #d3dbe2;
             background-color: #f5f6f7;
             text-decoration: none;
@@ -54,11 +66,24 @@
         }
     }
 
+
+    /* Destructive actions
+    ========================================================================== */
+    &.btn-danger {
+        background-color: $brand-danger;
+        border-color: $brand-danger;
+        color: #fff;
+        &:hover {
+            background-color: darken($brand-danger, 5);
+            border-color: darken($brand-danger, 5);
+        }
+    }
+
     /* Buttons that only have an icon in them
     ========================================================================== */
     &.btn-icon {
         &.btn-sm {
-            font-size: 16px;
+            font-size: 15px;
             padding: 5px 8px;
         }
     }

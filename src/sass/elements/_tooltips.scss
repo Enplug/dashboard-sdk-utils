@@ -5,6 +5,13 @@
 .glossaryTip {
     position: relative;
 
+    &:hover {
+        .tip {
+            display: block;
+            animation: tooltip $transition-speed ease-out;
+        }
+    }
+
     /* Indicator that shows before hovering. Can be icon or text
     ========================================================================== */
     sup,
@@ -29,74 +36,79 @@
     /* Tooltip
     ========================================================================== */
     .tip {
+        display: none;
         position: absolute;
         bottom: 100%;
         width: 250px;
-        padding: 5px 0;
         text-align: left;
-        background: #fff;
+        z-index: 99999;
 
-        // Box model of contents
-        .tipTitle,
-        .tipBody,
-        a {
+        .tip-content {
             display: block;
-            padding: 5px 10px;
-        }
+            background: #fff;
 
-        /* Animation
-        ========================================================================== */
-        transform: scale(0.8);
-        visibility: hidden;
-        opacity: 0;
-        transition: transform 0.1s ease, opacity 0.1s ease;
-        &.isActive {
-            visibility: visible;
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        /* Title styling. Reset anything inhereted
-        ========================================================================== */
-        .tipTitle {
-            // Important to override anything inhereted
-            font-weight: 600 !important;
-            text-transform: uppercase !important;
-            font-size: 12px;
-        }
-
-        /* Body text & footer link styling. Reset anything inhereted
-        ========================================================================== */
-        .tipBody,
-        a {
-            font-weight: 500 !important;
-            text-transform: none !important;
-            letter-spacing: 0 !important;
-            text-decoration: none;
-        }
-
-        /* Arrow
-        ========================================================================== */
-        .tipArrow {
-            position: absolute;
-            left: 50%;
-            top: -20px;
-            width: 20px;
-            height: 20px;
-            overflow: hidden;
-            pointer-events: none;
-            &:after {
-                content: "";
-                position: absolute;
-                top: 15px;
-                left: 50%;
-                transform: rotate(45deg);
-                margin-left: -5px;
+            // Box model of contents
+            .tipTitle,
+            .tipBody,
+            a {
                 display: block;
-                height: 10px;
-                width: 10px;
-                background-color: #fff;
-                box-shadow: 0 0 0 1px rgba(39,44,48,0.05),0 2px 7px 1px rgba(39,44,48,0.16);
+                padding: 5px 20px;
+            }
+
+            /* Title styling. Reset anything inhereted
+            ========================================================================== */
+            .tipTitle {
+                // Important to override anything inhereted
+                font-weight: 600 !important;
+                text-transform: uppercase !important;
+                letter-spacing: normal !important;
+                font-size: 11px !important;
+                padding-top: 20px;
+            }
+
+            /* Body text & footer link styling. Reset anything inhereted
+            ========================================================================== */
+            .tipBody,
+            a {
+                text-transform: none !important;
+                letter-spacing: 0 !important;
+                text-decoration: none !important;
+            }
+
+            .tipBody {
+                font-size: 14px !important;
+                font-weight: normal !important;
+            }
+
+            a {
+                font-weight: normal !important;
+                padding-bottom: 20px;
+                font-size: 12px;
+            }
+
+            /* Arrow
+            ========================================================================== */
+            .tipArrow {
+                position: absolute;
+                left: 50%;
+                top: -20px;
+                width: 20px;
+                height: 20px;
+                overflow: hidden;
+                pointer-events: none;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 15px;
+                    left: 50%;
+                    transform: rotate(45deg);
+                    margin-left: -5px;
+                    display: block;
+                    height: 10px;
+                    width: 10px;
+                    background-color: #fff;
+                    box-shadow: 0 0 0 1px rgba(39,44,48,0.05),0 2px 7px 1px rgba(39,44,48,0.16);
+                }
             }
         }
     }
@@ -105,19 +117,19 @@
     ========================================================================== */
     .tip {
         &.top {
-            margin-bottom: 10px;
+            padding-bottom: 10px;
             .tipArrow {
                 top: auto;
-                bottom: -20px;
+                bottom: -10px;
                 transform: rotate(180deg);
             }
         }
         &.bottom {
             bottom: auto;
             top: 100%;
-            margin-top: 10px;
+            padding-top: 10px;
             .tipArrow {
-                top: -20px;
+                top: -10px;
             }
         }
         &.right {
@@ -136,9 +148,8 @@
         }
         &.inlineRight {
             left: 100%!important;
-            margin-left: 10px;
             top: -50%;
-            padding: 4px 0 0;
+            padding: 4px 0 0 10px;
             .tipArrow {
                 left:-5px;
                 top: 15px;
@@ -153,5 +164,16 @@
                 left: auto;
             }
         }
+    }
+}
+
+@keyframes tooltip {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
