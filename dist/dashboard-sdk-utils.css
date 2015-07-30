@@ -29,6 +29,15 @@ h1 {
   font-size: 48px;
   font-weight: 300; }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Proxima Nova', 'Helvetica Neue', Helvetica, sans-serif;
+  font-weight: 300; }
+
 /* Links
 ========================================================================== */
 a {
