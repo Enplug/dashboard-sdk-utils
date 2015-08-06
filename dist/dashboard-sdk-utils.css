@@ -1739,6 +1739,9 @@ a {
 .text-normal {
   font-weight: normal !important; }
 
+.text-semibold {
+  font-weight: 500 !important; }
+
 .text-bold {
   font-weight: bold !important; }
 
