@@ -3063,13 +3063,14 @@ body.ngdialog-open {
    ========================================================================== */
 .material-checkbox {
   display: block;
+  padding: 10px 0;
   /* Style controls
     ========================================================================== */ }
   .material-checkbox .checkbox {
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
     margin: 0;
-    padding: 10px 0; }
+    padding: 0; }
     .material-checkbox .checkbox label {
       color: #2a3239;
       cursor: pointer;
