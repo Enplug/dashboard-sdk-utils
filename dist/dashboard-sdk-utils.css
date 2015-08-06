@@ -2748,6 +2748,7 @@ body.ngdialog-open {
   .glossaryTip .tip.inlineRight {
     left: 100% !important;
     top: -50%;
+    bottom: auto;
     padding: 4px 0 0 10px; }
     .glossaryTip .tip.inlineRight .tipArrow {
       left: -10px;

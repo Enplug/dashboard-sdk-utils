@@ -149,6 +149,7 @@
         &.inlineRight {
             left: 100%!important;
             top: -50%;
+            bottom: auto;
             padding: 4px 0 0 10px;
             .tipArrow {
                 left:-10px;
