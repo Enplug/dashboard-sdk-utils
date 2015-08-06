@@ -2750,8 +2750,8 @@ body.ngdialog-open {
     top: -50%;
     padding: 4px 0 0 10px; }
     .glossaryTip .tip.inlineRight .tipArrow {
-      left: -5px;
-      top: 15px;
+      left: -10px;
+      top: 10px;
       -webkit-transform: rotate(-90deg);
               transform: rotate(-90deg); }
   .glossaryTip .tip.center {
