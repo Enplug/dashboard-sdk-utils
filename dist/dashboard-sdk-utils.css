@@ -1773,6 +1773,9 @@ a {
 .text-primary {
   color: #4078c0; }
 
+.text-danger {
+  color: #ff5d5d; }
+
 .text-gray-darker {
   color: #2a3239; }
 
