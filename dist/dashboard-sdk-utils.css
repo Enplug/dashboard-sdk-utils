@@ -2344,6 +2344,9 @@ hr {
     ========================================================================== */
   /* Buttons that only have an icon in them
     ========================================================================== */ }
+  .btn.btn-lg {
+    padding: 15px 50px;
+    font-size: 16px; }
   .btn:hover, .btn:active, .btn:focus {
     text-decoration: none;
     outline: none; }
