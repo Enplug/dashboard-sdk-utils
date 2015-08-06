@@ -2756,7 +2756,7 @@ body.ngdialog-open {
       -webkit-transform: rotate(-90deg);
               transform: rotate(-90deg); }
   .glossaryTip .tip.center {
-    right: -117px;
+    right: -121px;
     left: auto; }
     .glossaryTip .tip.center .tipArrow {
       right: 117px;
