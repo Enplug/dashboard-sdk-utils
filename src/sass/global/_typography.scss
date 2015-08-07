@@ -40,7 +40,7 @@ a {
     &:not(.btn) {
         &[target="_blank"]:after {
             opacity: 0.5;
-            content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+            content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAY1BMVEV5jJz///95jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx1iJd1iJh2iJh2iZl3iZl4i5p4i5t5jJxsFGGdAAAAGXRSTlMAAAIDBAUHCAoPEhUWIyw2OGZoaW5xc3R75NUa1QAAAE1JREFUeAEtxkUShFAAQ8GXP+4+OMn9T0kV0KtG0lHqRpskrfT4eSAg3V95BwP7b+rb0k/+zy0YKdW5AEEHToXMBdjlsvaKN/RubMdhAjG6BXX5hbgrAAAAAElFTkSuQmCC);
             margin: 0 3px 0 5px;
         }
     }
