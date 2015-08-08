@@ -133,6 +133,8 @@ $padding-sm:    5px;
 .block          { display: block !important; }
 .block-center   { display: block; margin: 0 auto; text-align: center; }
 
+.flex           { display: flex !important; }
+
 /* Background helpers
 ========================================================================== */
 .bg-g           { background-color: $gray-bg !important; }

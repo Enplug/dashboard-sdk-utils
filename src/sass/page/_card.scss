@@ -109,10 +109,23 @@
         position: relative;
         padding: 30px;
 
-        h4 {
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 18px;
+        .card-description {
+            width: 250px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            margin-right: 30px;
+            h4 {
+                margin-top: 0;
+                margin-bottom: 20px;
+                font-size: 18px;
+            }
+            p {
+                margin-bottom: 20px;
+            }
+        }
+        .card-body {
+            margin-left: 60px;
+            flex-grow: 1;
         }
     }
 
