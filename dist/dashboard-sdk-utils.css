@@ -2458,6 +2458,10 @@ hr {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none; }
+    .table > thead > tr th:first-child {
+      padding-left: 0; }
+    .table > thead > tr th:last-child {
+      padding-right: 0; }
     .table > thead > tr th.sortable, .table > thead > tr th[st-sort] {
       cursor: pointer; }
       .table > thead > tr th.sortable:after, .table > thead > tr th[st-sort]:after {
@@ -2480,6 +2484,10 @@ hr {
     border-bottom: 1px solid #ebeef0;
     padding-left: 10px;
     padding-right: 10px; }
+    .table > tbody > tr > td:first-child {
+      padding-left: 0; }
+    .table > tbody > tr > td:last-child {
+      padding-right: 0; }
   .table > tfoot .summary {
     margin-top: 20px;
     display: block;
