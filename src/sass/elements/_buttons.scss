@@ -21,6 +21,12 @@
         font-size: $text-md;
     }
 
+    &.btn-admin:before {
+        font-family: "Ionicons";
+        content: "\f2ad";
+        margin-right: 5px;
+    }
+
     &:hover, &:active, &:focus {
         text-decoration: none;
         outline: none;
