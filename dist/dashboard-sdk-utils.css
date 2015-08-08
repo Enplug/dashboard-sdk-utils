@@ -2304,7 +2304,7 @@ hr {
           -ms-flex-negative: 0;
               flex-shrink: 0;
       margin-right: 30px; }
-      .card .card-content .card-description h4 {
+      .card .card-content .card-description h3 {
         margin-top: 0;
         margin-bottom: 20px;
         font-size: 18px; }
