@@ -9,7 +9,7 @@
         margin-bottom: 15px;
     }
     p {
-        color: #798c9c;
+        color: $gray;
         margin-bottom: 15px;
     }
 }
@@ -47,7 +47,7 @@
         padding: 0;
         margin: 0;
         list-style: none;
-        background-color: #f5f6f7;
+        background-color: $gray-bg;
         overflow: visible;
         border-radius: 3px 3px 0 0;
         flex-wrap: nowrap;
@@ -72,21 +72,21 @@
                 justify-content: center;
                 padding: 15px 20px;
                 text-decoration: none;
-                color: #798c9c;
-                border-right: 1px solid #ebeef0;
-                border-bottom: 1px solid #ebeef0;
+                color: $gray;
+                border-right: 1px solid $border-color;
+                border-bottom: 1px solid $border-color;
                 text-align: center;
                 cursor: pointer;
                 font-weight: normal;
                 &:focus, &:hover {
                     outline: none;
-                    background-color: #fafbfc;
+                    background-color: $border-color;
                     color: $brand-primary;
                     text-decoration: none;
                 }
                 &.active {
                     background-color: white;
-                    color: #31373d;
+                    color: $gray-darker;
                     border-bottom-color: white;
                     cursor: default;
                     text-decoration: none;
@@ -99,7 +99,7 @@
             content: '';
             display: block;
             flex-grow: 1;
-            border-bottom: 1px solid #ebeef0;
+            border-bottom: 1px solid $border-color;
         }
     }
 
@@ -108,6 +108,10 @@
     .card-content {
         position: relative;
         padding: 30px;
+
+        hr {
+            border-color: $border-color;
+        }
 
         .card-description {
             width: 250px;
