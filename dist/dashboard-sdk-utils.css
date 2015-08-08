@@ -2135,6 +2135,11 @@ a {
   margin: 0 auto;
   text-align: center; }
 
+.flex {
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important; }
+
 /* Background helpers
 ========================================================================== */
 .bg-g {
@@ -2290,10 +2295,26 @@ hr {
   .card .card-content {
     position: relative;
     padding: 30px; }
-    .card .card-content h4 {
-      margin-top: 0;
-      margin-bottom: 20px;
-      font-size: 18px; }
+    .card .card-content .card-description {
+      width: 250px;
+      -webkit-flex-grow: 0;
+          -ms-flex-positive: 0;
+              flex-grow: 0;
+      -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+              flex-shrink: 0;
+      margin-right: 30px; }
+      .card .card-content .card-description h4 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 18px; }
+      .card .card-content .card-description p {
+        margin-bottom: 20px; }
+    .card .card-content .card-body {
+      margin-left: 60px;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1; }
   .card .card-notice {
     font-size: 12px;
     padding: 10px;
