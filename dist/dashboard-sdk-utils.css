@@ -2386,7 +2386,7 @@ hr {
   .btn.btn-admin:before {
     font-family: "Ionicons";
     content: "\f2ad";
-    margin-right: 5px; }
+    margin-right: 2px; }
   .btn:hover, .btn:active, .btn:focus {
     text-decoration: none;
     outline: none; }
@@ -2442,35 +2442,37 @@ hr {
     ========================================================================== */
   /* Custom tables
     ========================================================================== */ }
-  .table > thead > tr > th {
+  .table > thead > tr:first-child > th {
+    padding-top: 0 !important; }
+  .table > thead > tr th {
     text-transform: uppercase;
     color: #798c9c;
     font-size: 11px;
     letter-spacing: .05em;
     font-weight: 900;
     border-bottom: 1px solid #ebeef0;
-    padding: 0 10px 12px 10px;
+    padding: 12px 10px 12px 10px;
     vertical-align: middle;
     border-bottom: 1px solid #ebeef0;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none; }
-    .table > thead > tr > th.sortable, .table > thead > tr > th[st-sort] {
+    .table > thead > tr th.sortable, .table > thead > tr th[st-sort] {
       cursor: pointer; }
-      .table > thead > tr > th.sortable:after, .table > thead > tr > th[st-sort]:after {
+      .table > thead > tr th.sortable:after, .table > thead > tr th[st-sort]:after {
         margin-left: 5px;
         font-family: 'Ionicons';
         display: inline-block;
         content: '\f123';
         opacity: 0;
         transition: all 0.15s; }
-      .table > thead > tr > th.sortable.sort-ascent:after, .table > thead > tr > th.sortable.sort-descent:after, .table > thead > tr > th.sortable.st-sort-ascent:after, .table > thead > tr > th.sortable.st-sort-descent:after, .table > thead > tr > th[st-sort].sort-ascent:after, .table > thead > tr > th[st-sort].sort-descent:after, .table > thead > tr > th[st-sort].st-sort-ascent:after, .table > thead > tr > th[st-sort].st-sort-descent:after {
+      .table > thead > tr th.sortable.sort-ascent:after, .table > thead > tr th.sortable.sort-descent:after, .table > thead > tr th.sortable.st-sort-ascent:after, .table > thead > tr th.sortable.st-sort-descent:after, .table > thead > tr th[st-sort].sort-ascent:after, .table > thead > tr th[st-sort].sort-descent:after, .table > thead > tr th[st-sort].st-sort-ascent:after, .table > thead > tr th[st-sort].st-sort-descent:after {
         opacity: 1; }
-      .table > thead > tr > th.sortable.sort-ascent, .table > thead > tr > th.sortable.st-sort-ascent, .table > thead > tr > th[st-sort].sort-ascent, .table > thead > tr > th[st-sort].st-sort-ascent {
+      .table > thead > tr th.sortable.sort-ascent, .table > thead > tr th.sortable.st-sort-ascent, .table > thead > tr th[st-sort].sort-ascent, .table > thead > tr th[st-sort].st-sort-ascent {
         -webkit-backface-visibility: hidden;
                 backface-visibility: hidden; }
-        .table > thead > tr > th.sortable.sort-ascent:after, .table > thead > tr > th.sortable.st-sort-ascent:after, .table > thead > tr > th[st-sort].sort-ascent:after, .table > thead > tr > th[st-sort].st-sort-ascent:after {
+        .table > thead > tr th.sortable.sort-ascent:after, .table > thead > tr th.sortable.st-sort-ascent:after, .table > thead > tr th[st-sort].sort-ascent:after, .table > thead > tr th[st-sort].st-sort-ascent:after {
           -webkit-transform: rotate(180deg);
                   transform: rotate(180deg); }
   .table > tbody > tr > td {
