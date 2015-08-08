@@ -2276,7 +2276,7 @@ hr {
         font-weight: normal; }
         .card .tab-list li a:focus, .card .tab-list li a:hover {
           outline: none;
-          background-color: #ebeef0;
+          background-color: #fafbfc;
           color: #4078c0;
           text-decoration: none; }
         .card .tab-list li a.active {
