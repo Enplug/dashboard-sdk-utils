@@ -2998,7 +2998,7 @@ body.ngdialog-open {
     -webkit-transform: translateY(0);
             transform: translateY(0); }
   .form-material .form-group label, .form-material .form-group .form-label {
-    color: #798c9c;
+    color: #c2cbd2;
     font-weight: 400;
     transition: all 0.15s ease-out; }
   .form-material .form-group .selected .form-label {

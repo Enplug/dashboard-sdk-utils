@@ -48,7 +48,7 @@
     }
 
     label, .form-label {
-        color: $gray;
+        color: lighten($gray-light, 15);
         font-weight: 400;
         transition: all $transition-speed ease-out;
     }
