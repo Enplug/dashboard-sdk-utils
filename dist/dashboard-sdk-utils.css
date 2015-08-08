@@ -2226,9 +2226,7 @@ hr {
     padding: 0;
     margin: 0;
     list-style: none;
-    background-color: #f7f8f9;
     overflow: visible;
-    border-radius: 3px 3px 0 0;
     -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
@@ -2269,20 +2267,17 @@ hr {
         padding: 15px 20px;
         text-decoration: none;
         color: #798c9c;
-        border-right: 1px solid #ebeef0;
-        border-bottom: 1px solid #ebeef0;
         text-align: center;
         cursor: pointer;
-        font-weight: normal; }
+        font-weight: normal;
+        box-shadow: 0 1px 0 #ebeef0; }
         .card .tab-list li a:focus, .card .tab-list li a:hover {
           outline: none;
-          background-color: #fafbfc;
           color: #4078c0;
           text-decoration: none; }
         .card .tab-list li a.active {
-          background-color: white;
           color: #2a3239;
-          border-bottom-color: white;
+          box-shadow: 0 2px 0 #4078c0;
           cursor: default;
           text-decoration: none; }
     .card .tab-list:after {
@@ -2291,7 +2286,7 @@ hr {
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
               flex-grow: 1;
-      border-bottom: 1px solid #ebeef0; }
+      box-shadow: 0 1px 0 #ebeef0; }
   .card .card-content {
     position: relative;
     padding: 30px; }
