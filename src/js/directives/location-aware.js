@@ -31,7 +31,7 @@ angular.module('enplug.sdk.utils').directive('locationAware', ['$location',
                 checkActive();
 
                 // We need to update active class every time route changes
-                $scope.$on('$routeChangeStart', checkActive);
+                $scope.$on('$routeChangeSuccess', checkActive);
 
             }
         };
