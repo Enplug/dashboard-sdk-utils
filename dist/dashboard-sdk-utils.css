@@ -2301,18 +2301,20 @@ hr {
    ========================================================================== */
 .blank-slate {
   text-align: center; }
-  .blank-slate h4 {
+  .blank-slate h2 {
     padding: 5px 0 35px 0;
     margin: 0;
     font-size: 22px;
-    font-weight: 300; }
+    font-weight: 300;
+    line-height: 1; }
   .blank-slate .btn {
     font-size: 120%;
     padding: 15px 50px; }
   .blank-slate p {
     font-size: 16px;
     margin-top: 80px;
-    padding-bottom: 90px; }
+    padding-bottom: 90px;
+    color: #798c9c; }
   .blank-slate i {
     font-size: 80px; }
 
