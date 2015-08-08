@@ -2309,9 +2309,12 @@ hr {
       .card .card-content .card-description h3 {
         margin-top: 0;
         margin-bottom: 20px;
-        font-size: 18px; }
+        font-size: 13px;
+        text-transform: uppercase;
+        color: #4a5965; }
       .card .card-content .card-description p {
-        margin-bottom: 20px; }
+        margin-bottom: 20px;
+        color: #798c9c; }
     .card .card-content .card-body {
       margin-left: 60px;
       -webkit-flex-grow: 1;
@@ -2458,10 +2461,6 @@ hr {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none; }
-    .table > thead > tr th:first-child {
-      padding-left: 0; }
-    .table > thead > tr th:last-child {
-      padding-right: 0; }
     .table > thead > tr th.sortable, .table > thead > tr th[st-sort] {
       cursor: pointer; }
       .table > thead > tr th.sortable:after, .table > thead > tr th[st-sort]:after {
@@ -2484,10 +2483,6 @@ hr {
     border-bottom: 1px solid #ebeef0;
     padding-left: 10px;
     padding-right: 10px; }
-    .table > tbody > tr > td:first-child {
-      padding-left: 0; }
-    .table > tbody > tr > td:last-child {
-      padding-right: 0; }
   .table > tfoot .summary {
     margin-top: 20px;
     display: block;

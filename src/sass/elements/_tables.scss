@@ -22,12 +22,6 @@
                 vertical-align: middle;
                 border-bottom: 1px solid #ebeef0;
                 user-select: none;
-                &:first-child {
-                    padding-left: 0;
-                }
-                &:last-child {
-                    padding-right: 0;
-                }
 
                 // Sortable column headers
                 &.sortable, &[st-sort] {
@@ -64,12 +58,6 @@
             border-bottom: 1px solid #ebeef0;
             padding-left: 10px;
             padding-right: 10px;
-            &:first-child {
-                padding-left: 0;
-            }
-            &:last-child {
-                padding-right: 0;
-            }
         }
     }
 

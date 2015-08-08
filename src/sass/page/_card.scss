@@ -121,10 +121,13 @@
             h3 {
                 margin-top: 0;
                 margin-bottom: 20px;
-                font-size: 18px;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: $gray-dark;
             }
             p {
                 margin-bottom: 20px;
+                color: $gray;
             }
         }
         .card-body {
