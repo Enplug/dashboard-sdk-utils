@@ -31,7 +31,7 @@
 .form-material .form-group {
     position: relative;
     margin-bottom: 0;
-    padding: 10px 0 40px 0;
+    padding: 20px 0 40px 0;
     display: block;
     transition: none; // to keep underline from animating when form-group is applied dynamically
 
@@ -75,7 +75,7 @@
             +label {
                 font-size: 12px;
                 cursor: default;
-                transform: translateY(-26px);
+                transform: translateY(-15px);
                 color: $gray-light;
                 font-weight: 500;
             }
