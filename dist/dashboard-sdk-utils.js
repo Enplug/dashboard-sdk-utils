@@ -1050,7 +1050,7 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
                 $compile(input)($scope);
 
                 if (autofocus) {
-                    $element[0].focus();
+                    input.focus();
                 }
 
                 $scope.formField = $form[name]; // used for ng-messages. Must retrieve after re-$compiling input
