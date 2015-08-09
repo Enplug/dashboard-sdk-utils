@@ -9,6 +9,7 @@
  * @param name {String} Input name
  * @param directives {Object} key:value of directives to assign to input. This directive creates isolate+transcluded scope, so remember to use $parent in values.
  * @param required {boolean},
+ * @param autofocus {boolean} - causes this input to be focused after creation
  */
 angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile', 'GUID', '$parse',
     function ($log, $compile, GUID, $parse) {
@@ -32,7 +33,8 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
                 var ignoreAttributes = ['class', 'label', 'directives', 'field', 'focus', 'ng-if', 'ng-show', 'ng-hide'],
                     input = $element.find('input')[0],
                     name = $attrs.name,
-                    directives = $parse($attrs.directives)($scope);
+                    directives = $parse($attrs.directives)($scope),
+                    autofocus = $attrs.autofocus;
 
                 $scope.id = name + '-' + GUID.new(); // better to use name?
                 $scope.label = $attrs.label;
@@ -65,6 +67,10 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
 
                 // Compile input, causing AngularJS to reprocess HTML after all changes we've made, directives applied etc
                 $compile(input)($scope);
+
+                if (autofocus) {
+                    $element[0].focus();
+                }
 
                 $scope.formField = $form[name]; // used for ng-messages. Must retrieve after re-$compiling input
                 // Stupid hack to get $dirty state to be correctly set, which bizarrely doesn't happen. WTF

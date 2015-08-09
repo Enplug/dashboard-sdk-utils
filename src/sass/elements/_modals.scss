@@ -15,6 +15,7 @@ body.ngdialog-open {
 .ngdialog {
     z-index: 1000;
 
+    // FIXME: this removes closing animation, but it also prevents dialogs from being removed from DOM
     &.ngdialog-closing {
         display: none;
     }
