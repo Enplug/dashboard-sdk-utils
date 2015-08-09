@@ -1015,7 +1015,7 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
                     input = $element.find('input')[0],
                     name = $attrs.name,
                     directives = $parse($attrs.directives)($scope),
-                    autofocus = $attrs.autofocus;
+                    autofocus = typeof $attrs.autofocus !== 'undefined';
 
                 $scope.id = name + '-' + GUID.new(); // better to use name?
                 $scope.label = $attrs.label;
