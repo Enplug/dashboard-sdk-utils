@@ -6,7 +6,8 @@ $modal-transition-speed: 0.2s;
 $modal-bg-opacity: 0.6;
 
 body.ngdialog-open {
-    overflow: inherit !important; // keep page from jumping when scrollbar disappears
+ //   overflow: inherit !important; // keep page from jumping when scrollbar disappears
+    padding-right: 0!important;
     .ngdialog-overlay {
         opacity: $modal-bg-opacity;
     }
@@ -15,9 +16,11 @@ body.ngdialog-open {
 .ngdialog {
     z-index: 1000;
 
-    // FIXME: this removes closing animation, but it also prevents dialogs from being removed from DOM
     &.ngdialog-closing {
-        display: none;
+        *, *:before, *:after {
+            visibility: hidden !important;
+            transition: none !important;
+        }
     }
 
     /* Modal overlay

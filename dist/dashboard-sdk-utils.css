@@ -2293,7 +2293,7 @@ hr {
     .card .card-content hr {
       border-color: #ebeef0; }
     .card .card-content .card-description {
-      width: 250px;
+      width: 200px;
       -webkit-flex-grow: 0;
           -ms-flex-positive: 0;
               flex-grow: 0;
@@ -2524,7 +2524,7 @@ hr {
    Modal windows based on ngDialog
    ========================================================================== */
 body.ngdialog-open {
-  overflow: inherit !important; }
+  padding-right: 0 !important; }
   body.ngdialog-open .ngdialog-overlay {
     opacity: 0.6; }
 
@@ -2536,8 +2536,9 @@ body.ngdialog-open {
     ========================================================================== */
   /* Dialog sizes
     ========================================================================== */ }
-  .ngdialog.ngdialog-closing {
-    display: none; }
+  .ngdialog.ngdialog-closing *, .ngdialog.ngdialog-closing *:before, .ngdialog.ngdialog-closing *:after {
+    visibility: hidden !important;
+    transition: none !important; }
   .ngdialog .ngdialog-overlay {
     background-color: #323A45;
     opacity: 0;
@@ -3061,7 +3062,8 @@ body.ngdialog-open {
         color: #4078c0; }
       .form-material .form-group .form-control:focus ~ .input-group-addon {
         box-shadow: 0 2px 0 #4078c0;
-        color: #4078c0; }
+        color: #4078c0;
+        padding: 0; }
         .form-material .form-group .form-control:focus ~ .input-group-addon i {
           color: #4078c0; }
     .form-material .form-group .form-control[disabled], .form-material .form-group .form-control[readonly] {
