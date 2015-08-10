@@ -2149,10 +2149,10 @@ a {
 ========================================================================== */
 .scroll::-webkit-scrollbar-thumb {
   border-radius: 0;
-  background-color: #dce2e5; }
+  background-color: #96a5b2; }
 
 .scroll::-webkit-scrollbar-track {
-  border-left: 1px solid #dce2e5; }
+  border-left: 1px solid #ebeef0; }
 
 .scroll::-webkit-scrollbar {
   width: 5px; }
@@ -2548,6 +2548,8 @@ body.ngdialog-open {
     width: 620px;
     -webkit-animation: modalOpen;
             animation: modalOpen;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
     -webkit-animation-duration: 0.2s !important;
             animation-duration: 0.2s !important;
     top: 60px;

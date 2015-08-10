@@ -144,11 +144,11 @@ $padding-sm:    5px;
 .scroll {
    &::-webkit-scrollbar-thumb {
       border-radius: 0;
-      background-color: darken($border-color, 5);
+      background-color: $gray-light;
    }
 
    &::-webkit-scrollbar-track {
-      border-left: 1px solid darken($border-color, 5);
+      border-left: 1px solid $border-color;
    }
 
    &::-webkit-scrollbar {
