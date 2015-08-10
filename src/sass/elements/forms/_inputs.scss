@@ -57,6 +57,24 @@
         color: $gray-darker;
     }
 
+    /* Input addons
+========================================================================== */
+    .input-group {
+        position: static;
+        .input-group-addon {
+            padding: 0;
+            color: $gray-light;
+            border: none;
+            background-color: transparent;
+            border-radius: 0 !important;
+            box-shadow: 0 1px 0 $border-color;
+            transition: all $transition-speed ease-out;
+            i {
+                font-size: 21px;
+            }
+        }
+    }
+
     /* Inputs
     ========================================================================== */
     .form-control {
@@ -116,7 +134,6 @@
             }
 
             ~.input-group-addon {
-                padding: 0;
                 margin-bottom: -1px;
                 border-bottom-color: transparent;
                 color: $gray-light;
@@ -130,23 +147,6 @@
                 i {
                     color: $gray-light;
                 }
-            }
-        }
-    }
-
-    /* Input addons
-    ========================================================================== */
-    .input-group {
-        position: static;
-        .input-group-addon {
-            color: $gray-light;
-            border: none;
-            background-color: transparent;
-            border-radius: 0 !important;
-            box-shadow: 0 1px 0 $border-color;
-            transition: all $transition-speed ease-out;
-            i {
-                font-size: 21px;
             }
         }
     }

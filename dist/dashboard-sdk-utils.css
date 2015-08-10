@@ -3016,9 +3016,9 @@ body.ngdialog-open {
   transition: none;
   /* Labels
     ========================================================================== */
-  /* Inputs
-    ========================================================================== */
   /* Input addons
+========================================================================== */
+  /* Inputs
     ========================================================================== */
   /* Validation messages
     ========================================================================== */ }
@@ -3036,6 +3036,18 @@ body.ngdialog-open {
     transition: all 0.15s ease-out; }
   .form-material .form-group .selected .form-label {
     color: #2a3239; }
+  .form-material .form-group .input-group {
+    position: static; }
+    .form-material .form-group .input-group .input-group-addon {
+      padding: 0;
+      color: #96a5b2;
+      border: none;
+      background-color: transparent;
+      border-radius: 0 !important;
+      box-shadow: 0 1px 0 #ebeef0;
+      transition: all 0.15s ease-out; }
+      .form-material .form-group .input-group .input-group-addon i {
+        font-size: 21px; }
   .form-material .form-group .form-control {
     padding-left: 0;
     padding-right: 0;
@@ -3079,7 +3091,6 @@ body.ngdialog-open {
       .form-material .form-group .form-control[disabled] + label, .form-material .form-group .form-control[readonly] + label {
         cursor: default; }
       .form-material .form-group .form-control[disabled] ~ .input-group-addon, .form-material .form-group .form-control[readonly] ~ .input-group-addon {
-        padding: 0;
         margin-bottom: -1px;
         border-bottom-color: transparent;
         color: #96a5b2;
@@ -3092,17 +3103,6 @@ body.ngdialog-open {
         box-shadow: none; }
         .form-material .form-group .form-control[disabled] ~ .input-group-addon i, .form-material .form-group .form-control[readonly] ~ .input-group-addon i {
           color: #96a5b2; }
-  .form-material .form-group .input-group {
-    position: static; }
-    .form-material .form-group .input-group .input-group-addon {
-      color: #96a5b2;
-      border: none;
-      background-color: transparent;
-      border-radius: 0 !important;
-      box-shadow: 0 1px 0 #ebeef0;
-      transition: all 0.15s ease-out; }
-      .form-material .form-group .input-group .input-group-addon i {
-        font-size: 21px; }
   .form-material .form-group .validation {
     position: absolute;
     left: 0;
