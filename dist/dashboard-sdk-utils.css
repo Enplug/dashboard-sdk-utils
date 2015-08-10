@@ -2478,6 +2478,7 @@ hr {
   .table > tbody > tr > td {
     vertical-align: middle;
     border-bottom: 1px solid #ebeef0;
+    border-top: 0;
     padding-left: 10px;
     padding-right: 10px; }
   .table > tfoot .summary {

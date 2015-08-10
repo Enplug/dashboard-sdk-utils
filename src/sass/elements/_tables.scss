@@ -55,7 +55,8 @@
     > tbody {
         > tr > td {
             vertical-align: middle;
-            border-bottom: 1px solid #ebeef0;
+            border-bottom: 1px solid $border-color;
+            border-top: 0;
             padding-left: 10px;
             padding-right: 10px;
         }
