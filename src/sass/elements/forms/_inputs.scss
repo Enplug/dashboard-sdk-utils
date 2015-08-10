@@ -91,7 +91,6 @@
             ~.input-group-addon {
                 box-shadow: 0 2px 0 $brand-primary;
                 color: $brand-primary;
-                padding: 0;
                 i {
                     color: $brand-primary;
                 }
@@ -117,6 +116,8 @@
             }
 
             ~.input-group-addon {
+                padding: 0;
+                margin-bottom: -1px;
                 border-bottom-color: transparent;
                 color: $gray-light;
                 background-image: linear-gradient(to right, rgba(0,0,0,0.26) 0%, rgba(0,0,0,0.26) 33%, transparent 0%);
@@ -124,7 +125,6 @@
                 background-position: 0 bottom;
                 background-size: 4px 1px;
                 background-repeat: repeat-x;
-                margin-bottom: -1px;
                 cursor: default;
                 box-shadow: none;
                 i {

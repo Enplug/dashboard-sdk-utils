@@ -3062,8 +3062,7 @@ body.ngdialog-open {
         color: #4078c0; }
       .form-material .form-group .form-control:focus ~ .input-group-addon {
         box-shadow: 0 2px 0 #4078c0;
-        color: #4078c0;
-        padding: 0; }
+        color: #4078c0; }
         .form-material .form-group .form-control:focus ~ .input-group-addon i {
           color: #4078c0; }
     .form-material .form-group .form-control[disabled], .form-material .form-group .form-control[readonly] {
@@ -3080,6 +3079,8 @@ body.ngdialog-open {
       .form-material .form-group .form-control[disabled] + label, .form-material .form-group .form-control[readonly] + label {
         cursor: default; }
       .form-material .form-group .form-control[disabled] ~ .input-group-addon, .form-material .form-group .form-control[readonly] ~ .input-group-addon {
+        padding: 0;
+        margin-bottom: -1px;
         border-bottom-color: transparent;
         color: #96a5b2;
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.26) 0%, rgba(0, 0, 0, 0.26) 33%, transparent 0%);
@@ -3087,7 +3088,6 @@ body.ngdialog-open {
         background-position: 0 bottom;
         background-size: 4px 1px;
         background-repeat: repeat-x;
-        margin-bottom: -1px;
         cursor: default;
         box-shadow: none; }
         .form-material .form-group .form-control[disabled] ~ .input-group-addon i, .form-material .form-group .form-control[readonly] ~ .input-group-addon i {
