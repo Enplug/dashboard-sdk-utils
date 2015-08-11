@@ -1676,7 +1676,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #2a3239;
-  font-size: 14px;
+  font-size: 13px;
   text-rendering: optimizeLegibility; }
 
 p {
@@ -1722,7 +1722,7 @@ a {
   a:active, a:focus {
     text-decoration: none; }
   a.link-reset {
-    font-size: 14px !important;
+    font-size: 13px !important;
     color: #4078c0 !important; }
 
 [ng-click],
@@ -1820,7 +1820,7 @@ a {
   color: #eef1f3; }
 
 .text-reset {
-  font-size: 14px !important;
+  font-size: 13px !important;
   color: #2a3239 !important; }
 
 /* ==========================================================================
@@ -2368,7 +2368,7 @@ hr {
   border-radius: 2px;
   font-weight: 500;
   line-height: 1;
-  font-size: 14px;
+  font-size: 13px;
   /* Disabled state for all buttons defaults to white
     ========================================================================== */
   /* Default buttons
