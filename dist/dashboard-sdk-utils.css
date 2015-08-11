@@ -1676,7 +1676,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #2a3239;
-  font-size: 13px;
+  font-size: 14px;
   text-rendering: optimizeLegibility; }
 
 p {
@@ -1722,7 +1722,7 @@ a {
   a:active, a:focus {
     text-decoration: none; }
   a.link-reset {
-    font-size: 13px !important;
+    font-size: 14px !important;
     color: #4078c0 !important; }
 
 [ng-click],
@@ -1820,7 +1820,7 @@ a {
   color: #eef1f3; }
 
 .text-reset {
-  font-size: 13px !important;
+  font-size: 14px !important;
   color: #2a3239 !important; }
 
 /* ==========================================================================
@@ -2238,18 +2238,19 @@ hr {
             align-items: stretch; }
     .card .tab-list li {
       position: relative;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
       -webkit-flex-grow: 0;
           -ms-flex-positive: 0;
               flex-grow: 0;
       -webkit-flex-shrink: 0;
           -ms-flex-negative: 0;
               flex-shrink: 0;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
       -webkit-align-items: stretch;
           -ms-flex-align: stretch;
-              align-items: stretch; }
+              align-items: stretch;
+      box-shadow: 0 1px 0 #ebeef0; }
       .card .tab-list li a {
         position: relative;
         -webkit-flex-grow: 1;
@@ -2367,7 +2368,7 @@ hr {
   border-radius: 2px;
   font-weight: 500;
   line-height: 1;
-  font-size: 13px;
+  font-size: 14px;
   /* Disabled state for all buttons defaults to white
     ========================================================================== */
   /* Default buttons
@@ -2481,6 +2482,10 @@ hr {
     border-top: 0;
     padding-left: 10px;
     padding-right: 10px; }
+    .table > tbody > tr > td:first-child {
+      padding-left: 0; }
+    .table > tbody > tr > td:last-child {
+      padding-right: 0; }
   .table > tfoot .summary {
     margin-top: 20px;
     display: block;
@@ -2492,7 +2497,7 @@ hr {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
-    margin: 15px 0;
+    margin: 10px 0 0 0;
     padding: 0; }
     .table > tfoot .pagination > li {
       display: inline-block; }
@@ -2722,7 +2727,9 @@ body.ngdialog-open {
     bottom: 100%;
     width: 250px;
     text-align: left;
-    z-index: 99999; }
+    z-index: 99999;
+    cursor: auto !important;
+    letter-spacing: normal !important; }
     .glossaryTip .tip .tip-content {
       display: block;
       background: #fff;
@@ -2750,11 +2757,14 @@ body.ngdialog-open {
         text-decoration: none !important; }
       .glossaryTip .tip .tip-content .tipBody {
         font-size: 14px !important;
-        font-weight: normal !important; }
+        font-weight: normal !important;
+        word-wrap: break-word; }
       .glossaryTip .tip .tip-content a {
         font-weight: normal !important;
-        padding-bottom: 20px;
-        font-size: 12px; }
+        padding-bottom: 20px !important;
+        font-size: 12px !important; }
+        .glossaryTip .tip .tip-content a:hover {
+          text-decoration: underline !important; }
       .glossaryTip .tip .tip-content .tipArrow {
         position: absolute;
         left: 50%;
@@ -2810,7 +2820,7 @@ body.ngdialog-open {
       -webkit-transform: rotate(-90deg);
               transform: rotate(-90deg); }
   .glossaryTip .tip.center {
-    right: -121px;
+    right: -118px;
     left: auto; }
     .glossaryTip .tip.center .tipArrow {
       right: 117px;

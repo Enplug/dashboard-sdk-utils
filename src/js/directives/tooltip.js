@@ -5,30 +5,36 @@
  *
  * @param tip {String} Path to tip to show from ToolTips constant.
  */
-angular.module('enplug.sdk.utils').directive('tooltip', ['Tooltips', '$log', function (Tooltips, $log) {
+angular.module('enplug.sdk.utils').directive('tooltip', function (Tooltips) {
     'use strict';
-
-    // Todo support no tooltip constant
 
     return {
         restrict: 'E',
         templateUrl: 'sdk-utils/tooltip.tpl',
         replace: true,
         scope: true,
-        link: function ($scope, $element, $attrs) {
+        link: function (scope, element, attrs) {
 
             // Get the tooltip config from Tips constant
-            var path = $attrs.tip,
-                config = _.get(Tooltips, path);
-            if (_.isObject(config)) {
-                if (!_.isString(config.position)) {
-                    config.position = 'top left'; // default position
-                }
-                $scope.config = config;
-            } else {
-                $log.error('Did not find tooltip config for path:', path);
-                $element.hide();
+            var tip = attrs.tip,
+                config = _.get(Tooltips, tip) || {};
+
+            // Default position
+            if (typeof config.position !== 'string') {
+                config.position = 'top center'; // default position
             }
+
+            // Allow for passing in string tips without a path
+            if (!config.text) {
+                config.text = tip;
+            }
+
+            // Add external link indicator if this isn't a local link
+            if (config.link && ~config.link.location.indexOf('http')) {
+                element.find('a').attr('target', '_blank');
+            }
+
+            scope.config = config;
         }
     };
-}]);
+});

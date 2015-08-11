@@ -1412,33 +1412,39 @@ angular.module('enplug.sdk.utils').directive('stSummary', [function () {
  *
  * @param tip {String} Path to tip to show from ToolTips constant.
  */
-angular.module('enplug.sdk.utils').directive('tooltip', ['Tooltips', '$log', function (Tooltips, $log) {
+angular.module('enplug.sdk.utils').directive('tooltip', function (Tooltips) {
     'use strict';
-
-    // Todo support no tooltip constant
 
     return {
         restrict: 'E',
         templateUrl: 'sdk-utils/tooltip.tpl',
         replace: true,
         scope: true,
-        link: function ($scope, $element, $attrs) {
+        link: function (scope, element, attrs) {
 
             // Get the tooltip config from Tips constant
-            var path = $attrs.tip,
-                config = _.get(Tooltips, path);
-            if (_.isObject(config)) {
-                if (!_.isString(config.position)) {
-                    config.position = 'top left'; // default position
-                }
-                $scope.config = config;
-            } else {
-                $log.error('Did not find tooltip config for path:', path);
-                $element.hide();
+            var tip = attrs.tip,
+                config = _.get(Tooltips, tip) || {};
+
+            // Default position
+            if (typeof config.position !== 'string') {
+                config.position = 'top center'; // default position
             }
+
+            // Allow for passing in string tips without a path
+            if (!config.text) {
+                config.text = tip;
+            }
+
+            // Add external link indicator if this isn't a local link
+            if (config.link && ~config.link.location.indexOf('http')) {
+                element.find('a').attr('target', '_blank');
+            }
+
+            scope.config = config;
         }
     };
-}]);
+});
 
 angular.module('enplug.sdk.utils').service('DetectChanges', ['$log', function ($log) {
 
@@ -1594,5 +1600,5 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/status-button.tpl",
         "<button class=status-button><i class=ion-load-a ng-show=isLoading></i> <i class=ion-checkmark-circled ng-show=\"!isLoading && success\"></i> <i class=ion-alert-circled ng-show=\"!isLoading && error\"></i><ng-transclude></ng-transclude></button>");
     $templateCache.put("sdk-utils/tooltip.tpl",
-        "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=\"tipText text-gray-light\" ng-show=::config.tooltip ng-bind=::config.tooltip></span> <span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span class=\"tipTitle text-gd\" ng-bind=::config.title></span> <span class=\"tipBody text-reset\" ng-bind=::config.text></span> <a ng-show=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" target=_blank ng-bind=::config.link.title></a> <span class=tipArrow></span></span></span></span>");
+        "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=\"tipText text-gray-light\" ng-show=::config.tooltip ng-bind=::config.tooltip></span> <span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span ng-if=config.title class=\"tipTitle text-gd\" ng-bind=::config.title></span> <span class=\"tipBody text-reset\" ng-bind=::config.text ng-class=\"{ pv: !config.title }\"></span> <a ng-if=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" ng-bind=::config.link.title></a> <span class=tipArrow></span></span></span></span>");
 }]);

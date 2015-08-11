@@ -53,12 +53,20 @@
     /* Body
     ========================================================================== */
     > tbody {
-        > tr > td {
-            vertical-align: middle;
-            border-bottom: 1px solid $border-color;
-            border-top: 0;
-            padding-left: 10px;
-            padding-right: 10px;
+        > tr {
+            > td {
+                vertical-align: middle;
+                border-bottom: 1px solid $border-color;
+                border-top: 0;
+                padding-left: 10px;
+                padding-right: 10px;
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
         }
     }
 
@@ -78,7 +86,7 @@
         .pagination {
             list-style-type: none;
             user-select: none;
-            margin: 15px 0;
+            margin: 10px 0 0 0;
             padding: 0;
             > li {
                 display: inline-block;
