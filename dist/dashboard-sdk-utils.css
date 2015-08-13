@@ -2207,8 +2207,6 @@ hr {
   border-radius: 3px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 2px;
-  /* Tabbed card header
-    ========================================================================== */
   /* Content
     ========================================================================== */
   /* Sidebar content
@@ -2222,103 +2220,6 @@ hr {
     padding: 0; }
   .card .card-section {
     padding: 20px; }
-  .card .tab-list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    overflow: visible;
-    -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch; }
-    .card .tab-list li {
-      position: relative;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-grow: 0;
-          -ms-flex-positive: 0;
-              flex-grow: 0;
-      -webkit-flex-shrink: 0;
-          -ms-flex-negative: 0;
-              flex-shrink: 0;
-      -webkit-align-items: stretch;
-          -ms-flex-align: stretch;
-              align-items: stretch;
-      box-shadow: 0 1px 0 #ebeef0; }
-      .card .tab-list li a {
-        position: relative;
-        -webkit-flex-grow: 1;
-            -ms-flex-positive: 1;
-                flex-grow: 1;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-justify-content: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        padding: 15px 20px;
-        font-size: 14px;
-        text-decoration: none;
-        color: #798c9c;
-        text-align: center;
-        cursor: pointer;
-        font-weight: normal;
-        box-shadow: 0 1px 0 #ebeef0; }
-        .card .tab-list li a:focus, .card .tab-list li a:hover {
-          outline: none;
-          color: #4078c0;
-          text-decoration: none; }
-        .card .tab-list li a.active {
-          color: #2a3239;
-          box-shadow: 0 2px 0 #4078c0;
-          cursor: default;
-          text-decoration: none; }
-      .card .tab-list li.tab-select {
-        position: relative;
-        padding-right: 20px;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                align-items: center;
-        cursor: pointer; }
-        .card .tab-list li.tab-select:hover span {
-          color: #4078c0; }
-        .card .tab-list li.tab-select span {
-          font-size: 14px; }
-          .card .tab-list li.tab-select span:after {
-            font-family: 'Ionicons';
-            content: '\f123';
-            margin-left: 5px;
-            font-size: 12px;
-            color: #4078c0; }
-        .card .tab-list li.tab-select select {
-          position: absolute;
-          background: 0 0;
-          opacity: 0;
-          border: none;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          cursor: pointer; }
-    .card .tab-list:after {
-      content: '';
-      display: block;
-      -webkit-flex-grow: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1;
-      box-shadow: 0 1px 0 #ebeef0; }
   .card .card-content {
     position: relative;
     padding: 30px; }
@@ -3043,6 +2944,105 @@ body.ngdialog-open {
     margin: 0 auto; }
     .footer-help .info-message a:after {
       display: none; }
+
+/* Tab list
+========================================================================== */
+.tab-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow: visible;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
+  .tab-list li {
+    position: relative;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-grow: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
+    -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    box-shadow: 0 1px 0 #ebeef0; }
+    .tab-list li a {
+      position: relative;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      padding: 15px 20px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #798c9c;
+      text-align: center;
+      cursor: pointer;
+      font-weight: normal;
+      box-shadow: 0 1px 0 #ebeef0; }
+      .tab-list li a:focus, .tab-list li a:hover {
+        outline: none;
+        color: #4078c0;
+        text-decoration: none; }
+      .tab-list li a.active {
+        color: #2a3239;
+        box-shadow: 0 2px 0 #4078c0;
+        cursor: default;
+        text-decoration: none; }
+    .tab-list li.tab-select {
+      position: relative;
+      padding-right: 20px;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .tab-list li.tab-select:hover span {
+        color: #4078c0; }
+      .tab-list li.tab-select span {
+        font-size: 14px; }
+        .tab-list li.tab-select span:after {
+          font-family: 'Ionicons';
+          content: '\f123';
+          margin-left: 5px;
+          font-size: 12px;
+          color: #4078c0; }
+      .tab-list li.tab-select select {
+        position: absolute;
+        background: 0 0;
+        opacity: 0;
+        border: none;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        cursor: pointer; }
+  .tab-list:after {
+    content: '';
+    display: block;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    box-shadow: 0 1px 0 #ebeef0; }
 
 /* Forms
 ========================================================================== */
