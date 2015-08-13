@@ -2290,7 +2290,10 @@ hr {
         display: flex;
         -webkit-align-items: center;
             -ms-flex-align: center;
-                align-items: center; }
+                align-items: center;
+        cursor: pointer; }
+        .card .tab-list li.tab-select:hover span {
+          color: #4078c0; }
         .card .tab-list li.tab-select span {
           font-size: 14px; }
           .card .tab-list li.tab-select span:after {
