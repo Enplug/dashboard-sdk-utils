@@ -44,6 +44,7 @@ a {
     color: $brand-primary;
     font-weight: 500; // semibold links to add weight
     outline: none;
+    transition: all $transition-speed $transition-timing;
 
     // External links
     &:not(.btn) {

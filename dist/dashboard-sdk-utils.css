@@ -1708,7 +1708,8 @@ h6 {
 a {
   color: #4078c0;
   font-weight: 500;
-  outline: none; }
+  outline: none;
+  transition: all 0.15s ease-out; }
   a:not(.btn)[target="_blank"]:after {
     opacity: 0.5;
     content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAY1BMVEV5jJz///95jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx1iJd1iJh2iJh2iZl3iZl4i5p4i5t5jJxsFGGdAAAAGXRSTlMAAAIDBAUHCAoPEhUWIyw2OGZoaW5xc3R75NUa1QAAAE1JREFUeAEtxkUShFAAQ8GXP+4+OMn9T0kV0KtG0lHqRpskrfT4eSAg3V95BwP7b+rb0k/+zy0YKdW5AEEHToXMBdjlsvaKN/RubMdhAjG6BXX5hbgrAAAAAElFTkSuQmCC);
@@ -2179,7 +2180,6 @@ body {
  * https://css-tricks.com/things-it-might-be-funuseful-to-try-the-universal-selector-on/
 ========================================================================== */
 * {
-  transition: all 0.15s ease-out;
   background-repeat: no-repeat; }
   *:before, *:after {
     box-sizing: inherit; }
@@ -2266,6 +2266,7 @@ hr {
             -ms-flex-pack: center;
                 justify-content: center;
         padding: 15px 20px;
+        font-size: 14px;
         text-decoration: none;
         color: #798c9c;
         text-align: center;
@@ -2369,6 +2370,7 @@ hr {
   font-weight: 500;
   line-height: 1;
   font-size: 13px;
+  transition: all 0.15s ease-out;
   /* Disabled state for all buttons defaults to white
     ========================================================================== */
   /* Default buttons
