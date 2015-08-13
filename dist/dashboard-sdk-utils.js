@@ -1175,6 +1175,14 @@ angular.module('enplug.sdk.utils').directive('materialSelect', ['$compile', '$pa
     };
 }]);
 
+angular.module('enplug.sdk.utils').directive('helpBlock', function () {
+    'use strict';
+    return {
+        templateUrl: 'sdk-utils/help-block.tpl',
+        restrict: 'E'
+    }
+});
+
 /**
  * @ngdoc directive
  * @name loading
@@ -1587,6 +1595,8 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     "use strict";
     $templateCache.put("sdk-utils/color-picker.tpl",
         "<span class=color-picker><span class=swatch ng-style=\"{ 'background-color': '#' + hex }\"></span> <span class=color-picker-label ng-transclude></span></span>");
+    $templateCache.put("sdk-utils/help-block.tpl",
+        "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i> Need help? Go to the <a href=http://support.enplug.com target=_blank>Enplug Help Center</a></div></footer>");
     $templateCache.put("sdk-utils/loading.tpl",
         "<div class=loading-directive ng-show=loading><div class=loader ng-hide=error><svg class=circular><circle class=path cx=32 cy=32 r=30 fill=none stroke-width=2></circle></svg></div><div ng-show=error><p>There was an error.</p></div></div><ng-transclude ng-hide=loading></ng-transclude>");
     $templateCache.put("sdk-utils/material-checkbox.tpl",

@@ -1,0 +1,23 @@
+.footer-help {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    i {
+        font-size: 28px;
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        left: 16px;
+    }
+    .info-message {
+        box-sizing: border-box;
+        display: inline-block;
+        text-align: left;
+        border: 1px solid #d3dbe2;
+        padding: 13px 13px 13px 49px;
+        position: relative;
+        margin: 0 auto;
+        a:after {
+            display: none; // remove external link icon to make it cleaner
+        }
+    }
+}
