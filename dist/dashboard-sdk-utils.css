@@ -2464,7 +2464,7 @@ hr {
 body.ngdialog-open {
   padding-right: 0 !important; }
   body.ngdialog-open .ngdialog-overlay {
-    opacity: 0.6; }
+    opacity: 0.9; }
 
 .ngdialog {
   z-index: 1000;
@@ -2553,12 +2553,12 @@ body.ngdialog-open {
   0% {
     opacity: 0; }
   100% {
-    opacity: 0.6; } }
+    opacity: 0.9; } }
 @keyframes modalBgOpen {
   0% {
     opacity: 0; }
   100% {
-    opacity: 0.6; } }
+    opacity: 0.9; } }
 
 @-webkit-keyframes modalOpen {
   0% {
