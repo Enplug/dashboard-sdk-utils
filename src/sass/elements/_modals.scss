@@ -5,16 +5,12 @@
 $modal-transition-speed: 0.2s;
 $modal-bg-opacity: 0.9;
 
-body.ngdialog-open {
- //   overflow: inherit !important; // keep page from jumping when scrollbar disappears
-    padding-right: 0!important;
+.ngdialog {
+    z-index: 1000;
+
     .ngdialog-overlay {
         opacity: $modal-bg-opacity;
     }
-}
-
-.ngdialog {
-    z-index: 1000;
 
     &.ngdialog-closing {
         *, *:before, *:after {
