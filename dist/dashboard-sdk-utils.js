@@ -949,12 +949,12 @@ angular.module('enplug.sdk.utils').directive('equals', function() {
  * @module enplug.sdk.utils
  *
  * @param field {expression=} The model value to bind the input to.
- * @param label {String} The input label // todo this could just be transclusion?
+ * @param label {String} The input label
  */
 angular.module('enplug.sdk.utils').directive('materialCheckbox', ['$log', '$compile', 'GUID', function ($log, $compile, GUID) {
     'use strict';
 
-    var ignoreAttributes = ['class', 'field', 'label', 'ng-if', 'ng-show', 'ng-hide'];
+    var ignoreAttributes = ['class', 'field', 'label', 'ng-if', 'ng-show', 'ng-hide', 'ng-repeat'];
 
     return {
         restrict: 'E',
@@ -965,16 +965,38 @@ angular.module('enplug.sdk.utils').directive('materialCheckbox', ['$log', '$comp
         templateUrl: 'sdk-utils/material-checkbox.tpl',
         link: function ($scope, $element, $attrs, $ctrl, $transclude) {
 
-            var input = $element.find('input')[0];
-
+            $element.addClass('material-checkbox');
             $scope.id = GUID.new(); // better to use name?
             $scope.label = $attrs.label;
-            // Todo update to allow for directive pass-through?
-            if (!$scope.label) {
-                $log.warn('WARNING: Material checkbox missing label.');
-            }
 
-            $element.addClass('material-checkbox');
+            // Copy any wrapped html into checkbox label
+            $transclude(function(clone) {
+                if (clone) {
+
+                    // Check to see if our transcluded HTML includes an input
+                    var hasInput = false;
+                    for (var i = 0; i < clone.length; i++) {
+                        if (clone[i].nodeName.toLowerCase() == 'input') {
+                            hasInput = true;
+                        }
+                    }
+
+                    if (hasInput) {
+
+                        // Use this input
+                        $element.find('input').remove();
+                        $element.find('label').prepend(clone);
+                        $element.find('input').attr('id', $scope.id);
+                        $element.find('input').attr('type', 'checkbox');
+                    } else {
+
+                        // Label
+                        angular.element($element[0].querySelector('.checkbox-label')).append(clone);
+                    }
+                }
+            });
+
+            var input = $element.find('input')[0];
 
             // Copy attributes over to input
             angular.forEach($attrs, function (value, _attr) {
@@ -983,11 +1005,6 @@ angular.module('enplug.sdk.utils').directive('materialCheckbox', ['$log', '$comp
                     $element.removeAttr(attr);
                     input.setAttribute(attr, value);
                 }
-            });
-
-            // Copy any wrapped html into checkbox label
-            $transclude(function(clone) {
-                angular.element($element[0].querySelector('.checkbox-label')).append(clone);
             });
 
             var checkbox = $element.find('label')[0];
