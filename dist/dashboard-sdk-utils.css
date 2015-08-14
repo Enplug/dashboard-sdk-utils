@@ -3125,7 +3125,7 @@ body.ngdialog-open .ngdialog-overlay {
   .form-material .form-group .input-group {
     position: static; }
     .form-material .form-group .input-group .input-group-addon {
-      padding: 0;
+      padding: 0 3px;
       color: #96a5b2;
       border: none;
       background-color: transparent;
