@@ -1,0 +1,23 @@
+.alert {
+    display: table;
+    width: 100%;
+    position: relative;
+    border-radius: $border-radius;
+    background: #fafcfc;
+    border: 1px solid $border-color;
+    padding: 10px 20px;
+    .alert-icon {
+        display: table-cell;
+        width: 24px;
+        vertical-align: middle;
+        color: $brand-primary;
+        font-size: 28px;
+    }
+    .alert-body {
+        display: table-cell;
+        margin: 0;
+        padding-left: 15px;
+        color: $gray-dark;
+        vertical-align: middle;
+    }
+}

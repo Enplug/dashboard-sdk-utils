@@ -680,6 +680,23 @@ angular.module('enplug.sdk.utils').constant('timezone', [
 
 angular.module('enplug.sdk.utils').constant('years', ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']);
 
+/**
+ * @ngdoc directive
+ * @name alert
+ * @module enplug.sdk.utils
+ * @description shows an alert message
+ */
+angular.module('enplug.sdk.utils').directive('alert', function () {
+    'use strict';
+
+    return {
+        restrict: 'E',
+        transclude: true,
+        scope: true,
+        templateUrl: 'sdk-utils/alert.tpl'
+    }
+});
+
 angular.module('enplug.sdk.utils').directive('downloadCsv', ['$document', '$log',
     function ($document, $log) {
 
@@ -1272,6 +1289,26 @@ angular.module('enplug.sdk.utils').directive('locationAware', ['$location',
 
 /**
  * @ngdoc directive
+ * @name notice
+ * @module enplug.sdk.utils
+ * @description shows a notice message
+ */
+angular.module('enplug.sdk.utils').directive('notice', function () {
+    'use strict';
+
+    return {
+        restrict: 'E',
+        transclude: true,
+        scope: true,
+        templateUrl: 'sdk-utils/alert.tpl',
+        link: function (scope) {
+            scope.notice = true;
+        }
+    }
+});
+
+/**
+ * @ngdoc directive
  * @name statusButton
  * @module enplug.sdk.utils
  * @description easy showing/hiding of loading indicator in a button based on bool, promise, or function returned promise
@@ -1593,6 +1630,8 @@ angular.module('enplug.sdk.utils').factory('GUID', [function () {
 
 angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function($templateCache) {
     "use strict";
+    $templateCache.put("sdk-utils/alert.tpl",
+        "<div class=alert><i ng-hide=notice class=\"ion-alert-circled alert-icon\"></i> <i ng-show=notice class=\"ion-information-circled alert-icon\"></i><ng-transclude class=alert-body></ng-transclude></div>");
     $templateCache.put("sdk-utils/color-picker.tpl",
         "<span class=color-picker><span class=swatch ng-style=\"{ 'background-color': '#' + hex }\"></span> <span class=color-picker-label ng-transclude></span></span>");
     $templateCache.put("sdk-utils/help-block.tpl",

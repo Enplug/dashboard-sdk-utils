@@ -2287,6 +2287,27 @@ hr {
 
 /* General UI components
 ========================================================================== */
+.alert {
+  display: table;
+  width: 100%;
+  position: relative;
+  border-radius: 2px;
+  background: #fafcfc;
+  border: 1px solid #ebeef0;
+  padding: 10px 20px; }
+  .alert .alert-icon {
+    display: table-cell;
+    width: 24px;
+    vertical-align: middle;
+    color: #4078c0;
+    font-size: 28px; }
+  .alert .alert-body {
+    display: table-cell;
+    margin: 0;
+    padding-left: 15px;
+    color: #4a5965;
+    vertical-align: middle; }
+
 /* ==========================================================================
    Buttons based on Bootstrap 3
    ========================================================================== */
