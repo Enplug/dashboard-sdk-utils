@@ -2171,7 +2171,8 @@ body {
   background: #ebeef0; }
 
 .container {
-  width: 1000px; }
+  width: 1000px;
+  display: block; }
 
 [ng-view] {
   overflow: auto; }

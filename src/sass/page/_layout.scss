@@ -13,6 +13,7 @@ body {
 
 .container {
     width: 1000px;
+    display: block;
 }
 
 [ng-view] {
