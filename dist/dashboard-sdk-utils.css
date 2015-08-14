@@ -1820,6 +1820,21 @@ a {
 .text-glr {
   color: #eef1f3; }
 
+.hover-gdr {
+  color: #2a3239; }
+
+.hover-gd {
+  color: #4a5965; }
+
+.hover-g {
+  color: #798c9c; }
+
+.hover-gl {
+  color: #96a5b2; }
+
+.hover-glr {
+  color: #eef1f3; }
+
 .text-reset {
   font-size: 13px !important;
   color: #2a3239 !important; }
@@ -3125,7 +3140,7 @@ body.ngdialog-open .ngdialog-overlay {
   .form-material .form-group .input-group {
     position: static; }
     .form-material .form-group .input-group .input-group-addon {
-      padding: 0 3px;
+      padding: 0 0 0 5px;
       color: #96a5b2;
       border: none;
       background-color: transparent;

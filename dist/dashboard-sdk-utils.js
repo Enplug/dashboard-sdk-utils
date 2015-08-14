@@ -951,7 +951,7 @@ angular.module('enplug.sdk.utils').directive('equals', function() {
  * @param field {expression=} The model value to bind the input to.
  * @param label {String} The input label
  */
-angular.module('enplug.sdk.utils').directive('materialCheckbox', ['$log', '$compile', 'GUID', function ($log, $compile, GUID) {
+angular.module('enplug.sdk.utils').directive('materialCheckbox', function ($log, $compile, GUID) {
     'use strict';
 
     var ignoreAttributes = ['class', 'field', 'label', 'ng-if', 'ng-show', 'ng-hide', 'ng-repeat'];
@@ -1011,7 +1011,7 @@ angular.module('enplug.sdk.utils').directive('materialCheckbox', ['$log', '$comp
             $compile(checkbox)($scope);
         }
     };
-}]);
+});
 
 /**
  * @ngdoc directive
