@@ -7,4 +7,4 @@
 $supported-font-types: woff eot ttf svg woff2;
 
 // Proxima Nova Light for headers
-@include font-face('Proxima Nova', 'https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont', 300, null, $supported-font-types);
+@include font-face('Proxima Nova', 'https://cdn.enplug.net/fonts/proxima-nova/ProximaNova-LightWeb', 300, null, $supported-font-types);

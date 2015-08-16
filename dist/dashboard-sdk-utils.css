@@ -1666,7 +1666,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 @font-face {
   font-family: "Proxima Nova";
   font-weight: 300;
-  src: url("https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont.woff") format("woff"), url("https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont.eot?") format("eot"), url("https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont.ttf") format("truetype"), url("https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont.svg#Proxima_Nova") format("svg"), url("https://cdn.enplug.net/fonts/proxima-nova/proximanova-light-webfont.woff2") format("woff2"); }
+  src: url("https://cdn.enplug.net/fonts/proxima-nova/ProximaNova-LightWeb.woff") format("woff"), url("https://cdn.enplug.net/fonts/proxima-nova/ProximaNova-LightWeb.eot?") format("eot"), url("https://cdn.enplug.net/fonts/proxima-nova/ProximaNova-LightWeb.ttf") format("truetype"), url("https://cdn.enplug.net/fonts/proxima-nova/ProximaNova-LightWeb.svg#Proxima_Nova") format("svg"), url("https://cdn.enplug.net/fonts/proxima-nova/ProximaNova-LightWeb.woff2") format("woff2"); }
 
 /* ==========================================================================
    Typography
@@ -1779,16 +1779,16 @@ a {
   text-align: center !important; }
 
 .text-white {
-  color: #fff; }
+  color: #fff !important; }
 
 .text-success {
-  color: #6cbd7d; }
+  color: #6cbd7d !important; }
 
 .text-primary {
-  color: #4078c0; }
+  color: #4078c0 !important; }
 
 .text-danger {
-  color: #ff5d5d; }
+  color: #ff5d5d !important; }
 
 .text-gray-darker {
   color: #2a3239; }
@@ -2186,7 +2186,7 @@ a {
   border-left: 1px solid #ebeef0; }
 
 .scroll::-webkit-scrollbar {
-  width: 5px; }
+  width: 7px; }
 
 /* Image helper
 ========================================================================== */
@@ -2199,6 +2199,11 @@ a {
   display: inline-block;
   max-width: 100%;
   height: auto; }
+
+/* Transitions
+========================================================================== */
+.transition {
+  transition: all 0.15s ease-out; }
 
 /* Page layout
 ========================================================================== */

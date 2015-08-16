@@ -1,4 +1,4 @@
-angular.module('enplug.sdk.utils').directive('layoutToggle', function () {
+angular.module('enplug.sdk.utils').directive('layoutToggle', function ($rootScope) {
     'use strict';
 
     return {
@@ -7,9 +7,11 @@ angular.module('enplug.sdk.utils').directive('layoutToggle', function () {
         replace: true,
         link: function (scope) {
 
-            scope.showGridLayout = false;
+            if ($rootScope.showGridLayout !== false) {
+                $rootScope.showGridLayout = true;
+            }
             scope.toggleLayout = function () {
-                scope.showGridLayout = !scope.showGridLayout;
+                $rootScope.showGridLayout = !$rootScope.showGridLayout;
             };
         }
     }

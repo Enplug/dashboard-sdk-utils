@@ -63,7 +63,7 @@
             }
             &.selected {
                 > td, > td:hover {
-                    background: #FFFBE9;
+                    background: $brand-selected;
                 }
             }
         }

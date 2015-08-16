@@ -101,10 +101,10 @@ a {
 .tl                 { text-align: left!important; }
 .tc                 { text-align: center!important; }
 
-.text-white         { color: #fff; }
-.text-success       { color: $brand-success; }
-.text-primary       { color: $brand-primary; }
-.text-danger        { color: $brand-danger; }
+.text-white         { color: #fff !important; }
+.text-success       { color: $brand-success !important; }
+.text-primary       { color: $brand-primary !important; }
+.text-danger        { color: $brand-danger !important; }
 
 .text-gray-darker   { color: $gray-darker; }
 .text-gray-dark     { color: $gray-dark; }

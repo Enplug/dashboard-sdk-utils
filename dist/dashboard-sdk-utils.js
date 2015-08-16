@@ -1218,7 +1218,7 @@ angular.module('enplug.sdk.utils').directive('helpBlock', function () {
     }
 });
 
-angular.module('enplug.sdk.utils').directive('layoutToggle', function () {
+angular.module('enplug.sdk.utils').directive('layoutToggle', function ($rootScope) {
     'use strict';
 
     return {
@@ -1227,9 +1227,11 @@ angular.module('enplug.sdk.utils').directive('layoutToggle', function () {
         replace: true,
         link: function (scope) {
 
-            scope.showGridLayout = false;
+            if ($rootScope.showGridLayout !== false) {
+                $rootScope.showGridLayout = true;
+            }
             scope.toggleLayout = function () {
-                scope.showGridLayout = !scope.showGridLayout;
+                $rootScope.showGridLayout = !$rootScope.showGridLayout;
             };
         }
     }
@@ -1373,6 +1375,40 @@ angular.module('enplug.sdk.utils').directive('notice', function () {
             scope.notice = true;
         }
     }
+});
+
+/**
+ * Created by aleross on 7/14/15. Copyright (c) Enplug, Inc.
+ */
+
+/**
+ * @ngdoc directive
+ * @name proTip
+ * @module enplug
+ *
+ * @param tip {String} Path to tip to show from ProTips constant.
+ */
+angular.module('enplug.sdk.utils').directive('proTip', function ($log, ProTips) {
+    return {
+        restrict: 'E',
+        templateUrl: 'sdk-utils/protip.tpl',
+        link: function ($scope, $element, $attrs) {
+            // Todo take link position in protip config into account
+            // Get the protip config from ProTip constant
+            var path = $attrs.tip,
+                config = _.get(ProTips, path);
+            if (_.isString(config)) {
+                $scope.config = {
+                    tip: config
+                };
+            } else if (_.isObject(config)) {
+                $scope.config = config;
+            } else {
+                $log.error('Did not find pro tip config for path:', path);
+                $element.remove();
+            }
+        }
+    };
 });
 
 /**
@@ -1716,6 +1752,8 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
         "<div class=radio><label><input type=radio name=\"{{ name }}\" value=\"{{ value }}\" ng-model=model> <span class=radio-on></span> <span class=radio-off></span><ng-transclude></ng-transclude></label></div>");
     $templateCache.put("sdk-utils/material-select.tpl",
         "<span class=form-label ng-bind=label></span><select ng-model=model></select>");
+    $templateCache.put("sdk-utils/protip.tpl",
+        "<div class=\"pro-tip pt-xl pb mt-xl tc\"><i class=\"ion-flash text-primary\"></i> <strong>ProTip:</strong> <span ng-bind=::config.tip></span> <a ng-if=::config.link dynamic-click=::config.link.action dynamic-href=::config.link.location ng-bind=::config.link.text></a></div>");
     $templateCache.put("sdk-utils/status-button.tpl",
         "<button class=status-button><i class=ion-load-a ng-show=isLoading></i> <i class=ion-checkmark-circled ng-show=\"!isLoading && success\"></i> <i class=ion-alert-circled ng-show=\"!isLoading && error\"></i><ng-transclude></ng-transclude></button>");
     $templateCache.put("sdk-utils/tooltip.tpl",

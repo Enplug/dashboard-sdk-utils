@@ -157,7 +157,7 @@ $padding-sm:    5px;
    }
 
    &::-webkit-scrollbar {
-      width: 5px;
+      width: 7px;
    }
 }
 
@@ -173,3 +173,7 @@ $padding-sm:    5px;
    max-width: 100%;
    height: auto;
 }
+
+/* Transitions
+========================================================================== */
+.transition       { transition: all $transition-speed $transition-timing; }
