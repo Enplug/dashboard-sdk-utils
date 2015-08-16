@@ -160,3 +160,16 @@ $padding-sm:    5px;
       width: 5px;
    }
 }
+
+/* Image helper
+========================================================================== */
+.img-thumbnail {
+   padding: 4px;
+   background-color: #ffffff;
+   border: 1px solid $border-color;
+   border-radius: $border-radius;
+   transition: all $transition-speed $transition-timing;
+   display: inline-block;
+   max-width: 100%;
+   height: auto;
+}

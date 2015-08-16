@@ -11,6 +11,7 @@ angular.module('enplug.sdk.utils').directive('alert', function () {
         restrict: 'E',
         transclude: true,
         scope: true,
+        replace: true,
         templateUrl: 'sdk-utils/alert.tpl'
     }
 });

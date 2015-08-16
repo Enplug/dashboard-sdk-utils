@@ -693,6 +693,7 @@ angular.module('enplug.sdk.utils').directive('alert', function () {
         restrict: 'E',
         transclude: true,
         scope: true,
+        replace: true,
         templateUrl: 'sdk-utils/alert.tpl'
     }
 });
@@ -1217,6 +1218,55 @@ angular.module('enplug.sdk.utils').directive('helpBlock', function () {
     }
 });
 
+angular.module('enplug.sdk.utils').directive('layoutToggle', function () {
+    'use strict';
+
+    return {
+        restrict: 'E',
+        templateUrl: 'sdk-utils/layout-toggle.tpl',
+        replace: true,
+        link: function (scope) {
+
+            scope.showGridLayout = false;
+            scope.toggleLayout = function () {
+                scope.showGridLayout = !scope.showGridLayout;
+            };
+        }
+    }
+});
+
+angular.module('enplug.sdk.utils').directive('gridLayout', function () {
+    'use strict';
+
+    return {
+        link: function (scope, element) {
+            scope.$watch('showGridLayout', function (bool) {
+                if (bool) {
+                    element.removeClass('ng-hide');
+                } else {
+                    element.addClass('ng-hide');
+                }
+            });
+        }
+    }
+});
+
+angular.module('enplug.sdk.utils').directive('tableLayout', function () {
+    'use strict';
+
+    return {
+        link: function (scope, element) {
+            scope.$watch('showGridLayout', function (bool) {
+                if (bool) {
+                    element.addClass('ng-hide');
+                } else {
+                    element.removeClass('ng-hide');
+                }
+            });
+        }
+    }
+});
+
 /**
  * @ngdoc directive
  * @name loading
@@ -1317,6 +1367,7 @@ angular.module('enplug.sdk.utils').directive('notice', function () {
         restrict: 'E',
         transclude: true,
         scope: true,
+        replace: true,
         templateUrl: 'sdk-utils/alert.tpl',
         link: function (scope) {
             scope.notice = true;
@@ -1653,6 +1704,8 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
         "<span class=color-picker><span class=swatch ng-style=\"{ 'background-color': '#' + hex }\"></span> <span class=color-picker-label ng-transclude></span></span>");
     $templateCache.put("sdk-utils/help-block.tpl",
         "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i> Need help? Go to the <a href=http://support.enplug.com target=_blank>Enplug Help Center</a></div></footer>");
+    $templateCache.put("sdk-utils/layout-toggle.tpl",
+        "<div class=\"btn-group layout-toggle\"><button ng-click=toggleLayout() ng-disabled=showGridLayout class=\"btn btn-default btn-icon btn-sm ion-android-apps grid-toggle\"></button> <button ng-click=toggleLayout() ng-disabled=!showGridLayout class=\"btn btn-default btn-icon btn-sm ion-navicon table-toggle\"></button></div>");
     $templateCache.put("sdk-utils/loading.tpl",
         "<div class=loading-directive ng-show=loading><div class=loader ng-hide=error><svg class=circular><circle class=path cx=32 cy=32 r=30 fill=none stroke-width=2></circle></svg></div><div ng-show=error><p>There was an error.</p></div></div><ng-transclude ng-hide=loading></ng-transclude>");
     $templateCache.put("sdk-utils/material-checkbox.tpl",

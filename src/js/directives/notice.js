@@ -11,6 +11,7 @@ angular.module('enplug.sdk.utils').directive('notice', function () {
         restrict: 'E',
         transclude: true,
         scope: true,
+        replace: true,
         templateUrl: 'sdk-utils/alert.tpl',
         link: function (scope) {
             scope.notice = true;

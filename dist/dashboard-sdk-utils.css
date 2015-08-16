@@ -2188,6 +2188,18 @@ a {
 .scroll::-webkit-scrollbar {
   width: 5px; }
 
+/* Image helper
+========================================================================== */
+.img-thumbnail {
+  padding: 4px;
+  background-color: #ffffff;
+  border: 1px solid #ebeef0;
+  border-radius: 2px;
+  transition: all 0.15s ease-out;
+  display: inline-block;
+  max-width: 100%;
+  height: auto; }
+
 /* Page layout
 ========================================================================== */
 /* ==========================================================================
@@ -2481,10 +2493,6 @@ hr {
     border-top: 0;
     padding-left: 10px;
     padding-right: 10px; }
-    .table > tbody > tr > td:first-child {
-      padding-left: 0; }
-    .table > tbody > tr > td:last-child {
-      padding-right: 0; }
   .table > tfoot .summary {
     margin-top: 20px;
     display: block;
@@ -2519,7 +2527,13 @@ hr {
       .table > tfoot .pagination > li:last-child a {
         border-top-right-radius: 2px;
         border-bottom-right-radius: 2px; }
-  .table.table-hover tr:hover td {
+  .table:not(.table-hover) tr > td:first-child,
+  .table:not(.table-hover) tr > th:first-child {
+    padding-left: 0; }
+  .table:not(.table-hover) tr > td:last-child,
+  .table:not(.table-hover) tr > th:last-child {
+    padding-right: 0; }
+  .table.table-hover tbody > tr:hover td {
     background: #eff9fd; }
   .table.table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #fafbfc; }
@@ -3113,6 +3127,31 @@ body.ngdialog-open .ngdialog-overlay {
         left: 0;
         width: 100%;
         cursor: pointer; }
+
+.layout-toggle .btn {
+  height: 32px;
+  width: 32px; }
+  .layout-toggle .btn.grid-toggle {
+    font-size: 18px !important; }
+  .layout-toggle .btn.table-toggle {
+    font-size: 21px !important; }
+
+.badge {
+  border-radius: 2px;
+  padding: 5px 10px;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: inline-block;
+  font-weight: 500; }
+  .badge.badge--success {
+    background-color: #b2d86a;
+    color: #4d6110; }
+  .badge.badge--attention {
+    background-color: #FFE477;
+    color: #6F4F0C; }
+  .badge.badge--default {
+    background-color: #eef1f3;
+    color: #798c9c; }
 
 /* Forms
 ========================================================================== */

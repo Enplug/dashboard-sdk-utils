@@ -60,12 +60,6 @@
                 border-top: 0;
                 padding-left: 10px;
                 padding-right: 10px;
-                &:first-child {
-                    padding-left: 0;
-                }
-                &:last-child {
-                    padding-right: 0;
-                }
             }
         }
     }
@@ -118,10 +112,21 @@
         }
     }
 
+    &:not(.table-hover) {
+        tr > td:first-child,
+        tr > th:first-child {
+            padding-left: 0;
+        }
+        tr > td:last-child,
+        tr > th:last-child {
+            padding-right: 0;
+        }
+    }
+
     /* Custom tables
     ========================================================================== */
     &.table-hover {
-        tr:hover td {
+        tbody > tr:hover td {
             background: #eff9fd;
         }
     }

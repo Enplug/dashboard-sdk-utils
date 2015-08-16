@@ -1,0 +1,12 @@
+.layout-toggle {
+    .btn {
+        height: 32px;
+        width: 32px;
+        &.grid-toggle {
+            font-size: 18px !important;
+        }
+        &.table-toggle {
+            font-size: 21px !important;
+        }
+    }
+}

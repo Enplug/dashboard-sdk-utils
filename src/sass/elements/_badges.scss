@@ -1,0 +1,22 @@
+.badge {
+    border-radius: $border-radius;
+    padding: 5px 10px;
+    vertical-align: middle;
+    white-space: nowrap;
+    display: inline-block;
+    font-weight: 500;
+
+    &.badge--success {
+        background-color:#b2d86a;
+        color:#4d6110
+    }
+    &.badge--attention {
+        background-color: #FFE477;
+        color: #6F4F0C;
+    }
+
+    &.badge--default {
+        background-color: $gray-lighter;
+        color: $gray;
+    }
+}
