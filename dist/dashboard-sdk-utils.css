@@ -2493,6 +2493,8 @@ hr {
     border-top: 0;
     padding-left: 10px;
     padding-right: 10px; }
+  .table > tbody > tr.selected > td, .table > tbody > tr.selected > td:hover {
+    background: #FFFBE9; }
   .table > tfoot .summary {
     margin-top: 20px;
     display: block;
@@ -2527,16 +2529,19 @@ hr {
       .table > tfoot .pagination > li:last-child a {
         border-top-right-radius: 2px;
         border-bottom-right-radius: 2px; }
-  .table:not(.table-hover) tr > td:first-child,
-  .table:not(.table-hover) tr > th:first-child {
+  .table:not(.table--hover) tr > td:first-child,
+  .table:not(.table--hover) tr > th:first-child {
     padding-left: 0; }
-  .table:not(.table-hover) tr > td:last-child,
-  .table:not(.table-hover) tr > th:last-child {
+  .table:not(.table--hover) tr > td:last-child,
+  .table:not(.table--hover) tr > th:last-child {
     padding-right: 0; }
-  .table.table-hover tbody > tr:hover td {
+  .table.table--hover tbody > tr:hover td {
     background: #eff9fd; }
-  .table.table-striped > tbody > tr:nth-of-type(odd) {
+  .table.table--striped > tbody > tr:nth-of-type(odd) {
     background-color: #fafbfc; }
+  .table.table--condensed td, .table.table--condensed th {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important; }
 
 /* ==========================================================================
    Modal windows based on ngDialog
@@ -3141,8 +3146,7 @@ body.ngdialog-open .ngdialog-overlay {
   padding: 5px 10px;
   vertical-align: middle;
   white-space: nowrap;
-  display: inline-block;
-  font-weight: 500; }
+  display: inline-block; }
   .badge.badge--success {
     background-color: #b2d86a;
     color: #4d6110; }
