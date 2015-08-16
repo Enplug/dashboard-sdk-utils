@@ -1820,19 +1820,19 @@ a {
 .text-glr {
   color: #eef1f3; }
 
-.hover-gdr {
+.hover-gdr:hover {
   color: #2a3239; }
 
-.hover-gd {
+.hover-gd:hover {
   color: #4a5965; }
 
-.hover-g {
+.hover-g:hover {
   color: #798c9c; }
 
-.hover-gl {
+.hover-gl:hover {
   color: #96a5b2; }
 
-.hover-glr {
+.hover-glr:hover {
   color: #eef1f3; }
 
 .text-reset {
@@ -2158,8 +2158,23 @@ a {
 
 /* Background helpers
 ========================================================================== */
+.bg-glr {
+  background-color: #eef1f3 !important; }
+
+.bg-gl {
+  background-color: #96a5b2 !important; }
+
 .bg-g {
   background-color: #f7f8f9 !important; }
+
+.bg-gray {
+  background-color: #798c9c !important; }
+
+.bg-gd {
+  background-color: #4a5965 !important; }
+
+.bg-gdr {
+  background-color: #2a3239 !important; }
 
 /* Custom slim scrollbar
 ========================================================================== */
@@ -2224,22 +2239,13 @@ hr {
 
 .card {
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 12px 2px 2px 2px;
+  margin: 10px 0;
   /* Content
     ========================================================================== */
   /* Sidebar content
     ========================================================================== */ }
-  .card.card-form .card-content {
-    padding: 30px; }
-  .card .card-heading {
-    font-weight: 400;
-    font-size: 21px;
-    margin: 0;
-    padding: 0; }
-  .card .card-section {
-    padding: 20px; }
   .card .card-content {
     position: relative;
     padding: 30px; }
@@ -2370,17 +2376,17 @@ hr {
     box-shadow: none;
     background: #fafbfc !important;
     color: #96a5b2 !important;
-    border: 1px solid #d3dbe2 !important;
+    border-color: #d3dbe2 !important;
     transition: none; }
     .btn:disabled:active, .btn[disabled]:active, .btn.disabled:active {
       box-shadow: none !important; }
   .btn.btn-default {
     background: #fff;
     color: #4078c0;
-    border: 1px solid #d3dbe2; }
+    border-color: #d3dbe2; }
     .btn.btn-default:hover, .btn.btn-default:active, .btn.btn-default.active, .btn.btn-default:focus, .btn.btn-default.focus {
       color: #4078c0;
-      border: 1px solid #d3dbe2;
+      border-color: #d3dbe2;
       background-color: #f5f6f7;
       text-decoration: none;
       outline: none; }
@@ -2404,6 +2410,25 @@ hr {
   .btn.btn-icon.btn-sm {
     font-size: 15px;
     padding: 5px 8px; }
+
+/* Button groups
+========================================================================== */
+.btn-group {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .btn-group .btn {
+    border-right-width: 0; }
+  .btn-group .btn:first-of-type {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0; }
+  .btn-group .btn:last-of-type {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-right-width: 1px; }
 
 /* ==========================================================================
    Tables based on Bootstrap 3
@@ -3000,6 +3025,20 @@ body.ngdialog-open .ngdialog-overlay {
   -webkit-align-items: stretch;
       -ms-flex-align: stretch;
           align-items: stretch; }
+  .tab-list:not(.no-stretch):after {
+    content: '';
+    display: block;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    box-shadow: 0 1px 0 #ebeef0; }
+  .tab-list.no-stretch li:last-of-type {
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; }
   .tab-list li {
     position: relative;
     display: -webkit-flex;
@@ -3035,8 +3074,7 @@ body.ngdialog-open .ngdialog-overlay {
       color: #798c9c;
       text-align: center;
       cursor: pointer;
-      font-weight: normal;
-      box-shadow: 0 1px 0 #ebeef0; }
+      font-weight: normal; }
       .tab-list li a:focus, .tab-list li a:hover {
         outline: none;
         color: #4078c0;
@@ -3075,13 +3113,6 @@ body.ngdialog-open .ngdialog-overlay {
         left: 0;
         width: 100%;
         cursor: pointer; }
-  .tab-list:after {
-    content: '';
-    display: block;
-    -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    box-shadow: 0 1px 0 #ebeef0; }
 
 /* Forms
 ========================================================================== */

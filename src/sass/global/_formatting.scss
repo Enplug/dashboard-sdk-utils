@@ -137,7 +137,12 @@ $padding-sm:    5px;
 
 /* Background helpers
 ========================================================================== */
+.bg-glr         { background-color: $gray-lighter !important; }
+.bg-gl          { background-color: $gray-light !important; }
 .bg-g           { background-color: $gray-bg !important; }
+.bg-gray        { background-color: $gray !important; }
+.bg-gd          { background-color: $gray-dark !important; }
+.bg-gdr         { background-color: $gray-darker !important; }
 
 /* Custom slim scrollbar
 ========================================================================== */

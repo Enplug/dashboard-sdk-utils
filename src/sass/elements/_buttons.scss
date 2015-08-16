@@ -8,7 +8,7 @@
     white-space: nowrap;
     vertical-align: middle;
     user-select: none;
-    border: 1px solid transparent; // FIXME: do we need this?
+    border: 1px solid transparent;
     padding: 8.5px 15px;
     height: auto;
     border-radius: $border-radius;
@@ -44,7 +44,7 @@
         box-shadow: none;
         background: #fafbfc !important;
         color: $gray-light !important;
-        border: 1px solid #d3dbe2 !important;
+        border-color: #d3dbe2 !important;
         transition: none; // Keeps it from flashing when first showing up as disabled
         &:active {
             box-shadow: none !important;
@@ -56,10 +56,10 @@
     &.btn-default {
         background: #fff;
         color: $brand-primary;
-        border: 1px solid #d3dbe2;
+        border-color: #d3dbe2;
         &:hover, &:active, &.active, &:focus, &.focus {
             color: $brand-primary;
-            border: 1px solid #d3dbe2;
+            border-color: #d3dbe2;
             background-color: #f5f6f7;
             text-decoration: none;
             outline: none;
@@ -102,5 +102,24 @@
             font-size: 15px;
             padding: 5px 8px;
         }
+    }
+}
+
+/* Button groups
+========================================================================== */
+.btn-group {
+    display: flex;
+    align-items: center;
+    .btn {
+        border-right-width: 0;
+    }
+    .btn:first-of-type {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .btn:last-of-type {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-right-width: 1px;
     }
 }

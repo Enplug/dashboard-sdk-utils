@@ -119,11 +119,11 @@ a {
 .text-gl            { color: $gray-light; }
 .text-glr           { color: $gray-lighter; }
 
-.hover-gdr           { color: $gray-darker; }
-.hover-gd            { color: $gray-dark; }
-.hover-g             { color: $gray; }
-.hover-gl            { color: $gray-light; }
-.hover-glr           { color: $gray-lighter; }
+.hover-gdr:hover    { color: $gray-darker; }
+.hover-gd:hover     { color: $gray-dark; }
+.hover-g:hover      { color: $gray; }
+.hover-gl:hover     { color: $gray-light; }
+.hover-glr:hover    { color: $gray-lighter; }
 
 
 .text-reset         { font-size: $text-size !important; color: $gray-darker !important; }

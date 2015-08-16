@@ -9,6 +9,21 @@
     display: flex;
     align-items: stretch;
 
+    &:not(.no-stretch):after {
+        // Finishes the border
+        content: '';
+        display: block;
+        flex-grow: 1;
+        box-shadow: 0 1px 0 $border-color;
+    }
+
+    &.no-stretch {
+        li:last-of-type {
+            flex-grow: 1;
+            justify-content: flex-end;
+        }
+    }
+
     li {
         position: relative;
         display: flex;
@@ -30,7 +45,6 @@
             text-align: center;
             cursor: pointer;
             font-weight: normal;
-            box-shadow: 0 1px 0 $border-color;
             &:focus, &:hover {
                 outline: none;
                 color: $brand-primary;
@@ -75,13 +89,5 @@
                 cursor: pointer;
             }
         }
-    }
-
-    &:after {
-        // Finishes the border
-        content: '';
-        display: block;
-        flex-grow: 1;
-        box-shadow: 0 1px 0 $border-color;
     }
 }

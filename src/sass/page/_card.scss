@@ -16,30 +16,9 @@
 
 .card {
     background-color: #fff;
-    border-radius: 3px;
+    border-radius: $border-radius;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 12px 2px 2px 2px; // matches y offset for shadow, for apps in iFrame
-
-    &.card-form {
-        .card-content {
-            padding: 30px;
-        }
-    }
-
-    .card-heading {
-        font-weight: 400;
-        font-size: 21px;
-        margin: 0;
-        padding: 0;
-    }
-
-    .card-section {
-        padding: 20px;
-    }
-
-    .section-title {
-
-    }
+    margin: 10px 0; // matches y offset for shadow, for apps in iFrame
 
     /* Content
     ========================================================================== */
