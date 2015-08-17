@@ -3124,7 +3124,7 @@ body.ngdialog-open .ngdialog-overlay {
         .tab-list li.tab-select span:after {
           font-family: 'Ionicons';
           content: '\f123';
-          margin-left: 5px;
+          margin-left: 10px;
           font-size: 12px;
           color: #479CCF; }
       .tab-list li.tab-select select {
