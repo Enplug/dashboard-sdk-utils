@@ -2365,7 +2365,7 @@ hr {
   font-weight: 500;
   line-height: 1;
   font-size: 13px;
-  transition: all 0.15s ease-out;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
   /* Disabled state for all buttons defaults to white
     ========================================================================== */
   /* Default buttons

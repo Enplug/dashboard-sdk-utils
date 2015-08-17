@@ -15,7 +15,8 @@
     font-weight: 500;
     line-height: 1;
     font-size: $text-size;
-    transition: all $transition-speed $transition-timing;
+    transition: background-color $transition-speed $transition-timing,
+                color $transition-speed $transition-timing;
 
     span {
         transition: none;
