@@ -80,6 +80,11 @@
             background-color: darken($brand-primary, 5);
             border-color: darken($brand-primary, 5);
         }
+        &:active {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) inset;
+            background-color: darken($brand-primary, 5);
+            border-color: darken($brand-primary, 5);
+        }
     }
 
 
@@ -90,6 +95,11 @@
         border-color: $brand-danger;
         color: #fff;
         &:hover {
+            background-color: darken($brand-danger, 5);
+            border-color: darken($brand-danger, 5);
+        }
+        &:active {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) inset;
             background-color: darken($brand-danger, 5);
             border-color: darken($brand-danger, 5);
         }

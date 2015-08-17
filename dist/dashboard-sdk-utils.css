@@ -2417,11 +2417,19 @@ hr {
     .btn.btn-primary:hover {
       background-color: #3491c8;
       border-color: #3491c8; }
+    .btn.btn-primary:active {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) inset;
+      background-color: #3491c8;
+      border-color: #3491c8; }
   .btn.btn-danger {
     background-color: #ff5d5d;
     border-color: #ff5d5d;
     color: #fff; }
     .btn.btn-danger:hover {
+      background-color: #ff4343;
+      border-color: #ff4343; }
+    .btn.btn-danger:active {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) inset;
       background-color: #ff4343;
       border-color: #ff4343; }
   .btn.btn-icon.btn-sm {
@@ -2783,7 +2791,7 @@ body.ngdialog-open .ngdialog-overlay {
       .glossaryTip .tip .tip-content a {
         font-weight: normal !important;
         padding-bottom: 20px !important;
-        font-size: 12px !important; }
+        font-size: 14px !important; }
         .glossaryTip .tip .tip-content a:hover {
           text-decoration: underline !important; }
       .glossaryTip .tip .tip-content .tipArrow {
