@@ -59,17 +59,15 @@ angular.module('enplug.sdk.utils').directive('statusButton', ['$log', '$timeout'
                         $log.warn('Status button function condition must return promise.');
                     }
                 });
-
-            // If boolean, watch the property
-            } else if (typeof scope.condition === 'boolean') {
+            // If promise, wait for it to complete
+            } else if (isPromise(scope.condition)) {
+                handlePromise(scope.condition);
+            } else {
+                // Assume boolean
                 scope.isLoading = scope.condition;
                 scope.$watch('condition', function (val) {
                     scope.isLoading = val;
                 });
-
-            // If promise, wait for it to complete
-            } else if (isPromise(scope.condition)) {
-                handlePromise(scope.condition);
             }
         }
     }
