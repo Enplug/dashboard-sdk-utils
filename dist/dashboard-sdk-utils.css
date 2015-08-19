@@ -2176,6 +2176,9 @@ a {
 .bg-gdr {
   background-color: #2a3239 !important; }
 
+.bg-danger {
+  background-color: #ff5d5d !important; }
+
 /* Custom slim scrollbar
 ========================================================================== */
 .scroll::-webkit-scrollbar-thumb {
