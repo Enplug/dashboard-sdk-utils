@@ -83,6 +83,7 @@ a {
 /* Text transformations
 ========================================================================== */
 .text-sm            { font-size: $text-sm; }
+.text-base          { font-size: $text-size; }
 .text-md            { font-size: $text-md; }
 .text-lg            { font-size: $text-lg; }
 
@@ -124,6 +125,7 @@ a {
 .hover-g:hover      { color: $gray; }
 .hover-gl:hover     { color: $gray-light; }
 .hover-glr:hover    { color: $gray-lighter; }
+.hover-p:hover      { color: $brand-primary; }
 
 
 .text-reset         { font-size: $text-size !important; color: $gray-darker !important; }

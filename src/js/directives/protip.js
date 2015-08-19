@@ -12,6 +12,7 @@
 angular.module('enplug.sdk.utils').directive('proTip', function ($log, ProTips) {
     return {
         restrict: 'E',
+        replace: true,
         templateUrl: 'sdk-utils/protip.tpl',
         link: function ($scope, $element, $attrs) {
             // Todo take link position in protip config into account

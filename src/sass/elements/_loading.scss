@@ -2,6 +2,10 @@
    SVG loading indicator
    ========================================================================== */
 
+.loading-wrapper {
+    display: block;
+}
+
 .loading-directive {
     height: 100px;
     display: flex;

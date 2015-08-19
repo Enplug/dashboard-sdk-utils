@@ -8,7 +8,7 @@
     <span class="tip" ng-class="::config.position">
         <span class="tip-content radius shadow">
             <span ng-if="config.title" class="tipTitle text-gd" ng-bind="::config.title"></span>
-            <span class="tipBody text-reset" ng-bind="::config.text" ng-class="{ pv: !config.title }"></span>
+            <span class="tipBody text-reset" ng-bind="::config.text" ng-class="{ pt: !config.title, pb: !config.link }"></span>
             <a ng-if="::config.link" class="link-reset" ng-href="{{ ::config.link.location }}" ng-bind="::config.link.title"></a>
             <span class="tipArrow"></span>
         </span>

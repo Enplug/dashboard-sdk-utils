@@ -8,7 +8,7 @@
 angular.module('enplug.sdk.utils').directive('materialRadio', ['$log', '$compile', function ($log, $compile) {
     'use strict';
 
-    var ignoreAttributes = ['class', 'field'];
+    var ignoreAttributes = ['class', 'field', 'label', 'ng-if', 'ng-show', 'ng-hide', 'ng-repeat'];
 
     return {
         restrict: 'E',
@@ -16,15 +16,22 @@ angular.module('enplug.sdk.utils').directive('materialRadio', ['$log', '$compile
             model: '=field'
         },
         transclude: true,
+        replace: true,
         templateUrl: 'sdk-utils/material-radio.tpl',
         link: function (scope, element, attrs) {
 
+            element.addClass('material-radio');
+
             var input = element.find('input')[0];
 
-            scope.name = attrs.name;
-            scope.value = attrs.value;
-            element.removeAttr('name');
-            element.removeAttr('value');
+            // Copy attributes over to input
+            angular.forEach(attrs, function (value, _attr) {
+                var attr = _attr.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+                if (attr.indexOf('$') === -1 && ignoreAttributes.indexOf(attr) === -1) {
+                    element.removeAttr(attr);
+                    input.setAttribute(attr, value);
+                }
+            });
 
             $compile(input)(scope);
         }

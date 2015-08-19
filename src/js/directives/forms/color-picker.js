@@ -13,7 +13,8 @@ angular.module('enplug.sdk.utils').directive('colorPicker', [function () {
         transclude: true,
         replace: true,
         scope: {
-            hex: '=ngModel'
+            hex: '=ngModel',
+            onChange: '='
         },
         templateUrl: 'sdk-utils/color-picker.tpl',
         link: function (scope, element, attr, ngModel) {
@@ -43,9 +44,13 @@ angular.module('enplug.sdk.utils').directive('colorPicker', [function () {
              * @param bySetColor
              */
             function onChange(hsb, hex, rgb, el, bySetColor) {
+
                 // handle on change
                 scope.$apply(function () {
                     ngModel.$setViewValue(hex);
+
+                    // scope callback
+                    scope.onChange && scope.onChange(hex);
                 });
 
                 // call user-supplied fn if exists

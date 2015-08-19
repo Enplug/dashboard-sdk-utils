@@ -47,6 +47,9 @@
                     }
                 }
             }
+            &.active td {
+                background-color: #fafbfc;
+            }
         }
     }
 
@@ -141,9 +144,13 @@
     }
 
     &.table--condensed {
-        td, th {
+        td {
             padding-top: 4px !important;
             padding-bottom: 4px !important;
+        }
+        th {
+            padding-top: 4px !important;
+            padding-bottom: 8px !important;
         }
     }
 }

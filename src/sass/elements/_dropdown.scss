@@ -3,26 +3,56 @@
 
     &.open {
         .dropdown-menu {
-        //    display: block;
+            //    display: block;
             max-height: 500px;
+            z-index: 3000;
             opacity: 1;
             .menu-content {
-                transform: translate3d(0,0,0);
+                transform: translate3d(0, 0, 0);
             }
         }
+    }
+
+    &.open.closing .dropdown-menu, & .dropdown-menu {
+        opacity: 0;
+        max-height: 0;
+        .menu-content {
+            transform: translate3d(0, -20px, 0);
+        }
+    }
+
+    .dropdown-toggle {
+        cursor: pointer;
+        user-select: none;
     }
     .dropdown-menu {
     //    display: none;
 
+        &:not(.custom) {
+            //    margin-top: -40px;
+            padding: 0 30px 20px 30px;
+            .menu-content {
+                //    min-width: 100px;
+                white-space: nowrap;
+            }
+        }
+
         position: absolute;
         display: block;
-        z-index: 3000;
+        z-index: -1;
         top: 100%;
+        left: -20px;
+        right: auto;
         background: #fff;
-        max-height: 0;
+
         transition: all 300ms cubic-bezier(.7,0,.3,1);
-        opacity: 0;
+
         overflow: hidden;
+
+        &.left {
+            left: auto;
+            right: -15px;
+        }
 
      //   padding-top: 20px;
     //    margin-top: 60px;
@@ -32,15 +62,25 @@
 
         .menu-content {
             padding-top: 20px;
-            transform: translate3d(0, -20px, 0);
             transition: all 300ms cubic-bezier(.7,0,.3,1);
             overflow: hidden;
             display: block;
-            .items {
-                height: 300px;
+        }
+
+        .items {
+            line-height: 2;
+            a {
                 display: block;
-                list-style-type: none;
-                line-height: 1.5;
+                font-weight: normal;
+                font-size: 15px;
+                color: $gray-dark;
+                &.text-gl {
+                    color: $gray-light
+                }
+                &:hover {
+                    color: $brand-primary;
+                    text-decoration: none;
+                }
             }
         }
     }

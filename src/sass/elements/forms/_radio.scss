@@ -10,6 +10,7 @@
         label {
             position: relative;
             font-size: $radio-label-text-size;
+            padding-left: 22px;
             // Hide native radio
             input[type=radio] {
                 opacity: 0;

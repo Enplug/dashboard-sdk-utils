@@ -747,6 +747,9 @@ angular.module('enplug.sdk.utils').directive('dropdownMenu', function () {
                 if (target.attr('href') || target.parent().attr('href')) {
                     scope.$emit('dropdown:toggle');
                 }
+                scope.$apply(function () {
+                    scope.$emit('dropdown:click');
+                });
             });
         }
     }
@@ -778,26 +781,42 @@ angular.module('enplug.sdk.utils').directive('dropdownToggle', function () {
  * @module enplug.sdk.utils
  *
  */
-angular.module('enplug.sdk.utils').directive('dropdown', function ($document) {
+angular.module('enplug.sdk.utils').directive('dropdown', function ($document, $timeout) {
     return {
         scope: true,
         link: function (scope, element) {
-            element.addClass('dropdown-wrap');
-            angular.element(element[0].querySelector('.root')).on('click', function () {
-                if (element.hasClass('open')) {
-                    element.removeClass('open');
-                } else {
-                    element.addClass('open');
-                }
-            });
 
-            function closeDropdown(event) {
-                if (!element[0].contains(event.target)) {
+            element.addClass('dropdown-wrap');
+
+            function closeDropdown() {
+                element.addClass('closing');
+                $timeout(function () {
                     element.removeClass('open');
+                    element.removeClass('closing');
+                    $document.off('click', closeDropdown);
+                }, 300);
+            }
+
+            // Event emitted by the dropdown-toggle directive
+            scope.$on('dropdown:toggle', toggle);
+            scope.$on('dropdown:click', toggle);
+
+            function toggle() {
+                if (element.hasClass('open')) {
+                    closeDropdown();
+                } else {
+                    open();
                 }
             }
 
-            $document.on('click', closeDropdown);
+            function open() {
+                element.addClass('open');
+                $document.on('click', function (event) {
+                    if (!element[0].contains(event.target)) {
+                        closeDropdown();
+                    }
+                });
+            }
 
             scope.$on('$destroy', function () {
                 $document.off('click', closeDropdown);
@@ -821,7 +840,8 @@ angular.module('enplug.sdk.utils').directive('colorPicker', [function () {
         transclude: true,
         replace: true,
         scope: {
-            hex: '=ngModel'
+            hex: '=ngModel',
+            onChange: '='
         },
         templateUrl: 'sdk-utils/color-picker.tpl',
         link: function (scope, element, attr, ngModel) {
@@ -851,9 +871,13 @@ angular.module('enplug.sdk.utils').directive('colorPicker', [function () {
              * @param bySetColor
              */
             function onChange(hsb, hex, rgb, el, bySetColor) {
+
                 // handle on change
                 scope.$apply(function () {
                     ngModel.$setViewValue(hex);
+
+                    // scope callback
+                    scope.onChange && scope.onChange(hex);
                 });
 
                 // call user-supplied fn if exists
@@ -1110,7 +1134,7 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
 angular.module('enplug.sdk.utils').directive('materialRadio', ['$log', '$compile', function ($log, $compile) {
     'use strict';
 
-    var ignoreAttributes = ['class', 'field'];
+    var ignoreAttributes = ['class', 'field', 'label', 'ng-if', 'ng-show', 'ng-hide', 'ng-repeat'];
 
     return {
         restrict: 'E',
@@ -1118,15 +1142,22 @@ angular.module('enplug.sdk.utils').directive('materialRadio', ['$log', '$compile
             model: '=field'
         },
         transclude: true,
+        replace: true,
         templateUrl: 'sdk-utils/material-radio.tpl',
         link: function (scope, element, attrs) {
 
+            element.addClass('material-radio');
+
             var input = element.find('input')[0];
 
-            scope.name = attrs.name;
-            scope.value = attrs.value;
-            element.removeAttr('name');
-            element.removeAttr('value');
+            // Copy attributes over to input
+            angular.forEach(attrs, function (value, _attr) {
+                var attr = _attr.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+                if (attr.indexOf('$') === -1 && ignoreAttributes.indexOf(attr) === -1) {
+                    element.removeAttr(attr);
+                    input.setAttribute(attr, value);
+                }
+            });
 
             $compile(input)(scope);
         }
@@ -1292,7 +1323,9 @@ angular.module('enplug.sdk.utils').directive('loading', [function() {
         scope: {
             isLoading: '=condition'
         },
-        link: function(scope) {
+        link: function(scope, element) {
+
+            element.addClass('loading-wrapper');
 
             // If boolean, watch the property
             if (typeof scope.isLoading === 'boolean') {
@@ -1391,6 +1424,7 @@ angular.module('enplug.sdk.utils').directive('notice', function () {
 angular.module('enplug.sdk.utils').directive('proTip', function ($log, ProTips) {
     return {
         restrict: 'E',
+        replace: true,
         templateUrl: 'sdk-utils/protip.tpl',
         link: function ($scope, $element, $attrs) {
             // Todo take link position in protip config into account
@@ -1418,8 +1452,9 @@ angular.module('enplug.sdk.utils').directive('proTip', function ($log, ProTips) 
  * @description easy showing/hiding of loading indicator in a button based on bool, promise, or function returned promise
  *
  * @param condition {function|promise|boolean} the condition to wait for showing the loading indicator.
+ * @param action {function} the click action which can take parameters and should return a promise
  */
-angular.module('enplug.sdk.utils').directive('statusButton', ['$log', '$timeout', function ($log, $timeout) {
+angular.module('enplug.sdk.utils').directive('statusButton', function ($log, $timeout) {
     'use strict';
 
     // TODO: animate the icons a bit
@@ -1434,11 +1469,32 @@ angular.module('enplug.sdk.utils').directive('statusButton', ['$log', '$timeout'
         restrict: 'E',
         replace: true,
         scope: {
-            condition: '=condition'
+            condition: '=condition',
+            action: '&'
         },
         transclude: true,
         templateUrl: 'sdk-utils/status-button.tpl',
         link: function (scope, element, attrs) {
+
+            // Assign default classes
+            if (!element.hasClass('btn')) {
+                element.addClass('btn');
+                element.addClass('btn-default');
+            }
+
+            // Allow ng-click style function calls with parameters
+            if (scope.action) {
+                element.bind('click', function (event, data) {
+                    scope.$apply(function () {
+                        var promise = scope.action({ data: data });
+                        if (isPromise(promise)) {
+                            handlePromise(promise);
+                        } else {
+                            $log.warn('Status button action must return a promise.');
+                        }
+                    });
+                });
+            }
 
             function handlePromise(promise) {
                 scope.isLoading = true;
@@ -1456,27 +1512,8 @@ angular.module('enplug.sdk.utils').directive('statusButton', ['$log', '$timeout'
                 });
             }
 
-            // Assign default classes
-            if (!element.hasClass('btn')) {
-                element.addClass('btn');
-                element.addClass('btn-default');
-            }
-
-            // If function, bind to click
-            if (typeof scope.condition === 'function') {
-                element.bind('click', function () {
-                    var promise = scope.condition();
-                    if (isPromise(promise)) {
-                        handlePromise(promise);
-                    } else {
-                        $log.warn('Status button function condition must return promise.');
-                    }
-                });
-            // If promise, wait for it to complete
-            } else if (isPromise(scope.condition)) {
-                handlePromise(scope.condition);
-            } else {
-                // Assume boolean
+            // Watch a property for changes
+            if (typeof attrs.condition !== 'undefined') {
                 scope.isLoading = scope.condition;
                 scope.$watch('condition', function (val) {
                     scope.isLoading = val;
@@ -1484,7 +1521,7 @@ angular.module('enplug.sdk.utils').directive('statusButton', ['$log', '$timeout'
             }
         }
     }
-}]);
+});
 
 angular.module('enplug.sdk.utils').filter('stNestedSearch', [function() {
 
@@ -1747,13 +1784,13 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/material-input.tpl",
         "<input id=\"{{ ::id }}\" class=form-control ng-model=model ng-class=\"{ active: model }\" ng-model-options=\"{ allowInvalid: true, debounce: 100 }\"><label for=\"{{ ::id }}\" ng-bind=::label></label><div class=validation ng-messages=formField.$error ng-if=formField.$dirty><span class=text-danger ng-message=required>This is required.</span> <span class=text-danger ng-message=email>Please enter a valid email address.</span> <span class=text-danger ng-message=url>Please enter a valid URL starting with http:// or https://</span> <span class=text-danger ng-message=equals>Passwords must match.</span></div>");
     $templateCache.put("sdk-utils/material-radio.tpl",
-        "<div class=radio><label><input type=radio name=\"{{ name }}\" value=\"{{ value }}\" ng-model=model> <span class=radio-on></span> <span class=radio-off></span><ng-transclude></ng-transclude></label></div>");
+        "<div class=radio><label><input type=radio ng-model=model> <span class=radio-on></span> <span class=radio-off></span><ng-transclude></ng-transclude></label></div>");
     $templateCache.put("sdk-utils/material-select.tpl",
         "<span class=form-label ng-bind=label></span><select ng-model=model></select>");
     $templateCache.put("sdk-utils/protip.tpl",
-        "<div class=\"pro-tip pt-xl pb mt-xl tc\"><i class=\"ion-flash text-primary\"></i> <strong>ProTip:</strong> <span ng-bind=::config.tip></span> <a ng-if=::config.link dynamic-click=::config.link.action dynamic-href=::config.link.location ng-bind=::config.link.text></a></div>");
+        "<div class=pro-tip><i class=\"ion-flash text-primary\"></i> <strong>ProTip:</strong> <span ng-bind=::config.tip></span> <a ng-if=::config.link dynamic-click=::config.link.action dynamic-href=::config.link.location ng-bind=::config.link.text></a></div>");
     $templateCache.put("sdk-utils/status-button.tpl",
         "<button class=status-button><i class=ion-load-a ng-show=isLoading></i> <i class=ion-checkmark-circled ng-show=\"!isLoading && success\"></i> <i class=ion-alert-circled ng-show=\"!isLoading && error\"></i><ng-transclude></ng-transclude></button>");
     $templateCache.put("sdk-utils/tooltip.tpl",
-        "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=\"tipText text-gray-light\" ng-show=::config.tooltip ng-bind=::config.tooltip></span> <span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span ng-if=config.title class=\"tipTitle text-gd\" ng-bind=::config.title></span> <span class=\"tipBody text-reset\" ng-bind=::config.text ng-class=\"{ pv: !config.title }\"></span> <a ng-if=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" ng-bind=::config.link.title></a> <span class=tipArrow></span></span></span></span>");
+        "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=\"tipText text-gray-light\" ng-show=::config.tooltip ng-bind=::config.tooltip></span> <span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span ng-if=config.title class=\"tipTitle text-gd\" ng-bind=::config.title></span> <span class=\"tipBody text-reset\" ng-bind=::config.text ng-class=\"{ pt: !config.title, pb: !config.link }\"></span> <a ng-if=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" ng-bind=::config.link.title></a> <span class=tipArrow></span></span></span></span>");
 }]);

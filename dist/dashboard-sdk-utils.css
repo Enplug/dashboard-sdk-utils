@@ -1736,6 +1736,9 @@ a {
 .text-sm {
   font-size: 11px; }
 
+.text-base {
+  font-size: 13px; }
+
 .text-md {
   font-size: 16px; }
 
@@ -1834,6 +1837,9 @@ a {
 
 .hover-glr:hover {
   color: #eef1f3; }
+
+.hover-p:hover {
+  color: #4078C0; }
 
 .text-reset {
   font-size: 13px !important;
@@ -2108,6 +2114,9 @@ a {
 .b, .ba {
   border: 1px solid #ebeef0 !important; }
 
+.b-p {
+  border-color: #4078C0 !important; }
+
 /* Border radius
 ========================================================================== */
 .radius {
@@ -2250,14 +2259,15 @@ hr {
 /* ==========================================================================
    Card - standard content module
    ========================================================================== */
-.section-summary h3 {
-  font-size: 20px;
-  font-weight: normal;
-  margin-bottom: 15px; }
-
-.section-summary p {
-  color: #798c9c;
-  margin-bottom: 15px; }
+.section-summary {
+  margin-top: 15px; }
+  .section-summary h3 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 15px; }
+  .section-summary p {
+    color: #798c9c;
+    margin-bottom: 15px; }
 
 .card {
   background-color: #fff;
@@ -2310,7 +2320,8 @@ hr {
    Empty page format. Should be used in place of a card when no content.
    ========================================================================== */
 .blank-slate {
-  text-align: center; }
+  text-align: center;
+  margin-top: 20px; }
   .blank-slate h2 {
     padding: 5px 0 35px 0;
     margin: 0;
@@ -2386,6 +2397,8 @@ hr {
   .btn.btn-lg {
     padding: 15px 50px;
     font-size: 16px; }
+  .btn.btn-sm {
+    padding: 5px 8px; }
   .btn.btn-admin:before {
     font-family: "Ionicons";
     content: "\f2ad";
@@ -2505,6 +2518,8 @@ hr {
         .table > thead > tr th.sortable.sort-ascent:after, .table > thead > tr th.sortable.st-sort-ascent:after, .table > thead > tr th[st-sort].sort-ascent:after, .table > thead > tr th[st-sort].st-sort-ascent:after {
           -webkit-transform: rotate(180deg);
                   transform: rotate(180deg); }
+  .table > thead > tr.active td {
+    background-color: #fafbfc; }
   .table > tbody > tr > td {
     vertical-align: middle;
     border-bottom: 1px solid #ebeef0;
@@ -2557,9 +2572,12 @@ hr {
     background: #eff9fd; }
   .table.table--striped > tbody > tr:nth-of-type(odd) {
     background-color: #fafbfc; }
-  .table.table--condensed td, .table.table--condensed th {
+  .table.table--condensed td {
     padding-top: 4px !important;
     padding-bottom: 4px !important; }
+  .table.table--condensed th {
+    padding-top: 4px !important;
+    padding-bottom: 8px !important; }
 
 /* ==========================================================================
    Modal windows based on ngDialog
@@ -2883,6 +2901,9 @@ body.ngdialog-open .ngdialog-overlay {
 /* ==========================================================================
    SVG loading indicator
    ========================================================================== */
+.loading-wrapper {
+  display: block; }
+
 .loading-directive {
   height: 100px;
   display: -webkit-flex;
@@ -2955,33 +2976,58 @@ body.ngdialog-open .ngdialog-overlay {
   position: relative; }
   .dropdown-wrap.open .dropdown-menu {
     max-height: 500px;
+    z-index: 3000;
     opacity: 1; }
     .dropdown-wrap.open .dropdown-menu .menu-content {
       -webkit-transform: translate3d(0, 0, 0);
               transform: translate3d(0, 0, 0); }
+  .dropdown-wrap.open.closing .dropdown-menu, .dropdown-wrap .dropdown-menu {
+    opacity: 0;
+    max-height: 0; }
+    .dropdown-wrap.open.closing .dropdown-menu .menu-content, .dropdown-wrap .dropdown-menu .menu-content {
+      -webkit-transform: translate3d(0, -20px, 0);
+              transform: translate3d(0, -20px, 0); }
+  .dropdown-wrap .dropdown-toggle {
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
   .dropdown-wrap .dropdown-menu {
     position: absolute;
     display: block;
-    z-index: 3000;
+    z-index: -1;
     top: 100%;
+    left: -20px;
+    right: auto;
     background: #fff;
-    max-height: 0;
     transition: all 300ms cubic-bezier(0.7, 0, 0.3, 1);
-    opacity: 0;
     overflow: hidden;
     box-shadow: 0 0 0 1px rgba(39, 44, 48, 0.05), 0 2px 7px 1px rgba(39, 44, 48, 0.16); }
+    .dropdown-wrap .dropdown-menu:not(.custom) {
+      padding: 0 30px 20px 30px; }
+      .dropdown-wrap .dropdown-menu:not(.custom) .menu-content {
+        white-space: nowrap; }
+    .dropdown-wrap .dropdown-menu.left {
+      left: auto;
+      right: -15px; }
     .dropdown-wrap .dropdown-menu .menu-content {
       padding-top: 20px;
-      -webkit-transform: translate3d(0, -20px, 0);
-              transform: translate3d(0, -20px, 0);
       transition: all 300ms cubic-bezier(0.7, 0, 0.3, 1);
       overflow: hidden;
       display: block; }
-      .dropdown-wrap .dropdown-menu .menu-content .items {
-        height: 300px;
+    .dropdown-wrap .dropdown-menu .items {
+      line-height: 2; }
+      .dropdown-wrap .dropdown-menu .items a {
         display: block;
-        list-style-type: none;
-        line-height: 1.5; }
+        font-weight: normal;
+        font-size: 15px;
+        color: #4a5965; }
+        .dropdown-wrap .dropdown-menu .items a.text-gl {
+          color: #96a5b2; }
+        .dropdown-wrap .dropdown-menu .items a:hover {
+          color: #4078C0;
+          text-decoration: none; }
 
 @-webkit-keyframes dropdown {
   0% {
@@ -3075,7 +3121,10 @@ body.ngdialog-open .ngdialog-overlay {
             flex-grow: 1;
     -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
-            justify-content: flex-end; }
+            justify-content: flex-end;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
   .tab-list li {
     position: relative;
     display: -webkit-flex;
@@ -3090,7 +3139,8 @@ body.ngdialog-open .ngdialog-overlay {
     -webkit-align-items: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
-    box-shadow: 0 1px 0 #ebeef0; }
+    box-shadow: 0 1px 0 #ebeef0;
+    text-transform: capitalize; }
     .tab-list li a {
       position: relative;
       -webkit-flex-grow: 1;
@@ -3174,6 +3224,12 @@ body.ngdialog-open .ngdialog-overlay {
   .badge.badge--default {
     background-color: #eef1f3;
     color: #798c9c; }
+
+.pro-tip {
+  padding-top: 30px;
+  margin-top: 30px;
+  text-align: center;
+  padding-bottom: 10px; }
 
 /* Forms
 ========================================================================== */
@@ -3455,7 +3511,8 @@ body.ngdialog-open .ngdialog-overlay {
 
 .form-material .radio label {
   position: relative;
-  font-size: 14px; }
+  font-size: 14px;
+  padding-left: 22px; }
   .form-material .radio label input[type=radio] {
     opacity: 0;
     position: absolute;
@@ -3534,7 +3591,6 @@ body.ngdialog-open .ngdialog-overlay {
   .colpick.colpick_hex .colpick_color_overlay1,
   .colpick.colpick_hex .colpick_color_overlay2 {
     outline: none;
-    border-radius: 2px;
     cursor: default; }
   .colpick.colpick_hex .colpick_selector_outer {
     width: 12px;
@@ -3601,10 +3657,10 @@ body.ngdialog-open .ngdialog-overlay {
       font-size: 15px; }
   .colpick.colpick_hex .colpick_submit {
     position: absolute;
-    left: 2px;
-    top: -20px;
-    width: 20px;
-    height: 20px;
+    left: 2px !important;
+    top: -20px !important;
+    width: 20px !important;
+    height: 20px !important;
     overflow: hidden;
     pointer-events: none;
     text-indent: -1000px;
@@ -3627,6 +3683,19 @@ body.ngdialog-open .ngdialog-overlay {
       width: 10px;
       background-color: #fff;
       box-shadow: 0 0 0 1px rgba(39, 44, 48, 0.05), 0 2px 7px 1px rgba(39, 44, 48, 0.16); }
+
+/* Palettes without color pickers
+========================================================================== */
+.palette {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  margin-right: 3px;
+  cursor: pointer; }
+  .palette:last-child {
+    margin: 0; }
 
 /* Animations
 ========================================================================== */

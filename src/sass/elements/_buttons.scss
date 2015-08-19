@@ -27,6 +27,10 @@
         font-size: $text-md;
     }
 
+    &.btn-sm {
+        padding: 5px 8px;
+    }
+
     &.btn-admin:before {
         font-family: "Ionicons";
         content: "\f2ad";

@@ -21,7 +21,9 @@ angular.module('enplug.sdk.utils').directive('loading', [function() {
         scope: {
             isLoading: '=condition'
         },
-        link: function(scope) {
+        link: function(scope, element) {
+
+            element.addClass('loading-wrapper');
 
             // If boolean, watch the property
             if (typeof scope.isLoading === 'boolean') {

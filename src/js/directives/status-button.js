@@ -5,8 +5,9 @@
  * @description easy showing/hiding of loading indicator in a button based on bool, promise, or function returned promise
  *
  * @param condition {function|promise|boolean} the condition to wait for showing the loading indicator.
+ * @param action {function} the click action which can take parameters and should return a promise
  */
-angular.module('enplug.sdk.utils').directive('statusButton', ['$log', '$timeout', function ($log, $timeout) {
+angular.module('enplug.sdk.utils').directive('statusButton', function ($log, $timeout) {
     'use strict';
 
     // TODO: animate the icons a bit
@@ -21,11 +22,32 @@ angular.module('enplug.sdk.utils').directive('statusButton', ['$log', '$timeout'
         restrict: 'E',
         replace: true,
         scope: {
-            condition: '=condition'
+            condition: '=condition',
+            action: '&'
         },
         transclude: true,
         templateUrl: 'sdk-utils/status-button.tpl',
         link: function (scope, element, attrs) {
+
+            // Assign default classes
+            if (!element.hasClass('btn')) {
+                element.addClass('btn');
+                element.addClass('btn-default');
+            }
+
+            // Allow ng-click style function calls with parameters
+            if (scope.action) {
+                element.bind('click', function (event, data) {
+                    scope.$apply(function () {
+                        var promise = scope.action({ data: data });
+                        if (isPromise(promise)) {
+                            handlePromise(promise);
+                        } else {
+                            $log.warn('Status button action must return a promise.');
+                        }
+                    });
+                });
+            }
 
             function handlePromise(promise) {
                 scope.isLoading = true;
@@ -43,27 +65,8 @@ angular.module('enplug.sdk.utils').directive('statusButton', ['$log', '$timeout'
                 });
             }
 
-            // Assign default classes
-            if (!element.hasClass('btn')) {
-                element.addClass('btn');
-                element.addClass('btn-default');
-            }
-
-            // If function, bind to click
-            if (typeof scope.condition === 'function') {
-                element.bind('click', function () {
-                    var promise = scope.condition();
-                    if (isPromise(promise)) {
-                        handlePromise(promise);
-                    } else {
-                        $log.warn('Status button function condition must return promise.');
-                    }
-                });
-            // If promise, wait for it to complete
-            } else if (isPromise(scope.condition)) {
-                handlePromise(scope.condition);
-            } else {
-                // Assume boolean
+            // Watch a property for changes
+            if (typeof attrs.condition !== 'undefined') {
                 scope.isLoading = scope.condition;
                 scope.$watch('condition', function (val) {
                     scope.isLoading = val;
@@ -71,4 +74,4 @@ angular.module('enplug.sdk.utils').directive('statusButton', ['$log', '$timeout'
             }
         }
     }
-}]);
+});

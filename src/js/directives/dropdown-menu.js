@@ -16,6 +16,9 @@ angular.module('enplug.sdk.utils').directive('dropdownMenu', function () {
                 if (target.attr('href') || target.parent().attr('href')) {
                     scope.$emit('dropdown:toggle');
                 }
+                scope.$apply(function () {
+                    scope.$emit('dropdown:click');
+                });
             });
         }
     }
