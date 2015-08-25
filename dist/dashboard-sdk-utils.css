@@ -2972,6 +2972,9 @@ body.ngdialog-open .ngdialog-overlay {
     stroke-dasharray: 150, 200;
     stroke-dashoffset: -185; } }
 
+dropdown-menu:not(.dropdown-wrap) {
+  display: none; }
+
 .dropdown-wrap {
   position: relative; }
   .dropdown-wrap.open .dropdown-menu {

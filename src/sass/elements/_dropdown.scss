@@ -1,3 +1,7 @@
+dropdown-menu:not(.dropdown-wrap) {
+    display: none; // prevent content from showing before directive has loaded
+}
+
 .dropdown-wrap {
     position: relative;
 
