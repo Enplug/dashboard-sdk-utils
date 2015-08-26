@@ -2254,6 +2254,7 @@ iframe {
   transition-property: none; }
 
 hr {
+  margin: 15px 0;
   border-color: #d3dbe2; }
 
 /* ==========================================================================
@@ -2273,7 +2274,7 @@ hr {
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
+  margin: 15px 0;
   /* Content
     ========================================================================== */
   /* Sidebar content
