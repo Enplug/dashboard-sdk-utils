@@ -1168,42 +1168,56 @@ angular.module('enplug.sdk.utils').directive('materialRadio', ['$log', '$compile
  * @ngdoc directive
  * @name materialSelect
  * @module enplug.sdk.utils
- * @description This directive creates isolate+transcluded scope, so remember to use $parent in values.
- * Write option sets using value:label as the key:value. E.g. Venue (system-friendly):Administrator (user-friendly)
- *
- * @param field {expression=} The model value to bind the input to.
- * @param label {String} Input label
- * @param name {String} Input name
- * @param options {String} ng-options setup
- * @param optionSet {Object} key-value of options
- * @param directives {Object} key:value of directives to assign to input.
- * @param required {boolean},
+ * @description Wraps a select element, turning it into a material-select.
  */
-angular.module('enplug.sdk.utils').directive('materialSelect', function () {
+angular.module('enplug.sdk.utils').directive('materialSelect', function ($timeout) {
     'use strict';
+
+    function findSelect(clone) {
+        for (var i = 0; i < clone.length; i++) {
+            if (clone[i].nodeName.toLowerCase() == 'select') {
+                return angular.element(clone[i]);
+            }
+        }
+    }
+
     return {
         restrict: 'E',
-        scope: {
-            optionLabels: '=optionLabels'
-        },
+        scope: true,
         transclude: true,
         templateUrl: 'sdk-utils/material-select.tpl',
-        link: function (scope, element, attrs) {
+        link: function (scope, element, attrs, ctrl, transclude) {
 
             element.addClass('material-select');
 
             scope.label = attrs.label;
             element.removeAttr('label');
 
-            scope.$watch('$parent.' + attrs.option, function (val) {
-                if (typeof val !== 'undefined' && val !== null) {
-                    element.addClass('selected');
-                    if (scope.optionLabels) {
-                        val = scope.optionLabels[val];
-                    }
-                    scope.label = val;
+            transclude(function (clone) {
+                var select = findSelect(clone);
+                if (select) {
+
+                    scope.$watch('$parent.' + select.attr('ng-model'), function (val) {
+
+                        if (typeof val !== 'undefined' && val !== null) {
+                            element.addClass('selected');
+
+                            // Wait until this digest cycle has completed so that the HTML <select> has
+                            // updated its options
+                            $timeout(function () {
+
+                                // Access the label property on the currently-selected option from our select
+                                // element
+                                scope.label = select[0].options[select[0].selectedIndex].label
+                            });
+                        }
+                    });
+                } else {
+                    console.warn('Warning: material-select requires a <select> element to be transcluded.');
                 }
             });
+
+
         }
     };
 });
