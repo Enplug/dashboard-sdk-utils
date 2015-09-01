@@ -1173,6 +1173,8 @@ angular.module('enplug.sdk.utils').directive('materialRadio', ['$log', '$compile
 angular.module('enplug.sdk.utils').directive('materialSelect', function ($timeout) {
     'use strict';
 
+    // Returns a JQLite object for the select element we transcluded, allowing us to
+    // pick information from it
     function findSelect(clone) {
         for (var i = 0; i < clone.length; i++) {
             if (clone[i].nodeName.toLowerCase() == 'select') {
@@ -1190,6 +1192,8 @@ angular.module('enplug.sdk.utils').directive('materialSelect', function ($timeou
 
             element.addClass('material-select');
 
+            // Take the label from an attribute instead of scope because it'll usually just be a simple
+            // string that doesn't need to be bound to
             scope.label = attrs.label;
             element.removeAttr('label');
 
@@ -1197,6 +1201,8 @@ angular.module('enplug.sdk.utils').directive('materialSelect', function ($timeou
                 var select = findSelect(clone);
                 if (select) {
 
+                    // Watch for changes on our select element's model so that we can update the
+                    // material-select label and selected state
                     scope.$watch('$parent.' + select.attr('ng-model'), function (val) {
 
                         if (typeof val !== 'undefined' && val !== null) {
@@ -1216,8 +1222,6 @@ angular.module('enplug.sdk.utils').directive('materialSelect', function ($timeou
                     console.warn('Warning: material-select requires a <select> element to be transcluded.');
                 }
             });
-
-
         }
     };
 });
