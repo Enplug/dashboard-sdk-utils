@@ -3491,7 +3491,7 @@ dropdown-menu:not(.dropdown-wrap) {
 
 .form-material .material-select {
   position: relative;
-  width: 100% !important;
+  width: 100%;
   display: block;
   box-shadow: 0 1px 0 #ebeef0; }
   .form-material .material-select span {
