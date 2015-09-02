@@ -8,19 +8,20 @@
 
         span {
 
-            padding: 10px 0;
+            padding: 19px 0 10px 0;
             display: block;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             cursor: pointer;
+            color: lighten($gray-light, 15);
 
             &:after {
                 color: $gray!important;
                 font-family: 'Ionicons';
                 content: "\f123";
                 position: absolute;
-                top: 15px;
+                top: 20px;
                 right: 10px;
             }
         }

@@ -1046,7 +1046,6 @@ angular.module('enplug.sdk.utils').directive('materialCheckbox', function ($log,
  * @param field {expression=} The model value to bind the input to.
  * @param type {String} Input type
  * @param label {String} Input label
- * @param name {String} Input name
  * @param directives {Object} key:value of directives to assign to input. This directive creates isolate+transcluded scope, so remember to use $parent in values.
  * @param required {boolean},
  * @param autofocus {boolean} - causes this input to be focused after creation
@@ -1072,13 +1071,14 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
 
                 var ignoreAttributes = ['class', 'label', 'directives', 'field', 'focus', 'ng-if', 'ng-show', 'ng-hide'],
                     input = $element.find('input')[0],
-                    name = $attrs.name,
                     directives = $parse($attrs.directives)($scope),
-                    autofocus = typeof $attrs.autofocus !== 'undefined';
+                    autofocus = typeof $attrs.autofocus !== 'undefined',
+                    id = $attrs.field + '-' + GUID.new();
 
-                $scope.id = name + '-' + GUID.new(); // better to use name?
+                $scope.id = id; // better to use name?
                 $scope.label = $attrs.label;
                 $element.removeAttr('label');
+                input.setAttribute('name', id);
 
                 // Convenience method so we don't have to apply form-groups
                 if (!$element.parent().hasClass('form-group')) {
@@ -1112,7 +1112,7 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
                     input.focus();
                 }
 
-                $scope.formField = $form[name]; // used for ng-messages. Must retrieve after re-$compiling input
+                $scope.formField = $form[id]; // used for ng-messages. Must retrieve after re-$compiling input
                 // Stupid hack to get $dirty state to be correctly set, which bizarrely doesn't happen. WTF
                 $scope.$watch('model', function (val) {
                     if (val !== undefined && val !== null && $scope.formField) {
