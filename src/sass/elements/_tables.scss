@@ -5,6 +5,10 @@
 .table {
     margin-bottom: 0;
 
+    td {
+        border-color: $border-color !important;
+    }
+
     /* Header
     ========================================================================== */
     > thead {
@@ -60,7 +64,7 @@
         > tr {
             > td {
                 vertical-align: middle;
-                border-bottom: 1px solid $border-color;
+                border-bottom: 1px solid;
                 border-top: 0;
                 padding-left: 10px;
                 padding-right: 10px;
@@ -83,6 +87,10 @@
             display: block;
             font-size: 14px;
             color: $gray-light;
+        }
+
+        td {
+            border: 0 none !important;
         }
 
         // Simple pagination - forward/back
