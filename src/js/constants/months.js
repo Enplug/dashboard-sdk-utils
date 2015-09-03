@@ -1,39 +1,14 @@
 angular.module('enplug.sdk.utils').constant('months', [
-    {
-        label: '01 - Jan',
-        value: '01'
-    }, {
-        label: '02 - Feb',
-        value: '02'
-    }, {
-        label: '03 - Mar',
-        value: '03'
-    }, {
-        label: '04 - Apr',
-        value: '04'
-    }, {
-        label: '05 - May',
-        value: '05'
-    }, {
-        label: '06 - Jun',
-        value: '06'
-    }, {
-        label: '07 - Jul',
-        value: '07'
-    }, {
-        label: '08 - Aug',
-        value: '08'
-    }, {
-        label: '09 - Sep',
-        value: '09'
-    }, {
-        label: '10 - Oct',
-        value: '10'
-    }, {
-        label: '11 - Nov',
-        value: '11'
-    }, {
-        label: '12 - Dec',
-        value: '12'
-    }
+    { name: 'January', short: 'Jan', code: '01' },
+    { name: 'February', short: 'Feb', code: '02' },
+    { name: 'March', short: 'Mar', code: '03' },
+    { name: 'April', short: 'Apr', code: '04' },
+    { name: 'May', short: 'May', code: '05' },
+    { name: 'June', short: 'Jun', code: '06' },
+    { name: 'July', short: 'Jul', code: '07' },
+    { name: 'August', short: 'Aug', code: '08' },
+    { name: 'September', short: 'Sep', code: '09' },
+    { name: 'October', short: 'Oct', code: '10' },
+    { name: 'November', short: 'Nov', code: '11' },
+    { name: 'December', short: 'Dec', code: '12' }
 ]);
