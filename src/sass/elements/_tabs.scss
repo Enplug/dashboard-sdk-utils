@@ -31,6 +31,7 @@
         flex-grow: 0;
         flex-shrink: 0;
         align-items: stretch;
+        padding: 0 8px;
         box-shadow: 0 1px 0 $border-color;
         text-transform: capitalize;
 
@@ -40,7 +41,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 15px 20px;
+            padding: 20px 8px;
             font-size: 14px;
             text-decoration: none;
             color: $gray;
@@ -53,8 +54,9 @@
                 text-decoration: none;
             }
             &.active {
-                color: $gray-darker;
-                box-shadow: 0 2px 0 $brand-primary;
+                color: $brand-primary;
+                font-weight: bold;
+                box-shadow: 0 3px 0 $brand-primary;
                 cursor: default;
                 text-decoration: none;
             }

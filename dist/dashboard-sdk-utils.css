@@ -3153,6 +3153,7 @@ dropdown-menu:not(.dropdown-wrap) {
     -webkit-align-items: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
+    padding: 0 8px;
     box-shadow: 0 1px 0 #ebeef0;
     text-transform: capitalize; }
     .tab-list li a {
@@ -3169,7 +3170,7 @@ dropdown-menu:not(.dropdown-wrap) {
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center;
-      padding: 15px 20px;
+      padding: 20px 8px;
       font-size: 14px;
       text-decoration: none;
       color: #798c9c;
@@ -3181,8 +3182,9 @@ dropdown-menu:not(.dropdown-wrap) {
         color: #4078C0;
         text-decoration: none; }
       .tab-list li a.active {
-        color: #2a3239;
-        box-shadow: 0 2px 0 #4078C0;
+        color: #4078C0;
+        font-weight: bold;
+        box-shadow: 0 3px 0 #4078C0;
         cursor: default;
         text-decoration: none; }
     .tab-list li.tab-select {
