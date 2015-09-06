@@ -25,6 +25,11 @@
                 right: 10px;
             }
         }
+
+        &.selected span {
+            color: $gray-darker;
+        }
+
         select {
             position: absolute;
             background: 0 0;

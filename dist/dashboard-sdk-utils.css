@@ -2244,6 +2244,9 @@ body {
 [ng-view] {
   overflow: auto; }
 
+.ion-checkmark-circled:before {
+  padding-left: 1px; }
+
 /* Universal selectors
  * https://css-tricks.com/things-it-might-be-funuseful-to-try-the-universal-selector-on/
 ========================================================================== */
@@ -2533,7 +2536,7 @@ hr {
     padding-left: 10px;
     padding-right: 10px; }
   .table > tbody > tr.selected > td, .table > tbody > tr.selected > td:hover {
-    background: #FFFBE9; }
+    background: #E0FFEB; }
   .table > tfoot .summary {
     margin-top: 20px;
     display: block;
@@ -3509,6 +3512,8 @@ dropdown-menu:not(.dropdown-wrap) {
       position: absolute;
       top: 20px;
       right: 10px; }
+  .form-material .material-select.selected span {
+    color: #2a3239; }
   .form-material .material-select select {
     position: absolute;
     background: 0 0;
