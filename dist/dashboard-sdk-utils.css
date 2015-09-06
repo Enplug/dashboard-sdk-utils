@@ -3176,7 +3176,8 @@ dropdown-menu:not(.dropdown-wrap) {
       color: #798c9c;
       text-align: center;
       cursor: pointer;
-      font-weight: normal; }
+      font-weight: normal;
+      transition: box-shadow 0.15s ease-out; }
       .tab-list li a:focus, .tab-list li a:hover {
         outline: none;
         color: #4078C0;
