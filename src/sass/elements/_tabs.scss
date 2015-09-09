@@ -48,7 +48,6 @@
             text-align: center;
             cursor: pointer;
             font-weight: normal;
-            transition: box-shadow $transition-speed $transition-timing;
             &:focus, &:hover {
                 outline: none;
                 color: $brand-primary;

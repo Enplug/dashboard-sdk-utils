@@ -26,6 +26,7 @@
 
             .radio-off {
                 position: absolute;
+                z-index: 1;
                 top: 2px;
                 left: 0;
                 width: $radio-size;
@@ -33,10 +34,12 @@
                 border: 1px solid $radio-unselected-color;
                 border-radius: 50%;
                 transition: border-color $radio-transition-duration;
+                background: #fff;
             }
 
             .radio-on {
                 position: absolute;
+                z-index: 2;
                 left: 4px;
                 top: 6px;
                 width: $radio-size - 8px;

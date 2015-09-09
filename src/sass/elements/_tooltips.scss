@@ -48,6 +48,7 @@
         .tip-content {
             display: block;
             background: #fff;
+            line-height: $line-height !important;
 
             // Box model of contents
             .tipTitle,

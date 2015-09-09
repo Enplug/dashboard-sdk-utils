@@ -1695,6 +1695,12 @@ h2 {
   font-family: 'Proxima Nova', 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: 300; }
 
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit; }
+
 h1,
 h2,
 h3,
@@ -1799,7 +1805,7 @@ a {
   color: #2a3239; }
 
 .text-gray-dark {
-  color: #4a5965; }
+  color: #31373D; }
 
 .text-gray {
   color: #798c9c; }
@@ -1814,7 +1820,7 @@ a {
   color: #2a3239; }
 
 .text-gd {
-  color: #4a5965; }
+  color: #31373D; }
 
 .text-g {
   color: #798c9c; }
@@ -1829,7 +1835,7 @@ a {
   color: #2a3239; }
 
 .hover-gd:hover {
-  color: #4a5965; }
+  color: #31373D; }
 
 .hover-g:hover {
   color: #798c9c; }
@@ -2182,7 +2188,7 @@ a {
   background-color: #798c9c !important; }
 
 .bg-gd {
-  background-color: #4a5965 !important; }
+  background-color: #31373D !important; }
 
 .bg-gdr {
   background-color: #2a3239 !important; }
@@ -2266,7 +2272,7 @@ hr {
    Card - standard content module
    ========================================================================== */
 .section-summary {
-  margin-top: 20px; }
+  margin-top: 30px; }
   .section-summary h3 {
     font-size: 20px;
     font-weight: normal;
@@ -2284,12 +2290,32 @@ hr {
     ========================================================================== */
   /* Sidebar content
     ========================================================================== */ }
-  .card .card-content {
+  .card > header {
+    padding: 30px 30px 0 30px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .card > header h3 {
+      font-size: 18px;
+      font-weight: normal;
+      color: #31373D; }
+    .card > header .header-links {
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      text-align: right; }
+  .card .card-content,
+  .card > section {
     position: relative;
     padding: 30px; }
-    .card .card-content hr {
+    .card .card-content hr,
+    .card > section hr {
       border-color: #ebeef0; }
-    .card .card-content .card-description {
+    .card .card-content .card-description,
+    .card > section .card-description {
       width: 200px;
       -webkit-flex-grow: 0;
           -ms-flex-positive: 0;
@@ -2298,16 +2324,18 @@ hr {
           -ms-flex-negative: 0;
               flex-shrink: 0;
       margin-right: 30px; }
-      .card .card-content .card-description h3 {
+      .card .card-content .card-description h3,
+      .card > section .card-description h3 {
         margin-top: 0;
         margin-bottom: 20px;
-        font-size: 13px;
-        text-transform: uppercase;
-        color: #4a5965; }
-      .card .card-content .card-description p {
+        font-size: 15px;
+        color: #31373D; }
+      .card .card-content .card-description p,
+      .card > section .card-description p {
         margin-bottom: 20px;
         color: #798c9c; }
-    .card .card-content .card-body {
+    .card .card-content .card-body,
+    .card > section .card-body {
       margin-left: 60px;
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
@@ -2321,6 +2349,14 @@ hr {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.025); }
   .card.card-aside {
     background-color: #f5f6f7; }
+    .card.card-aside h4 {
+      font-size: 18px;
+      font-weight: normal;
+      padding: 20px 20px 15px 20px;
+      color: #31373D;
+      border-bottom: 1px solid #ebeef0; }
+    .card.card-aside .card-content {
+      padding: 20px; }
 
 /* ==========================================================================
    Empty page format. Should be used in place of a card when no content.
@@ -2365,7 +2401,7 @@ hr {
     display: table-cell;
     margin: 0;
     padding-left: 15px;
-    color: #4a5965;
+    color: #31373D;
     vertical-align: middle; }
 
 /* ==========================================================================
@@ -2497,11 +2533,8 @@ hr {
   .table > thead > tr:first-child > th {
     padding-top: 0 !important; }
   .table > thead > tr th {
-    text-transform: uppercase;
     color: #798c9c;
-    font-size: 11px;
-    letter-spacing: .05em;
-    font-weight: 900;
+    font-weight: 600;
     border-bottom: 1px solid #ebeef0;
     padding: 12px 10px 12px 10px;
     vertical-align: middle;
@@ -2783,7 +2816,7 @@ body.ngdialog-open .ngdialog-overlay {
   .glossaryTip sup {
     font-size: 14px; }
     .glossaryTip sup:hover {
-      color: #4a5965; }
+      color: #31373D; }
   .glossaryTip .tip {
     display: none;
     position: absolute;
@@ -2796,6 +2829,7 @@ body.ngdialog-open .ngdialog-overlay {
     .glossaryTip .tip .tip-content {
       display: block;
       background: #fff;
+      line-height: 1.42857143 !important;
       /* Title styling. Reset anything inhereted
             ========================================================================== */
       /* Body text & footer link styling. Reset anything inhereted
@@ -3036,7 +3070,7 @@ dropdown-menu:not(.dropdown-wrap) {
         display: block;
         font-weight: normal;
         font-size: 15px;
-        color: #4a5965; }
+        color: #31373D; }
         .dropdown-wrap .dropdown-menu .items a.text-gl {
           color: #96a5b2; }
         .dropdown-wrap .dropdown-menu .items a:hover {
@@ -3176,8 +3210,7 @@ dropdown-menu:not(.dropdown-wrap) {
       color: #798c9c;
       text-align: center;
       cursor: pointer;
-      font-weight: normal;
-      transition: box-shadow 0.15s ease-out; }
+      font-weight: normal; }
       .tab-list li a:focus, .tab-list li a:hover {
         outline: none;
         color: #4078C0;
@@ -3436,6 +3469,7 @@ dropdown-menu:not(.dropdown-wrap) {
           border: 1px solid;
           border-radius: 2px;
           color: #d3dbe2;
+          background: #fff;
           -webkit-user-select: none;
              -moz-user-select: none;
               -ms-user-select: none;
@@ -3545,15 +3579,18 @@ dropdown-menu:not(.dropdown-wrap) {
     pointer-events: none; }
   .form-material .radio label .radio-off {
     position: absolute;
+    z-index: 1;
     top: 2px;
     left: 0;
     width: 16px;
     height: 16px;
     border: 1px solid #d3dbe2;
     border-radius: 50%;
-    transition: border-color 0.15s; }
+    transition: border-color 0.15s;
+    background: #fff; }
   .form-material .radio label .radio-on {
     position: absolute;
+    z-index: 2;
     left: 4px;
     top: 6px;
     width: 8px;
