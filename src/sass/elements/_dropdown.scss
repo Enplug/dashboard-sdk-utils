@@ -34,6 +34,7 @@ dropdown-menu:not(.dropdown-wrap) {
 
         &:not(.custom) {
             //    margin-top: -40px;
+            top: -20px;
             padding: 0 30px 20px 30px;
             .menu-content {
                 //    min-width: 100px;
@@ -71,19 +72,49 @@ dropdown-menu:not(.dropdown-wrap) {
             display: block;
         }
 
-        .items {
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .items,
+        .actions,
+        .select {
             line-height: 2;
             a {
                 display: block;
                 font-weight: normal;
                 font-size: 15px;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .items,
+        .actions {
+            a {
                 color: $gray-dark;
+                &.active {
+                    color: $brand-primary;
+                }
                 &.text-gl {
                     color: $gray-light
                 }
                 &:hover {
                     color: $brand-primary;
-                    text-decoration: none;
+                }
+            }
+        }
+        .select {
+            a {
+                color: $gray;
+                &.active {
+                    color: $gray-darker;
+                }
+                &:hover {
+                    color: $gray-darker;
                 }
             }
         }
