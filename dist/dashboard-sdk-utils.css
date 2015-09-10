@@ -3803,6 +3803,9 @@ dropdown-menu:not(.dropdown-wrap) {
             transform: scale(1);
     opacity: 1; } }
 
+/* ==========================================================================
+   Custom material design switch inputs
+   ========================================================================== */
 label.material-switch {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3814,13 +3817,26 @@ label.material-switch {
   height: 20px;
   padding-left: 44px;
   cursor: pointer;
+  /* Label text
+    ========================================================================== */
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 1; }
+  /* Circle
+    ========================================================================== */
+  /* Bar
+    ========================================================================== */
+  /* Active state
+    ========================================================================== */
+  /* Animations only run after an input has been interacted with to avoid
+     * animating on page load
+    ========================================================================== */
+  /* Animations
+    ========================================================================== */ }
   label.material-switch:before {
     content: '';
     position: absolute;

@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Custom material design switch inputs
+   ========================================================================== */
+
 label.material-switch {
 
     $switch-width: 34px;
@@ -11,14 +15,16 @@ label.material-switch {
     padding-left: $switch-width + 10px;
 
     cursor: pointer;
-    user-select: none;
 
-    // Labels
+    /* Label text
+    ========================================================================== */
     font-weight: normal;
     font-size: 14px;
     line-height: 1;
+    user-select: none;
 
-    // Circle
+    /* Circle
+    ========================================================================== */
     &:before {
         content: '';
         position: absolute;
@@ -34,7 +40,8 @@ label.material-switch {
         transition: all $transition-speed $transition-timing;
     }
 
-    // Bar
+    /* Bar
+    ========================================================================== */
     &:after {
         content: '';
         position: absolute;
@@ -49,6 +56,8 @@ label.material-switch {
         transition: all $transition-speed $transition-timing;
     }
 
+    /* Active state
+    ========================================================================== */
     &.switch-on {
 
         // Active circle
@@ -63,8 +72,9 @@ label.material-switch {
         }
     }
 
-    // Only apply animations after being clicked at least once
-    // instead of on page load
+    /* Animations only run after an input has been interacted with to avoid
+     * animating on page load
+    ========================================================================== */
     &.switch-on.dirty {
         &:before {
             animation: toggle-on $transition-speed $transition-timing;
@@ -80,6 +90,8 @@ label.material-switch {
         display: none;
     }
 
+    /* Animations
+    ========================================================================== */
     @keyframes toggle-on {
         0% {
             left: 0;
