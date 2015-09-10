@@ -1,0 +1,108 @@
+label.material-switch {
+
+    $switch-width: 34px;
+    $circle-size: 20px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    height: 20px;
+    padding-left: $switch-width + 10px;
+
+    cursor: pointer;
+    user-select: none;
+
+    // Labels
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1;
+
+    // Circle
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        margin-top: -10px;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.14),0 2px 2px 0 rgba(0,0,0,.098),0 1px 5px 0 rgba(0,0,0,.084);
+        background: #fff;
+        transition: all $transition-speed $transition-timing;
+    }
+
+    // Bar
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        margin-top: -7px;
+        left: 1px;
+        width: $switch-width;
+        height: 14px;
+        border-radius: 8px;
+        background: $gray-light;
+        transition: all $transition-speed $transition-timing;
+    }
+
+    &.switch-on {
+
+        // Active circle
+        &:before {
+            left: $switch-width - $circle-size + 2px;
+            background: $brand-primary;
+        }
+
+        // Active bar
+        &:after {
+            background: lighten($brand-primary, 20);
+        }
+    }
+
+    // Only apply animations after being clicked at least once
+    // instead of on page load
+    &.switch-on.dirty {
+        &:before {
+            animation: toggle-on $transition-speed $transition-timing;
+        }
+    }
+    &.switch-off.dirty {
+        &:before {
+            animation: toggle-off $transition-speed $transition-timing;
+        }
+    }
+
+    input {
+        display: none;
+    }
+
+    @keyframes toggle-on {
+        0% {
+            left: 0;
+        }
+        90% {
+            left: 17px;
+        }
+        100% {
+            left: 16px;
+        }
+    }
+
+    @keyframes toggle-off {
+        0% {
+            left: 16px;
+        }
+        90% {
+            left: -1px;
+        }
+        100% {
+            left: 0;
+        }
+    }
+
+}
+

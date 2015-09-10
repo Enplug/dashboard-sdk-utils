@@ -1181,6 +1181,40 @@ angular.module('enplug.sdk.utils').directive('materialSelect', function ($timeou
     };
 });
 
+angular.module('enplug.sdk.utils').directive('materialSwitch', function () {
+    'use strict';
+
+    // Returns a JQLite object for the select element we transcluded, allowing us to
+    // pick information from it
+    function findInput(clone) {
+        for (var i = 0; i < clone.length; i++) {
+            if (clone[i].nodeName.toLowerCase() == 'input') {
+                return angular.element(clone[i]);
+            }
+        }
+    }
+
+    return {
+        restrict: 'E',
+        transclude: true,
+        replace: true,
+        templateUrl: 'sdk-utils/material-switch.tpl',
+        scope: { model: '=' },
+        link: function (scope, element, attrs, ctrl, transclude) {
+
+            // Keeps track of dirty state, without adding dependency on a form
+            scope.dirty = false;
+
+            // If transcluding input, remove other input
+            transclude(function (clone) {
+                if (findInput(clone)) {
+                    angular.element(element[0].querySelector('.default-input')).remove();
+                }
+            });
+        }
+    }
+});
+
 angular.module('enplug.sdk.utils').directive('helpBlock', function () {
     'use strict';
     return {
@@ -1727,6 +1761,8 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
         "<div class=radio><label><input type=radio ng-model=model> <span class=radio-on></span> <span class=radio-off></span><ng-transclude></ng-transclude></label></div>");
     $templateCache.put("sdk-utils/material-select.tpl",
         "<span class=form-label ng-bind=label></span><ng-transclude></ng-transclude>");
+    $templateCache.put("sdk-utils/material-switch.tpl",
+        "<label class=material-switch ng-class=\"{ 'switch-on': model, 'switch-off': !model, dirty: dirty }\" ng-click=\"dirty = true\"><input class=default-input type=checkbox ng-model=model><ng-transclude></ng-transclude></label>");
     $templateCache.put("sdk-utils/protip.tpl",
         "<div class=pro-tip><i class=\"ion-flash text-primary\"></i> <strong>ProTip:</strong> <span ng-bind=::config.tip></span> <a ng-if=::config.link dynamic-click=::config.link.action dynamic-href=::config.link.location ng-bind=::config.link.text></a></div>");
     $templateCache.put("sdk-utils/status-button.tpl",

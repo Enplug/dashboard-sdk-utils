@@ -1682,6 +1682,9 @@ body {
 p {
   margin: 0; }
 
+label {
+  margin: 0; }
+
 /* Headers
 ========================================================================== */
 h1 {
@@ -3799,3 +3802,92 @@ dropdown-menu:not(.dropdown-wrap) {
     -webkit-transform: scale(1);
             transform: scale(1);
     opacity: 1; } }
+
+label.material-switch {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  height: 20px;
+  padding-left: 44px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1; }
+  label.material-switch:before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    margin-top: -10px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+    background: #fff;
+    transition: all 0.15s ease-out; }
+  label.material-switch:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    margin-top: -7px;
+    left: 1px;
+    width: 34px;
+    height: 14px;
+    border-radius: 8px;
+    background: #96a5b2;
+    transition: all 0.15s ease-out; }
+  label.material-switch.switch-on:before {
+    left: 16px;
+    background: #4078C0; }
+  label.material-switch.switch-on:after {
+    background: #8daed9; }
+  label.material-switch.switch-on.dirty:before {
+    -webkit-animation: toggle-on 0.15s ease-out;
+            animation: toggle-on 0.15s ease-out; }
+  label.material-switch.switch-off.dirty:before {
+    -webkit-animation: toggle-off 0.15s ease-out;
+            animation: toggle-off 0.15s ease-out; }
+  label.material-switch input {
+    display: none; }
+
+@-webkit-keyframes toggle-on {
+  0% {
+    left: 0; }
+  90% {
+    left: 17px; }
+  100% {
+    left: 16px; } }
+
+@keyframes toggle-on {
+  0% {
+    left: 0; }
+  90% {
+    left: 17px; }
+  100% {
+    left: 16px; } }
+
+@-webkit-keyframes toggle-off {
+  0% {
+    left: 16px; }
+  90% {
+    left: -1px; }
+  100% {
+    left: 0; } }
+
+@keyframes toggle-off {
+  0% {
+    left: 16px; }
+  90% {
+    left: -1px; }
+  100% {
+    left: 0; } }

@@ -1,0 +1,5 @@
+<label class="material-switch" ng-class="{ 'switch-on': model, 'switch-off': !model, dirty: dirty }"
+        ng-click="dirty = true">
+    <input class="default-input" type="checkbox" ng-model="model">
+    <ng-transclude></ng-transclude>
+</label>
