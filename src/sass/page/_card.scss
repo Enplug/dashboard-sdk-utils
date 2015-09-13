@@ -22,14 +22,16 @@
     margin: 15px 0; // matches y offset for shadow, for apps in iFrame
 
     > header {
-        padding: 30px 30px 0 30px;
+        padding: 20px 20px 0 20px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         h3 {
             font-size: 18px;
             font-weight: normal;
+        //    margin-bottom: 10px;
             color: $gray-dark;
-        //    -webkit-font-smoothing: subpixel-antialiased;
+            -webkit-font-smoothing: subpixel-antialiased;
         }
         .header-links {
             flex-grow: 1;
@@ -83,18 +85,19 @@
     /* Sidebar content
     ========================================================================== */
     &.card-aside {
-        background-color: #F7F7F7;
+        background-color: #F5F6F7;
 
         h4 {
-            font-size: 18px;
-            font-weight: normal;
-            padding: 20px 20px 15px 20px;
-            color: $gray-dark;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 15px 20px 15px 20px;
+            color: $gray;
+            text-transform: uppercase;
             border-bottom: 1px solid $border-color;
         }
 
         .card-content {
-            padding: 20px;
+            padding: 15px 20px;
         }
     }
 }

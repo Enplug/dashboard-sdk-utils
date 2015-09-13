@@ -162,4 +162,12 @@
             padding-bottom: 8px !important;
         }
     }
+
+    &.table--open tbody tr {
+        &:last-child {
+            td {
+                border-bottom-width: 0;
+            }
+        }
+    }
 }

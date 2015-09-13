@@ -2294,17 +2294,21 @@ hr {
   /* Sidebar content
     ========================================================================== */ }
   .card > header {
-    padding: 30px 30px 0 30px;
+    padding: 20px 20px 0 20px;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-align-items: center;
         -ms-flex-align: center;
-            align-items: center; }
+            align-items: center;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
     .card > header h3 {
       font-size: 18px;
       font-weight: normal;
-      color: #31373D; }
+      color: #31373D;
+      -webkit-font-smoothing: subpixel-antialiased; }
     .card > header .header-links {
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
@@ -2351,15 +2355,16 @@ hr {
     border-top: 1px solid #d3dbe2;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.025); }
   .card.card-aside {
-    background-color: #F7F7F7; }
+    background-color: #F5F6F7; }
     .card.card-aside h4 {
-      font-size: 18px;
-      font-weight: normal;
-      padding: 20px 20px 15px 20px;
-      color: #31373D;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 15px 20px 15px 20px;
+      color: #798c9c;
+      text-transform: uppercase;
       border-bottom: 1px solid #ebeef0; }
     .card.card-aside .card-content {
-      padding: 20px; }
+      padding: 15px 20px; }
 
 /* ==========================================================================
    Empty page format. Should be used in place of a card when no content.
@@ -2444,6 +2449,8 @@ hr {
     font-size: 16px; }
   .btn.btn-sm {
     padding: 5px 8px; }
+    .btn.btn-sm i {
+      font-size: 100%; }
   .btn.btn-admin:before {
     font-family: "Ionicons";
     content: "\f2ad";
@@ -2625,6 +2632,8 @@ hr {
   .table.table--condensed th {
     padding-top: 4px !important;
     padding-bottom: 8px !important; }
+  .table.table--open tbody tr:last-child td {
+    border-bottom-width: 0; }
 
 /* ==========================================================================
    Modal windows based on ngDialog
@@ -2806,8 +2815,7 @@ body.ngdialog-open .ngdialog-overlay {
     display: block;
     -webkit-animation: tooltip 0.15s ease-out;
             animation: tooltip 0.15s ease-out; }
-  .glossaryTip sup,
-  .glossaryTip .tipText {
+  .glossaryTip sup {
     top: auto;
     padding-left: 3px;
     vertical-align: top;
@@ -2820,6 +2828,8 @@ body.ngdialog-open .ngdialog-overlay {
     font-size: 14px; }
     .glossaryTip sup:hover {
       color: #31373D; }
+  .glossaryTip .tipText {
+    cursor: pointer; }
   .glossaryTip .tip {
     display: none;
     position: absolute;
@@ -3375,7 +3385,7 @@ dropdown-menu:not(.dropdown-wrap) {
       transition: all 0.15s ease-out; }
       .form-material .form-group .input-group .input-group-addon i {
         font-size: 21px; }
-  .form-material .form-group .form-control {
+  .form-material .form-group input.form-control {
     padding-left: 0;
     padding-right: 0;
     border: 0;
@@ -3387,24 +3397,24 @@ dropdown-menu:not(.dropdown-wrap) {
         ========================================================================== */
     /* Disabled state
         ========================================================================== */ }
-    .form-material .form-group .form-control:focus + label, .form-material .form-group .form-control.active + label {
+    .form-material .form-group input.form-control:focus + label, .form-material .form-group input.form-control.active + label {
       font-size: 12px;
       cursor: default;
       -webkit-transform: translateY(-20px);
               transform: translateY(-20px);
       color: #96a5b2;
       font-weight: 500; }
-    .form-material .form-group .form-control:focus {
+    .form-material .form-group input.form-control:focus {
       background-color: transparent;
       box-shadow: 0 2px 0 #4078C0; }
-      .form-material .form-group .form-control:focus + label {
+      .form-material .form-group input.form-control:focus + label {
         color: #4078C0; }
-      .form-material .form-group .form-control:focus ~ .input-group-addon {
+      .form-material .form-group input.form-control:focus ~ .input-group-addon {
         box-shadow: 0 2px 0 #4078C0;
         color: #4078C0; }
-        .form-material .form-group .form-control:focus ~ .input-group-addon i {
+        .form-material .form-group input.form-control:focus ~ .input-group-addon i {
           color: #4078C0; }
-    .form-material .form-group .form-control[disabled], .form-material .form-group .form-control[readonly] {
+    .form-material .form-group input.form-control[disabled], .form-material .form-group input.form-control[readonly] {
       border-bottom-color: transparent;
       color: #96a5b2;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.26) 0%, rgba(0, 0, 0, 0.26) 33%, transparent 0%);
@@ -3415,9 +3425,9 @@ dropdown-menu:not(.dropdown-wrap) {
       margin-bottom: -1px;
       cursor: default;
       box-shadow: none; }
-      .form-material .form-group .form-control[disabled] + label, .form-material .form-group .form-control[readonly] + label {
+      .form-material .form-group input.form-control[disabled] + label, .form-material .form-group input.form-control[readonly] + label {
         cursor: default; }
-      .form-material .form-group .form-control[disabled] ~ .input-group-addon, .form-material .form-group .form-control[readonly] ~ .input-group-addon {
+      .form-material .form-group input.form-control[disabled] ~ .input-group-addon, .form-material .form-group input.form-control[readonly] ~ .input-group-addon {
         margin-bottom: -1px;
         border-bottom-color: transparent;
         color: #96a5b2;
@@ -3428,7 +3438,7 @@ dropdown-menu:not(.dropdown-wrap) {
         background-repeat: repeat-x;
         cursor: default;
         box-shadow: none; }
-        .form-material .form-group .form-control[disabled] ~ .input-group-addon i, .form-material .form-group .form-control[readonly] ~ .input-group-addon i {
+        .form-material .form-group input.form-control[disabled] ~ .input-group-addon i, .form-material .form-group input.form-control[readonly] ~ .input-group-addon i {
           color: #96a5b2; }
   .form-material .form-group .validation {
     position: absolute;
@@ -3436,6 +3446,17 @@ dropdown-menu:not(.dropdown-wrap) {
     bottom: 18px; }
     .form-material .form-group .validation span {
       font-size: 12px; }
+
+/* Normal inputs
+========================================================================== */
+input {
+  padding: 5px 10px;
+  border: 1px solid #ebeef0;
+  border-radius: 2px;
+  outline: none;
+  font-size: 14px; }
+  input:focus {
+    border: 1px solid #4078C0; }
 
 /* ==========================================================================
    Custom checkboxes
@@ -3863,10 +3884,9 @@ label.material-switch {
     background: #96a5b2;
     transition: all 0.15s ease-out; }
   label.material-switch.switch-on:before {
-    left: 16px;
-    background: #4078C0; }
+    left: 16px; }
   label.material-switch.switch-on:after {
-    background: #8daed9; }
+    background: #4078C0; }
   label.material-switch.switch-on.dirty:before {
     -webkit-animation: toggle-on 0.15s ease-out;
             animation: toggle-on 0.15s ease-out; }
@@ -3880,7 +3900,7 @@ label.material-switch {
   0% {
     left: 0; }
   90% {
-    left: 17px; }
+    left: 18px; }
   100% {
     left: 16px; } }
 
@@ -3888,7 +3908,7 @@ label.material-switch {
   0% {
     left: 0; }
   90% {
-    left: 17px; }
+    left: 18px; }
   100% {
     left: 16px; } }
 

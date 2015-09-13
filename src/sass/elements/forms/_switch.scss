@@ -63,12 +63,12 @@ label.material-switch {
         // Active circle
         &:before {
             left: $switch-width - $circle-size + 2px;
-            background: $brand-primary;
+        //    background: $brand-primary;
         }
 
         // Active bar
         &:after {
-            background: lighten($brand-primary, 20);
+            background: $brand-primary;
         }
     }
 
@@ -97,7 +97,7 @@ label.material-switch {
             left: 0;
         }
         90% {
-            left: 17px;
+            left: 18px;
         }
         100% {
             left: 16px;

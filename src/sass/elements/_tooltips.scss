@@ -14,8 +14,7 @@
 
     /* Indicator that shows before hovering. Can be icon or text
     ========================================================================== */
-    sup,
-    .tipText {
+    sup {
         top: auto;
         padding-left: 3px;
         vertical-align: top;
@@ -31,6 +30,10 @@
         &:hover {
             color: $gray-dark;
         }
+    }
+
+    .tipText {
+        cursor: pointer;
     }
 
     /* Tooltip

@@ -29,6 +29,9 @@
 
     &.btn-sm {
         padding: 5px 8px;
+        i {
+            font-size: 100%;
+        }
     }
 
     &.btn-admin:before {
