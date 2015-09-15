@@ -66,6 +66,10 @@ a {
         }
     }
 
+    &.no-external:after {
+        display: none;
+    }
+
     &:hover, &:active, &:focus {
         color: $brand-primary;
         outline: 0;

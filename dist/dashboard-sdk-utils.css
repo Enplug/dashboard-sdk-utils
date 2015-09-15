@@ -1725,6 +1725,8 @@ a {
     opacity: 0.5;
     content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAY1BMVEV5jJz///95jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx5jJx1iJd1iJh2iJh2iZl3iZl4i5p4i5t5jJxsFGGdAAAAGXRSTlMAAAIDBAUHCAoPEhUWIyw2OGZoaW5xc3R75NUa1QAAAE1JREFUeAEtxkUShFAAQ8GXP+4+OMn9T0kV0KtG0lHqRpskrfT4eSAg3V95BwP7b+rb0k/+zy0YKdW5AEEHToXMBdjlsvaKN/RubMdhAjG6BXX5hbgrAAAAAElFTkSuQmCC);
     margin: 0 3px 0 5px; }
+  a.no-external:after {
+    display: none; }
   a:hover, a:active, a:focus {
     color: #4078C0;
     outline: 0; }
@@ -2362,12 +2364,12 @@ hr {
     .card.card-aside h4 {
       font-size: 11px;
       font-weight: 600;
-      padding: 15px 20px 15px 20px;
+      padding: 20px 20px 10px 20px;
       color: #798c9c;
       text-transform: uppercase;
       border-bottom: 1px solid #ebeef0; }
     .card.card-aside .card-content {
-      padding: 15px 20px; }
+      padding: 10px 20px; }
 
 /* ==========================================================================
    Empty page format. Should be used in place of a card when no content.
