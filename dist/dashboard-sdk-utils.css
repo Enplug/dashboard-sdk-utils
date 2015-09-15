@@ -1834,6 +1834,9 @@ a {
 .text-glr {
   color: #eef1f3; }
 
+.text-p {
+  color: #4078C0 !important; }
+
 .hover-gdr:hover {
   color: #2a3239; }
 
@@ -2450,7 +2453,7 @@ hr {
   .btn.btn-sm {
     padding: 5px 8px; }
     .btn.btn-sm i {
-      font-size: 100%; }
+      font-size: 80%; }
   .btn.btn-admin:before {
     font-family: "Ionicons";
     content: "\f2ad";
