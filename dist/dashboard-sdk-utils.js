@@ -1772,7 +1772,7 @@ angular.module('enplug.sdk.utils').factory('ScriptLoaderService', function ($q, 
             };
 
             // Script failed to load
-            script.onerror = function (e) {
+            script.onerror = function () {
                 $timeout(function () {
                     defer.reject('Error. Please try again.');
                 });
