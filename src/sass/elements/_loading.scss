@@ -3,39 +3,47 @@
    ========================================================================== */
 
 .loading-wrapper {
-    display: block;
-}
-
-.loading-directive {
-    height: 100px;
     display: flex;
+    height: 100%;
     align-items: center;
     justify-content: center;
 
-    /* Wrapper
-    ========================================================================== */
-    .loader {
-        position: relative;
-        margin: 0 auto;
-        width: 65px;
-        height: 64px;
-        zoom: 1;
+    .loading-content {
+        height: 100%;
+        width: 100%;
     }
 
-    /* SVG element
-    ========================================================================== */
-    .circular {
-        animation: loadingrotate 2s linear infinite;
-        height: 64px;
-        position: relative;
-        width: 65px;
-    }
-    .path {
-        stroke-dasharray: 1,200;
-        stroke-dashoffset: 0;
-        animation: loadingdash 1.5s ease-in-out infinite;
-        stroke-linecap: round;
-        stroke: #428bca;
+    .loading-directive {
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* Wrapper
+        ========================================================================== */
+        .loader {
+            position: relative;
+            margin: 0 auto;
+            width: 65px;
+            height: 64px;
+            zoom: 1;
+        }
+
+        /* SVG element
+        ========================================================================== */
+        .circular {
+            animation: loadingrotate 2s linear infinite;
+            height: 64px;
+            position: relative;
+            width: 65px;
+        }
+        .path {
+            stroke-dasharray: 1,200;
+            stroke-dashoffset: 0;
+            animation: loadingdash 1.5s ease-in-out infinite;
+            stroke-linecap: round;
+            stroke: #428bca;
+        }
     }
 }
 

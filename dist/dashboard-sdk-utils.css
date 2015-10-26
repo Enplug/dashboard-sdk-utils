@@ -2965,42 +2965,53 @@ body.ngdialog-open .ngdialog-overlay {
    SVG loading indicator
    ========================================================================== */
 .loading-wrapper {
-  display: block; }
-
-.loading-directive {
-  height: 100px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
-          justify-content: center;
-  /* Wrapper
-    ========================================================================== */
-  /* SVG element
-    ========================================================================== */ }
-  .loading-directive .loader {
-    position: relative;
-    margin: 0 auto;
-    width: 65px;
-    height: 64px;
-    zoom: 1; }
-  .loading-directive .circular {
-    -webkit-animation: loadingrotate 2s linear infinite;
-            animation: loadingrotate 2s linear infinite;
-    height: 64px;
-    position: relative;
-    width: 65px; }
-  .loading-directive .path {
-    stroke-dasharray: 1,200;
-    stroke-dashoffset: 0;
-    -webkit-animation: loadingdash 1.5s ease-in-out infinite;
-            animation: loadingdash 1.5s ease-in-out infinite;
-    stroke-linecap: round;
-    stroke: #428bca; }
+          justify-content: center; }
+  .loading-wrapper .loading-content {
+    height: 100%;
+    width: 100%; }
+  .loading-wrapper .loading-directive {
+    height: 140px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    /* Wrapper
+        ========================================================================== */
+    /* SVG element
+        ========================================================================== */ }
+    .loading-wrapper .loading-directive .loader {
+      position: relative;
+      margin: 0 auto;
+      width: 65px;
+      height: 64px;
+      zoom: 1; }
+    .loading-wrapper .loading-directive .circular {
+      -webkit-animation: loadingrotate 2s linear infinite;
+              animation: loadingrotate 2s linear infinite;
+      height: 64px;
+      position: relative;
+      width: 65px; }
+    .loading-wrapper .loading-directive .path {
+      stroke-dasharray: 1,200;
+      stroke-dashoffset: 0;
+      -webkit-animation: loadingdash 1.5s ease-in-out infinite;
+              animation: loadingdash 1.5s ease-in-out infinite;
+      stroke-linecap: round;
+      stroke: #428bca; }
 
 /* Animations
 ========================================================================== */

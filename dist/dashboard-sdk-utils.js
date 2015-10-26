@@ -1808,7 +1808,7 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/layout-toggle.tpl",
         "<div class=\"btn-group layout-toggle\"><button ng-click=toggleLayout() ng-disabled=showGridLayout class=\"btn btn-default btn-icon btn-sm ion-android-apps grid-toggle\"></button> <button ng-click=toggleLayout() ng-disabled=!showGridLayout class=\"btn btn-default btn-icon btn-sm ion-navicon table-toggle\"></button></div>");
     $templateCache.put("sdk-utils/loading.tpl",
-        "<div class=loading-directive ng-show=loading><div class=loader ng-hide=error><svg class=circular><circle class=path cx=32 cy=32 r=30 fill=none stroke-width=2></circle></svg></div><div ng-show=error><p>There was an error.</p></div></div><ng-transclude ng-hide=loading></ng-transclude>");
+        "<div class=loading-directive ng-show=loading><div class=loader ng-hide=error><svg class=circular><circle class=path cx=32 cy=32 r=30 fill=none stroke-width=2></circle></svg></div><div ng-show=error><p>There was an error.</p></div></div><ng-transclude class=loading-content ng-hide=loading></ng-transclude>");
     $templateCache.put("sdk-utils/material-checkbox.tpl",
         "<div class=checkbox><label for=\"{{ id }}\"><input id=\"{{ id }}\" type=checkbox ng-model=model> <span class=checkbox-material><span class=check></span></span> <span class=checkbox-label><span ng-bind=label></span></span></label></div>");
     $templateCache.put("sdk-utils/material-input.tpl",
