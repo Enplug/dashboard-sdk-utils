@@ -1798,7 +1798,7 @@ a {
   color: #fff !important; }
 
 .text-success {
-  color: #6cbd7d !important; }
+  color: #6CC644 !important; }
 
 .text-primary {
   color: #4078C0 !important; }
@@ -2445,6 +2445,8 @@ hr {
     ========================================================================== */
   /* Destructive actions
     ========================================================================== */
+  /* Rarely-used green button
+    ========================================================================== */
   /* Buttons that only have an icon in them
     ========================================================================== */ }
   .btn span {
@@ -2507,6 +2509,17 @@ hr {
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) inset;
       background-color: #ff4343;
       border-color: #ff4343; }
+  .btn.btn-success {
+    background-color: #6CC644;
+    border-color: #6CC644;
+    color: #fff; }
+    .btn.btn-success:hover {
+      background-color: #60b838;
+      border-color: #60b838; }
+    .btn.btn-success:active {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) inset;
+      background-color: #60b838;
+      border-color: #60b838; }
   .btn.btn-icon.btn-sm {
     font-size: 15px;
     padding: 4px 8px; }
