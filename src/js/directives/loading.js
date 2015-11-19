@@ -9,6 +9,9 @@
 angular.module('enplug.sdk.utils').directive('loading', [function() {
     'use strict';
 
+    // Todo: error handling
+    // Todo: watch promises that are re-assigned
+
     function isPromise(val) {
         return typeof val === 'object' && typeof val.then === 'function';
     }
@@ -25,23 +28,20 @@ angular.module('enplug.sdk.utils').directive('loading', [function() {
 
             element.addClass('loading-wrapper');
 
-            // If boolean, watch the property
-            if (typeof scope.isLoading === 'boolean') {
-                scope.loading = scope.isLoading;
-                scope.$watch('isLoading', function (val) {
-                    scope.loading = val;
-                });
-            } else if (isPromise(scope.isLoading)) {
+            if (isPromise(scope.isLoading)) {
                 scope.loading = true;
                 scope.isLoading.then(function () {
                     scope.loading = false;
                 }, function () {
-                    // Todo error handling
                     scope.error = true;
                 });
             } else {
-                // Something went wrong
-                scope.error = true;
+
+                // watch the property
+                scope.loading = scope.isLoading;
+                scope.$watch('isLoading', function (val) {
+                    scope.loading = val;
+                });
             }
         }
     };
