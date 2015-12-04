@@ -1019,7 +1019,7 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
                 model: '=field'
             },
             transclude: true, // Allows us to wrap up custom html
-            templateUrl: 'templates/input.tpl.html',
+            templateUrl: 'sdk-utils/material-input.tpl',
             link: function ($scope, $element, $attrs, $form, $transclude) {
 
                 var ignoreAttributes = ['class', 'label', 'directives', 'field', 'focus', 'ng-if', 'ng-show', 'ng-hide'],
