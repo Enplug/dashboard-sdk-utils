@@ -90,7 +90,7 @@
         ========================================================================== */
         &:focus, &.active {
             // Positioning for label when active/focused
-            +label {
+            ~label {
                 font-size: 12px;
                 cursor: default;
                 transform: translateY(-20px);
@@ -103,7 +103,7 @@
             // Color change when focused
             background-color: transparent;
             box-shadow: 0 2px 0 $brand-primary;
-            +label {
+            ~label {
                 color: $brand-primary;
             }
             ~.input-group-addon {
@@ -129,7 +129,7 @@
             cursor: default;
             box-shadow: none;
 
-            +label {
+            ~label {
                 cursor: default;
             }
 

@@ -3426,7 +3426,7 @@ dropdown-menu:not(.dropdown-wrap) {
         ========================================================================== */
     /* Disabled state
         ========================================================================== */ }
-    .form-material .form-group input.form-control:focus + label, .form-material .form-group input.form-control.active + label {
+    .form-material .form-group input.form-control:focus ~ label, .form-material .form-group input.form-control.active ~ label {
       font-size: 12px;
       cursor: default;
       -webkit-transform: translateY(-20px);
@@ -3436,7 +3436,7 @@ dropdown-menu:not(.dropdown-wrap) {
     .form-material .form-group input.form-control:focus {
       background-color: transparent;
       box-shadow: 0 2px 0 #4078C0; }
-      .form-material .form-group input.form-control:focus + label {
+      .form-material .form-group input.form-control:focus ~ label {
         color: #4078C0; }
       .form-material .form-group input.form-control:focus ~ .input-group-addon {
         box-shadow: 0 2px 0 #4078C0;
@@ -3454,7 +3454,7 @@ dropdown-menu:not(.dropdown-wrap) {
       margin-bottom: -1px;
       cursor: default;
       box-shadow: none; }
-      .form-material .form-group input.form-control[disabled] + label, .form-material .form-group input.form-control[readonly] + label {
+      .form-material .form-group input.form-control[disabled] ~ label, .form-material .form-group input.form-control[readonly] ~ label {
         cursor: default; }
       .form-material .form-group input.form-control[disabled] ~ .input-group-addon, .form-material .form-group input.form-control[readonly] ~ .input-group-addon {
         margin-bottom: -1px;
