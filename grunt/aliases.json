@@ -10,7 +10,7 @@
         "cssmin:build"
     ],
     "version": [
-        "checkbranch:!master",
+        "checkbranch:master",
         "checkrepo:version",
         "prompt:version",
         "bump"
