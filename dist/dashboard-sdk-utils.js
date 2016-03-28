@@ -1633,6 +1633,65 @@ angular.module('enplug.sdk.utils').directive('stSummary', [function () {
 
 /**
  * @ngdoc directive
+ * @name tagInput
+ * @module enplug.sdk.utils
+ *
+ * @param tags {Array of Strings}
+ */
+angular.module('enplug.sdk.utils').directive('tagInput', function () {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            tags: '='
+        },
+        templateUrl: 'sdk-utils/tag-input.tpl',
+        link: function (scope, element, attrs) {
+
+            scope.deleteTag = function(tag) {
+                for ( var i=0,l=scope.tags.length; i<l; i++ ) {
+                    if (  scope.tags[i] === tag ) {
+                        scope.tags.splice(i, 1);
+                    }
+                }
+            }
+
+            scope.handleTextChange = function () {
+                if ( scope.input == null ) {
+                    return;  // filter empty input case
+                }
+                processTags(1);
+            }
+
+            scope.handleKeyPress = function (event) {
+                if ( scope.input == null ) {
+                    return;  // filter empty input case
+                }
+                if ( event.charCode != 13 && event.charCode != 32 ) {
+                    return; // filter Enter Key and Space ONLY
+                }
+                if ( scope.input === ' ' || scope.input.length === 0) {
+                    return; // filter edge cases
+                }
+                processTags(0);
+            }
+
+            function processTags(offset) {
+                var words = scope.input.split(' ');
+                for ( var i=offset; i<words.length; i++ ) {
+                    if ( scope.tags.indexOf( words[i] ) === -1 ) {
+                        scope.tags.push(words[i]);
+                    }
+                    words.splice(i--, 1);
+                }
+                scope.input = words.join(' ');
+            }
+        }
+    };
+});
+
+/**
+ * @ngdoc directive
  * @name tooltip
  * @module enplug.sdk.utils
  *
@@ -1872,6 +1931,8 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
         "<div class=pro-tip><i class=\"ion-flash text-primary\"></i> <strong>ProTip:</strong> <span ng-bind=::config.tip></span> <a ng-if=::config.link dynamic-click=::config.link.action dynamic-href=::config.link.location ng-bind=::config.link.text></a></div>");
     $templateCache.put("sdk-utils/status-button.tpl",
         "<button class=status-button><i class=ion-load-a ng-show=isLoading></i> <i class=ion-checkmark-circled ng-show=\"!isLoading && success\"></i> <i class=ion-alert-circled ng-show=\"!isLoading && error\"></i><ng-transclude></ng-transclude></button>");
+    $templateCache.put("sdk-utils/tag-input.tpl",
+        "<div class=\"tag-input clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\">{{tag}} <i ng-click=deleteTag(tag) class=\"icon ion-android-close\"></i></li><li><input name=fname placeholder=\"Add tags\" ng-model=input ng-change=handleTextChange() ng-keypress=\"handleKeyPress($event)\"></li></ul></div>");
     $templateCache.put("sdk-utils/tooltip.tpl",
         "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=tipText ng-show=::config.tooltip ng-bind=::config.tooltip></span> <span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span ng-if=config.title class=\"tipTitle text-gd\" ng-bind=::config.title></span> <span class=\"tipBody text-reset\" ng-bind=::config.text ng-class=\"{ pt: !config.title, pb: !config.link }\"></span> <a ng-if=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" ng-bind=::config.link.title></a> <span class=tipArrow></span></span></span></span>");
 }]);

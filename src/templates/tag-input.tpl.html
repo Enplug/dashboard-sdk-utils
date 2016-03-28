@@ -1,0 +1,16 @@
+<div class='tag-input clearfix'>
+    <ul class="list clearfix">
+        <li class="tag" ng-repeat="tag in tags track by $index">
+            {{tag}} 
+            <i ng-click="deleteTag(tag)" class="icon ion-android-close">
+        </li>
+        <li>
+            <input type="text" 
+                   name="fname" 
+                   placeholder="Add tags" 
+                   ng-model='input'
+                   ng-change="handleTextChange()"
+                   ng-keypress="handleKeyPress($event)" />
+        </li>
+    </ul>
+</div>

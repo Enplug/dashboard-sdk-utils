@@ -1,0 +1,72 @@
+.tag-input {
+    
+    $tag-color: #69BE7B;
+
+    @mixin placeholder() {
+      input::-webkit-input-placeholder { @content }
+      input:-moz-placeholder { @content }
+      input::-moz-placeholder { @content }
+      input:-ms-input-placeholder { @content }
+    }
+
+    ul.list {
+        display: block;
+        list-style: none;
+        border: none;
+        border-bottom: 1px lightgrey solid;
+        margin: 0;
+        padding: 0;
+
+        li {
+            width: auto;
+            float:left;
+            padding: 0px 10px;
+            margin: 2px;
+            min-height: 24px;
+            line-height: 24px;
+
+            &.tag {
+                background-color: $tag-color;
+                margin-right: 15px;
+                padding-right: 20px;
+                position:relative;
+                color:white;
+                font-weight: 500;
+
+                .icon {
+                    font-size:16px;
+                    position:absolute;
+                    top:0;
+                    right:0;
+                    cursor:pointer;
+                }
+                
+                &:after {
+                    content: "";
+                    color:white;
+                    width: 0; 
+                    height: 0; 
+                    border-top: 12px solid transparent;
+                    border-bottom: 12px solid transparent;
+                    border-left: 10px solid $tag-color;
+                    position: absolute;
+                    right:-10px;
+                    top: 0;
+                }
+
+                
+            }
+
+            input {
+                margin: 0;
+                padding: 0;
+                border: none;
+            }
+            @include placeholder() {
+                font-weight: 200;
+            }
+        }
+    }
+
+    
+}
