@@ -246,19 +246,13 @@ angular.module('enplug.sdk.utils').directive('colorPicker', ['$document', '$time
             };
 
             /** Close on outter click **/
-            var outterClickHandler = function(event){
-                console.log(event.pageY > PositionTools.getTop($palette[0]) 
-                    , event.pageY < PositionTools.getTop($palette[0]) + $palette[0].clientHeight
-                    , event.pageX > PositionTools.getLeft($palette[0]) 
-                    , event.pageX < PositionTools.getLeft($palette[0]) + $palette[0].clientWidth)
-
+            var outterClickHandler = function (event) {
                 var isInside = event.pageY > PositionTools.getTop($swatch[0]) 
                     && event.pageY < PositionTools.getTop($swatch[0]) + $swatch[0].clientHeight + $palette[0].clientHeight
                     && event.pageX > PositionTools.getLeft($palette[0]) 
                     && event.pageX < PositionTools.getLeft($palette[0]) + $palette[0].clientWidth
 
                 if ( !isInside ) {
-                    console.log('close')
                     return scope.$apply(function() {
                         scope.opened = false;
                         $document.unbind("mousedown", outterClickHandler);
