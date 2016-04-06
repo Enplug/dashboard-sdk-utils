@@ -784,99 +784,282 @@ angular.module('enplug.sdk.utils').directive('dropdown', function ($document, $t
  * @ngdoc directive
  * @name colorPicker
  * @module enplug.sdk.utils
- * @description requires jQuery and colpick.js
- *
- * @param ngModel {expression=} The model value to bind the color hex value to.
  */
-angular.module('enplug.sdk.utils').directive('colorPicker', [function () {
+angular.module('enplug.sdk.utils').directive('colorPicker', ['$document', '$timeout', 'ColorTools', 'PositionTools', 
+    function ($document, $timeout, ColorTools, PositionTools) {
     'use strict';
     return {
-        require: 'ngModel',
+        restrict: 'E',
         transclude: true,
-        replace: true,
+        // replace: false,
         scope: {
-            hex: '=ngModel',
-            onChange: '='
+            hex: '=?',
+            rgb: '=?',
+            alpha: '=?'
         },
         templateUrl: 'sdk-utils/color-picker.tpl',
-        link: function (scope, element, attr, ngModel) {
-            var
-                /**
-                 * instance of color picker return from initialization
-                 * @type {Object}
-                 */
-                colorPicker,
 
-                /**
-                 * default options for color picker plugin
-                 * @type {Object}
-                 */
-                defaultOptions = {
-                    onChange: onChange,
-                    onSubmit: onSubmit,
-                    layout: 'hex'
-                };
+        link: function (scope, element, attrs) {
 
-            /**
-             * wrapper for onChange events, intercepts and calls specified function
-             * @param hsb
-             * @param hex
-             * @param rgb
-             * @param el
-             * @param bySetColor
-             */
-            function onChange(hsb, hex, rgb, el, bySetColor) {
+            /** link dom elements **/
+            var labelAlpha = angular.element(element[0].querySelector('.channel-alpha'))
+             ,  labelRed = angular.element(element[0].querySelector('.channel-red'))
+             ,  labelGreen = angular.element(element[0].querySelector('.channel-green'))
+             ,  labelBlue = angular.element(element[0].querySelector('.channel-blue'))
+             ,  labelHex = angular.element(element[0].querySelector('.hex-input'));
 
-                // handle on change
-                scope.$apply(function () {
-                    ngModel.$setViewValue(hex);
+            var $palette = angular.element(element[0].querySelector('.palette'));
 
-                    // scope callback
-                    scope.onChange && scope.onChange(hex);
-                });
+            var $swatch = angular.element(element[0].querySelector('.swatch'));
+            scope.opened = false;
 
-                // call user-supplied fn if exists
-                options._onChange && options._onChange.apply(this, arguments);
+            var $hue = angular.element(element[0].querySelector('.hue'));
+            $hue[0].$cursor = angular.element($hue[0].querySelector('.cursor'));
+
+            var $alpha = angular.element(element[0].querySelector('.alpha-slider'));
+            $alpha[0].$cursor = angular.element($alpha[0].querySelector('.cursor'));
+            
+            var $saturation = angular.element(element[0].querySelector('.saturation'))
+            $saturation[0].$cursor = angular.element($saturation[0].querySelector('.cursor'))
+
+            /** Format 'rgb' vs 'hex' **/
+            if ( attrs.hasOwnProperty('showAsRgb') ) {
+                scope.showAs = 'rgb';
+            } else {
+                scope.showAs = 'hex';
             }
-
-            /**
-             * wrapper for onSubmit events, intercepts to update model and calls user-supplied function
-             * @param hsb
-             * @param hex
-             * @param rgb
-             * @param el
-             * @param bySetColor
-             */
-            function onSubmit(hsb, hex, rgb, el, bySetColor) {
-                // hide on submit
-                colorPicker.colpickHide();
-
-                scope.$apply(function () {
-                    ngModel.$setViewValue(hex);
-                });
-
-                // call user-supplied fn if exists
-                options._onSubmit && options._onSubmit.apply(this, arguments);
+            scope.toggleShowAs = function () {
+                scope.showAs = scope.showAs == 'hex' ? 'rgb' : 'hex';
             };
 
-            // get user configuration
-            var options = scope.$eval(attr.colorPicker) || {};
+            /** alpha support **/
+            scope.noAlpha = attrs.hasOwnProperty('noAlpha');
 
-            // override onChange fn
-            if (options.onChange) {
-                options._onChange = angular.copy(options.onChange);
-                delete options.onChange;
+
+            /** Test: 
+            scope.hex = scope.hex.replace(/^#/, '')
+            console.log('HEX:', scope.hex)
+            setRGB( ColorTools.hex2rgb( parseInt(scope.hex, 16) ) );
+            console.log('RGB:', scope.rgb)
+            var hsb = ColorTools.rgb2hsl(scope.rgb[0], scope.rgb[1], scope.rgb[2]);
+            console.log('HSB:', hsb, hsb[0]*360, hsb[1]*100, hsb[2]*100)
+            var backToRGB =  ColorTools.hsl2rgb(hsb[0], hsb[1], hsb[2] );
+            console.log('BACK TO RGB:', backToRGB)
+            var backToHex = ColorTools.rgb2hex(backToRGB[0], backToRGB[1], backToRGB[2])
+            console.log('BACK TO HEX:', backToHex)
+            **/
+
+            /** initialize color hex/rgb and alpha **/
+            if ( scope.hasOwnProperty('hex') ) { // We're dealing with HEX string input/output
+                setHEX( scope.hex.replace(/^#/, '') );
+                setRGB( ColorTools.hex2rgb( parseInt(scope.hex, 16) ) );
+                var hsl = ColorTools.rgb2hsl(scope.rgb[0], scope.rgb[1], scope.rgb[2]);
+                setHue(hsl[0]);
+                setSaturation(hsl[1]);
+                setBrightness(hsl[2]);
+            } else if ( scope.hasOwnProperty('rgb') ) { // We're dealing with RGB array input/output
+                setRGB( scope.rgb );
+                setHEX( ColorTools.rgb2hex(scope.rgb[0], scope.rgb[1], scope.rgb[2]) );
+                var hsl = ColorTools.rgb2hsl(scope.rgb[0], scope.rgb[1], scope.rgb[2]);
+                setHue(hsl[0]);
+                setSaturation(hsl[1]);
+                setBrightness(hsl[2]);
+            } else {
+                console.warn('[ColorPicker] Something insane just happened!')
             }
 
-            // override onSubmit fn
-            if (options.onSubmit) {
-                options._onSubmit = angular.copy(options.onSubmit);
-                delete options.onSubmit;
+            /** alpha **/
+            if ( !scope.hasOwnProperty('alpha') || isNaN(scope.alpha) ) {
+                scope.alpha = 1.0;
+            }
+            setAlpha(scope.alpha);
+          
+            /** Handle Saturation Panel Drag Events **/  
+            $saturation.on('mousedown', function(event) {
+                var mousemove, mouseup, ref;
+                mousemove = function (event) {
+                    return scope.$apply(function() {
+                        var top = Math.max(0, Math.min($saturation[0].clientHeight, event.pageY - PositionTools.getTop($saturation[0])))
+                          , left = Math.max(0, Math.min($saturation[0].clientWidth, event.pageX - PositionTools.getLeft($saturation[0])));
+                        setSaturation( left/$saturation[0].clientWidth );
+                        setBrightness( 1 - top/$saturation[0].clientHeight );
+                        setRGB( ColorTools.hsl2rgb(scope.hue, scope.saturation, scope.brightness) );
+                        setHEX( ColorTools.rgb2hex(scope.rgb[0], scope.rgb[1], scope.rgb[2]) );
+                    });
+                };
+                mouseup = function() {
+                    $document.unbind('mousemove', mousemove);
+                    $document.unbind('mouseleave', mouseup);
+                    $document.unbind('mouseup', mouseup);
+                };
+                event.preventDefault();
+                mousemove(event);
+                $document.on('mousemove', mousemove);
+                $document.on('mouseleave', mouseup);
+                $document.on('mouseup', mouseup);
+            });
+
+
+            /** Handle Hue Panel Drag Events **/
+            $hue.on('mousedown', function(event) {
+                var mousemove, mouseup, ref;
+                mousemove = function (event) {
+                    return scope.$apply(function() {
+                        var left = Math.max(0, Math.min($hue[0].clientWidth, event.pageX - PositionTools.getLeft($hue[0])));
+                        setHue( 1 - left/$hue[0].clientWidth );
+                        setRGB( ColorTools.hsl2rgb(scope.hue, scope.saturation, scope.brightness) );
+                        setHEX( ColorTools.rgb2hex(scope.rgb[0], scope.rgb[1], scope.rgb[2]) );
+                    });
+                };
+                mouseup = function() {
+                    $document.unbind('mousemove', mousemove);
+                    $document.unbind('mouseleave', mouseup);
+                    $document.unbind('mouseup', mouseup);
+                };
+                event.preventDefault();
+                mousemove(event);
+                $document.on('mousemove', mousemove);
+                $document.on('mouseleave', mouseup);
+                $document.on('mouseup', mouseup);
+            });
+
+
+            /** Handle Alpha Panel Drag Events **/
+            $alpha.on('mousedown', function(event) {
+                var mousemove, mouseup, ref;
+                mousemove = function (event) {
+                    return scope.$apply(function() {
+                        var left = Math.max(0, Math.min($alpha[0].clientWidth, event.pageX - PositionTools.getLeft($alpha[0])));
+                        setAlpha( left/$alpha[0].clientWidth );
+                    });
+                };
+                mouseup = function() {
+                    $document.unbind('mousemove', mousemove);
+                    $document.unbind('mouseleave', mouseup);
+                    $document.unbind('mouseup', mouseup);
+                };
+                event.preventDefault();
+                mousemove(event);
+                $document.on('mousemove', mousemove);
+                $document.on('mouseleave', mouseup);
+                $document.on('mouseup', mouseup);
+            });
+
+            
+            function setHEX(val) {
+                scope.hex = val;
+                scope.hexInput = val;
             }
 
-            // extend options, instantiate plugin
-            options = angular.extend(defaultOptions, options);
-            colorPicker = $(element).colpick(options);
+            function setRGB (val) {
+                scope.rgb = val;
+                setRed( val[0] );
+                setGreen( val[1] );
+                setBlue( val[2] );
+            }
+
+            function setRed(val) {
+                scope.red = Math.round(val);
+            }
+            function setGreen(val) {
+                scope.green = Math.round(val);
+            }
+            function setBlue(val) {
+                scope.blue = Math.round(val);
+            }
+
+            function setHue(val) {
+                scope.hue = val;
+                $hue[0].$cursor.css( 'left', (1-scope.hue) * $hue[0].clientWidth + 'px' );
+            }
+
+            function setSaturation(val) {
+                scope.saturation = val;
+                $saturation[0].$cursor.css( 'left', scope.saturation * $saturation[0].clientWidth + 'px' );
+            }
+
+            function setBrightness(val) {
+                scope.brightness = val;
+                $saturation[0].$cursor.css( 'top', (1-val) * $saturation[0].clientHeight + 'px' );
+            }
+            
+            function setAlpha(val) {
+                scope.alpha = parseFloat(val.toFixed(2));
+                scope.alphaPercent = parseFloat( (scope.alpha*100).toFixed(2));
+                if ( !scope.noAlpha ) {
+                    $alpha[0].$cursor.css( 'left', scope.alpha * $alpha[0].clientWidth + 'px' );
+                }
+            }
+
+            /** Handle UI changes **/
+            scope.$watch('alphaPercent', function(){
+                setAlpha( labelAlpha[0].value / 100 );
+            });
+
+            scope.getHueColor = function () {
+                var rgb = ColorTools.hsl2rgb( scope.hue, 1, 1);
+                var hex = ColorTools.rgb2hex( rgb[0], rgb[1], rgb[2] );
+                return hex;
+            }
+
+            scope.watchRGBInputChange = function () {
+                setRGB( [scope.red, scope.green, scope.blue] );
+                var hsl = ColorTools.rgb2hsl(scope.red, scope.green, scope.blue);
+                setHEX( ColorTools.rgb2hex(scope.red, scope.green, scope.blue) );
+                setHue(hsl[0]);
+                setSaturation(hsl[1]);
+                setBrightness(hsl[2]);
+            };
+
+            scope.watchHEXInputChange = function () {
+                if ( labelHex[0].value.match(/[^0-9a-fA-F\.]/g) ) {
+                    labelHex[0].value = labelHex[0].value.replace(/[^0-9a-fA-F\.]/g, '');
+                }
+                var fixed = labelHex[0].value.split(''), hex='';
+                for ( var i=0, l=6; i<l; i++ ) {
+                    hex += i < fixed.length ? fixed[i] : 0;
+                }
+                scope.hex = hex; // make sure not to call setHEX instead!
+                setRGB( ColorTools.hex2rgb(parseInt(scope.hex, 16)) );
+                var hsl = ColorTools.rgb2hsl(scope.red, scope.green, scope.blue);
+                setHue(hsl[0]);
+                setSaturation(hsl[1]);
+                setBrightness(hsl[2]);
+            };
+
+            /** Close on outter click **/
+            var outterClickHandler = function(event){
+                console.log(event.pageY > PositionTools.getTop($palette[0]) 
+                    , event.pageY < PositionTools.getTop($palette[0]) + $palette[0].clientHeight
+                    , event.pageX > PositionTools.getLeft($palette[0]) 
+                    , event.pageX < PositionTools.getLeft($palette[0]) + $palette[0].clientWidth)
+
+                var isInside = event.pageY > PositionTools.getTop($swatch[0]) 
+                    && event.pageY < PositionTools.getTop($swatch[0]) + $swatch[0].clientHeight + $palette[0].clientHeight
+                    && event.pageX > PositionTools.getLeft($palette[0]) 
+                    && event.pageX < PositionTools.getLeft($palette[0]) + $palette[0].clientWidth
+
+                if ( !isInside ) {
+                    console.log('close')
+                    return scope.$apply(function() {
+                        scope.opened = false;
+                        $document.unbind("mousedown", outterClickHandler);
+                    });
+                }
+            };
+
+            scope.toggle = function () {
+                scope.opened = !scope.opened;
+                if ( scope.opened ) {
+                    $document.bind("mousedown", outterClickHandler);
+                } else {
+                    $document.unbind("mousedown", outterClickHandler);
+                }
+            }
+
+            element.on('$destroy', function() {
+                $document.unbind("mousedown", outterClickHandler);
+            });
         }
     }
 }]);
@@ -1731,6 +1914,139 @@ angular.module('enplug.sdk.utils').directive('tooltip', function (Tooltips) {
     };
 });
 
+/**
+ * @ngdoc service
+ * @name ColorTools
+ * @module enplug.sdk.utils
+ * @source https://gist.github.com/emanuel-sanabria-developer/5793377
+ */
+
+ angular.module('enplug.sdk.utils').factory('ColorTools', [function () {
+    
+    /**
+     * Converts an RGB color value to HSL. Conversion formula
+     * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
+     * Assumes r, g, and b are contained in the set [0, 255] and
+     * returns h, s, and l in the set [0, 1].
+     *
+     * @param   Number  r       The red color value
+     * @param   Number  g       The green color value
+     * @param   Number  b       The blue color value
+     * @return  Array           The HSL representation
+     */
+    function rgb2hsl (r, g, b) {
+
+        var rr, gg, bb,
+        r = arguments[0] / 255,
+        g = arguments[1] / 255,
+        b = arguments[2] / 255,
+        h, s,
+        v = Math.max(r, g, b),
+        diff = v - Math.min(r, g, b),
+        diffc = function(c){
+            return (v - c) / 6 / diff + 1 / 2;
+        };
+
+        if (diff == 0) {
+            h = s = 0;
+        } else {
+            s = diff / v;
+            rr = diffc(r);
+            gg = diffc(g);
+            bb = diffc(b);
+
+            if (r === v) {
+                h = bb - gg;
+            }else if (g === v) {
+                h = (1 / 3) + rr - bb;
+            }else if (b === v) {
+                h = (2 / 3) + gg - rr;
+            }
+            if (h < 0) {
+                h += 1;
+            }else if (h > 1) {
+                h -= 1;
+            }
+        }
+        return [h, s, v ]
+    }
+
+    /**
+     * Converts an HSL color value to RGB. Conversion formula
+     * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
+     * Assumes h, s, and l are contained in the set [0, 1] and
+     * returns r, g, and b in the set [0, 255].
+     *
+     * @param   Number  h       The hue
+     * @param   Number  s       The saturation
+     * @param   Number  l       The lightness
+     * @return  Array           The RGB representation
+     */
+    function hsl2rgb (h,s,v) {
+        var r,g,b,i,f,p,q,t,hue;
+        if (h.h !=null){
+            v=h.b;
+            s=h.s;
+            h=h.h;
+        }
+        h%=360;
+        if (h<1) h*=360;
+        s=s>1?1:s<0?0:s;
+        v=v>1?1:v<0?0:v;
+        hue=h
+        if (s==0) r=g=b=v;
+        else {
+            h/=60;
+            f=h-(i=Math.floor(h));
+            p=v*(1-s);
+            q=v*(1-s*f);
+            t=v*(1-s*(1-f));
+            switch (i) {
+                case 0:r=v; g=t; b=p; break;
+                case 1:r=q; g=v; b=p; break;
+                case 2:r=p; g=v; b=t; break;
+                case 3:r=p; g=q; b=v; break;
+                case 4:r=t; g=p; b=v; break;
+                case 5:r=v; g=p; b=q; break;
+            }
+        }
+        return [ Math.floor(r * 255), Math.floor(g * 255), Math.floor(b * 255)]
+    }
+
+    /**
+     * Converts HEX color value to Array of integer representing the Red Green Blue channels.
+     *
+     * @param   Number  hex     The hex value FFFFFF
+     * @return  Array of 3 Number  The RGB value [ [0, 255], [0, 255], [0, 255] ].
+     */
+    function hex2rgb (hex) {
+        return [ (hex >> 16) & 255, (hex >> 8) & 255, hex & 255 ];
+    }
+
+    /**
+     * Converts RGB color value to array of hex representing the Red Green Blue channels.
+     *
+     * @param   Number  r           red [0,1]
+     * @param   Number  g           red [0,1]
+     * @param   Number  r           red [0,2]
+     * @return  Array ofb3 Number   The RGB value [ [0, 255], [0, 255], [0, 255] ].
+     */
+    function rgb2hex ( r, g, b) {
+        var hex = (r*65536+g*256+b).toString(16,6);
+        while ( hex.length < 6 ) {
+            hex = '0'+hex;
+        }
+        return hex;
+    }
+
+    return {
+        rgb2hsl: rgb2hsl,
+        hsl2rgb: hsl2rgb,
+        hex2rgb: hex2rgb,
+        rgb2hex: rgb2hex
+    };
+}]);
+
 angular.module('enplug.sdk.utils').service('DetectChanges', ['$log', function ($log) {
 
     // TODO: remove lodash dependency
@@ -1868,6 +2184,61 @@ angular.module('enplug.sdk.utils').factory('GUID', [function () {
     };
 }]);
 
+/**
+ * @ngdoc service
+ * @name PositionTools
+ * @module enplug.sdk.utils
+ * @source snippets from jquery library
+ */
+
+ angular.module('enplug.sdk.utils').factory('PositionTools', ['$window', function ($window) {
+    
+    function getOffset(element)
+    {
+        var docElem, rect, doc;
+        rect = element.getBoundingClientRect();
+        // Make sure element is not hidden (display: none) or disconnected
+        if ( rect.width || rect.height || element.getClientRects().length ) {
+        	doc = element.ownerDocument;
+            docElem = doc.documentElement;
+            return {
+            	top: rect.top + $window.pageYOffset - docElem.clientTop,
+                left: rect.left + $window.pageXOffset - docElem.clientLeft
+            };
+        }
+    }
+
+	function getLeft(element)
+    {
+        var docElem, rect, doc;
+        rect = element.getBoundingClientRect();
+        // Make sure element is not hidden (display: none) or disconnected
+        if ( rect.width || rect.height || element.getClientRects().length ) {
+        	doc = element.ownerDocument;
+            docElem = doc.documentElement;
+            return rect.left + $window.pageXOffset - docElem.clientLeft;
+        }
+    }
+
+	function getTop(element)
+    {
+        var docElem, rect, doc;
+        rect = element.getBoundingClientRect();
+        // Make sure element is not hidden (display: none) or disconnected
+        if ( rect.width || rect.height || element.getClientRects().length ) {
+        	doc = element.ownerDocument;
+            docElem = doc.documentElement;
+            return rect.top + $window.pageYOffset - docElem.clientTop;
+        }
+    }
+
+    return {
+        getOffset: getOffset,
+        getLeft: getLeft,
+        getTop: getTop
+    };
+}]);
+
 angular.module('enplug.sdk.utils').factory('ScriptLoaderService', function ($q, $document, $timeout) {
     'use strict';
 
@@ -1910,7 +2281,7 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/alert.tpl",
         "<div class=alert><i ng-hide=notice class=\"ion-alert-circled alert-icon\"></i> <i ng-show=notice class=\"ion-information-circled alert-icon\"></i><ng-transclude class=alert-body></ng-transclude></div>");
     $templateCache.put("sdk-utils/color-picker.tpl",
-        "<span class=color-picker><span class=swatch ng-style=\"{ 'background-color': '#' + hex }\"></span> <span class=color-picker-label ng-transclude></span></span>");
+        "<div class=color-picker ng-blur=close()><div class=swatch ng-style=\"{ 'background-color': '#' + hex }\" ng-click=toggle()></div><div class=transcluded ng-transclude ng-click=toggle()></div><div class=palette ng-class=\"{ 'opened': opened }\"><div class=saturation ng-class=\"{ 'no-alpha': noAlpha }\" ng-style=\"{ 'background-color': '#' + getHueColor() }\"><div class=cursor></div></div><div class=preview ng-style=\"{ 'background-color': '#' + hex }\"></div><div class=hue><div class=cursor></div></div><div class=numbers><ul class=clearfix ng-class=\"{ 'show-as-hex': showAs=='hex', 'show-as-rgb': showAs=='rgb'  }\"><li class=\"\"><label>R:</label><input class=channel-red type=number name=channel-red min=0 max=255 ng-model=red ng-change=watchRGBInputChange()></li><li class=\"\"><label>G:</label><input class=channel-green type=number name=channel-green min=0 max=255 ng-model=green ng-change=watchRGBInputChange()></li><li class=\"\"><label>B:</label><input class=channel-blue type=number name=channel-blue min=0 max=255 ng-model=blue ng-change=watchRGBInputChange()></li><li class=iconic ng-click=toggleShowAs()><i class=\"icon ion-android-options\"></i></li><li class=hex-values><label>#</label><input class=hex-input name=hex-input maxlength=6 ng-model=hexInput ng-change=watchHEXInputChange()></li></ul></div><div class=alpha ng-hide=noAlpha><div class=field><label>A:</label><input class=channel-alpha type=number name=channel-alpha min=0 max=100 ng-model=alphaPercent></div><div class=alpha-slider ng-style=\"{ 'background-color': '#' + hex }\"><div class=cursor></div></div></div></div></div>");
     $templateCache.put("sdk-utils/help-block.tpl",
         "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i> Need help? Go to the <a href=http://support.enplug.com target=_blank>Enplug Help Center</a></div></footer>");
     $templateCache.put("sdk-utils/layout-toggle.tpl",

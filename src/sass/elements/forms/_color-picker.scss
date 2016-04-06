@@ -1,187 +1,252 @@
-/* ==========================================================================
-   Color picker based on jQuery Colpick
-   ========================================================================== */
 
-/* Directive swatch/label style
-========================================================================== */
 .color-picker {
-    display: flex;
+    
+
+    $saturation-gradient: url(data:image/png;base64,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);
+    $hue-bar: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAABCAYAAAAVSWrbAAAA2ElEQVQYlVXK227aUBCF4W8wJJRtDE1ylfd/rj5AVRRsbEeowpOLbanpkn7NOkzMb13mbVD1Tr4SHTq0Qke+0JzIQh7ZFpxFnqvPInWiaf3NvSmYFsaFOZhxXeiDeWFS+x63YH7UnxmfwafK/UE+Ec/EkTizORCFaFd/YndmU2jaf+x+rrewOdZ9e6TZ36VBmqSenGqOD1wxSjdykC644AO/8Uv6X4EGWzxhh2fsV1oU/MBhpcXpWy4oQVnYTuRITuRAzhjIHrc1j3XT183aGTGRVw5/uOz4AmDlXvmKFOkvAAAAAElFTkSuQmCC);
+    $alpha-bar: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAAAQCAYAAAD59vZgAAAEcElEQVRogaVaW27jMAykFrlP4Ov3FO6BYu5HJXc0mqGMXQFGHFF8iBTJidr29fWVEZHxM67+fj/v9zv7PNOviMjv7++E+eXz/X7z3If48fuypvPzmvvp/Mv8eICfaZ/Ov8wR/wdsWtYBP/N+uv/GPMtgfqeffTb5AvyPfmZ+pqP/R2w/KsadHx88C/FqrQWNFr8HKlpr2ecuWIN0y9vpPIffs/NPPKij04f+NHQ3sqA3sA/nxlPx32s28hPkqz0O/6agt27eFbPPpvdOH/IXOV0+8yHd2tblK7vuOTxA6qCoA8AalqDie0HHDYRZk+DgxXjgd1FskABSB+nnbGvk4CVIQMeDx/bxQP4yA8D/MsmA3R0Q5E9eB3SMPSe4orWIuP64jcF3ZAjxzrxqvRrS4WYNZ7GqaE6Wy26k42eDT8fnqqryH+tjfjx81R52vmIbnZ1KNtPZp0m0e71qYZMxpsS5E1xlAPNmzCWejRv8mDnI3yLiggpXZah1HGUwy1EFYmTjaGG2OsfcYpScFBUG7UixP1WBnQ0p4jNVc4rP8rmJX7yE8smR1EJwjVPKJVJtkNeqDB4HRGVvAB/O8dh2CLJpaXVdwK5i2QqxC3Cs+0bbGul3icrxQP87e6u4Igas1uTLnFCFESSWKXqwwkBYqjnD1GCQOGX/WMBzLCB0gMcBnb4b/bYFiv2NwRWOB2IsnOMKU/ln9yOiwf4nu4DuKuSgM880EAM5R6jeXFltAaUwZNf3VVnfyXRyXKurZD8ZVUbLqrbRNSUY2aZ8JVtvbbLlt61KjJ8WdhxHKf08z5J+HIcCavddQud3OCmP4ygD1/kZaN6ywH55uM7zZICK9rXjOC6YXyqI2P9Uqbp+BYJbRLTzPJeqBs9F/kf/tK5/Ws/GgP/QL3fVNvG7fdX5uU3e8jbxz1fTIJJ7KIPYqsdO2IQw1JL9RYlEDLDoHd8f/AxW1QF7/CSP1qh7oKmq/EeLcS1sen8oH4M+3RsJiNEK/qWCFtcsLWJtYazgSQuZ7HGGkhyUjzxKV2UD6mq0zul0NCdjJ48BbMA72q78urO9stfJZdsd/nOxqPTh2ojQN9EM4rAfcwviE77cVsPPaNn7xU3pFATzM/8u1QCiVRDxIlFisuKibweCA+iqvYwKyjbhPhRI5wq/zJH9HBflP/VXhLG/JabEz3PTer5IVIv53VUX5ySkPalKjle9P8lcBw6fZruqgAosO927obAdzgfR/1XXk+6BnzugHxE/90BjQjJkJp5YBmmVodn5S/lROyUy05VVdKiVbfjVAXD7xzWon2XKecHPelm/8p+CF6gbcQ/Gp0H8XAxcgrb4DT9XuNveP8ToDKyqixuu5yMdHzcYL6Ajn2S4A4hoo8NCvE59twA0vF8Z+1V+4ITheCi9roKroWzj4eK2YKDFwAd/rGO642cZGTUGacCvgKGTT+YtN8mog/8Yif/KoOQj760g5oo8tR2DMW5dhHGWw0AYZ6k2hDH5Xf0x1vlPHc4thv0L1d+9Dzd9Ma4AAAAASUVORK5CYII=);
+
+    @mixin cursor {
+        position: absolute;
+        top:50%;
+        left:50%;
+        background: white;
+        border-radius: 7px;
+        border:2px white solid;
+        width:14px;
+        height:14px;
+        margin-left: -7px;
+        margin-top: -7px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    }
+
+    position: relative;
+    cursor: pointer;
+    
     .swatch {
         width: 24px;
         height: 24px;
         display: inline-block;
         border-radius: 3px;
-        box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
-        cursor: pointer;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
     }
 
-    .color-picker-label {
-        align-self: center;
+    .transcluded {
+        line-height: 24px;
         padding-left: 10px;
-        cursor: pointer;
-    }
-}
-
-/* Color picker style - overrides colpick.css
-========================================================================== */
-.colpick.colpick_hex {
-    background: #fff;
-    box-shadow: $box-shadow;
-    border: none;
-    border-radius: $border-radius;
-    overflow: visible;
-    margin-top: 10px;
-    height: 210px;
-    animation: reveal $transition-speed ease-out;
-    z-index: 1000;
-
-    .colpick_color {
-        left: 10px;
     }
 
-    .colpick_color,
-    .colpick_color_overlay1,
-    .colpick_color_overlay2 {
-        outline: none;
-        cursor: default;
-    }
-
-    .colpick_selector_outer {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        border: 2px solid rgb(255, 255, 255);
-        cursor: pointer;
-        box-shadow: rgba(0, 0, 0, 0.34902) 0px 1px 1px;
-        background: transparent;
-        .colpick_selector_inner {
-            display: none;
-        }
-    }
-
-    .colpick_field_letter {
-        width: 16px;
-        padding-right: 2px;
-    }
-
-    .colpick_hue {
-        left: 178px;
-        width: 16px;
-        border-radius: $border-radius;
-        border: 0;
-        cursor: default;
-        .colpick_hue_arrs {
-            border: 1px solid $border-color;
-            background: #fff;
-            border-radius: $border-radius;
-            width: 24px;
-            height: 10px;
-            left: -4px;
-            cursor: pointer;
-            .colpick_hue_rarr, .colpick_hue_larr {
-                display: none;
-            }
-        }
-    }
-
-    .colpick_new_color,
-    .colpick_current_color,
-    .colpick_hex_field {
-        top: 173px;
-    }
-
-    .colpick_new_color {
-        left: 10px;
-        width: 35px;
-        border-top-left-radius: $border-radius;
-        border-bottom-left-radius: $border-radius;
-        border: none;
-        cursor: pointer;
-    }
-
-    .colpick_current_color {
-        left: 45px;
-        width: 35px;
-        border-top-right-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
-        border: none;
-        cursor: pointer;
-    }
-
-    .colpick_hex_field {
-        left: 98px;
-        width: 94px;
-        border: none;
-        border-radius: 0;
-        background: transparent;
-        color: $gray-darker;
-        box-shadow: 0 1px 0 $border-color;
-        .colpick_field_letter {
-            border: none;
-            color: $gray;
-            font-weight: normal;
-            background: transparent;
-            font-size: 15px;
-        }
-        input {
-            font-size: 15px;
-        }
-    }
-
-    // Hack: we repurpose this div because we don't need it, can't easily add html,
-    // and want an arrow with box shadow
-    .colpick_submit {
+    .palette {
+        width: 220px;
+        height: 170px;
         position: absolute;
-        left: 2px !important;
-        top: -20px !important;
-        width: 20px !important;
-        height: 20px !important;
-        overflow: hidden;
-        pointer-events: none;
-        text-indent: -1000px;
-        background: transparent;
-        user-select: none;
-        border: none;
-        &:after {
+        top:32px; 
+        left:0;
+        display: block;
+        border-radius: 3px;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        background-color: white;
+        padding: 2px;
+        animation: reveal .15s ease-out;
+        z-index: 1000;
+        display: none;
+        opacity: 0;
+
+        &.opened {
+            display: block;
+            opacity: 1;
+        }
+
+        &:before {
             content: "";
             position: absolute;
-            top: 15px;
-            left: 50%;
+            -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
-            margin-left: -5px;
+            left: 8px;
+            top: -1px;
             display: block;
             height: 10px;
             width: 10px;
             background-color: #fff;
-            box-shadow: 0 0 0 1px rgba(39,44,48,0.05),0 2px 7px 1px rgba(39,44,48,0.16);
+            box-shadow: 0 0 0 1px rgba(39,44,48,.05),0 2px 7px 1px rgba(39,44,48,.16);
+        }
+
+        .saturation {
+            width:100%;
+            height: calc(100% - 90px);
+            &.no-alpha { 
+                height: calc(100% - 58px);
+            }
+            background-color: red; 
+            background-image: $saturation-gradient; 
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center; 
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+
+            .cursor {
+                @include cursor;
+                background: transparent;
+                border-radius: 6px;
+                border:2px white solid;
+                width:12px;
+                height:12px;
+                margin-left: -6px;
+                margin-top: -6px;
+            }
+        }
+
+        .preview {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            background-color: red;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+            float: left;
+            margin: 4px;
+        }
+
+        .hue {
+            width: calc(100% - 50px);
+            height:12px;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+            float: left;
+            margin: 8px 10px 8px 10px;
+            cursor: pointer;
+            position: relative;
+
+            background-color: transparent; 
+            background-image: $hue-bar; 
+            background-size: 100% 100%;
+            background-repeat: repeat-y;
+            background-position: center; 
+
+            .cursor {
+                @include cursor;
+            }
+        }
+
+        .alpha {
+
+            width: 100%;
+            height: auto;
+            border-top: 1px solid #F7F7F7;
+            float: left;
+            margin: 0;
+            .field {
+                width:60px;
+                height:30px;
+                float:left;
+                margin: 5px 3px;
+                label, 
+                input {
+                    display: inline;
+                }
+            }
+
+            .alpha-slider {
+                width: 134px;
+                height: 12px;
+                box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+                float: left;
+                margin: 8px 10px 8px 5px;
+                cursor: pointer;
+                position: relative;
+
+                background-color: red; 
+                background-image: $alpha-bar; 
+                background-size: 100% 100%;
+                background-repeat: repeat-y;
+                background-position: center; 
+
+                .cursor {
+                    @include cursor;
+                }
+            }
+        }
+
+        .numbers {
+            width: 100%;
+            height:auto;
+            border-top: 1px solid #F7F7F7;
+            float: left;
+            margin: 0;
+            overflow:hidden;
+
+            ul {
+                margin: 0;
+                padding:0;
+                list-style: none;
+                width:400px;
+                text-align: center;
+                min-height: 30px;
+
+                transition: margin-left .3s ease-in-out;
+                &.show-as-rgb { margin-left:0; }
+                &.show-as-hex { margin-left:-192px; }
+
+
+                li {
+                    float: left;
+                    width:auto;
+                    min-width: 62px;
+                    display: inline-block;
+                    padding: 0 3px;
+                    margin-top: 5px;
+                    border-left: 1px solid #F7F7F7;
+                    &:first-child {
+                        border-left: none;
+                    }
+                    &.iconic {
+                        min-width:26px;
+                        cursor: pointer;
+                    }
+                    &.hex-values {
+                        padding-left: 25px;
+                    }
+                }
+/*
+                &.hex {
+                    li.values {
+                        padding-left: 40px;
+                        max-width: 150px;
+                        input {
+                            max-width: 90px;
+                        }
+                    }
+                }*/
+            }
         }
     }
+
+    label,
+    input {
+        margin:0 1px;
+        padding: 0;
+        border:none;
+        font-size:12px;
+        line-height:12px;
+        text-align: center;
+        font-weight: 300;
+        transition: all .15s ease-out;
+    }
+    label {
+        font-weight: 400;
+    }
+    input {
+        text-transform:uppercase;
+        padding: 2px;
+        border: none;
+        border-bottom: 1px solid #F7F7F7; 
+        &:focus {
+            border:none;
+            border-bottom: 2px solid #4078C0; 
+        }
+
+    }
+                    
 }
 
-/* Palettes without color pickers
-========================================================================== */
-.palette {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    border-radius: 4px;
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
-    margin-right: 3px;
-    cursor: pointer;
-    &:last-child {
-        margin: 0;
-    }
-}
-
-/* Animations
-========================================================================== */
-@keyframes reveal {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
