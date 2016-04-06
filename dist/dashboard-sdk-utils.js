@@ -802,11 +802,11 @@ angular.module('enplug.sdk.utils').directive('colorPicker', ['$document', '$time
         link: function (scope, element, attrs) {
 
             /** link dom elements **/
-            var labelAlpha = angular.element(element[0].querySelector('.channel-alpha'))
-             ,  labelRed = angular.element(element[0].querySelector('.channel-red'))
-             ,  labelGreen = angular.element(element[0].querySelector('.channel-green'))
-             ,  labelBlue = angular.element(element[0].querySelector('.channel-blue'))
-             ,  labelHex = angular.element(element[0].querySelector('.hex-input'));
+            var labelAlpha = angular.element(element[0].querySelector('.channel-alpha')),
+                labelRed = angular.element(element[0].querySelector('.channel-red')),
+                labelGreen = angular.element(element[0].querySelector('.channel-green')),
+                labelBlue = angular.element(element[0].querySelector('.channel-blue')),
+                labelHex = angular.element(element[0].querySelector('.hex-input'));
 
             var $palette = angular.element(element[0].querySelector('.palette'));
 
@@ -834,7 +834,6 @@ angular.module('enplug.sdk.utils').directive('colorPicker', ['$document', '$time
 
             /** alpha support **/
             scope.noAlpha = attrs.hasOwnProperty('noAlpha');
-
 
             /** Test: 
             scope.hex = scope.hex.replace(/^#/, '')
@@ -873,7 +872,7 @@ angular.module('enplug.sdk.utils').directive('colorPicker', ['$document', '$time
                 scope.alpha = 1.0;
             }
             setAlpha(scope.alpha);
-          
+
             /** Handle Saturation Panel Drag Events **/  
             $saturation.on('mousedown', function(event) {
                 var mousemove, mouseup, ref;
@@ -945,7 +944,6 @@ angular.module('enplug.sdk.utils').directive('colorPicker', ['$document', '$time
                 $document.on('mouseup', mouseup);
             });
 
-            
             function setHEX(val) {
                 scope.hex = val;
                 scope.hexInput = val;
@@ -1045,6 +1043,13 @@ angular.module('enplug.sdk.utils').directive('colorPicker', ['$document', '$time
             scope.toggle = function () {
                 scope.opened = !scope.opened;
                 if ( scope.opened ) {
+                    $timeout(function () {
+                        setAlpha(scope.alpha);
+                        var hsl = ColorTools.rgb2hsl(scope.rgb[0], scope.rgb[1], scope.rgb[2]);
+                        setHue(hsl[0]);
+                        setSaturation(hsl[1]);
+                        setBrightness(hsl[2]);
+                    });
                     $document.bind("mousedown", outterClickHandler);
                 } else {
                     $document.unbind("mousedown", outterClickHandler);
