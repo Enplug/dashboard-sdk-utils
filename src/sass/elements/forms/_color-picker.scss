@@ -29,11 +29,13 @@
         display: inline-block;
         border-radius: 3px;
         box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+        float: left;
     }
 
     .transcluded {
         line-height: 24px;
         padding-left: 10px;
+        margin: 5px 30px;
     }
 
     .palette {
@@ -155,7 +157,6 @@
                 margin: 8px 10px 8px 5px;
                 cursor: pointer;
                 position: relative;
-
                 background-color: red; 
                 background-image: $alpha-bar; 
                 background-size: 100% 100%;
@@ -218,6 +219,18 @@
                         }
                     }
                 }*/
+            }
+        }
+
+        input {
+            &.channel-red,
+            &.channel-green,
+            &.channel-blue,
+            &.channel-alpha {
+                width:41px;
+            }
+            &.hex-input {
+                width:130px;
             }
         }
     }
