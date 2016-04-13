@@ -3926,13 +3926,18 @@ input {
             border-left: none; }
           .color-picker .palette .numbers ul li.iconic {
             min-width: 26px;
-            cursor: pointer; }
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 22px; }
           .color-picker .palette .numbers ul li.hex-values {
             padding-left: 25px; }
-    .color-picker .palette input.channel-red, .color-picker .palette input.channel-green, .color-picker .palette input.channel-blue, .color-picker .palette input.channel-alpha {
-      width: 41px; }
-    .color-picker .palette input.hex-input {
-      width: 130px; }
+    .color-picker .palette input {
+      font-size: 13px;
+      line-height: 13px; }
+      .color-picker .palette input.channel-red, .color-picker .palette input.channel-green, .color-picker .palette input.channel-blue, .color-picker .palette input.channel-alpha {
+        width: 41px; }
+      .color-picker .palette input.hex-input {
+        width: 130px; }
   .color-picker label,
   .color-picker input {
     margin: 0 1px;
