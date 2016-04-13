@@ -3921,7 +3921,8 @@ input {
           display: inline-block;
           padding: 0 3px;
           margin-top: 5px;
-          border-left: 1px solid #F7F7F7; }
+          border-left: 1px solid #F7F7F7;
+          line-height: 13px; }
           .color-picker .palette .numbers ul li:first-child {
             border-left: none; }
           .color-picker .palette .numbers ul li.iconic {
