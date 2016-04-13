@@ -204,6 +204,8 @@
                     &.iconic {
                         min-width:26px;
                         cursor: pointer;
+                        font-size:13px;
+                        line-height: 22px;
                     }
                     &.hex-values {
                         padding-left: 25px;
@@ -223,6 +225,8 @@
         }
 
         input {
+            font-size: 13px;
+            line-height: 13px;
             &.channel-red,
             &.channel-green,
             &.channel-blue,
