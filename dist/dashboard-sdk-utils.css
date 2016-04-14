@@ -3399,6 +3399,69 @@ dropdown-menu:not(.dropdown-wrap) {
     .tag-input ul.list li input:-ms-input-placeholder {
       font-weight: 200; }
 
+.tag-select ul.list {
+  display: block;
+  list-style: none;
+  border: none;
+  border-bottom: 1px lightgrey solid;
+  margin: 0;
+  padding: 0; }
+  .tag-select ul.list li.tag {
+    width: auto;
+    float: left;
+    padding: 0px 10px;
+    margin: 2px 14px 2px 0;
+    min-height: 24px;
+    line-height: 24px;
+    height: 24px;
+    pointer: cursor;
+    background-color: #F1F1F1;
+    padding-right: 5px;
+    position: relative;
+    color: #BBBBBB;
+    font-weight: 500;
+    border: 1px solid #B4D8BB;
+    box-sizing: content-box;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    transition: all ease 500ms; }
+    .tag-select ul.list li.tag:after {
+      box-sizing: content-box;
+      content: "";
+      color: white;
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 9px solid #F1F1F1;
+      position: absolute;
+      right: -9px;
+      top: 0px;
+      transition: all ease 500ms; }
+    .tag-select ul.list li.tag:before {
+      box-sizing: content-box;
+      content: "";
+      color: white;
+      width: 0;
+      height: 0;
+      border-top: 13px solid transparent;
+      border-bottom: 13px solid transparent;
+      border-left: 10px solid #B4D8BB;
+      position: absolute;
+      right: -11px;
+      top: -1px;
+      transition: all ease 500ms; }
+    .tag-select ul.list li.tag.selected {
+      color: white;
+      background-color: #69BE7B;
+      border: 1px solid #69BE7B; }
+      .tag-select ul.list li.tag.selected:before {
+        border-left: 10px solid #69BE7B !important; }
+      .tag-select ul.list li.tag.selected:after {
+        border-left: 10px solid #69BE7B !important; }
+
 /* Forms
 ========================================================================== */
 /* ==========================================================================

@@ -1873,6 +1873,41 @@ angular.module('enplug.sdk.utils').directive('tagInput', function () {
 
 /**
  * @ngdoc directive
+ * @name tagSelect
+ * @module enplug.sdk.utils
+ *
+ * @param tags {Array of Strings}
+ */
+angular.module('enplug.sdk.utils').directive('tagSelect', function () {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            tags: '=',
+            selectedTags: '='
+        },
+        templateUrl: 'sdk-utils/tag-select.tpl',
+        link: function (scope, element, attrs) {
+
+            scope.toggleSelection = function (tag) {
+                var index = scope.selectedTags.indexOf(tag);
+
+                if ( index > -1 ) {
+                    scope.selectedTags.splice(index, 1);
+                } else {
+                    scope.selectedTags.push(tag);
+                }
+            };
+
+            scope.isSelected = function ( tag ) {
+                return scope.selectedTags.indexOf( tag ) > -1;
+            }
+        }
+    };
+});
+
+/**
+ * @ngdoc directive
  * @name tooltip
  * @module enplug.sdk.utils
  *
@@ -2302,6 +2337,8 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
         "<button class=status-button><i class=ion-load-a ng-show=isLoading></i> <i class=ion-checkmark-circled ng-show=\"!isLoading && success\"></i> <i class=ion-alert-circled ng-show=\"!isLoading && error\"></i><ng-transclude></ng-transclude></button>");
     $templateCache.put("sdk-utils/tag-input.tpl",
         "<div class=\"tag-input clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\">{{tag}} <i ng-click=deleteTag(tag) class=\"icon ion-android-close\"></i></li><li><input name=fname placeholder=\"Add tags\" ng-model=input ng-change=handleTextChange() ng-keypress=\"handleKeyPress($event)\"></li></ul></div>");
+    $templateCache.put("sdk-utils/tag-select.tpl",
+        "<div class=\"tag-select clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\" ng-click=toggleSelection(tag) ng-class=\"{ 'selected': isSelected(tag) }\">{{tag}}</li></ul></div>");
     $templateCache.put("sdk-utils/tooltip.tpl",
         "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=tipText ng-show=::config.tooltip ng-bind=::config.tooltip></span> <span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span ng-if=config.title class=\"tipTitle text-gd\" ng-bind=::config.title></span> <span class=\"tipBody text-reset\" ng-bind=::config.text ng-class=\"{ pt: !config.title, pb: !config.link }\"></span> <a ng-if=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" ng-bind=::config.link.title></a> <span class=tipArrow></span></span></span></span>");
 }]);

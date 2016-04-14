@@ -1,0 +1,10 @@
+<div class='tag-select clearfix'>
+    <ul class="list clearfix">
+        <li class="tag" 
+            ng-repeat="tag in tags track by $index" 
+            ng-click="toggleSelection(tag)"
+            ng-class="{ 'selected': isSelected(tag) }">
+            {{tag}} 
+        </li>
+    </ul>
+</div>
