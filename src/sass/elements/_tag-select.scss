@@ -1,0 +1,82 @@
+.tag-select {
+    $tag-color-default: #F1F1F1;
+    $tag-color-selected: #69BE7B;
+    $border-color: #B4D8BB;
+
+    ul.list {
+        display: block;
+        list-style: none;
+        border: none;
+        border-bottom: 1px lightgrey solid;
+        margin: 0;
+        padding: 0;
+
+        li {
+            
+            &.tag {
+
+                width: auto;
+                float:left;
+                padding: 0px 10px;
+                margin: 2px 14px 2px 0;
+                min-height: 24px;
+                line-height: 24px;
+                height: 24px;
+                pointer:cursor;
+                background-color: $tag-color-default;
+                padding-right: 5px;
+                position:relative;
+                color:#BBBBBB;
+                font-weight: 500;
+                border: 1px solid $border-color;
+                box-sizing: content-box;
+                user-select: none;
+                transition: all ease 500ms;
+            
+                &:after {
+                    box-sizing: content-box;
+                    content: "";
+                    color: white;
+                    width: 0;
+                    height: 0;
+                    border-top: 12px solid transparent;
+                    border-bottom: 12px solid transparent;
+                    border-left: 9px solid #F1F1F1;
+                    position: absolute;
+                    right: -9px;
+                    top: 0px;
+                    transition: all ease 500ms;
+                }
+
+                &:before {
+                    box-sizing: content-box;
+                    content: "";
+                    color: white;
+                    width: 0;
+                    height: 0;
+                    border-top: 13px solid transparent;
+                    border-bottom: 13px solid transparent;
+                    border-left: 10px solid $border-color;
+                    position: absolute;
+                    right: -11px;
+                    top: -1px;
+                    transition: all ease 500ms;
+                }
+
+                &.selected {
+                    color:white;
+                    background-color: $tag-color-selected;
+                    border: 1px solid $tag-color-selected;
+
+                    &:before {
+                        border-left: 10px solid $tag-color-selected !important;
+                    }
+
+                    &:after {
+                        border-left: 10px solid $tag-color-selected !important;
+                    }
+                }
+            }
+        }
+    }
+}
