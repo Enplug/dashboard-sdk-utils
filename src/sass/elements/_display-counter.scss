@@ -1,0 +1,89 @@
+.display-counter {
+    $gray: #D2D3D5;
+    $graydark: #4B5157;
+    $red: #FC0D1B;
+    $blue: #618FCA;
+
+    cursor: pointer;
+    user-select: none; 
+    display: inline-block;
+    border: 1px $blue solid;
+    width: 34px;
+    height: 20px;
+    text-align: center;
+    margin: 0 5px;
+    background-color: white;
+    position: relative;
+
+    &:after {
+        content: "";
+        width:20px;
+        height:1px;
+        display: block;
+        position: absolute;
+        background-color: $blue;
+        left:5px;
+        bottom:-3px;
+    }
+
+    span.binding {
+        color: $blue;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    &.disabled {
+        cursor: default;
+        border:1px $gray solid;
+        &:after {
+            background-color: $gray;
+        }
+        span.binding {
+            color: $graydark;
+        }
+    }
+
+    &.danger {
+        border:1px $red solid;
+        background-color: $red;
+        &:after {
+            background-color: $red;
+        }
+        span.binding {
+            color: white;
+        }
+    }
+
+    &.vertical {
+        width: 24px;
+        height: 30px;
+        border: 1px $blue solid;
+        
+        &:after {
+            content: none;
+        }
+        span.binding {
+            color: $blue;
+            line-height: 26px;
+        }
+
+        &.disabled {
+            border:1px $gray solid;
+            &:after {
+                background-color: $gray;
+            }
+            span.binding {
+                color: $graydark;
+            }
+        }
+
+        &.danger {
+            border: 1px $red solid;
+            span.binding {
+                color: white;
+            }
+        }
+    }
+}
+
+
