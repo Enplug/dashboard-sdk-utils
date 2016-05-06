@@ -12,7 +12,7 @@ angular.module('enplug.sdk.utils').directive('displayCounter', function () {
         scope: {
             count: '=?',
             muteDanger: '=?',
-            vertical: '=?',
+            vertical: '=',
             disabled: '=?'
         },
         templateUrl: 'sdk-utils/display-counter.tpl',
@@ -26,7 +26,7 @@ angular.module('enplug.sdk.utils').directive('displayCounter', function () {
             };
             scope.checkDanger();
 
-            if ( 'vertical' in attrs ) {
+            if ( 'vertical' in attrs && attrs.vertical === true ) {
                 element.addClass('vertical');
             }
             if ( 'disabled' in attrs ) {
