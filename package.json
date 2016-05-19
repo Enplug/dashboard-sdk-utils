@@ -1,11 +1,16 @@
 {
-  "name": "dashboard-sdk-utils",
-  "version": "1.20.1",
+  "name": "@enplug/dashboard-sdk-utils",
+  "version": "2.0.0",
+  "license": "MIT",
+  "main": "dist/dashboard-sdk-utils.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Enplug/dashboard-sdk-utils.git",
     "owner": "Enplug",
     "name": "dashboard-sdk-utils"
+  },
+  "dependencies": {
+    "lodash": "~3.10.0"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
