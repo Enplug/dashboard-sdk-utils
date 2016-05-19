@@ -1,3 +1,6 @@
 module.exports = function (grunt) {
-    return grunt.file.readJSON('./package.json');
+    var json = grunt.file.readJSON('./package.json');
+
+    json.name = json.name.replace( '@enplug/', '' );
+    return json;
 };
