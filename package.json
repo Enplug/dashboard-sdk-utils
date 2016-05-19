@@ -1,6 +1,7 @@
 {
-  "name": "dashboard-sdk-utils",
-  "version": "1.20.1",
+  "name": "@enplug/dashboard-sdk-utils",
+  "version": "1.20.2",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Enplug/dashboard-sdk-utils.git",
