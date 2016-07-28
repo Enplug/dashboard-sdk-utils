@@ -1,6 +1,6 @@
 {
   "name": "@enplug/dashboard-sdk-utils",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "license": "MIT",
   "main": "dist/dashboard-sdk-utils.js",
   "repository": {
@@ -25,6 +25,7 @@
     "grunt-contrib-cssmin": "^0.13.0",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-ng-annotate": "^1.0.1",
     "grunt-git": "^0.3.5",
     "grunt-html2js": "^0.3.3",
     "grunt-postcss": "^0.5.5",

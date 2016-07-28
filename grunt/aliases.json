@@ -4,6 +4,7 @@
         "html2js:build",
         "concat:modules",
         "concat:components",
+        "ngAnnotate:annotate",
         "uglify:build",
         "sass:build",
         "postcss:build",

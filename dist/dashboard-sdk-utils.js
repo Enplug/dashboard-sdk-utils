@@ -1,6 +1,6 @@
 angular.module('enplug.sdk.utils', ['enplug.sdk.utils.templates']);
 
-angular.module('enplug.sdk.utils').run(function ($templateCache) {
+angular.module('enplug.sdk.utils').run(['$templateCache', function ($templateCache) {
 
     // Update default pagination template for Smart Table to use our directive and icons
     $templateCache.put('template/smart-table/pagination.html',
@@ -10,7 +10,7 @@ angular.module('enplug.sdk.utils').run(function ($templateCache) {
         '<li><a class="ion-chevron-left" ng-click="selectPage(currentPage - 1)" ng-class="{ disabled: currentPage == 1 }"></a></li>'+
         '<li><a class="ion-chevron-right" ng-click="selectPage(currentPage + 1)" ng-class="{ disabled: currentPage == numPages }"></a></li>' +
         '</ul></div>');
-});
+}]);
 
 angular.module('enplug.sdk.utils').constant('countries', [
     { name: 'United States', code: 'US' },
@@ -779,7 +779,7 @@ angular.module('enplug.sdk.utils').directive('dropdownToggle', function () {
  * @module enplug.sdk.utils
  *
  */
-angular.module('enplug.sdk.utils').directive('dropdown', function ($document, $timeout) {
+angular.module('enplug.sdk.utils').directive('dropdown', ['$document', '$timeout', function ($document, $timeout) {
     return {
         scope: true,
         link: function (scope, element) {
@@ -821,7 +821,7 @@ angular.module('enplug.sdk.utils').directive('dropdown', function ($document, $t
             });
         }
     }
-});
+}]);
 
 /**
  * @ngdoc directive
@@ -1155,7 +1155,7 @@ angular.module('enplug.sdk.utils').directive('equals', function() {
  * @param field {expression=} The model value to bind the input to.
  * @param label {String} The input label
  */
-angular.module('enplug.sdk.utils').directive('materialCheckbox', function ($log, $compile, GUID) {
+angular.module('enplug.sdk.utils').directive('materialCheckbox', ['$log', '$compile', 'GUID', function ($log, $compile, GUID) {
     'use strict';
 
     var ignoreAttributes = ['class', 'field', 'label', 'ng-if', 'ng-show', 'ng-hide', 'ng-repeat'];
@@ -1215,7 +1215,7 @@ angular.module('enplug.sdk.utils').directive('materialCheckbox', function ($log,
             $compile(checkbox)($scope);
         }
     };
-});
+}]);
 
 /**
  * @ngdoc directive
@@ -1397,7 +1397,7 @@ angular.module('enplug.sdk.utils').directive('materialRadio', ['$log', '$compile
  * @module enplug.sdk.utils
  * @description Wraps a select element, turning it into a material-select.
  */
-angular.module('enplug.sdk.utils').directive('materialSelect', function ($timeout) {
+angular.module('enplug.sdk.utils').directive('materialSelect', ['$timeout', function ($timeout) {
     'use strict';
 
     // Returns a JQLite object for the select element we transcluded, allowing us to
@@ -1451,7 +1451,7 @@ angular.module('enplug.sdk.utils').directive('materialSelect', function ($timeou
             });
         }
     };
-});
+}]);
 
 angular.module('enplug.sdk.utils').directive('materialSwitch', function () {
     'use strict';
@@ -1495,7 +1495,7 @@ angular.module('enplug.sdk.utils').directive('helpBlock', function () {
     }
 });
 
-angular.module('enplug.sdk.utils').directive('layoutToggle', function ($rootScope) {
+angular.module('enplug.sdk.utils').directive('layoutToggle', ['$rootScope', function ($rootScope) {
     'use strict';
 
     return {
@@ -1512,7 +1512,7 @@ angular.module('enplug.sdk.utils').directive('layoutToggle', function ($rootScop
             };
         }
     }
-});
+}]);
 
 angular.module('enplug.sdk.utils').directive('gridLayout', function () {
     'use strict';
@@ -1601,7 +1601,7 @@ angular.module('enplug.sdk.utils').directive('loading', [function() {
  * @module enplug.sdk.utils.directives
  *
  */
-angular.module('enplug.sdk.utils').directive('locationAware', function ($location) {
+angular.module('enplug.sdk.utils').directive('locationAware', ['$location', function ($location) {
     'use strict';
 
     return {
@@ -1638,7 +1638,7 @@ angular.module('enplug.sdk.utils').directive('locationAware', function ($locatio
 
         }
     };
-});
+}]);
 
 /**
  * @ngdoc directive
@@ -1672,7 +1672,7 @@ angular.module('enplug.sdk.utils').directive('notice', function () {
  *
  * @param tip {String} Path to tip to show from ProTips constant.
  */
-angular.module('enplug.sdk.utils').directive('proTip', function ($log, ProTips) {
+angular.module('enplug.sdk.utils').directive('proTip', ['$log', 'ProTips', function ($log, ProTips) {
     return {
         restrict: 'E',
         replace: true,
@@ -1695,7 +1695,7 @@ angular.module('enplug.sdk.utils').directive('proTip', function ($log, ProTips) 
             }
         }
     };
-});
+}]);
 
 /**
  * @ngdoc directive
@@ -1706,7 +1706,7 @@ angular.module('enplug.sdk.utils').directive('proTip', function ($log, ProTips) 
  * @param condition {function|promise|boolean} the condition to wait for showing the loading indicator.
  * @param action {function} the click action which can take parameters and should return a promise
  */
-angular.module('enplug.sdk.utils').directive('statusButton', function ($log, $timeout) {
+angular.module('enplug.sdk.utils').directive('statusButton', ['$log', '$timeout', function ($log, $timeout) {
     'use strict';
 
     // TODO: animate the icons a bit
@@ -1773,7 +1773,7 @@ angular.module('enplug.sdk.utils').directive('statusButton', function ($log, $ti
             }
         }
     }
-});
+}]);
 
 angular.module('enplug.sdk.utils').filter('stNestedSearch', [function() {
 
@@ -1956,7 +1956,7 @@ angular.module('enplug.sdk.utils').directive('tagSelect', function () {
  *
  * @param tip {String} Path to tip to show from ToolTips constant.
  */
-angular.module('enplug.sdk.utils').directive('tooltip', function (Tooltips) {
+angular.module('enplug.sdk.utils').directive('tooltip', ['Tooltips', function (Tooltips) {
     'use strict';
 
     return {
@@ -1988,7 +1988,7 @@ angular.module('enplug.sdk.utils').directive('tooltip', function (Tooltips) {
             scope.config = config;
         }
     };
-});
+}]);
 
 /**
  * @ngdoc service
@@ -2315,7 +2315,7 @@ angular.module('enplug.sdk.utils').factory('GUID', [function () {
     };
 }]);
 
-angular.module('enplug.sdk.utils').factory('ScriptLoaderService', function ($q, $document, $timeout) {
+angular.module('enplug.sdk.utils').factory('ScriptLoaderService', ['$q', '$document', '$timeout', function ($q, $document, $timeout) {
     'use strict';
 
     return {
@@ -2350,7 +2350,7 @@ angular.module('enplug.sdk.utils').factory('ScriptLoaderService', function ($q, 
             return defer.promise;
         }
     }
-});
+}]);
 
 angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function($templateCache) {
     "use strict";
