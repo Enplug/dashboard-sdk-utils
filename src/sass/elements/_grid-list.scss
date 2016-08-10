@@ -1,0 +1,131 @@
+.grid-list {
+
+    $grey: #798c9c;
+    $light-grey: #bcc8d0;
+    $blue: #4078C0;
+
+    @mixin no-space {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-sizing: border-box;
+    }
+
+    @mixin float-left {
+        display: block;
+        float:left;
+    }
+
+    @mixin text-bold {
+        font-weight: 600;
+    }
+
+    @mixin link-style {
+        font-weight: 500;
+        color: $blue;
+    }
+
+    @include no-space;
+    width: 100%;
+    
+    ul.list {
+        @include no-space;
+        width: 100%;
+
+        li.item {
+            @include no-space;
+            @include float-left;
+            width: 100%;
+            height: auto;
+            list-style: none;
+            border-radius: 2px;
+            box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.07);
+                
+            transition: all linear 800ms;
+            background-color:transparent;
+            &:hover {
+                transition: all linear 100ms;
+                background-color: rgba(64, 120, 192, 0.05);
+            }
+
+            .section {
+                @include no-space;
+                @include float-left;
+                /*border: 1px solid red;*/
+                width:100%;
+                min-height: 44px; 
+                border-radius: 2px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                transition: all linear 600ms;
+                background-color:transparent;
+                &:hover {
+                    transition: all linear 200ms;
+                    background-color: rgba(64, 120, 192, 0.05);
+                }
+                
+
+                &.width-5 { width:5%; }
+                &.width-10 { width:10%; }
+                &.width-15 { width:15%; }
+                &.width-20 { width:20%; }
+                &.width-25 { width:25%; }
+                &.width-30 { width:30%; }
+                &.width-33 { width:33%; }
+                &.width-35 { width:35%; }
+                &.width-40 { width:40%; }
+                &.width-45 { width:45%; }
+                &.width-50 { width:50%; }
+                &.width-55 { width:55%; }
+                &.width-60 { width:60%; }
+                &.width-65 { width:65%; }
+                &.width-70 { width:70%; }
+                &.width-75 { width:75%; }
+                &.width-80 { width:80%; }
+                &.width-85 { width:85%; }
+                &.width-90 { width:90%; }
+                &.width-95 { width:95%; }
+                &.btn { 
+                    text-align: center; 
+                    justify-content: center; 
+                    @include link-style;
+                    .icon {
+                        font-size: 30px; } }
+                &.text { 
+                    text-align: left; 
+                    padding-left: 5px; }
+                &.center { 
+                    text-align: center; 
+                    justify-content: center;
+                    adding-left: 0; }
+                &.disabled {
+                    color: $light-grey;
+                    pointer-events: none; }
+                .truncate {
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis; }
+            }
+
+            &.header {
+                border-top: none;
+                box-shadow: none;
+                
+                &:hover { background-color: transparent; }
+
+                .section {
+                    min-height: 50px;
+                    &.text {
+                        @include text-bold;
+                        color: $grey;
+                    }
+                    &:hover { background-color: transparent; }
+                }
+            }
+
+        }
+    }   
+}
