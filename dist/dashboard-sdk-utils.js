@@ -669,7 +669,7 @@ angular.module('enplug.sdk.utils').directive('displayCounter', function () {
         
         scope: {
             count: '=',
-            muteDanger: '=',
+            showDanger: '=',
             vertical: '=',
             disabled: '='
         },
@@ -678,10 +678,10 @@ angular.module('enplug.sdk.utils').directive('displayCounter', function () {
 
         link: function (scope, element, attrs) {
 
-            scope.muteDanger = 'muteDanger' in attrs && scope.muteDanger == true;
+            scope.showDanger = 'showDanger' in attrs && scope.showDanger == false;
 
             scope.checkDanger = function () {
-                if ( !scope.muteDanger && scope.count <= 0 ) {
+                if ( scope.showDanger && scope.count <= 0 ) {
                     element.addClass('danger');
                 } else {
                     element.removeClass('danger');
