@@ -41,7 +41,7 @@
             border-radius: 2px;
             box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.07);
                 
-            transition: all linear 800ms;
+            transition: all linear 400ms;
             background-color:transparent;
             &:hover {
                 transition: all linear 100ms;
@@ -59,7 +59,7 @@
                 justify-content: flex-start;
                 align-items: center;
 
-                transition: all linear 600ms;
+                transition: all linear 300ms;
                 background-color:transparent;
                 &:hover {
                     transition: all linear 200ms;
