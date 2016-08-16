@@ -3513,6 +3513,8 @@ dropdown-menu:not(.dropdown-wrap) {
           pointer-events: none; }
         .grid-list ul.list li.item .section .truncate {
           width: 100%;
+          min-height: 15px;
+          line-height: 15px;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis; }

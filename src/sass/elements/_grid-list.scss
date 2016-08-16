@@ -105,6 +105,8 @@
                     pointer-events: none; }
                 .truncate {
                     width: 100%;
+                    min-height: 15px;
+                    line-height: 15px;
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis; }
