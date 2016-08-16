@@ -3425,11 +3425,11 @@ dropdown-menu:not(.dropdown-wrap) {
       list-style: none;
       border-radius: 2px;
       box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.07);
-      transition: all linear 400ms;
+      transition: all linear 300ms;
       background-color: transparent; }
       .grid-list ul.list li.item:hover {
         transition: all linear 100ms;
-        background-color: rgba(64, 120, 192, 0.05); }
+        background-color: rgba(185, 216, 255, 0.05); }
       .grid-list ul.list li.item .section {
         margin: 0;
         padding: 0;
@@ -3447,11 +3447,11 @@ dropdown-menu:not(.dropdown-wrap) {
             justify-content: flex-start;
         -ms-flex-align: center;
             align-items: center;
-        transition: all linear 300ms;
+        transition: all linear 250ms;
         background-color: transparent; }
         .grid-list ul.list li.item .section:hover {
           transition: all linear 200ms;
-          background-color: rgba(64, 120, 192, 0.05); }
+          background-color: rgba(185, 216, 255, 0.05); }
         .grid-list ul.list li.item .section.width-5 {
           width: 5%; }
         .grid-list ul.list li.item .section.width-10 {
