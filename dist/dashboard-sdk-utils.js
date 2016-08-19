@@ -832,6 +832,73 @@ angular.module('enplug.sdk.utils').directive('dropdown', ['$document', '$timeout
 }]);
 
 /**
+* @ngdoc directive
+* @name durationSlider
+* @module enplug.sdk.utils
+*
+* @param ratio {String Duration}
+*/
+angular.module('enplug.sdk.utils').directive('durationSlider', function () {
+    return {
+        restrict: 'E',
+        scope: {
+            ratio: '=ratio'
+        },
+        templateUrl: 'sdk-utils/duration-slider.tpl',
+
+        link: function (scope, element, attrs, arg) {
+            var startX = 0,
+            padding = 3,
+            $barWidth = angular.element(element[0].querySelector('.duration-slider')),
+            barWidth = $barWidth.prop('clientWidth'),
+            $cursor = angular.element(element[0].querySelector('.slider-cursor')),
+            cursorWidth = $cursor.prop('clientWidth'),
+            scrollLength = barWidth - cursorWidth - padding,
+            offset = 0;
+
+            function setPosition() {
+                offset += scope.ratio * scrollLength / 60;
+                $cursor.css('margin-left', offset+'px');
+            }
+
+            setPosition();
+
+            scope.formatLabel = function(val) {
+                return val > -1 ? Math.round(val)+' secs' : '-';
+            }
+
+            return element.on('mousedown', function(event) {
+                var mousemove, mouseup;
+
+                mousemove = function(event) {
+
+                    return scope.$apply(function() {
+                        offset += (event.pageX - startX);
+                        if ( offset < padding ) {
+                            offset = padding;
+                        } else if ( offset > scrollLength )  {
+                            offset = scrollLength;
+                        } else {
+                            startX = event.pageX;
+                        }
+                        scope.ratio = Math.round(offset/scrollLength * 60);
+                        $cursor.css('margin-left', offset+'px')
+                    });
+                };
+                mouseup = function() {
+                    $document.unbind('mousemove', mousemove);
+                    return $document.unbind('mouseup', mouseup);
+                };
+                event.preventDefault();
+                startX = event.pageX;
+                $document.on('mousemove', mousemove);
+                return $document.on('mouseup', mouseup);
+            });
+        }
+    };
+});
+
+/**
  * @ngdoc directive
  * @name colorPicker
  * @module enplug.sdk.utils
@@ -2368,6 +2435,8 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
         "<div class=color-picker ng-blur=close()><div class=swatch ng-style=\"{ 'background-color': '#' + hex }\" ng-click=toggle()></div><div class=transcluded ng-transclude ng-click=toggle()></div><div class=palette ng-class=\"{ 'opened': opened }\"><div class=saturation ng-class=\"{ 'no-alpha': noAlpha }\" ng-style=\"{ 'background-color': '#' + getHueColor() }\"><div class=cursor></div></div><div class=preview ng-style=\"{ 'background-color': '#' + hex }\"></div><div class=hue><div class=cursor></div></div><div class=numbers><ul class=clearfix ng-class=\"{ 'show-as-hex': showAs=='hex', 'show-as-rgb': showAs=='rgb'  }\"><li class=\"\"><label>R:</label><input class=channel-red type=number name=channel-red min=0 max=255 ng-model=red ng-change=watchRGBInputChange()></li><li class=\"\"><label>G:</label><input class=channel-green type=number name=channel-green min=0 max=255 ng-model=green ng-change=watchRGBInputChange()></li><li class=\"\"><label>B:</label><input class=channel-blue type=number name=channel-blue min=0 max=255 ng-model=blue ng-change=watchRGBInputChange()></li><li class=iconic ng-click=toggleShowAs()><i class=\"icon ion-android-options\"></i></li><li class=hex-values><label>#</label><input class=hex-input name=hex-input maxlength=6 ng-model=hexInput ng-change=watchHEXInputChange()></li></ul></div><div class=alpha ng-hide=noAlpha><div class=field><label>A:</label><input class=channel-alpha type=number name=channel-alpha min=0 max=100 ng-model=alphaPercent></div><div class=alpha-slider ng-style=\"{ 'background-color': '#' + hex }\"><div class=cursor></div></div></div></div></div>");
     $templateCache.put("sdk-utils/display-counter.tpl",
         "<div class=display-counter><span ng-bind=count class=binding></span></div>");
+    $templateCache.put("sdk-utils/duration-slider.tpl",
+        "<div class=duration-slider><div class=slider-cursor><span>{{formatLabel(ratio)}}</span></div></div>");
     $templateCache.put("sdk-utils/help-block.tpl",
         "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i> Need help? Go to the <a href=http://support.enplug.com/hc/en-us target=_blank>Enplug Help Center</a></div></footer>");
     $templateCache.put("sdk-utils/layout-toggle.tpl",
