@@ -5,7 +5,7 @@
 *
 * @param ratio {String Duration}
 */
-angular.module('enplug.sdk.utils').directive('durationSlider', function () {
+angular.module('enplug.sdk.utils').directive('durationSlider', function ($document) {
     return {
         restrict: 'E',
         scope: {

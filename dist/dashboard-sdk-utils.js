@@ -838,7 +838,7 @@ angular.module('enplug.sdk.utils').directive('dropdown', ['$document', '$timeout
 *
 * @param ratio {String Duration}
 */
-angular.module('enplug.sdk.utils').directive('durationSlider', function () {
+angular.module('enplug.sdk.utils').directive('durationSlider', ['$document', function ($document) {
     return {
         restrict: 'E',
         scope: {
@@ -896,7 +896,7 @@ angular.module('enplug.sdk.utils').directive('durationSlider', function () {
             });
         }
     };
-});
+}]);
 
 /**
  * @ngdoc directive
