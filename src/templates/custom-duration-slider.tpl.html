@@ -1,0 +1,16 @@
+<div class="duration-slider-directive">
+    <div class="slider-container clearfix">
+        <div class="slider">
+            <div class="slider-cursor">
+                <i class="icon on ion-record">
+                    <span>||</span>
+                </i>
+                </div>
+            </div>
+    </div>
+    <input maxlength="5" type="text"
+        ng-model="ratio"
+        class="slider-duration-input"
+        ng-blur="checkRatioValue()"
+        ng-keydown="handleKeyDown($event)">
+</div>
