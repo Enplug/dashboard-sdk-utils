@@ -3602,6 +3602,91 @@ dropdown-menu:not(.dropdown-wrap) {
       font-size: 14px;
       font-weight: 500; }
 
+/* ==========================================================================
+    Duration Slider with option for custom/manual input for duration in seconds
+   ========================================================================== */
+.duration-slider-directive {
+  position: relative;
+  width: auto; }
+  .duration-slider-directive .slider-container {
+    width: 50%; }
+    .duration-slider-directive .slider-container .slider {
+      width: 100%;
+      height: 1px;
+      background: #ebeef0;
+      margin: 5px 0;
+      overflow: visible;
+      position: relative;
+      margin: 20px 0; }
+      .duration-slider-directive .slider-container .slider:before {
+        content: " ";
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-radius: 4px;
+        border: 3px solid #ebeef0;
+        top: -2px;
+        left: 0px; }
+      .duration-slider-directive .slider-container .slider:after {
+        content: " ";
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-radius: 4px;
+        border: 3px solid #ebeef0;
+        top: -2px;
+        right: 0px; }
+      .duration-slider-directive .slider-container .slider .slider-cursor {
+        text-align: center;
+        margin-top: -12px;
+        cursor: pointer;
+        color: white;
+        position: absolute;
+        margin-left: 0px;
+        margin-right: 0px;
+        z-index: 9; }
+        .duration-slider-directive .slider-container .slider .slider-cursor:before {
+          margin: 1; }
+        .duration-slider-directive .slider-container .slider .slider-cursor:after {
+          margin: 0; }
+        .duration-slider-directive .slider-container .slider .slider-cursor .icon {
+          color: #4078C0;
+          position: relative;
+          line-height: 26px;
+          font-size: 26px; }
+        .duration-slider-directive .slider-container .slider .slider-cursor span {
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          font-size: 12px;
+          line-height: 28px;
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.8);
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          position: absolute; }
+  .duration-slider-directive .slider-duration-input {
+    font-size: 15px;
+    line-height: 15px;
+    right: 0;
+    bottom: 0;
+    width: 10.5%;
+    color: black;
+    position: absolute;
+    padding: 2px 0px;
+    margin-right: 35%;
+    text-align: center;
+    border: none;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d4d4d4; }
+    .duration-slider-directive .slider-duration-input:focus {
+      outline: 0 none; }
+
 /* Forms
 ========================================================================== */
 /* ==========================================================================
