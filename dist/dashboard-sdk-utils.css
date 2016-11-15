@@ -3692,6 +3692,8 @@ dropdown-menu:not(.dropdown-wrap) {
     border-bottom: 1px solid #d4d4d4; }
     .duration-slider-directive .slider-duration-input:focus {
       outline: 0 none; }
+    .duration-slider-directive .slider-duration-input:focus::-webkit-input-placeholder {
+      opacity: 0; }
 
 /* Forms
 ========================================================================== */
