@@ -669,6 +669,7 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', ['$document
         templateUrl: 'sdk-utils/custom-duration-slider.tpl',
 
         link: function (scope, element, attrs, arg) {
+
             var startX = 0,
             padding = 2,
             $barWidth = angular.element(element[0].querySelector('.slider')),
@@ -698,6 +699,10 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', ['$document
             });
 
             scope.clearUndefined = function() {
+                resolveUndefined();
+            }
+
+            function resolveUndefined() {
                 if(!scope.ratio) {
                     scope.ratio = 1;
                     offset = compareOffsetValue();
@@ -705,6 +710,7 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', ['$document
                     $cursor.css('margin-left', offset+'px');
                 }
             }
+
             // Prevents false value from being saved. Must be at least 1 sec duration
             function preventFalseDuration() {
                 if(scope.ratio <= 0) {
