@@ -2,15 +2,20 @@
     <div class="slider-container clearfix">
         <div class="slider">
             <div class="slider-cursor">
-                <i class="icon on ion-record">
+                <i ng-show="ratio" class="icon on ion-record">
                     <span>||</span>
+                </i>
+                <i ng-hide="ratio" class="icon on ion-record icon-undefined">
+                    <span>&mdash;</span>
                 </i>
                 </div>
             </div>
     </div>
     <input maxlength="5" type="text"
         ng-model="ratio"
+        placeholder="{{ratio ? ratio : '&mdash;' }}"
         class="slider-duration-input"
         ng-blur="checkRatioValue()"
+        ng-focus="clearUndefined()"
         ng-keydown="handleKeyDown($event)">
 </div>

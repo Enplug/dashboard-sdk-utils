@@ -88,7 +88,13 @@ $slider-content-width: 500px;
                     line-height: 26px;
                     font-size: 26px;
                 }
-
+                .icon-undefined {
+                    color: $primary-color;
+                    position: relative;
+                    text-align: middle;
+                    line-height: 26px;
+                    font-size: 26px;
+                }
                 span {
                     @include no-user-select;
                     font-size: 12px;
@@ -111,7 +117,7 @@ $slider-content-width: 500px;
         right: 0;
         bottom: 0;
         width: 10.5%;
-        color: black;
+        color: $primary-color;
         position: absolute;
         padding: 2px 0px;
         margin-right: 35%;
@@ -122,6 +128,10 @@ $slider-content-width: 500px;
 
         &:focus {
             outline: 0 none;
+        }
+
+        &:focus::-webkit-input-placeholder {
+            opacity: 0;
         }
     }
 
