@@ -669,7 +669,6 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', ['$document
         templateUrl: 'sdk-utils/custom-duration-slider.tpl',
 
         link: function (scope, element, attrs, arg) {
-
             var startX = 0,
             padding = 2,
             $barWidth = angular.element(element[0].querySelector('.slider')),
@@ -697,10 +696,19 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', ['$document
                     $cursor.css('margin-left', offset+'px');
                 }
             });
+
+            scope.clearUndefined = function() {
+                if(!scope.ratio) {
+                    scope.ratio = 1;
+                    offset = compareOffsetValue();
+                    $cursor.css('transition', 'margin-left 0.5s ease-in');
+                    $cursor.css('margin-left', offset+'px');
+                }
+            }
             // Prevents false value from being saved. Must be at least 1 sec duration
             function preventFalseDuration() {
-                if(scope.ratio == "" || scope.ratio == 0) {
-                    scope.ratio = 1;
+                if(scope.ratio <= 0) {
+                    scope.ratio = undefined;
                 }
                 return scope.ratio;
             }
@@ -729,6 +737,13 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', ['$document
 
             return $cursor.on('mousedown', function(event) {
                 var mousemove, mouseup;
+
+                if(scope.ratio == undefined) {
+                    scope.ratio = 1;
+                    offset = compareOffsetValue();
+                    $cursor.css('transition', 'margin-left 0.5s ease-in');
+                    $cursor.css('margin-left', offset+'px');
+                }
 
                 mousemove = function(event) {
                     return scope.$apply(function() {
@@ -2541,7 +2556,7 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/color-picker.tpl",
         "<div class=color-picker ng-blur=close()><div class=swatch ng-style=\"{ 'background-color': '#' + hex }\" ng-click=toggle()></div><div class=transcluded ng-transclude ng-click=toggle()></div><div class=palette ng-class=\"{ 'opened': opened }\"><div class=saturation ng-class=\"{ 'no-alpha': noAlpha }\" ng-style=\"{ 'background-color': '#' + getHueColor() }\"><div class=cursor></div></div><div class=preview ng-style=\"{ 'background-color': '#' + hex }\"></div><div class=hue><div class=cursor></div></div><div class=numbers><ul class=clearfix ng-class=\"{ 'show-as-hex': showAs=='hex', 'show-as-rgb': showAs=='rgb'  }\"><li class=\"\"><label>R:</label><input class=channel-red type=number name=channel-red min=0 max=255 ng-model=red ng-change=watchRGBInputChange()></li><li class=\"\"><label>G:</label><input class=channel-green type=number name=channel-green min=0 max=255 ng-model=green ng-change=watchRGBInputChange()></li><li class=\"\"><label>B:</label><input class=channel-blue type=number name=channel-blue min=0 max=255 ng-model=blue ng-change=watchRGBInputChange()></li><li class=iconic ng-click=toggleShowAs()><i class=\"icon ion-android-options\"></i></li><li class=hex-values><label>#</label><input class=hex-input name=hex-input maxlength=6 ng-model=hexInput ng-change=watchHEXInputChange()></li></ul></div><div class=alpha ng-hide=noAlpha><div class=field><label>A:</label><input class=channel-alpha type=number name=channel-alpha min=0 max=100 ng-model=alphaPercent></div><div class=alpha-slider ng-style=\"{ 'background-color': '#' + hex }\"><div class=cursor></div></div></div></div></div>");
     $templateCache.put("sdk-utils/custom-duration-slider.tpl",
-        "<div class=duration-slider-directive><div class=\"slider-container clearfix\"><div class=slider><div class=slider-cursor><i class=\"icon on ion-record\"><span>||</span></i></div></div></div><input maxlength=5 ng-model=ratio class=slider-duration-input ng-blur=checkRatioValue() ng-keydown=handleKeyDown($event)></div>");
+        "<div class=duration-slider-directive><div class=\"slider-container clearfix\"><div class=slider><div class=slider-cursor><i ng-show=ratio class=\"icon on ion-record\"><span>||</span></i> <i ng-hide=ratio class=\"icon on ion-record icon-undefined\"><span>&mdash;</span></i></div></div></div><input maxlength=5 ng-model=ratio placeholder=\"{{ratio ? ratio : '&mdash;' }}\" class=slider-duration-input ng-blur=checkRatioValue() ng-focus=clearUndefined() ng-keydown=handleKeyDown($event)></div>");
     $templateCache.put("sdk-utils/display-counter.tpl",
         "<div class=display-counter><span ng-bind=count class=binding></span></div>");
     $templateCache.put("sdk-utils/duration-slider.tpl",
