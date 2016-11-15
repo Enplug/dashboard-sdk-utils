@@ -14,7 +14,6 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', function ($
         templateUrl: 'sdk-utils/custom-duration-slider.tpl',
 
         link: function (scope, element, attrs, arg) {
-
             var startX = 0,
             padding = 2,
             $barWidth = angular.element(element[0].querySelector('.slider')),
@@ -42,10 +41,19 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', function ($
                     $cursor.css('margin-left', offset+'px');
                 }
             });
+
+            scope.clearUndefined = function() {
+                if(!scope.ratio) {
+                    scope.ratio = 1;
+                    offset = compareOffsetValue();
+                    $cursor.css('transition', 'margin-left 0.5s ease-in');
+                    $cursor.css('margin-left', offset+'px');
+                }
+            }
             // Prevents false value from being saved. Must be at least 1 sec duration
             function preventFalseDuration() {
-                if(scope.ratio == "" || scope.ratio == 0) {
-                    scope.ratio = 1;
+                if(scope.ratio <= 0) {
+                    scope.ratio = undefined;
                 }
                 return scope.ratio;
             }
@@ -74,6 +82,13 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', function ($
 
             return $cursor.on('mousedown', function(event) {
                 var mousemove, mouseup;
+
+                if(scope.ratio == undefined) {
+                    scope.ratio = 1;
+                    offset = compareOffsetValue();
+                    $cursor.css('transition', 'margin-left 0.5s ease-in');
+                    $cursor.css('margin-left', offset+'px');
+                }
 
                 mousemove = function(event) {
                     return scope.$apply(function() {

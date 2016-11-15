@@ -88,7 +88,13 @@ $slider-content-width: 500px;
                     line-height: 26px;
                     font-size: 26px;
                 }
-
+                .icon-undefined {
+                    color: $primary-color;
+                    position: relative;
+                    text-align: middle;
+                    line-height: 26px;
+                    font-size: 26px;
+                }
                 span {
                     @include no-user-select;
                     font-size: 12px;
