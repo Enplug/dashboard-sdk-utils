@@ -26,6 +26,10 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', function ($
 
             // Scope variable if user has made change on manual input
             scope.manualDuration = false;
+
+            scope.ratio = preventFalseDuration();
+            scope.placeholder = scope.ratio || '-';
+
             // Handling input keydown event, setting manual duration to true
             scope.handleKeyDown = function(event) {
                 scope.manualDuration = true;
@@ -60,6 +64,7 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', function ($
             function preventFalseDuration() {
                 if(scope.ratio <= 0) {
                     scope.ratio = undefined;
+                    scope.placeholder = '-';
                 }
                 return scope.ratio;
             }
@@ -122,6 +127,7 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', function ($
                 $document.on('mousemove', mousemove);
                 return $document.on('mouseup', mouseup);
             });
+
         }
     };
 });
