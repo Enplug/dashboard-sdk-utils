@@ -64,7 +64,7 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', function ($
             function preventFalseDuration() {
                 if(scope.ratio <= 0) {
                     scope.ratio = undefined;
-                    scope.placeholder = '—';
+                    scope.placeholder = '-';
                 }
                 return scope.ratio;
             }

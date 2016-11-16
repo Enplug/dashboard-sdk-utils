@@ -719,7 +719,7 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', ['$document
             function preventFalseDuration() {
                 if(scope.ratio <= 0) {
                     scope.ratio = undefined;
-                    scope.placeholder = '—';
+                    scope.placeholder = '-';
                 }
                 return scope.ratio;
             }
