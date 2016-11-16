@@ -28,7 +28,7 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', function ($
             scope.manualDuration = false;
 
             scope.ratio = preventFalseDuration();
-            scope.placeholder = scope.ratio || '—';
+            scope.placeholder = scope.ratio || '-';
 
             // Handling input keydown event, setting manual duration to true
             scope.handleKeyDown = function(event) {
