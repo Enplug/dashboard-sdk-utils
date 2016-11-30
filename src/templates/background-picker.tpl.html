@@ -1,0 +1,51 @@
+<div class="clearfix background-picker">
+    <h3>Image Options</h3>
+    
+    <div class="one-third clearfix">
+        <ul class="alignement-widget clearfix">
+            <li class="top-left" 
+                ng-click="imageData.position='top-left'" 
+                ng-class="{ active: imageData.position=='top-left', disabled:isDisabled('top-left') }"></li>
+            <li class="top" 
+                ng-click="imageData.position='top'" 
+                ng-class="{ active: imageData.position=='top', disabled:isDisabled('top') }"></li>
+            <li class="top-right" 
+                ng-click="imageData.position='top-right'" 
+                ng-class="{ active: imageData.position=='top-right', disabled:isDisabled('top-right') }"></li>
+            <li class="left" 
+                ng-click="imageData.position='left'" 
+                ng-class="{ active: imageData.position=='left', disabled:isDisabled('left') }"></li>
+            <li class="center" 
+                ng-click="imageData.position='center'" 
+                ng-class="{ active: imageData.position=='center', disabled:isDisabled('center') }"></li>
+            <li class="right" 
+                ng-click="imageData.position='right'" 
+                ng-class="{ active: imageData.position=='right', disabled:isDisabled('right') }"></li>
+            <li class="bottom-left" 
+                ng-click="imageData.position='bottom-left'" 
+                ng-class="{ active: imageData.position=='bottom-left', disabled:isDisabled('bottom-left') }"></li>
+            <li class="bottom" 
+                ng-click="imageData.position='bottom'" 
+                ng-class="{ active: imageData.position=='bottom', disabled:isDisabled('bottom') }"></li>
+            <li class="bottom-right" 
+                ng-click="imageData.position='bottom-right'" 
+                ng-class="{ active: imageData.position=='bottom-right', disabled:isDisabled('bottom-right') }"></li>
+        </ul>
+        <p>Position</p>
+
+    </div>
+    <div class="two-thirds clearfix">
+        <div class="full-width half-height"
+             ng-click="imageData.size='contain'" 
+             ng-class="{ active: imageData.size=='contain' }">
+            <p class="icon icon-contain">Contain</p>
+        </div>
+        <div class="full-width half-height"
+             ng-click="imageData.size='cover'" 
+             ng-class="{ active: imageData.size=='cover' }">
+            <p class="icon icon-cover">Cover<span class="sub-icon"></span></p>
+        </div>
+    </div>
+
+    <a class="upload-btn" ng-click="promptImageUpload()">Upload Different Image</a>
+</div>

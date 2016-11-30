@@ -654,6 +654,102 @@ angular.module('enplug.sdk.utils').directive('alert', function () {
 });
 
 /**
+ *
+ */
+
+'use strict';
+
+
+var BackgroundImageController = function ($scope, $element, col, row, grid, component, $location, $enplugDashboard) {
+    'ngInject';
+
+    console.debug('controller init ------------------------------------');
+
+    // $scope.component = component;
+
+
+    // Object.assign(this, {
+    //     $enplugDashboard
+    // })
+
+
+    // $scope.isDisabled = this.isDisabled.bind(this);
+    // $scope.promptImageUpload = this.promptImageUpload.bind(this);
+
+
+    // isDisabled(position) {
+    //     let rect = grid.getCellRect(component.numCol, component.numRow);
+    //     let res = rect.width / rect.height;
+
+    //     if (position == 'center') {
+    //         return false;
+    //     } else if (component.data.size == 'contain') {
+    //         if (position == 'top' || position == 'bottom') {
+    //             return res > component.data.resolution;
+    //         } else if (position == 'left' || position == 'right') {
+    //             return res < component.data.resolution;
+    //         } else {
+    //             return true;
+    //         }
+    //     } else { // cover
+    //         if (position == 'top' || position == 'bottom') {
+    //             return res < component.data.resolution;
+    //         } else if (position == 'left' || position == 'right') {
+    //             return res > component.data.resolution;
+    //         } else {
+    //             return true;
+    //         }
+    //     }
+
+    //     return; //Math.random()>.5;
+    // }
+
+
+    // promptImageUpload() {
+    //     this.$enplugDashboard.upload().then((uploads) => {
+    //         if (uploads.length > 0) {
+    //             component.data.url = url;
+    //             component.data.resolution = resolution;
+    //         } else {
+    //             this.$enplugDashboard.errorIndicator('Something went wrong, please try again.');
+    //         }
+    //     });
+    // }
+
+
+};
+BackgroundImageController.$inject = ['$scope', '$element', 'col', 'row', 'grid', 'component', '$location', '$enplugDashboard'];
+
+
+
+
+angular.module('enplug.sdk.utils')
+    .directive('backgroundPicker', ['$enplugDashboard', function ($enplugDashboard) {
+        return {
+            restrict: 'E',
+            scope: true,
+            templateUrl: 'sdk-utils/background-picker.tpl',
+            link: function (scope, element, attrs, arg) {
+
+            	scope.imageData = {};
+
+
+                scope.promptImageUpload = function() {
+                	console.log('upload');
+                    $enplugDashboard.upload().then(function(uploads) {
+                        if (uploads.length > 0) {
+                            imageData.url = url;
+                            imageData.resolution = resolution;
+                            console.log('upload', uploads);
+                        } else {
+                            $enplugDashboard.errorIndicator('Something went wrong, please try again.');
+                        }
+                    });
+                }
+            }
+        }
+    }]);
+/**
 * @ngdoc directive
 * @name customDurationSlider
 * @module enplug.sdk.utils
@@ -2565,6 +2661,8 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     "use strict";
     $templateCache.put("sdk-utils/alert.tpl",
         "<div class=alert><i ng-hide=notice class=\"ion-alert-circled alert-icon\"></i> <i ng-show=notice class=\"ion-information-circled alert-icon\"></i><ng-transclude class=alert-body></ng-transclude></div>");
+    $templateCache.put("sdk-utils/background-picker.tpl",
+        "<div class=\"clearfix background-picker\"><h3>Image Options</h3><div class=\"one-third clearfix\"><ul class=\"alignement-widget clearfix\"><li class=top-left ng-click=\"imageData.position='top-left'\" ng-class=\"{ active: imageData.position=='top-left', disabled:isDisabled('top-left') }\"></li><li class=top ng-click=\"imageData.position='top'\" ng-class=\"{ active: imageData.position=='top', disabled:isDisabled('top') }\"></li><li class=top-right ng-click=\"imageData.position='top-right'\" ng-class=\"{ active: imageData.position=='top-right', disabled:isDisabled('top-right') }\"></li><li class=left ng-click=\"imageData.position='left'\" ng-class=\"{ active: imageData.position=='left', disabled:isDisabled('left') }\"></li><li class=center ng-click=\"imageData.position='center'\" ng-class=\"{ active: imageData.position=='center', disabled:isDisabled('center') }\"></li><li class=right ng-click=\"imageData.position='right'\" ng-class=\"{ active: imageData.position=='right', disabled:isDisabled('right') }\"></li><li class=bottom-left ng-click=\"imageData.position='bottom-left'\" ng-class=\"{ active: imageData.position=='bottom-left', disabled:isDisabled('bottom-left') }\"></li><li class=bottom ng-click=\"imageData.position='bottom'\" ng-class=\"{ active: imageData.position=='bottom', disabled:isDisabled('bottom') }\"></li><li class=bottom-right ng-click=\"imageData.position='bottom-right'\" ng-class=\"{ active: imageData.position=='bottom-right', disabled:isDisabled('bottom-right') }\"></li></ul><p>Position</p></div><div class=\"two-thirds clearfix\"><div class=\"full-width half-height\" ng-click=\"imageData.size='contain'\" ng-class=\"{ active: imageData.size=='contain' }\"><p class=\"icon icon-contain\">Contain</p></div><div class=\"full-width half-height\" ng-click=\"imageData.size='cover'\" ng-class=\"{ active: imageData.size=='cover' }\"><p class=\"icon icon-cover\">Cover<span class=sub-icon></span></p></div></div><a class=upload-btn ng-click=promptImageUpload()>Upload Different Image</a></div>");
     $templateCache.put("sdk-utils/color-picker.tpl",
         "<div class=color-picker ng-blur=close()><div class=swatch ng-style=\"{ 'background-color': '#' + hex }\" ng-click=toggle()></div><div class=transcluded ng-transclude ng-click=toggle()></div><div class=palette ng-class=\"{ 'opened': opened }\"><div class=saturation ng-class=\"{ 'no-alpha': noAlpha }\" ng-style=\"{ 'background-color': '#' + getHueColor() }\"><div class=cursor></div></div><div class=preview ng-style=\"{ 'background-color': '#' + hex }\"></div><div class=hue><div class=cursor></div></div><div class=numbers><ul class=clearfix ng-class=\"{ 'show-as-hex': showAs=='hex', 'show-as-rgb': showAs=='rgb'  }\"><li class=\"\"><label>R:</label><input class=channel-red type=number name=channel-red min=0 max=255 ng-model=red ng-change=watchRGBInputChange()></li><li class=\"\"><label>G:</label><input class=channel-green type=number name=channel-green min=0 max=255 ng-model=green ng-change=watchRGBInputChange()></li><li class=\"\"><label>B:</label><input class=channel-blue type=number name=channel-blue min=0 max=255 ng-model=blue ng-change=watchRGBInputChange()></li><li class=iconic ng-click=toggleShowAs()><i class=\"icon ion-android-options\"></i></li><li class=hex-values><label>#</label><input class=hex-input name=hex-input maxlength=6 ng-model=hexInput ng-change=watchHEXInputChange()></li></ul></div><div class=alpha ng-hide=noAlpha><div class=field><label>A:</label><input class=channel-alpha type=number name=channel-alpha min=0 max=100 ng-model=alphaPercent></div><div class=alpha-slider ng-style=\"{ 'background-color': '#' + hex }\"><div class=cursor></div></div></div></div></div>");
     $templateCache.put("sdk-utils/custom-duration-slider.tpl",
