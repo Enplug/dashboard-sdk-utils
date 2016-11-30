@@ -654,101 +654,73 @@ angular.module('enplug.sdk.utils').directive('alert', function () {
 });
 
 /**
+ * @ngdoc directive
+ * @name backgroundPicker
+ * @module enplug.sdk.utils
  *
+ * @param ratio {String Duration}
  */
 
 'use strict';
 
 
-var BackgroundImageController = function ($scope, $element, col, row, grid, component, $location, $enplugDashboard) {
-    'ngInject';
 
-    console.debug('controller init ------------------------------------');
+angular.module('enplug.sdk.utils').directive('backgroundPicker', ['$enplugDashboard', function ($enplugDashboard) {
+    return {
+        restrict: 'E',
+        scope: {
+        	imageData: '='
+        },
+        templateUrl: 'sdk-utils/background-picker.tpl',
+        link: function (scope, element, attrs, arg) {
 
-    // $scope.component = component;
-
-
-    // Object.assign(this, {
-    //     $enplugDashboard
-    // })
-
-
-    // $scope.isDisabled = this.isDisabled.bind(this);
-    // $scope.promptImageUpload = this.promptImageUpload.bind(this);
+            scope.imageData = {
+            	url: 'http://keenthemes.com/preview/metronic/theme/assets/global/plugins/jcrop/demos/demo_files/image1.jpg'
+            };
 
 
-    // isDisabled(position) {
-    //     let rect = grid.getCellRect(component.numCol, component.numRow);
-    //     let res = rect.width / rect.height;
-
-    //     if (position == 'center') {
-    //         return false;
-    //     } else if (component.data.size == 'contain') {
-    //         if (position == 'top' || position == 'bottom') {
-    //             return res > component.data.resolution;
-    //         } else if (position == 'left' || position == 'right') {
-    //             return res < component.data.resolution;
-    //         } else {
-    //             return true;
-    //         }
-    //     } else { // cover
-    //         if (position == 'top' || position == 'bottom') {
-    //             return res < component.data.resolution;
-    //         } else if (position == 'left' || position == 'right') {
-    //             return res > component.data.resolution;
-    //         } else {
-    //             return true;
-    //         }
-    //     }
-
-    //     return; //Math.random()>.5;
-    // }
-
-
-    // promptImageUpload() {
-    //     this.$enplugDashboard.upload().then((uploads) => {
-    //         if (uploads.length > 0) {
-    //             component.data.url = url;
-    //             component.data.resolution = resolution;
-    //         } else {
-    //             this.$enplugDashboard.errorIndicator('Something went wrong, please try again.');
-    //         }
-    //     });
-    // }
-
-
-};
-BackgroundImageController.$inject = ['$scope', '$element', 'col', 'row', 'grid', 'component', '$location', '$enplugDashboard'];
-
-
-
-
-angular.module('enplug.sdk.utils')
-    .directive('backgroundPicker', ['$enplugDashboard', function ($enplugDashboard) {
-        return {
-            restrict: 'E',
-            scope: true,
-            templateUrl: 'sdk-utils/background-picker.tpl',
-            link: function (scope, element, attrs, arg) {
-
-            	scope.imageData = {};
-
-
-                scope.promptImageUpload = function() {
-                	console.log('upload');
-                    $enplugDashboard.upload().then(function(uploads) {
-                        if (uploads.length > 0) {
-                            imageData.url = url;
-                            imageData.resolution = resolution;
-                            console.log('upload', uploads);
-                        } else {
-                            $enplugDashboard.errorIndicator('Something went wrong, please try again.');
-                        }
-                    });
+            /**
+             * Checks whether the position button should be disabled.
+             * @returns {boolean}
+             */
+            scope.isDisabled = function(position) {
+                if (position == 'center') {
+                    return false;
+                } else if (scope.imageData.size == 'contain') {
+                    if (position == 'top' || position == 'bottom') {
+                        return res > scope.imageData.resolution;
+                    } else if (position == 'left' || position == 'right') {
+                        return res < scope.imageData.resolution;
+                    } else {
+                        return true;
+                    }
+                } else { // cover
+                    if (position == 'top' || position == 'bottom') {
+                        return res < scope.imageData.resolution;
+                    } else if (position == 'left' || position == 'right') {
+                        return res > scope.imageData.resolution;
+                    } else {
+                        return true;
+                    }
                 }
+
+                return;
+            }
+
+
+            scope.promptImageUpload = function () {
+                $enplugDashboard.upload().then(function (uploads) {
+                    if (uploads.length > 0) {
+                        scope.imageData.url = url;
+                        scope.imageData.resolution = resolution;
+                    } else {
+                        $enplugDashboard.errorIndicator('Something went wrong, please try again.');
+                    }
+                });
             }
         }
-    }]);
+    }
+}]);
 /**
 * @ngdoc directive
 * @name customDurationSlider
