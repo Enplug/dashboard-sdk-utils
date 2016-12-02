@@ -3,7 +3,11 @@
  * @name backgroundPicker
  * @module enplug.sdk.utils
  *
- * @param ratio {String Duration}
+ * @param {Object} imageData
+ * @param {number} screenWidth 
+ * @param {number} screenHeight
+ *
+ * @description Component for choosing and positioning a background image.
  */
 
 'use strict';
@@ -14,7 +18,9 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', function ($enpl
     return {
         restrict: 'E',
         scope: {
-            imageData: '='
+            imageData: '=',
+            screenWidth: '=',
+            screenHeight: '='
         },
         templateUrl: 'sdk-utils/background-picker.tpl',
         link: function (scope, element, attrs, arg) {
@@ -23,11 +29,10 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', function ($enpl
              * @returns {boolean}
              */
             scope.isDisabled = function (position) {
-                // TODO(michal): get this data from the caller of the directive
-            	return false;
-                var res = 1080 / 1920;
+                var screenRes = scope.screenWidth / scope.screenHeight;
+                var imageRes = scope.imageData.bgWidth / scope.imageData.bgHeight;
 
-                if (!scope.imageData || !scope.imageData.url) {
+                if (!scope.imageData || !scope.imageData.bgUrl) {
                     return true;
                 }
 
@@ -35,23 +40,23 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', function ($enpl
                     return false;
                 } else if (scope.imageData.bgSize == 'contain') {
                     if (position == 'top' || position == 'bottom') {
-                        return res > scope.imageData.bgResolution;
+                        return screenRes > imageRes;
                     } else if (position == 'left' || position == 'right') {
-                        return res < scope.imageData.bgResolution;
+                        return screenRes < imageRes;
                     } else {
                         return true;
                     }
                 } else { // cover
                     if (position == 'top' || position == 'bottom') {
-                        return res < scope.imageData.bgResolution;
+                        return screenRes < imageRes;
                     } else if (position == 'left' || position == 'right') {
-                        return res > scope.imageData.bgResolution;
+                        return screenRes > imageRes;
                     } else {
                         return true;
                     }
                 }
 
-                return;
+                return false;
             }
 
 
