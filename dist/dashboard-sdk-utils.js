@@ -658,7 +658,11 @@ angular.module('enplug.sdk.utils').directive('alert', function () {
  * @name backgroundPicker
  * @module enplug.sdk.utils
  *
- * @param ratio {String Duration}
+ * @param {Object} imageData
+ * @param {number} screenWidth 
+ * @param {number} screenHeight
+ *
+ * @description Component for choosing and positioning a background image.
  */
 
 'use strict';
@@ -680,12 +684,8 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', ['$enplugDashbo
              * @returns {boolean}
              */
             scope.isDisabled = function (position) {
-                // TODO(michal): get this data from the caller of the directive
                 var screenRes = scope.screenWidth / scope.screenHeight;
                 var imageRes = scope.imageData.bgWidth / scope.imageData.bgHeight;
-
-                console.log(screenRes, imageRes);
-                console.log('position', position, scope.imageData);
 
                 if (!scope.imageData || !scope.imageData.bgUrl) {
                     return true;
