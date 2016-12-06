@@ -1,51 +1,57 @@
 <div class="clearfix background-picker">
-    <h3>Image Options</h3>
-    
-    <div class="one-third clearfix">
-        <ul class="alignement-widget clearfix">
-            <li class="top-left" 
-                ng-click="imageData.bgPosition='top-left'" 
-                ng-class="{ active: imageData.bgPosition=='top-left', disabled:isDisabled('top-left') }"></li>
-            <li class="top" 
-                ng-click="imageData.bgPosition='top'" 
-                ng-class="{ active: imageData.bgPosition=='top', disabled:isDisabled('top') }"></li>
-            <li class="top-right" 
-                ng-click="imageData.bgPosition='top-right'" 
-                ng-class="{ active: imageData.bgPosition=='top-right', disabled:isDisabled('top-right') }"></li>
-            <li class="left" 
-                ng-click="imageData.bgPosition='left'" 
-                ng-class="{ active: imageData.bgPosition=='left', disabled:isDisabled('left') }"></li>
-            <li class="center" 
-                ng-click="imageData.bgPosition='center'" 
-                ng-class="{ active: imageData.bgPosition=='center', disabled:isDisabled('center') }"></li>
-            <li class="right" 
-                ng-click="imageData.bgPosition='right'" 
-                ng-class="{ active: imageData.bgPosition=='right', disabled:isDisabled('right') }"></li>
-            <li class="bottom-left" 
-                ng-click="imageData.bgPosition='bottom-left'" 
-                ng-class="{ active: imageData.bgPosition=='bottom-left', disabled:isDisabled('bottom-left') }"></li>
-            <li class="bottom" 
-                ng-click="imageData.bgPosition='bottom'" 
-                ng-class="{ active: imageData.bgPosition=='bottom', disabled:isDisabled('bottom') }"></li>
-            <li class="bottom-right" 
-                ng-click="imageData.bgPosition='bottom-right'" 
-                ng-class="{ active: imageData.bgPosition=='bottom-right', disabled:isDisabled('bottom-right') }"></li>
-        </ul>
-        <p>Position</p>
-
-    </div>
-    <div class="two-thirds clearfix">
-        <div class="full-width half-height"
-             ng-click="imageData.bgSize='contain'" 
-             ng-class="{ active: imageData.bgSize=='contain' }">
-            <p class="icon icon-contain">Contain</p>
-        </div>
-        <div class="full-width half-height"
-             ng-click="imageData.bgSize='cover'" 
-             ng-class="{ active: imageData.bgSize=='cover' }">
-            <p class="icon icon-cover">Cover<span class="sub-icon"></span></p>
+    <div>
+        <button class="upload-image" ng-hide="imageData.bgUrl" ng-click="promptImageUpload()" translate>Upload Image</button>
+        <div class="upload-image uploaded" ng-show="imageData.bgUrl">
+            <span class="filename">{{imageData.bgFilename}}</span>
+            <a class="remove" ng-click="removeUploadedFile()">x</a>
         </div>
     </div>
 
-    <a class="upload-btn" ng-click="promptImageUpload()">Upload Different Image</a>
+    <div ng-show="imageData.bgUrl" class="image-position">
+        <div class="one-third clearfix">
+            <ul class="alignement-widget clearfix">
+                <li class="top-left" 
+                    ng-click="imageData.bgPosition='top-left'" 
+                    ng-class="{ active: imageData.bgPosition=='top-left', disabled:isDisabled('top-left') }"></li>
+                <li class="top" 
+                    ng-click="imageData.bgPosition='top'" 
+                    ng-class="{ active: imageData.bgPosition=='top', disabled:isDisabled('top') }"></li>
+                <li class="top-right" 
+                    ng-click="imageData.bgPosition='top-right'" 
+                    ng-class="{ active: imageData.bgPosition=='top-right', disabled:isDisabled('top-right') }"></li>
+                <li class="left" 
+                    ng-click="imageData.bgPosition='left'" 
+                    ng-class="{ active: imageData.bgPosition=='left', disabled:isDisabled('left') }"></li>
+                <li class="center" 
+                    ng-click="imageData.bgPosition='center'" 
+                    ng-class="{ active: imageData.bgPosition=='center', disabled:isDisabled('center') }"></li>
+                <li class="right" 
+                    ng-click="imageData.bgPosition='right'" 
+                    ng-class="{ active: imageData.bgPosition=='right', disabled:isDisabled('right') }"></li>
+                <li class="bottom-left" 
+                    ng-click="imageData.bgPosition='bottom-left'" 
+                    ng-class="{ active: imageData.bgPosition=='bottom-left', disabled:isDisabled('bottom-left') }"></li>
+                <li class="bottom" 
+                    ng-click="imageData.bgPosition='bottom'" 
+                    ng-class="{ active: imageData.bgPosition=='bottom', disabled:isDisabled('bottom') }"></li>
+                <li class="bottom-right" 
+                    ng-click="imageData.bgPosition='bottom-right'" 
+                    ng-class="{ active: imageData.bgPosition=='bottom-right', disabled:isDisabled('bottom-right') }"></li>
+            </ul>
+            <p>Position</p>
+
+        </div>
+        <div class="two-thirds clearfix">
+            <div class="full-width half-height"
+                 ng-click="imageData.bgSize='contain'" 
+                 ng-class="{ active: imageData.bgSize=='contain' }">
+                <p class="icon icon-contain">Contain</p>
+            </div>
+            <div class="full-width half-height"
+                 ng-click="imageData.bgSize='cover'" 
+                 ng-class="{ active: imageData.bgSize=='cover' }">
+                <p class="icon icon-cover">Cover<span class="sub-icon"></span></p>
+            </div>
+        </div>
+    </div>
 </div>

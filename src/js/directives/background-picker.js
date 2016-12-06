@@ -59,6 +59,14 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', function ($enpl
                 return false;
             }
 
+            scope.removeUploadedFile = function() {
+                scope.imageData.bgUrl = '';
+                scope.imageData.bgFilename = '';
+                scope.imageData.bgWidth = '';
+                scope.imageData.bgHeight = '';
+                scope.imageData.bgResolution = '';
+            }
+
 
             scope.promptImageUpload = function () {
                 $enplugDashboard.upload().then(function (uploads) {
@@ -68,6 +76,7 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', function ($enpl
                         scope.imageData.bgResolution = img.width / img.height;
                         scope.imageData.bgWidth = img.width;
                         scope.imageData.bgHeight = img.height;
+                        scope.imageData.bgFilename = img.filename;
                     } else {
                         $enplugDashboard.errorIndicator('Something went wrong, please try again.');
                     }

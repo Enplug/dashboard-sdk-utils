@@ -3695,133 +3695,115 @@ dropdown-menu:not(.dropdown-wrap) {
     .duration-slider-directive .slider-duration-input:focus::-webkit-input-placeholder {
       opacity: 0; }
 
-.background-picker h3 {
+.background-picker .upload-image {
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  border: 1px solid #356bba;
+  margin-top: 10px;
+  padding: 10px;
   width: 100%;
-  margin: 0;
-  padding: 5px;
-  height: 40px;
+  color: #356bba;
+  font-size: 16px; }
+  .background-picker .upload-image.uploaded {
+    border-color: #d3dbe2; }
+  .background-picker .upload-image .filename {
+    color: #000;
+    -ms-flex-positive: 1;
+        flex-grow: 1; }
+
+.background-picker p.icon {
+  text-align: right;
+  padding-right: 75px;
+  height: 100%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
       align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  background: #f4f4f4;
-  border-bottom: 1px solid #dedede;
-  font-size: 14px;
-  font-weight: 500; }
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  position: relative; }
+  .background-picker p.icon.icon-contain:before {
+    content: " ";
+    width: 40px;
+    height: 25px;
+    position: absolute;
+    background: white;
+    border: 1px solid #4078C0;
+    right: 20px;
+    top: 15px;
+    z-index: 1; }
+  .background-picker p.icon.icon-contain:after {
+    content: " ";
+    width: 24px;
+    height: 21px;
+    position: absolute;
+    background: #4078C0;
+    right: 28px;
+    top: 17px;
+    z-index: 2; }
+  .background-picker p.icon.icon-cover:before {
+    content: " ";
+    width: 36px;
+    height: 21px;
+    position: absolute;
+    background: #4078C0;
+    right: 22px;
+    top: 17px;
+    z-index: 3; }
+  .background-picker p.icon.icon-cover:after {
+    content: " ";
+    width: 40px;
+    height: 25px;
+    position: absolute;
+    background: white;
+    border: 1px solid #4078C0;
+    right: 20px;
+    top: 15px;
+    z-index: 2; }
+  .background-picker p.icon.icon-cover span {
+    content: " ";
+    width: 36px;
+    height: 35px;
+    position: absolute;
+    background: white;
+    right: 22px;
+    top: 10px;
+    z-index: 1;
+    box-sizing: border-box;
+    border-top: 4px solid #4078C0;
+    border-bottom: 4px solid #4078C0; }
 
-.background-picker p {
-  font-size: 13px;
-  color: #4078C0;
-  min-height: 30px;
-  line-height: 30px;
-  text-align: center; }
-  .background-picker p.icon {
-    text-align: right;
-    padding-right: 75px;
-    height: 100%;
+.background-picker .image-position {
+  margin-top: 10px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  border: 1px solid #d3dbe2; }
+  .background-picker .image-position .one-third {
+    -ms-flex-positive: 0.4;
+        flex-grow: 0.4;
+    border: 0;
+    padding: 1px;
+    border-right: 1px solid #d3dbe2; }
+  .background-picker .image-position .two-thirds {
+    border: 0;
+    padding: 1px;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-align: center;
-        align-items: center;
-    -ms-flex-pack: end;
-        justify-content: flex-end;
-    position: relative; }
-    .background-picker p.icon.icon-contain:before {
-      content: " ";
-      width: 40px;
-      height: 25px;
-      position: absolute;
-      background: white;
-      border: 1px solid #4078C0;
-      right: 20px;
-      top: 15px;
-      z-index: 1; }
-    .background-picker p.icon.icon-contain:after {
-      content: " ";
-      width: 24px;
-      height: 21px;
-      position: absolute;
-      background: #4078C0;
-      right: 28px;
-      top: 17px;
-      z-index: 2; }
-    .background-picker p.icon.icon-cover:before {
-      content: " ";
-      width: 36px;
-      height: 21px;
-      position: absolute;
-      background: #4078C0;
-      right: 22px;
-      top: 17px;
-      z-index: 3; }
-    .background-picker p.icon.icon-cover:after {
-      content: " ";
-      width: 40px;
-      height: 25px;
-      position: absolute;
-      background: white;
-      border: 1px solid #4078C0;
-      right: 20px;
-      top: 15px;
-      z-index: 2; }
-    .background-picker p.icon.icon-cover span {
-      content: " ";
-      width: 36px;
-      height: 35px;
-      position: absolute;
-      background: white;
-      right: 22px;
-      top: 10px;
-      z-index: 1;
-      box-sizing: border-box;
-      border-top: 4px solid #4078C0;
-      border-bottom: 4px solid #4078C0; }
-
-.background-picker .one-third {
-  margin: 0;
-  padding: 0;
-  display: block;
-  float: left;
-  width: calc( 100% * .4);
-  border-bottom: 1px solid #dedede; }
-
-.background-picker .two-thirds {
-  margin: 0;
-  padding: 0;
-  display: block;
-  float: left;
-  width: calc( 100% * .6);
-  border-left: 1px solid #dedede;
-  border-bottom: 1px solid #dedede; }
-  .background-picker .two-thirds .half-height {
-    margin: 0;
-    padding: 0;
-    display: block;
-    float: left;
-    width: 100%;
-    height: 55px; }
-    .background-picker .two-thirds .half-height:first-child {
-      border-bottom: 1px solid #dedede; }
-    .background-picker .two-thirds .half-height.active {
-      background: #4078C0; }
-      .background-picker .two-thirds .half-height.active p {
-        color: white; }
-        .background-picker .two-thirds .half-height.active p.icon.icon-contain:before {
-          background: #4078C0;
-          border: 1px solid white; }
-        .background-picker .two-thirds .half-height.active p.icon.icon-contain:after {
-          background: white; }
-        .background-picker .two-thirds .half-height.active p.icon.icon-cover:before {
-          background: white; }
-        .background-picker .two-thirds .half-height.active p.icon.icon-cover:after {
-          background: #4078C0;
-          border: 1px solid white; }
-        .background-picker .two-thirds .half-height.active p.icon.icon-cover span {
-          background: #4078C0;
-          border-top: 4px solid white;
-          border-bottom: 4px solid white; }
+    -ms-flex-positive: 0.6;
+        flex-grow: 0.6;
+    -ms-flex-direction: column;
+        flex-direction: column; }
+    .background-picker .image-position .two-thirds .half-height {
+      padding: 1px;
+      margin: 0;
+      height: 55px; }
+      .background-picker .image-position .two-thirds .half-height:first-child {
+        border-bottom: 1px solid #356bba; }
+      .background-picker .image-position .two-thirds .half-height.active {
+        background-color: #f2f5f8; }
 
 .background-picker .alignement-widget {
   margin: 10px auto 0;
@@ -3837,7 +3819,7 @@ dropdown-menu:not(.dropdown-wrap) {
     width: 19px;
     height: 19px;
     box-sizing: border-box;
-    border: 1px solid #dedede;
+    border: 1px solid #356bba;
     box-sizing: border-box;
     float: left;
     display: inline-block;
