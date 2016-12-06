@@ -3801,7 +3801,7 @@ dropdown-menu:not(.dropdown-wrap) {
       margin: 0;
       height: 55px; }
       .background-picker .image-position .two-thirds .half-height:first-child {
-        border-bottom: 1px solid #356bba; }
+        border-bottom: 1px solid #d3dbe2; }
       .background-picker .image-position .two-thirds .half-height.active {
         background-color: #f2f5f8; }
 
@@ -3819,7 +3819,7 @@ dropdown-menu:not(.dropdown-wrap) {
     width: 19px;
     height: 19px;
     box-sizing: border-box;
-    border: 1px solid #356bba;
+    border: 1px solid #d3dbe2;
     box-sizing: border-box;
     float: left;
     display: inline-block;
@@ -3858,17 +3858,6 @@ dropdown-menu:not(.dropdown-wrap) {
       background: rgba(211, 211, 211, 0.28);
       color: darkgrey;
       pointer-events: none; }
-
-.background-picker .upload-btn {
-  width: 100%;
-  height: 40px;
-  display: block;
-  float: left;
-  text-align: center;
-  line-height: 40px;
-  margin: 0;
-  font-size: 12px;
-  text-decoration: none; }
 
 /* Forms
 ========================================================================== */
