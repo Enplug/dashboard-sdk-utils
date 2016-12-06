@@ -3786,7 +3786,8 @@ dropdown-menu:not(.dropdown-wrap) {
         flex-grow: 0.4;
     border: 0;
     padding: 1px;
-    border-right: 1px solid #d3dbe2; }
+    border-right: 1px solid #d3dbe2;
+    text-align: center; }
   .background-picker .image-position .two-thirds {
     border: 0;
     padding: 1px;
