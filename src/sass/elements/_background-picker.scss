@@ -125,7 +125,7 @@
                 height: 55px;
 
                 &:first-child{
-                    border-bottom: 1px solid $border;
+                    border-bottom: 1px solid $border-grey;
                 }   
 
                 &.active {
@@ -151,7 +151,7 @@
             width: 19px;
             height: 19px;
             box-sizing: border-box;
-            border: 1px solid $border;
+            border: 1px solid $border-grey;
             box-sizing: border-box;
             float: left;
             display: inline-block;
