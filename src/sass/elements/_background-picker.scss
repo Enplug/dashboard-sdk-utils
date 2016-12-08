@@ -111,6 +111,9 @@
         transition: opacity 0.5s linear;
 
         &.ng-hide {
+            // We're not using angular-animate. Since that's the case, the easiest way to handle
+            // animations is to prevent hiding of the DOM element using display:none.
+            display: flex !important;
             opacity: 0;
         }
         

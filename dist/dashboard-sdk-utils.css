@@ -3788,6 +3788,8 @@ dropdown-menu:not(.dropdown-wrap) {
   border: 1px solid #d3dbe2;
   transition: opacity 0.5s linear; }
   .background-picker .image-position.ng-hide {
+    display: -ms-flexbox !important;
+    display: flex !important;
     opacity: 0; }
   .background-picker .image-position .one-third {
     -ms-flex-positive: 0.4;
