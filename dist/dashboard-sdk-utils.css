@@ -3785,7 +3785,10 @@ dropdown-menu:not(.dropdown-wrap) {
   display: flex;
   -ms-flex-direction: row;
       flex-direction: row;
-  border: 1px solid #d3dbe2; }
+  border: 1px solid #d3dbe2;
+  transition: opacity 0.5s linear; }
+  .background-picker .image-position.ng-hide {
+    opacity: 0; }
   .background-picker .image-position .one-third {
     -ms-flex-positive: 0.4;
         flex-grow: 0.4;
