@@ -15,6 +15,7 @@
         width: 100%;
         color: $border;
         font-size: 16px;
+        justify-content: center;
 
         &.uploaded {
             border-color: $border-grey;
@@ -23,6 +24,9 @@
         .filename {
             color: #000;
             flex-grow: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
     }
 

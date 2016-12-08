@@ -3704,13 +3704,18 @@ dropdown-menu:not(.dropdown-wrap) {
   padding: 10px;
   width: 100%;
   color: #356bba;
-  font-size: 16px; }
+  font-size: 16px;
+  -ms-flex-pack: center;
+      justify-content: center; }
   .background-picker .upload-image.uploaded {
     border-color: #d3dbe2; }
   .background-picker .upload-image .filename {
     color: #000;
     -ms-flex-positive: 1;
-        flex-grow: 1; }
+        flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
 
 .background-picker p.icon {
   text-align: right;
