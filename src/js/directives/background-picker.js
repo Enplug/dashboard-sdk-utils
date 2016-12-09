@@ -30,15 +30,15 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', function ($enpl
              */
             scope.isDisabled = function (position) {
                 var screenRes = scope.screenWidth / scope.screenHeight;
-                var imageRes = scope.imageData.bgWidth / scope.imageData.bgHeight;
+                var imageRes = scope.imageData.BgWidth / scope.imageData.BgHeight;
 
-                if (!scope.imageData || !scope.imageData.bgUrl) {
+                if (!scope.imageData || !scope.imageData.BgUrl) {
                     return true;
                 }
 
                 if (position == 'center') {
                     return false;
-                } else if (scope.imageData.bgSize == 'contain') {
+                } else if (scope.imageData.BgSize == 'contain') {
                     if (position == 'top' || position == 'bottom') {
                         return screenRes > imageRes;
                     } else if (position == 'left' || position == 'right') {
@@ -60,11 +60,11 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', function ($enpl
             }
 
             scope.removeUploadedFile = function() {
-                scope.imageData.bgUrl = '';
-                scope.imageData.bgFilename = '';
-                scope.imageData.bgWidth = '';
-                scope.imageData.bgHeight = '';
-                scope.imageData.bgResolution = '';
+                scope.imageData.BgUrl = '';
+                scope.imageData.BgFilename = '';
+                scope.imageData.BgWidth = '';
+                scope.imageData.BgHeight = '';
+                scope.imageData.BgResolution = '';
             }
 
 
@@ -72,11 +72,11 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', function ($enpl
                 $enplugDashboard.upload().then(function (uploads) {
                     if (uploads.length > 0) {
                     	var img = uploads[0];
-                        scope.imageData.bgUrl = img.url;
-                        scope.imageData.bgResolution = img.width / img.height;
-                        scope.imageData.bgWidth = img.width;
-                        scope.imageData.bgHeight = img.height;
-                        scope.imageData.bgFilename = img.filename;
+                        scope.imageData.BgUrl = img.url;
+                        scope.imageData.BgResolution = img.width / img.height;
+                        scope.imageData.BgWidth = img.width;
+                        scope.imageData.BgHeight = img.height;
+                        scope.imageData.BgFilename = img.filename;
                     } else {
                         $enplugDashboard.errorIndicator('Something went wrong, please try again.');
                     }
