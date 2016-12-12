@@ -1,0 +1,207 @@
+.background-picker {
+
+    $blue: #4078C0;
+    $border: #356bba;
+    $border-grey: #d3dbe2;
+    $grey-bg: #f2f5f8;
+    $arrow: "\f105";
+
+    .upload-image {
+        display: flex;
+        background-color: #fff;
+        border: 1px solid $border;
+        margin-top: 10px;
+        padding: 10px;
+        width: 100%;
+        color: $border;
+        font-size: 16px;
+        justify-content: center;
+
+        &.uploaded {
+            border-color: $border-grey;
+        }
+
+        .filename {
+            color: #000;
+            flex-grow: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+
+
+    p {
+        &.icon {
+            text-align: right;
+            padding-right: 75px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
+
+            &.icon-contain {
+                &:before {
+                    content: " "; width: 40px;
+                    height: 25px;
+                    position: absolute;
+                    background: white;
+                    border: 1px solid $blue;
+                    right: 20px;
+                    top: 15px;
+                    z-index: 1;
+                }
+                &:after {
+                    content: " ";
+                    width: 24px;
+                    height: 21px;
+                    position: absolute;
+                    background: $blue;
+                    right: 28px;
+                    top: 17px;
+                    z-index: 2;
+                }
+            }
+
+            &.icon-cover {
+                &:before {
+                    content: " ";
+                    width: 36px;
+                    height: 21px;
+                    position: absolute;
+                    background: $blue;
+                    right: 22px;
+                    top: 17px;
+                    z-index: 3;
+                }
+                &:after {
+                    content: " ";
+                    width: 40px;
+                    height: 25px;
+                    position: absolute;
+                    background: white;
+                    border: 1px solid $blue;
+                    right: 20px;
+                    top: 15px;
+                    z-index: 2;
+                }
+                span {
+                    content: " ";
+                    width: 36px;
+                    height: 35px;
+                    position: absolute;
+                    background: white;
+                    right: 22px;
+                    top: 10px;
+                    z-index: 1;
+                    box-sizing: border-box;
+                    border-top: 4px solid $blue;
+                    border-bottom: 4px solid $blue;
+                }
+            }
+        } 
+    }
+
+    .image-position {
+        margin-top: 10px;    
+        display: flex;
+        flex-direction: row;
+        border: 1px solid $border-grey;
+        transition: opacity 0.5s linear;
+
+        &.ng-hide {
+            // We're not using angular-animate. Since that's the case, the easiest way to handle
+            // animations is to prevent hiding of the DOM element using display:none.
+            display: flex !important;
+            opacity: 0;
+        }
+        
+        .one-third {
+            flex-grow: 0.4;
+            border: 0;
+            padding: 1px;
+            border-right: 1px solid $border-grey;
+            text-align: center;
+        }
+
+        .two-thirds {
+            border: 0;
+            padding: 1px;
+            display: flex;
+            flex-grow: 0.6;
+            flex-direction: column;
+
+            .half-height {
+                padding: 1px;
+                margin: 0;
+                height: 55px;
+
+                &:first-child{
+                    border-bottom: 1px solid $border-grey;
+                }   
+
+                &.active {
+                    background-color: $grey-bg;
+                }
+            }
+        }
+    }
+
+
+    .alignement-widget {
+        margin: 10px auto 0;
+        padding: 0;
+        list-style: none;
+        width: 70px;
+        height: 70px;
+        display: block;
+        box-sizing: border-box;
+
+        li {
+            margin: 2px;
+            padding: 0;
+            width: 19px;
+            height: 19px;
+            box-sizing: border-box;
+            border: 1px solid $border-grey;
+            box-sizing: border-box;
+            float: left;
+            display: inline-block;
+            position: relative;
+            color: $blue;
+            position: relative;
+
+            &:after {
+                content: "\F105";
+                font-family: IonIcons;
+                left: 5px;
+                position: absolute;
+                transform-origin: center;
+
+                
+            }
+            &.top-left:after { transform: rotate(135deg); }
+            &.top:after { transform: rotate(180deg); }
+            &.top-right:after { transform: rotate(215deg); }
+            &.left:after { transform: rotate(90deg); }
+            &.center:after { content: " " }
+            &.right:after { transform: rotate(-90deg); }
+            &.bottom-left:after { transform: rotate(45deg); }
+            &.bottom:after { transform: rotate(0deg); }
+            &.bottom-right:after { transform: rotate(-45deg); }
+
+
+            &.active{
+                background: $blue;
+                color:white;
+            }
+            &.disabled {
+                background: rgba(211, 211, 211, 0.28);
+                color: darkgrey;
+                pointer-events: none;
+            }
+
+        }
+    }
+}
