@@ -2,6 +2,14 @@ angular.module('enplug.sdk.utils', ['enplug.sdk.utils.templates', 'gettext']);
 
 angular.module('enplug.sdk.utils').run(['$templateCache', 'gettextCatalog', function ($templateCache, gettextCatalog) {
 
+    // gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
+    gettextCatalog.setCurrentLanguage('es');
+    console.log('coming from SDKKKKKKKKK UTILS')
+    gettextCatalog.loadRemote("../dist/i18n/translations.json");
+    // When set to true, the untranslated strings will be displayed with [MISSING]
+    // next to them.
+    gettextCatalog.debug = true;
+    
     // Update default pagination template for Smart Table to use our directive and icons
     $templateCache.put('template/smart-table/pagination.html',
         '<div ng-if="pages.length >= 2">' +
@@ -11,13 +19,6 @@ angular.module('enplug.sdk.utils').run(['$templateCache', 'gettextCatalog', func
         '<li><a class="ion-chevron-right" ng-click="selectPage(currentPage + 1)" ng-class="{ disabled: currentPage == numPages }"></a></li>' +
         '</ul></div>');
 
-        // gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
-        gettextCatalog.setCurrentLanguage('es');
-        console.log('coming from SDKKKKKKKKK UTILS')
-        gettextCatalog.loadRemote("../dist/i18n/translations.json");
-        // When set to true, the untranslated strings will be displayed with [MISSING]
-        // next to them.
-        gettextCatalog.debug = true;
 }]);
 
 angular.module('enplug.sdk.utils').constant('countries', [
