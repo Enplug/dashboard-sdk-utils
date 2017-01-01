@@ -11,8 +11,9 @@ angular.module('enplug.sdk.utils').run(function ($templateCache, gettextCatalog)
         '<li><a class="ion-chevron-right" ng-click="selectPage(currentPage + 1)" ng-class="{ disabled: currentPage == numPages }"></a></li>' +
         '</ul></div>');
 
-        gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
-        // gettextCatalog.setCurrentLanguage('es');
+        // gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
+        gettextCatalog.setCurrentLanguage('es');
+        console.log('coming from SDKKKKKKKKK UTILS')
         gettextCatalog.loadRemote("../dist/i18n/translations.json");
         // When set to true, the untranslated strings will be displayed with [MISSING]
         // next to them.

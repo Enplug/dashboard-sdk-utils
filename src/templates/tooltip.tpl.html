@@ -2,14 +2,14 @@
 
     <!-- Triggers showing tooltip -->
     <sup ng-hide="::config.tooltip" class="icon ion-help-circled text-gray-light"></sup>
-    <span class="tipText" ng-show="::config.tooltip" ng-bind="::config.tooltip"></span>
+    <span class="tipText" ng-show="::config.tooltip" ng-bind="::config.tooltip | translate"></span>
 
     <!-- Tip body -->
     <span class="tip" ng-class="::config.position">
         <span class="tip-content radius shadow">
-            <span ng-if="config.title" class="tipTitle text-gd" ng-bind="::config.title"></span>
-            <span class="tipBody text-reset" ng-bind="::config.text" ng-class="{ pt: !config.title, pb: !config.link }"></span>
-            <a ng-if="::config.link" class="link-reset" ng-href="{{ ::config.link.location }}" ng-bind="::config.link.title"></a>
+            <span ng-if="config.title" class="tipTitle text-gd" ng-bind="::config.title | translate"></span>
+            <span class="tipBody text-reset" ng-bind="::config.text | translate" ng-class="{ pt: !config.title, pb: !config.link }"></span>
+            <a ng-if="::config.link" class="link-reset" ng-href="{{ ::config.link.location }}" ng-bind="::config.link.title | translate"></a>
             <span class="tipArrow"></span>
         </span>
     </span>

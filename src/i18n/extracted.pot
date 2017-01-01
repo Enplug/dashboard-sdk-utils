@@ -40,8 +40,24 @@ msgstr ""
 msgid "Need help? Go to the"
 msgstr ""
 
+#: ./src/templates/material-input.tpl.html:6
+msgid "Passwords must match."
+msgstr ""
+
+#: ./src/templates/material-input.tpl.html:5
+msgid "Please enter a valid URL starting with http:// or https://"
+msgstr ""
+
+#: ./src/templates/material-input.tpl.html:4
+msgid "Please enter a valid email address."
+msgstr ""
+
 #: ./src/templates/background-picker.tpl.html:41
 msgid "Position"
+msgstr ""
+
+#: ./src/templates/protip.tpl.html:3
+msgid "ProTip:"
 msgstr ""
 
 #. {{R}} represents red to select rgb color
@@ -51,6 +67,14 @@ msgstr ""
 
 #: ./src/js/directives/background-picker.js:81
 msgid "Something went wrong, please try again."
+msgstr ""
+
+#: ./src/templates/loading.tpl.html:8
+msgid "There was an error."
+msgstr ""
+
+#: ./src/templates/material-input.tpl.html:3
+msgid "This is required."
 msgstr ""
 
 #: ./src/templates/background-picker.tpl.html:3

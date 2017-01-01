@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"X-Generator: Poedit 1.8.11\n"
 "Last-Translator: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Team: \n"
 "Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. {A}} represents, or is short for Alpha
 #: src/templates/color-picker.tpl.html:48
@@ -36,20 +36,37 @@ msgstr "Cubierta <span class = \"sub-icon\"> </ span>"
 
 #: src/templates/help-block.tpl.html:3
 msgid "Enplug Help Center"
-msgstr "Centro apoyo de Enplug"
+msgstr "Centro apoyo de Enplug "
 
 #. {{G}} represents green to select rgb color
 #: src/templates/color-picker.tpl.html:22
 msgid "G:"
 msgstr "G:"
 
+#. The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'
 #: src/templates/help-block.tpl.html:3
 msgid "Need help? Go to the"
-msgstr "¿Necesitas ayuda? Ir a la"
+msgstr "¿Necesitas ayuda? Ir a la "
+
+#: src/templates/material-input.tpl.html:6
+msgid "Passwords must match."
+msgstr "No se encontraron coincidencias."
+
+#: src/templates/material-input.tpl.html:5
+msgid "Please enter a valid URL starting with http:// or https://"
+msgstr "Ingresa una URL válida empezando por http: // o https: //"
+
+#: src/templates/material-input.tpl.html:4
+msgid "Please enter a valid email address."
+msgstr "Ingresa una URL válida empezando."
 
 #: src/templates/background-picker.tpl.html:41
 msgid "Position"
 msgstr "Posición"
+
+#: src/templates/protip.tpl.html:3
+msgid "ProTip:"
+msgstr "ProTip:"
 
 #. {{R}} represents red to select rgb color
 #: src/templates/color-picker.tpl.html:16
@@ -59,6 +76,14 @@ msgstr "R:"
 #: src/js/directives/background-picker.js:81
 msgid "Something went wrong, please try again."
 msgstr "Algo salió mal. Por favor, vuelva a intentarlo."
+
+#: src/templates/loading.tpl.html:8
+msgid "There was an error."
+msgstr "Hubo un error."
+
+#: src/templates/material-input.tpl.html:3
+msgid "This is required."
+msgstr "Esto es necesario."
 
 #: src/templates/background-picker.tpl.html:3
 msgid "Upload Image"

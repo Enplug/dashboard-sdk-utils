@@ -11,8 +11,9 @@ angular.module('enplug.sdk.utils').run(['$templateCache', 'gettextCatalog', func
         '<li><a class="ion-chevron-right" ng-click="selectPage(currentPage + 1)" ng-class="{ disabled: currentPage == numPages }"></a></li>' +
         '</ul></div>');
 
-        gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
-        // gettextCatalog.setCurrentLanguage('es');
+        // gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
+        gettextCatalog.setCurrentLanguage('es');
+        console.log('coming from SDKKKKKKKKK UTILS')
         gettextCatalog.loadRemote("../dist/i18n/translations.json");
         // When set to true, the untranslated strings will be displayed with [MISSING]
         // next to them.
@@ -2675,19 +2676,19 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/layout-toggle.tpl",
         "<div class=\"btn-group layout-toggle\"><button ng-click=toggleLayout() ng-disabled=showGridLayout class=\"btn btn-default btn-icon btn-sm ion-android-apps grid-toggle\"></button> <button ng-click=toggleLayout() ng-disabled=!showGridLayout class=\"btn btn-default btn-icon btn-sm ion-navicon table-toggle\"></button></div>");
     $templateCache.put("sdk-utils/loading.tpl",
-        "<div class=loading-directive ng-show=loading><div class=loader ng-hide=error><svg class=circular><circle class=path cx=32 cy=32 r=30 fill=none stroke-width=2></circle></svg></div><div ng-show=error><p>There was an error.</p></div></div><ng-transclude class=loading-content ng-hide=loading></ng-transclude>");
+        "<div class=loading-directive ng-show=loading><div class=loader ng-hide=error><svg class=circular><circle class=path cx=32 cy=32 r=30 fill=none stroke-width=2></circle></svg></div><div ng-show=error><p translate>There was an error.</p></div></div><ng-transclude class=loading-content ng-hide=loading></ng-transclude>");
     $templateCache.put("sdk-utils/material-checkbox.tpl",
-        "<div class=checkbox><label for=\"{{ id }}\"><input id=\"{{ id }}\" type=checkbox ng-model=model> <span class=checkbox-material><span class=check></span></span> <span class=checkbox-label><span ng-bind=label></span></span></label></div>");
+        "<div class=checkbox><label for=\"{{ id }}\"><input id=\"{{ id }}\" type=checkbox ng-model=model> <span class=checkbox-material><span class=check></span></span> <span class=checkbox-label><span ng-bind=\"label | translate\"></span></span></label></div>");
     $templateCache.put("sdk-utils/material-input.tpl",
-        "<label for=\"{{ ::id }}\" ng-bind=::label></label><div class=validation ng-messages=formField.$error ng-if=formField.$dirty><span class=text-danger ng-message=required>This is required.</span> <span class=text-danger ng-message=email>Please enter a valid email address.</span> <span class=text-danger ng-message=url>Please enter a valid URL starting with http:// or https://</span> <span class=text-danger ng-message=equals>Passwords must match.</span></div>");
+        "<label for=\"{{ ::id }}\" ng-bind=::label></label><div class=validation ng-messages=formField.$error ng-if=formField.$dirty><span class=text-danger ng-message=required translate>This is required.</span> <span class=text-danger ng-message=email translate>Please enter a valid email address.</span> <span class=text-danger ng-message=url translate>Please enter a valid URL starting with http:// or https://</span> <span class=text-danger ng-message=equals translate>Passwords must match.</span></div>");
     $templateCache.put("sdk-utils/material-radio.tpl",
         "<div class=radio><label><input type=radio ng-model=model> <span class=radio-on></span> <span class=radio-off></span><ng-transclude></ng-transclude></label></div>");
     $templateCache.put("sdk-utils/material-select.tpl",
-        "<span class=form-label ng-bind=label></span><ng-transclude></ng-transclude>");
+        "<span class=form-label ng-bind=\"label | translate\"></span><ng-transclude></ng-transclude>");
     $templateCache.put("sdk-utils/material-switch.tpl",
         "<label class=material-switch ng-class=\"{ 'switch-on': model, 'switch-off': !model, dirty: dirty }\" ng-click=\"dirty = true\"><input class=default-input type=checkbox ng-model=model><ng-transclude></ng-transclude></label>");
     $templateCache.put("sdk-utils/protip.tpl",
-        "<div class=pro-tip><i class=\"ion-flash text-primary\"></i> <strong>ProTip:</strong> <span ng-bind=::config.tip></span> <a ng-if=::config.link dynamic-click=::config.link.action dynamic-href=::config.link.location ng-bind=::config.link.text></a></div>");
+        "<div class=pro-tip><i class=\"ion-flash text-primary\"></i> <strong translate>ProTip:</strong> <span ng-bind=::config.tip></span> <a ng-if=::config.link dynamic-click=::config.link.action dynamic-href=::config.link.location ng-bind=\"::config.link.text | translate\"></a></div>");
     $templateCache.put("sdk-utils/status-button.tpl",
         "<button class=status-button><i class=ion-load-a ng-show=isLoading></i> <i class=ion-checkmark-circled ng-show=\"!isLoading && success\"></i> <i class=ion-alert-circled ng-show=\"!isLoading && error\"></i><ng-transclude></ng-transclude></button>");
     $templateCache.put("sdk-utils/tag-input.tpl",
@@ -2695,5 +2696,5 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/tag-select.tpl",
         "<div class=\"tag-select clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\" ng-click=toggleSelection(tag) ng-class=\"{ 'selected': isSelected(tag) }\">{{tag}}</li></ul></div>");
     $templateCache.put("sdk-utils/tooltip.tpl",
-        "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=tipText ng-show=::config.tooltip ng-bind=::config.tooltip></span> <span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span ng-if=config.title class=\"tipTitle text-gd\" ng-bind=::config.title></span> <span class=\"tipBody text-reset\" ng-bind=::config.text ng-class=\"{ pt: !config.title, pb: !config.link }\"></span> <a ng-if=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" ng-bind=::config.link.title></a> <span class=tipArrow></span></span></span></span>");
+        "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=tipText ng-show=::config.tooltip ng-bind=\"::config.tooltip | translate\"></span> <span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span ng-if=config.title class=\"tipTitle text-gd\" ng-bind=\"::config.title | translate\"></span> <span class=\"tipBody text-reset\" ng-bind=\"::config.text | translate\" ng-class=\"{ pt: !config.title, pb: !config.link }\"></span> <a ng-if=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" ng-bind=\"::config.link.title | translate\"></a> <span class=tipArrow></span></span></span></span>");
 }]);
