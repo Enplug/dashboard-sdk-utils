@@ -9,10 +9,17 @@
     "owner": "Enplug",
     "name": "dashboard-sdk-utils"
   },
+  "scripts": {
+    "i18n": "npm run i18n:extract && npm run i18n:compile",
+    "i18n:extract": "angular-gettext-cli --files \"./src/**/*.+(js|html)\" --dest ./src/i18n/extracted.pot",
+    "i18n:compile": "angular-gettext-cli --files \"./src/**/*.+(po)\" --dest ./src/i18n/translations.json     --format json --compile"
+  },
   "dependencies": {
     "lodash": "~3.10.0"
   },
   "devDependencies": {
+    "angular-gettext": "^2.3.8",
+    "angular-gettext-cli": "^1.0.7",
     "autoprefixer-core": "^5.2.1",
     "bower": "^1.3.12",
     "grunt": "^0.4.5",
@@ -22,12 +29,13 @@
     "grunt-checkrepo": "^0.1.0",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^0.13.0",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-ng-annotate": "^1.0.1",
     "grunt-git": "^0.3.5",
     "grunt-html2js": "^0.3.3",
+    "grunt-ng-annotate": "^1.0.1",
     "grunt-postcss": "^0.5.5",
     "grunt-prompt": "^1.3.0",
     "grunt-sass": "^1.0.0",

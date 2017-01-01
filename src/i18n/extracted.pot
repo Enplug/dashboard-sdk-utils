@@ -1,0 +1,17 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: ./src/templates/background-picker.tpl.html:41
+msgid "Position"
+msgstr ""
+
+#: ./src/templates/background-picker.tpl.html:3
+msgid "Upload Image"
+msgstr ""
+
+#: ./src/templates/background-picker.tpl.html:5
+msgid "{{imageData.BgFilename}}"
+msgstr ""
