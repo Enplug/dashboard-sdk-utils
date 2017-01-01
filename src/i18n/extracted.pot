@@ -4,8 +4,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#. {A}} represents, or is short for Alpha
+#: ./src/templates/color-picker.tpl.html:48
+msgid "A:"
+msgstr ""
+
+#: ./src/templates/tag-input.tpl.html:10
+msgid "Add tags"
+msgstr ""
+
+#. {{B}} represents blue to select rgb color
+#: ./src/templates/color-picker.tpl.html:28
+msgid "B:"
+msgstr ""
+
+#: ./src/templates/background-picker.tpl.html:48
+msgid "Contain"
+msgstr ""
+
+#: ./src/templates/background-picker.tpl.html:53
+msgid "Cover<span class=\"sub-icon\"></span>"
+msgstr ""
+
+#: ./src/templates/help-block.tpl.html:3
+msgid "Enplug Help Center"
+msgstr ""
+
+#. {{G}} represents green to select rgb color
+#: ./src/templates/color-picker.tpl.html:22
+msgid "G:"
+msgstr ""
+
+#. The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'
+#: ./src/templates/help-block.tpl.html:3
+msgid "Need help? Go to the"
+msgstr ""
+
 #: ./src/templates/background-picker.tpl.html:41
 msgid "Position"
+msgstr ""
+
+#. {{R}} represents red to select rgb color
+#: ./src/templates/color-picker.tpl.html:16
+msgid "R:"
+msgstr ""
+
+#: ./src/js/directives/background-picker.js:81
+msgid "Something went wrong, please try again."
 msgstr ""
 
 #: ./src/templates/background-picker.tpl.html:3

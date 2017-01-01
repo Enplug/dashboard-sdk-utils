@@ -1,0 +1,69 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.8.11\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+
+#. {A}} represents, or is short for Alpha
+#: src/templates/color-picker.tpl.html:48
+msgid "A:"
+msgstr "A:"
+
+#: src/templates/tag-input.tpl.html:10
+msgid "Add tags"
+msgstr "Agregar etiquetas"
+
+#. {{B}} represents blue to select rgb color
+#: src/templates/color-picker.tpl.html:28
+msgid "B:"
+msgstr "B:"
+
+#: src/templates/background-picker.tpl.html:48
+msgid "Contain"
+msgstr "Contiene"
+
+#: src/templates/background-picker.tpl.html:53
+msgid "Cover<span class=\"sub-icon\"></span>"
+msgstr "Cubierta <span class = \"sub-icon\"> </ span>"
+
+#: src/templates/help-block.tpl.html:3
+msgid "Enplug Help Center"
+msgstr "Centro apoyo de Enplug"
+
+#. {{G}} represents green to select rgb color
+#: src/templates/color-picker.tpl.html:22
+msgid "G:"
+msgstr "G:"
+
+#: src/templates/help-block.tpl.html:3
+msgid "Need help? Go to the"
+msgstr "¿Necesitas ayuda? Ir a la"
+
+#: src/templates/background-picker.tpl.html:41
+msgid "Position"
+msgstr "Posición"
+
+#. {{R}} represents red to select rgb color
+#: src/templates/color-picker.tpl.html:16
+msgid "R:"
+msgstr "R:"
+
+#: src/js/directives/background-picker.js:81
+msgid "Something went wrong, please try again."
+msgstr "Algo salió mal. Por favor, vuelva a intentarlo."
+
+#: src/templates/background-picker.tpl.html:3
+msgid "Upload Image"
+msgstr "Cargar imagen"
+
+#: src/templates/background-picker.tpl.html:5
+msgid "{{imageData.BgFilename}}"
+msgstr ""

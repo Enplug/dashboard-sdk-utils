@@ -7,18 +7,18 @@
  */
 angular.module('enplug.sdk.utils').directive('displayCounter', function () {
     return {
-        
+
         restrict: 'E',
-        
+
         replace: true,
-        
+
         scope: {
             count: '=',
             showDanger: '=?',
             vertical: '=?',
             disabled: '=?'
         },
-        
+
         templateUrl: 'sdk-utils/display-counter.tpl',
 
         link: function (scope, element, attrs) {

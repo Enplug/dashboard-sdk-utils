@@ -666,7 +666,7 @@ angular.module('enplug.sdk.utils').directive('alert', function () {
  * @module enplug.sdk.utils
  *
  * @param {Object} imageData
- * @param {number} screenWidth 
+ * @param {number} screenWidth
  * @param {number} screenHeight
  *
  * @description Component for choosing and positioning a background image.
@@ -676,7 +676,7 @@ angular.module('enplug.sdk.utils').directive('alert', function () {
 
 
 
-angular.module('enplug.sdk.utils').directive('backgroundPicker', ['$enplugDashboard', function ($enplugDashboard) {
+angular.module('enplug.sdk.utils').directive('backgroundPicker', ['$enplugDashboard', 'gettext', function ($enplugDashboard, gettext) {
     return {
         restrict: 'E',
         scope: {
@@ -740,13 +740,14 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', ['$enplugDashbo
                         scope.imageData.BgHeight = img.height;
                         scope.imageData.BgFilename = img.filename;
                     } else {
-                        $enplugDashboard.errorIndicator('Something went wrong, please try again.');
+                        $enplugDashboard.errorIndicator(gettext('Something went wrong, please try again.'));
                     }
                 });
             }
         }
     }
 }]);
+
 /**
 * @ngdoc directive
 * @name customDurationSlider
@@ -890,18 +891,18 @@ angular.module('enplug.sdk.utils').directive('customDurationSlider', ['$document
  */
 angular.module('enplug.sdk.utils').directive('displayCounter', function () {
     return {
-        
+
         restrict: 'E',
-        
+
         replace: true,
-        
+
         scope: {
             count: '=',
             showDanger: '=?',
             vertical: '=?',
             disabled: '=?'
         },
-        
+
         templateUrl: 'sdk-utils/display-counter.tpl',
 
         link: function (scope, element, attrs) {
@@ -2660,17 +2661,17 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/alert.tpl",
         "<div class=alert><i ng-hide=notice class=\"ion-alert-circled alert-icon\"></i> <i ng-show=notice class=\"ion-information-circled alert-icon\"></i><ng-transclude class=alert-body></ng-transclude></div>");
     $templateCache.put("sdk-utils/background-picker.tpl",
-        "<div class=\"clearfix background-picker\"><div><button class=upload-image ng-hide=imageData.BgUrl ng-click=promptImageUpload() translate>Upload Image</button><div class=\"upload-image uploaded\" ng-show=imageData.BgUrl><span class=filename title={{imageData.BgFilename}} translate>{{imageData.BgFilename}}</span> <a class=remove ng-click=removeUploadedFile()>✕</a></div></div><div ng-show=imageData.BgUrl class=image-position><div class=\"one-third clearfix\"><ul class=\"alignement-widget clearfix\"><li class=top-left ng-click=\"imageData.BgPosition='top-left'\" ng-class=\"{ active: imageData.BgPosition=='top-left', disabled:isDisabled('top-left') }\"></li><li class=top ng-click=\"imageData.BgPosition='top'\" ng-class=\"{ active: imageData.BgPosition=='top', disabled:isDisabled('top') }\"></li><li class=top-right ng-click=\"imageData.BgPosition='top-right'\" ng-class=\"{ active: imageData.BgPosition=='top-right', disabled:isDisabled('top-right') }\"></li><li class=left ng-click=\"imageData.BgPosition='left'\" ng-class=\"{ active: imageData.BgPosition=='left', disabled:isDisabled('left') }\"></li><li class=center ng-click=\"imageData.BgPosition='center'\" ng-class=\"{ active: imageData.BgPosition=='center', disabled:isDisabled('center') }\"></li><li class=right ng-click=\"imageData.BgPosition='right'\" ng-class=\"{ active: imageData.BgPosition=='right', disabled:isDisabled('right') }\"></li><li class=bottom-left ng-click=\"imageData.BgPosition='bottom-left'\" ng-class=\"{ active: imageData.BgPosition=='bottom-left', disabled:isDisabled('bottom-left') }\"></li><li class=bottom ng-click=\"imageData.BgPosition='bottom'\" ng-class=\"{ active: imageData.BgPosition=='bottom', disabled:isDisabled('bottom') }\"></li><li class=bottom-right ng-click=\"imageData.BgPosition='bottom-right'\" ng-class=\"{ active: imageData.BgPosition=='bottom-right', disabled:isDisabled('bottom-right') }\"></li></ul><p translate>Position</p></div><div class=\"two-thirds clearfix\"><div class=\"full-width half-height\" ng-click=\"imageData.BgSize='contain'\" ng-class=\"{ active: imageData.BgSize=='contain' }\"><p class=\"icon icon-contain\">Contain</p></div><div class=\"full-width half-height\" ng-click=\"imageData.BgSize='cover'\" ng-class=\"{ active: imageData.BgSize=='cover' }\"><p class=\"icon icon-cover\">Cover<span class=sub-icon></span></p></div></div></div></div>");
+        "<div class=\"clearfix background-picker\"><div><button class=upload-image ng-hide=imageData.BgUrl ng-click=promptImageUpload() translate>Upload Image</button><div class=\"upload-image uploaded\" ng-show=imageData.BgUrl><span class=filename title={{imageData.BgFilename}} translate>{{imageData.BgFilename}}</span> <a class=remove ng-click=removeUploadedFile()>✕</a></div></div><div ng-show=imageData.BgUrl class=image-position><div class=\"one-third clearfix\"><ul class=\"alignement-widget clearfix\"><li class=top-left ng-click=\"imageData.BgPosition='top-left'\" ng-class=\"{ active: imageData.BgPosition=='top-left', disabled:isDisabled('top-left') }\"></li><li class=top ng-click=\"imageData.BgPosition='top'\" ng-class=\"{ active: imageData.BgPosition=='top', disabled:isDisabled('top') }\"></li><li class=top-right ng-click=\"imageData.BgPosition='top-right'\" ng-class=\"{ active: imageData.BgPosition=='top-right', disabled:isDisabled('top-right') }\"></li><li class=left ng-click=\"imageData.BgPosition='left'\" ng-class=\"{ active: imageData.BgPosition=='left', disabled:isDisabled('left') }\"></li><li class=center ng-click=\"imageData.BgPosition='center'\" ng-class=\"{ active: imageData.BgPosition=='center', disabled:isDisabled('center') }\"></li><li class=right ng-click=\"imageData.BgPosition='right'\" ng-class=\"{ active: imageData.BgPosition=='right', disabled:isDisabled('right') }\"></li><li class=bottom-left ng-click=\"imageData.BgPosition='bottom-left'\" ng-class=\"{ active: imageData.BgPosition=='bottom-left', disabled:isDisabled('bottom-left') }\"></li><li class=bottom ng-click=\"imageData.BgPosition='bottom'\" ng-class=\"{ active: imageData.BgPosition=='bottom', disabled:isDisabled('bottom') }\"></li><li class=bottom-right ng-click=\"imageData.BgPosition='bottom-right'\" ng-class=\"{ active: imageData.BgPosition=='bottom-right', disabled:isDisabled('bottom-right') }\"></li></ul><p translate>Position</p></div><div class=\"two-thirds clearfix\"><div class=\"full-width half-height\" ng-click=\"imageData.BgSize='contain'\" ng-class=\"{ active: imageData.BgSize=='contain' }\"><p class=\"icon icon-contain\" translate>Contain</p></div><div class=\"full-width half-height\" ng-click=\"imageData.BgSize='cover'\" ng-class=\"{ active: imageData.BgSize=='cover' }\"><p class=\"icon icon-cover\" translate>Cover<span class=sub-icon></span></p></div></div></div></div>");
     $templateCache.put("sdk-utils/color-picker.tpl",
-        "<div class=color-picker ng-blur=close()><div class=swatch ng-style=\"{ 'background-color': '#' + hex }\" ng-click=toggle()></div><div class=transcluded ng-transclude ng-click=toggle()></div><div class=palette ng-class=\"{ 'opened': opened }\"><div class=saturation ng-class=\"{ 'no-alpha': noAlpha }\" ng-style=\"{ 'background-color': '#' + getHueColor() }\"><div class=cursor></div></div><div class=preview ng-style=\"{ 'background-color': '#' + hex }\"></div><div class=hue><div class=cursor></div></div><div class=numbers><ul class=clearfix ng-class=\"{ 'show-as-hex': showAs=='hex', 'show-as-rgb': showAs=='rgb'  }\"><li class=\"\"><label>R:</label><input class=channel-red type=number name=channel-red min=0 max=255 ng-model=red ng-change=watchRGBInputChange()></li><li class=\"\"><label>G:</label><input class=channel-green type=number name=channel-green min=0 max=255 ng-model=green ng-change=watchRGBInputChange()></li><li class=\"\"><label>B:</label><input class=channel-blue type=number name=channel-blue min=0 max=255 ng-model=blue ng-change=watchRGBInputChange()></li><li class=iconic ng-click=toggleShowAs()><i class=\"icon ion-android-options\"></i></li><li class=hex-values><label>#</label><input class=hex-input name=hex-input maxlength=6 ng-model=hexInput ng-change=watchHEXInputChange()></li></ul></div><div class=alpha ng-hide=noAlpha><div class=field><label>A:</label><input class=channel-alpha type=number name=channel-alpha min=0 max=100 ng-model=alphaPercent></div><div class=alpha-slider ng-style=\"{ 'background-color': '#' + hex }\"><div class=cursor></div></div></div></div></div>");
+        "<div class=color-picker ng-blur=close()><div class=swatch ng-style=\"{ 'background-color': '#' + hex }\" ng-click=toggle()></div><div class=transcluded ng-transclude ng-click=toggle()></div><div class=palette ng-class=\"{ 'opened': opened }\"><div class=saturation ng-class=\"{ 'no-alpha': noAlpha }\" ng-style=\"{ 'background-color': '#' + getHueColor() }\"><div class=cursor></div></div><div class=preview ng-style=\"{ 'background-color': '#' + hex }\"></div><div class=hue><div class=cursor></div></div><div class=numbers><ul class=clearfix ng-class=\"{ 'show-as-hex': showAs=='hex', 'show-as-rgb': showAs=='rgb'  }\"><li class=\"\"><label translate translate-comment=\"{{R}} represents red to select rgb color\">R:</label><input class=channel-red type=number name=channel-red min=0 max=255 ng-model=red ng-change=watchRGBInputChange()></li><li class=\"\"><label translate translate-comment=\"{{G}} represents green to select rgb color\">G:</label><input class=channel-green type=number name=channel-green min=0 max=255 ng-model=green ng-change=watchRGBInputChange()></li><li class=\"\"><label translate translate-comment=\"{{B}} represents blue to select rgb color\">B:</label><input class=channel-blue type=number name=channel-blue min=0 max=255 ng-model=blue ng-change=watchRGBInputChange()></li><li class=iconic ng-click=toggleShowAs()><i class=\"icon ion-android-options\"></i></li><li class=hex-values><label>#</label><input class=hex-input name=hex-input maxlength=6 ng-model=hexInput ng-change=watchHEXInputChange()></li></ul></div><div class=alpha ng-hide=noAlpha><div class=field><label translate translate-comment=\"{A}} represents, or is short for Alpha\">A:</label><input class=channel-alpha type=number name=channel-alpha min=0 max=100 ng-model=alphaPercent></div><div class=alpha-slider ng-style=\"{ 'background-color': '#' + hex }\"><div class=cursor></div></div></div></div></div>");
     $templateCache.put("sdk-utils/custom-duration-slider.tpl",
         "<div class=duration-slider-directive><div class=\"slider-container clearfix\"><div class=slider><div class=slider-cursor><i ng-show=ratio class=\"icon on ion-record\"><span>||</span></i> <i ng-hide=ratio class=\"icon on ion-record icon-undefined\"><span>&mdash;</span></i></div></div></div><input maxlength=5 ng-model=ratio placeholder={{placeholder}} class=slider-duration-input ng-blur=checkRatioValue() ng-focus=clearUndefined() ng-keydown=handleKeyDown($event)></div>");
     $templateCache.put("sdk-utils/display-counter.tpl",
-        "<div class=display-counter><span ng-bind=count class=binding></span></div>");
+        "<div class=display-counter><span ng-bind=\"count | translate\" class=binding></span></div>");
     $templateCache.put("sdk-utils/duration-slider.tpl",
         "<div class=duration-slider><div class=slider-cursor><span>{{formatLabel(ratio)}}</span></div></div>");
     $templateCache.put("sdk-utils/help-block.tpl",
-        "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i> Need help? Go to the <a href=http://support.enplug.com/hc/en-us target=_blank>Enplug Help Center</a></div></footer>");
+        "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i><translate translate-comment=\"The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'\">Need help? Go to the</translate><a href=http://support.enplug.com/hc/en-us target=_blank translate>Enplug Help Center</a></div></footer>");
     $templateCache.put("sdk-utils/layout-toggle.tpl",
         "<div class=\"btn-group layout-toggle\"><button ng-click=toggleLayout() ng-disabled=showGridLayout class=\"btn btn-default btn-icon btn-sm ion-android-apps grid-toggle\"></button> <button ng-click=toggleLayout() ng-disabled=!showGridLayout class=\"btn btn-default btn-icon btn-sm ion-navicon table-toggle\"></button></div>");
     $templateCache.put("sdk-utils/loading.tpl",
@@ -2690,7 +2691,7 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/status-button.tpl",
         "<button class=status-button><i class=ion-load-a ng-show=isLoading></i> <i class=ion-checkmark-circled ng-show=\"!isLoading && success\"></i> <i class=ion-alert-circled ng-show=\"!isLoading && error\"></i><ng-transclude></ng-transclude></button>");
     $templateCache.put("sdk-utils/tag-input.tpl",
-        "<div class=\"tag-input clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\">{{tag}} <i ng-click=deleteTag(tag) class=\"icon ion-android-close\"></i></li><li><input name=fname placeholder=\"Add tags\" ng-model=input ng-change=handleTextChange() ng-keypress=\"handleKeyPress($event)\"></li></ul></div>");
+        "<div class=\"tag-input clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\">{{tag}} <i ng-click=deleteTag(tag) class=\"icon ion-android-close\"></i></li><li><input name=fname placeholder=\"{{ 'Add tags' | translate }}\" ng-model=input ng-change=handleTextChange() ng-keypress=\"handleKeyPress($event)\"></li></ul></div>");
     $templateCache.put("sdk-utils/tag-select.tpl",
         "<div class=\"tag-select clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\" ng-click=toggleSelection(tag) ng-class=\"{ 'selected': isSelected(tag) }\">{{tag}}</li></ul></div>");
     $templateCache.put("sdk-utils/tooltip.tpl",
