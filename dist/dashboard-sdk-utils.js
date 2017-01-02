@@ -1561,7 +1561,8 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
                     id = $attrs.field + '-' + GUID.new();
 
                 $scope.id = id; // better to use name?
-                $scope.label = gettextCatalog.getString($attrs.label);
+                $scope.label = $attrs.label;
+                console.log('From SDK :', gettextCatalog)
                 $element.removeAttr('label');
                 input.setAttribute('name', id);
 
