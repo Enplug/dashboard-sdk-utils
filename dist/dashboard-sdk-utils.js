@@ -1540,7 +1540,7 @@ angular.module('enplug.sdk.utils').directive('materialCheckbox', ['$log', '$comp
  * For better ways to do a lot of this, look to: https://github.com/angular/material/blob/master/src/components/input/input.js
  *
  */
-angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile', '$parse', '$document', 'GUID',
+angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile', '$parse', '$document', 'GUID', 'gettext',
     function ($log, $compile, $parse, $document, GUID, gettextCatalog) {
         'use strict';
 
@@ -2684,7 +2684,7 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/material-checkbox.tpl",
         "<div class=checkbox><label for=\"{{ id }}\"><input id=\"{{ id }}\" type=checkbox ng-model=model> <span class=checkbox-material><span class=check></span></span> <span class=checkbox-label><span ng-bind=\"label | translate\"></span></span></label></div>");
     $templateCache.put("sdk-utils/material-input.tpl",
-        "<label for=\"{{ ::id }}\" translate ng-bind=::label></label><div class=validation ng-messages=formField.$error ng-if=formField.$dirty><span class=text-danger ng-message=required translate>This is required.</span> <span class=text-danger ng-message=email translate>Please enter a valid email address.</span> <span class=text-danger ng-message=url translate>Please enter a valid URL starting with http:// or https://</span> <span class=text-danger ng-message=equals translate>Passwords must match.</span></div>");
+        "<label for=\"{{ ::id }}\" ng-bind=translate(label)></label><div class=validation ng-messages=formField.$error ng-if=formField.$dirty><span class=text-danger ng-message=required translate>This is required.</span> <span class=text-danger ng-message=email translate>Please enter a valid email address.</span> <span class=text-danger ng-message=url translate>Please enter a valid URL starting with http:// or https://</span> <span class=text-danger ng-message=equals translate>Passwords must match.</span></div>");
     $templateCache.put("sdk-utils/material-radio.tpl",
         "<div class=radio><label><input type=radio ng-model=model> <span class=radio-on></span> <span class=radio-off></span><ng-transclude></ng-transclude></label></div>");
     $templateCache.put("sdk-utils/material-select.tpl",

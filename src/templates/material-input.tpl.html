@@ -1,4 +1,4 @@
-<label for="{{ ::id }}" translate ng-bind="::label"></label>
+<label for="{{ ::id }}" ng-bind="translate(label)"></label>
 <div class="validation" ng-messages="formField.$error" ng-if="formField.$dirty">
     <span class="text-danger" ng-message="required" translate>This is required.</span>
     <span class="text-danger" ng-message="email" translate>Please enter a valid email address.</span>
