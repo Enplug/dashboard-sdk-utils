@@ -9,7 +9,7 @@ angular.module('enplug.sdk.utils').run(function ($templateCache, gettextCatalog)
     gettextCatalog.loadRemote("../i18n/translations.json");
     // When set to true, the untranslated strings will be displayed with [MISSING]
     // next to them.
-    gettextCatalog.debug = true;
+    gettextCatalog.debug = false;
 
     // Update default pagination template for Smart Table to use our directive and icons
     $templateCache.put('template/smart-table/pagination.html',

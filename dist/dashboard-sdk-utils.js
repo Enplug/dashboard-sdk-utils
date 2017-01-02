@@ -4,12 +4,13 @@ angular.module('enplug.sdk.utils').run(['$templateCache', 'gettextCatalog', func
 
     // gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
     gettextCatalog.setCurrentLanguage('es');
+    console.log(gettextCatalog)
     console.log('coming from SDKKKKKKKKK UTILS')
-    gettextCatalog.loadRemote("../dist/i18n/translations.json");
+    gettextCatalog.loadRemote("../i18n/translations.json");
     // When set to true, the untranslated strings will be displayed with [MISSING]
     // next to them.
-    gettextCatalog.debug = true;
-    
+    gettextCatalog.debug = false;
+
     // Update default pagination template for Smart Table to use our directive and icons
     $templateCache.put('template/smart-table/pagination.html',
         '<div ng-if="pages.length >= 2">' +
@@ -1793,22 +1794,13 @@ angular.module('enplug.sdk.utils').directive('materialSwitch', function () {
     }
 });
 
-angular.module('enplug.sdk.utils').directive('helpBlock', ['gettextCatalog', function (gettextCatalog) {
+angular.module('enplug.sdk.utils').directive('helpBlock', function () {
     'use strict';
     return {
         templateUrl: 'sdk-utils/help-block.tpl',
-        restrict: 'E',
-        link: function(scope) {
-            // gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
-            gettextCatalog.setCurrentLanguage('es');
-            console.log('coming from SDKKKKKKKKK UTILS')
-            gettextCatalog.loadRemote("../dist/i18n/translations.json");
-            // When set to true, the untranslated strings will be displayed with [MISSING]
-            // next to them.
-            gettextCatalog.debug = true;
-        }
+        restrict: 'E'
     }
-}]);
+});
 
 angular.module('enplug.sdk.utils').directive('layoutToggle', ['$rootScope', function ($rootScope) {
     'use strict';
@@ -2682,7 +2674,7 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/duration-slider.tpl",
         "<div class=duration-slider><div class=slider-cursor><span>{{formatLabel(ratio)}}</span></div></div>");
     $templateCache.put("sdk-utils/help-block.tpl",
-        "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i>YA NEED HELP???? Go to the<a href=http://support.enplug.com/hc/en-us target=_blank translate>Enplug Help Center</a></div></footer>");
+        "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i><translate translate-comment=\"The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'\">Need help? Go to the</translate><a href=http://support.enplug.com/hc/en-us target=_blank translate>Enplug Help Center</a></div></footer>");
     $templateCache.put("sdk-utils/layout-toggle.tpl",
         "<div class=\"btn-group layout-toggle\"><button ng-click=toggleLayout() ng-disabled=showGridLayout class=\"btn btn-default btn-icon btn-sm ion-android-apps grid-toggle\"></button> <button ng-click=toggleLayout() ng-disabled=!showGridLayout class=\"btn btn-default btn-icon btn-sm ion-navicon table-toggle\"></button></div>");
     $templateCache.put("sdk-utils/loading.tpl",
