@@ -4,9 +4,6 @@ angular.module('enplug.sdk.utils').run(['$templateCache', 'gettextCatalog', func
 
     // gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
     gettextCatalog.setCurrentLanguage('es');
-    console.log(gettextCatalog)
-    console.log('coming from SDKKKKKKKKK UTILS')
-    console.log(window.location.origin + "/dist/i18n/translations.json")
     gettextCatalog.loadRemote(window.location.origin + "/dist/i18n/translations.json");
     // When set to true, the untranslated strings will be displayed with [MISSING]
     // next to them.
@@ -1562,8 +1559,6 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
 
                 $scope.id = id; // better to use name?
                 $scope.label = $attrs.label;
-                console.log('From SDK :', gettextCatalog)
-                console.log('From SDK :', $scope.label)
                 $element.removeAttr('label');
                 $element.removeAttr('label');
                 input.setAttribute('name', id);
