@@ -14,7 +14,7 @@
  *
  */
 angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile', '$parse', '$document', 'GUID',
-    function ($log, $compile, $parse, $document, GUID) {
+    function ($log, $compile, $parse, $document, GUID, gettextCatalog) {
         'use strict';
 
         return {
@@ -34,7 +34,7 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
                     id = $attrs.field + '-' + GUID.new();
 
                 $scope.id = id; // better to use name?
-                $scope.label = $attrs.label;
+                $scope.label = gettextCatalog.getString($attrs.label);
                 $element.removeAttr('label');
                 input.setAttribute('name', id);
 
