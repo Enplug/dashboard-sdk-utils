@@ -4,7 +4,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#. {A}} represents, or is short for Alpha
 #: ./src/templates/color-picker.tpl.html:48
 msgid "A:"
 msgstr ""
@@ -13,7 +12,6 @@ msgstr ""
 msgid "Add tags"
 msgstr ""
 
-#. {{B}} represents blue to select rgb color
 #: ./src/templates/color-picker.tpl.html:28
 msgid "B:"
 msgstr ""
@@ -30,7 +28,6 @@ msgstr ""
 msgid "Enplug Help Center"
 msgstr ""
 
-#. {{G}} represents green to select rgb color
 #: ./src/templates/color-picker.tpl.html:22
 msgid "G:"
 msgstr ""
@@ -60,7 +57,6 @@ msgstr ""
 msgid "ProTip:"
 msgstr ""
 
-#. {{R}} represents red to select rgb color
 #: ./src/templates/color-picker.tpl.html:16
 msgid "R:"
 msgstr ""
@@ -79,8 +75,4 @@ msgstr ""
 
 #: ./src/templates/background-picker.tpl.html:3
 msgid "Upload Image"
-msgstr ""
-
-#: ./src/templates/background-picker.tpl.html:5
-msgid "{{imageData.BgFilename}}"
 msgstr ""

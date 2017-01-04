@@ -2,7 +2,7 @@
     <div>
         <button class="upload-image" ng-hide="imageData.BgUrl" ng-click="promptImageUpload()" translate>Upload Image</button>
         <div class="upload-image uploaded" ng-show="imageData.BgUrl">
-            <span class="filename" title="{{imageData.BgFilename}}" translate>{{imageData.BgFilename}}</span>
+            <span class="filename" title="{{imageData.BgFilename}}">{{imageData.BgFilename}}</span>
             <a class="remove" ng-click="removeUploadedFile()">✕</a>
         </div>
     </div>

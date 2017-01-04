@@ -13,19 +13,19 @@
 
             <ul class="clearfix" ng-class="{ 'show-as-hex': showAs=='hex', 'show-as-rgb': showAs=='rgb'  }">
                 <li class="">
-                    <label translate translate-comment="{{R}} represents red to select rgb color">R:</label>
+                    <label translate>R:</label>
                     <input class="channel-red" type="number" name="channel-red" min="0" max="255"
                            ng-model="red"
                            ng-change="watchRGBInputChange()">
                 </li>
                 <li class="">
-                    <label translate translate-comment="{{G}} represents green to select rgb color">G:</label>
+                    <label translate>G:</label>
                     <input class="channel-green" type="number" name="channel-green" min="0" max="255"
                            ng-model="green"
                            ng-change="watchRGBInputChange()">
                 </li>
                 <li class="">
-                    <label translate translate-comment="{{B}} represents blue to select rgb color">B:</label>
+                    <label translate>B:</label>
                     <input class="channel-blue" type="number" name="channel-blue" min="0" max="255"
                            ng-model="blue"
                            ng-change="watchRGBInputChange()">
@@ -45,7 +45,7 @@
 
         <div class="alpha" ng-hide="noAlpha" >
             <div class="field">
-                <label translate translate-comment="{A}} represents, or is short for Alpha">A:</label>
+                <label translate>A:</label>
                 <input class="channel-alpha"
                        type="number" name="channel-alpha"
                        min="0" max="100"
