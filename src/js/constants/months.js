@@ -1,14 +1,19 @@
+// Extracting Strings for Translating
+var gettext = function(s) {
+    return s;
+};
+
 angular.module('enplug.sdk.utils').constant('months', [
-    { name: 'January', short: 'Jan', code: '01' },
-    { name: 'February', short: 'Feb', code: '02' },
-    { name: 'March', short: 'Mar', code: '03' },
-    { name: 'April', short: 'Apr', code: '04' },
-    { name: 'May', short: 'May', code: '05' },
-    { name: 'June', short: 'Jun', code: '06' },
-    { name: 'July', short: 'Jul', code: '07' },
-    { name: 'August', short: 'Aug', code: '08' },
-    { name: 'September', short: 'Sep', code: '09' },
-    { name: 'October', short: 'Oct', code: '10' },
-    { name: 'November', short: 'Nov', code: '11' },
-    { name: 'December', short: 'Dec', code: '12' }
+    { name: gettext('January'), short: gettext('Jan'), code: '01' },
+    { name: gettext('February'), short: gettext('Feb'), code: '02' },
+    { name: gettext('March'), short: gettext('Mar'), code: '03' },
+    { name: gettext('April'), short: gettext('Apr'), code: '04' },
+    { name: gettext('May'), short: gettext('May'), code: '05' },
+    { name: gettext('June'), short: gettext('Jun'), code: '06' },
+    { name: gettext('July'), short: gettext('Jul'), code: '07' },
+    { name: gettext('August'), short: gettext('Aug'), code: '08' },
+    { name: gettext('September'), short: gettext('Sep'), code: '09' },
+    { name: gettext('October'), short: gettext('Oct'), code: '10' },
+    { name: gettext('November'), short: gettext('Nov'), code: '11' },
+    { name: gettext('December'), short: gettext('Dec'), code: '12' }
 ]);

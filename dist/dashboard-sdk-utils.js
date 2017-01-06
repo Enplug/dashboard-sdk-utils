@@ -268,20 +268,30 @@ angular.module('enplug.sdk.utils').constant('countries', [
     { name: 'Zimbabwe', code: 'ZW' }
 ]);
 
+// Extracting Strings for Translating
+var gettext = function(s) {
+    return s;
+};
+
 angular.module('enplug.sdk.utils').constant('months', [
-    { name: 'January', short: 'Jan', code: '01' },
-    { name: 'February', short: 'Feb', code: '02' },
-    { name: 'March', short: 'Mar', code: '03' },
-    { name: 'April', short: 'Apr', code: '04' },
-    { name: 'May', short: 'May', code: '05' },
-    { name: 'June', short: 'Jun', code: '06' },
-    { name: 'July', short: 'Jul', code: '07' },
-    { name: 'August', short: 'Aug', code: '08' },
-    { name: 'September', short: 'Sep', code: '09' },
-    { name: 'October', short: 'Oct', code: '10' },
-    { name: 'November', short: 'Nov', code: '11' },
-    { name: 'December', short: 'Dec', code: '12' }
+    { name: gettext('January'), short: gettext('Jan'), code: '01' },
+    { name: gettext('February'), short: gettext('Feb'), code: '02' },
+    { name: gettext('March'), short: gettext('Mar'), code: '03' },
+    { name: gettext('April'), short: gettext('Apr'), code: '04' },
+    { name: gettext('May'), short: gettext('May'), code: '05' },
+    { name: gettext('June'), short: gettext('Jun'), code: '06' },
+    { name: gettext('July'), short: gettext('Jul'), code: '07' },
+    { name: gettext('August'), short: gettext('Aug'), code: '08' },
+    { name: gettext('September'), short: gettext('Sep'), code: '09' },
+    { name: gettext('October'), short: gettext('Oct'), code: '10' },
+    { name: gettext('November'), short: gettext('Nov'), code: '11' },
+    { name: gettext('December'), short: gettext('Dec'), code: '12' }
 ]);
+
+// Extracting Strings for Translating
+var gettext = function(s) {
+    return s;
+};
 
 angular.module('enplug.sdk.utils').constant('quotes', {
     random: function () {
@@ -290,343 +300,348 @@ angular.module('enplug.sdk.utils').constant('quotes', {
     },
     quotes: [
         {
-            text: "All great achievements require time.",
+            text: gettext("All great achievements require time."),
             author: "Maya Angelou"
         },
         {
-            text: "You can't wait for inspiration. You have to go after it with a club.",
+            text: gettext("You can't wait for inspiration. You have to go after it with a club."),
             author: "Jack London"
         },
         {
-            text: "The perfect is the enemy of the good.",
+            text: gettext("The perfect is the enemy of the good."),
             author: "Voltaire"
         },
         {
-            text: "I play to win, whether during practice or a real game.",
+            text: gettext("I play to win, whether during practice or a real game."),
             author: "Michael Jordan"
         },
         {
-            text: "Many of life's failures are people who did not realize how close they were to success when they gave up.",
+            text: gettext("Many of life's failures are people who did not realize how close they were to success when they gave up."),
             author: "Thomas Edison"
         },
         {
-            text: "At the age of six I wanted to be a cook. At seven I wanted to be Napoleon. And my ambition has been growing steadily ever since.",
+            text: gettext("At the age of six I wanted to be a cook. At seven I wanted to be Napoleon. And my ambition has been growing steadily ever since."),
             author: "Salvador Dali"
         },
         {
-            text: "Quality is more important than quantity. One home run is much better than two doubles.",
+            text: gettext("Quality is more important than quantity. One home run is much better than two doubles."),
             author: "Steve Jobs"
         },
         {
-            text: "That's one small step for man, one giant leap for mankind.",
+            text: gettext("That's one small step for man, one giant leap for mankind."),
             author: "Neil Armstrong"
         },
         {
-            text: "Creativity is allowing yourself to make mistakes. Art is knowing which ones to keep.",
+            text: gettext("Creativity is allowing yourself to make mistakes. Art is knowing which ones to keep."),
             author: "Scott Adams"
         },
         {
-            text: "Nothing will work unless you do.",
+            text: gettext("Nothing will work unless you do."),
             author: "Maya Angelou"
         },
         {
-            text: "The best way out is always through.",
+            text: gettext("The best way out is always through."),
             author: "Robert Frost"
         },
         {
-            text: "An ant on the move does more than a dozing ox.",
+            text: gettext("An ant on the move does more than a dozing ox."),
             author: "Lao Tzu"
         },
         {
-            text: "Show me a thoroughly satisfied man and I will show you a failure.",
+            text: gettext("Show me a thoroughly satisfied man and I will show you a failure."),
             author: "Thomas Edison"
         },
         {
-            text: "Our greatest glory is not in never failing, but in rising up every time we fail.",
+            text: gettext("Our greatest glory is not in never failing, but in rising up every time we fail."),
             author: "Ralph Waldo Emerson"
         },
         {
-            text: "Every act of creation is first of all an act of destruction.",
+            text: gettext("Every act of creation is first of all an act of destruction."),
             author: "Pablo Picasso"
         },
         {
-            text: "Fun is good.",
+            text: gettext("Fun is good."),
             author: "Dr. Seuss"
         },
         {
-            text: "I steal from every movie ever made.",
+            text: gettext("I steal from every movie ever made."),
             author: "Quentin Tarantino"
         },
         {
-            text: "It is the working man who is the happy man. It is the idle man who is the miserable man.",
+            text: gettext("It is the working man who is the happy man. It is the idle man who is the miserable man."),
             author: "Ben Franklin"
         },
         {
-            text: "A person who never made a mistake never tried anything new.",
+            text: gettext("A person who never made a mistake never tried anything new."),
             author: "Albert Einstein"
         },
         {
-            text: "To be idle is a short road to death and to be diligent is a way of life.",
+            text: gettext("To be idle is a short road to death and to be diligent is a way of life."),
             author: "Buddha"
         },
         {
-            text: "The way to get started is to quit talking and begin doing.",
+            text: gettext("The way to get started is to quit talking and begin doing."),
             author: "Walt Disney"
         },
         {
-            text: "For every dark night, there's a brigher day.",
+            text: gettext("For every dark night, there's a brigher day."),
             author: "Tupac Shakur"
         },
         {
-            text: "If you love life, don't waste time, for time is what life is made up of.",
+            text: gettext("If you love life, don't waste time, for time is what life is made up of."),
             author: "Bruce Lee"
         },
         {
-            text: "You can never quit. Winners never quit, and quitters never win.",
+            text: gettext("You can never quit. Winners never quit, and quitters never win."),
             author: "Ted Turner"
         },
         {
-            text: "Work spares us from three evils: boredom, vice and need.",
+            text: gettext("Work spares us from three evils: boredom, vice and need."),
             author: "Voltaire"
         },
         {
-            text: "Focus is a matter of deciding what things you're not going to do.",
+            text: gettext("Focus is a matter of deciding what things you're not going to do."),
             author: "John Carmack"
         },
         {
-            text: "I play to win, whether during practice or a real game.",
+            text: gettext("I play to win, whether during practice or a real game."),
             author: "Michael Jordan"
         },
         {
-            text: "HULK SMASH!",
+            text: gettext("HULK SMASH!"),
             author: "The Incredible Hulk"
         },
         {
-            text: "The harder the conflict, the more glorious the triumph.",
+            text: gettext("The harder the conflict, the more glorious the triumph."),
             author: "Thomas Paine"
         },
         {
-            text: "Everything comes to him who hustles while he waits.",
+            text: gettext("Everything comes to him who hustles while he waits."),
             author: "Thomas Edison"
         },
         {
-            text: "You've got to jump off cliffs and build your wings on the way down.",
+            text: gettext("You've got to jump off cliffs and build your wings on the way down."),
             author: "Ray Bradbury"
         },
         {
-            text: "Amateurs practice until they get it right. Professionals practice until they can't get it wrong.",
+            text: gettext("Amateurs practice until they get it right. Professionals practice until they can't get it wrong."),
             author: "Unknown"
         },
         {
-            text: "Genius is one percent inspiration and ninety-nine percent perspiration.",
+            text: gettext("Genius is one percent inspiration and ninety-nine percent perspiration."),
             author: "Thomas Edison"
         },
         {
-            text: "A lot of times, people don't know what they want until you show it to them.",
+            text: gettext("A lot of times, people don't know what they want until you show it to them."),
             author: "Steve Jobs"
         },
         {
-            text: "I don't know where I'm going, but I'm on my way.",
+            text: gettext("I don't know where I'm going, but I'm on my way."),
             author: "Carl Sagan"
         },
         {
-            text: "Lost time is never found again.",
+            text: gettext("Lost time is never found again."),
             author: "Benjamin Franklin"
         },
         {
-            text: "Without pain, without sacrifice, we would have nothing.",
+            text: gettext("Without pain, without sacrifice, we would have nothing."),
             author: "Tyler Durden"
         },
         {
-            text: "I pay no attention whatever to anybody's praise or blame. I simply follow my own feelings.",
+            text: gettext("I pay no attention whatever to anybody's praise or blame. I simply follow my own feelings."),
             author: "Wolfgang Amadeus Mozart"
         },
         {
-            text: "You miss 100% of the shots you don't take.",
+            text: gettext("You miss 100% of the shots you don't take."),
             author: "Wayne Gretzky"
         },
         {
-            text: "To have a great idea, have a lot of them.",
+            text: gettext("To have a great idea, have a lot of them."),
             author: "Thomas Edison"
         },
         {
-            text: "The value of an idea lies in the using of it.",
+            text: gettext("The value of an idea lies in the using of it."),
             author: "Thomas Edison"
         },
         {
-            text: "Simplify, simplify, simplify.",
+            text: gettext("Simplify, simplify, simplify."),
             author: "Henry David Thoreau"
         },
         {
-            text: "There's a way to do it better - find it.",
+            text: gettext("There's a way to do it better - find it."),
             author: "Thomas Edison"
         },
         {
-            text: "When it is obvious that the goals cannot be reached, don't adjust the goals, adjust the steps.",
+            text: gettext("When it is obvious that the goals cannot be reached, don't adjust the goals, adjust the steps."),
             author: "Confucius"
         },
         {
-            text: "During your life, never stop dreaming. No one can take away your dreams.",
+            text: gettext("During your life, never stop dreaming. No one can take away your dreams."),
             author: "Tupac Shakur"
         },
         {
-            text: "Things do not happen. Things are made to happen.",
+            text: gettext("Things do not happen. Things are made to happen."),
             author: "John F. Kennedy"
         },
         {
-            text: "Ambition should be made of sterner stuff.",
+            text: gettext("Ambition should be made of sterner stuff."),
             author: "William Shakespeare"
         },
         {
-            text: "If you spend too much time thinking about a thing, you'll never get it done.",
+            text: gettext("If you spend too much time thinking about a thing, you'll never get it done."),
             author: "Bruce Lee"
         },
         {
-            text: "Success breeds success.",
+            text: gettext("Success breeds success."),
             author: "Proverb"
         },
         {
-            text: "You are never too old to set another goal or to dream a new dream.",
+            text: gettext("You are never too old to set another goal or to dream a new dream."),
             author: "C.S. Lewis"
         },
         {
-            text: "When you stop doing things for fun, you might as well be dead.",
+            text: gettext("When you stop doing things for fun, you might as well be dead."),
             author: "Ernest Hemingway"
         },
         {
-            text: "There is no substitute for hard work.",
+            text: gettext("There is no substitute for hard work."),
             author: "Thomas Edison"
         },
         {
-            text: "Live long and prosper.",
+            text: gettext("Live long and prosper."),
             author: "Spock"
         },
         {
-            text: "I have not failed. I've just found 10,000 ways that won't work.",
+            text: gettext("I have not failed. I've just found 10,000 ways that won't work."),
             author: "Thomas Edison"
         },
         {
-            text: "It's lack of faith that makes people afraid of meeting challenges, and I believed in myself.",
+            text: gettext("It's lack of faith that makes people afraid of meeting challenges, and I believed in myself."),
             author: "Muhammad Ali"
         },
         {
-            text: "All our dreams can come true, if we have the courage to pursue them.",
+            text: gettext("All our dreams can come true, if we have the courage to pursue them."),
             author: "Walt Disney"
         },
         {
-            text: "Make everything as simple as possible, but not simpler.",
+            text: gettext("Make everything as simple as possible, but not simpler."),
             author: "Albert Einstein"
         },
         {
-            text: "Some people want it to happen, some wish it would happen, others make it happen.",
+            text: gettext("Some people want it to happen, some wish it would happen, others make it happen."),
             author: "Michael Jordan"
         },
         {
-            text: "I've got a theory that if you give 100% all the time, somehow things will work out in the end.",
+            text: gettext("I've got a theory that if you give 100% all the time, somehow things will work out in the end."),
             author: "Larry Bird"
         },
         {
-            text: "The problem with the future is that it keeps turning into the present.",
+            text: gettext("The problem with the future is that it keeps turning into the present."),
             author: "Bill Watterson"
         },
         {
-            text: "May the Force be with you.",
+            text: gettext("May the Force be with you."),
             author: "Han Solo"
         },
         {
-            text: "Victory belongs to the most persevering.",
+            text: gettext("Victory belongs to the most persevering."),
             author: "Napoleon Bonaparte"
         },
         {
-            text: "I hated every minute of training, but I said, 'Dont quit. Suffer now and live the rest of your life as a champion'.",
+            text: gettext("I hated every minute of training, but I said, 'Dont quit. Suffer now and live the rest of your life as a champion'."),
             author: "Muhammad Ali"
         },
         {
-            text: "Do things that have never been done before.",
+            text: gettext("Do things that have never been done before."),
             author: "Russell Kirsch"
         },
         {
-            text: "I've failed over and over and over again in my life and that is why I succeed.",
+            text: gettext("I've failed over and over and over again in my life and that is why I succeed."),
             author: "Michael Jordan"
         },
         {
-            text: "A pessimist sees the difficulty in every opportunity; an optimist sees the opportunity in every difficulty.",
+            text: gettext("A pessimist sees the difficulty in every opportunity; an optimist sees the opportunity in every difficulty."),
             author: "Winston Churchill"
         },
         {
-            text: "He who hesitates is lost.",
+            text: gettext("He who hesitates is lost."),
             author: "Proverb"
         },
         {
-            text: "Carpe diem, seize the day boys, make your lives extraordinary.",
+            text: gettext("Carpe diem, seize the day boys, make your lives extraordinary."),
             author: "John Keating"
         },
         {
-            text: "Doing the best at this moment puts you in the best place for the next moment.",
+            text: gettext("Doing the best at this moment puts you in the best place for the next moment."),
             author: "Oprah Winfrey"
         },
         {
-            text: "Luck is preparation meeting opportunity.",
+            text: gettext("Luck is preparation meeting opportunity."),
             author: "Oprah Winfrey"
         },
         {
-            text: "I have no special talent. I am only passionately curious.",
+            text: gettext("I have no special talent. I am only passionately curious."),
             author: "Albert Einstein"
         }]
 });
 
+// Extracting Strings for Translating
+var gettext = function(s) {
+    return s;
+};
+
 angular.module('enplug.sdk.utils').constant('states', [
-    { name: 'Alabama', code: 'AL' },
-    { name: 'Alaska', code: 'AK' },
-    { name: 'Arizona', code: 'AZ' },
-    { name: 'Arkansas', code: 'AR' },
-    { name: 'California', code: 'CA' },
-    { name: 'Colorado', code: 'CO' },
-    { name: 'Connecticut', code: 'CT' },
-    { name: 'Delaware', code: 'DE' },
-    { name: 'District of Columbia', code: 'DC' },
-    { name: 'Florida', code: 'FL' },
-    { name: 'Georgia', code: 'GA' },
-    { name: 'Hawaii', code: 'HI' },
-    { name: 'Idaho', code: 'ID' },
-    { name: 'Illinois', code: 'IL' },
-    { name: 'Indiana', code: 'IN' },
-    { name: 'Iowa', code: 'IA' },
-    { name: 'Kansa', code: 'KS' },
-    { name: 'Kentucky', code: 'KY' },
-    { name: 'Lousiana', code: 'LA' },
-    { name: 'Maine', code: 'ME' },
-    { name: 'Maryland', code: 'MD' },
-    { name: 'Massachusetts', code: 'MA' },
-    { name: 'Michigan', code: 'MI' },
-    { name: 'Minnesota', code: 'MN' },
-    { name: 'Mississippi', code: 'MS' },
-    { name: 'Missouri', code: 'MO' },
-    { name: 'Montana', code: 'MT' },
-    { name: 'Nebraska', code: 'NE' },
-    { name: 'Nevada', code: 'NV' },
-    { name: 'New Hampshire', code: 'NH' },
-    { name: 'New Jersey', code: 'NJ' },
-    { name: 'New Mexico', code: 'NM' },
-    { name: 'New York', code: 'NY' },
-    { name: 'North Carolina', code: 'NC' },
-    { name: 'North Dakota', code: 'ND' },
-    { name: 'Ohio', code: 'OH' },
-    { name: 'Oklahoma', code: 'OK' },
-    { name: 'Oregon', code: 'OR' },
-    { name: 'Pennsylvania', code: 'PA' },
-    { name: 'Rhode Island', code: 'RI' },
-    { name: 'South Carolina', code: 'SC' },
-    { name: 'South Dakota', code: 'SD' },
-    { name: 'Tennessee', code: 'TN' },
-    { name: 'Texas', code: 'TX' },
-    { name: 'Utah', code: 'UT' },
-    { name: 'Vermont', code: 'VT' },
-    { name: 'Virginia', code: 'VA' },
-    { name: 'Washington', code: 'WA' },
-    { name: 'West Virginia', code: 'WV' },
-    { name: 'Wisconsin', code: 'WI' },
-    { name: 'Wyoming', code: 'WY' }
+    { name: gettext('Alabama'), code: 'AL' },
+    { name: gettext('Alaska'), code: 'AK' },
+    { name: gettext('Arizona'), code: 'AZ' },
+    { name: gettext('Arkansas'), code: 'AR' },
+    { name: gettext('California'), code: 'CA' },
+    { name: gettext('Colorado'), code: 'CO' },
+    { name: gettext('Connecticut'), code: 'CT' },
+    { name: gettext('Delaware'), code: 'DE' },
+    { name: gettext('District of Columbia'), code: 'DC' },
+    { name: gettext('Florida'), code: 'FL' },
+    { name: gettext('Georgia'), code: 'GA' },
+    { name: gettext('Hawaii'), code: 'HI' },
+    { name: gettext('Idaho'), code: 'ID' },
+    { name: gettext('Illinois'), code: 'IL' },
+    { name: gettext('Indiana'), code: 'IN' },
+    { name: gettext('Iowa'), code: 'IA' },
+    { name: gettext('Kansa'), code: 'KS' },
+    { name: gettext('Kentucky'), code: 'KY' },
+    { name: gettext('Lousiana'), code: 'LA' },
+    { name: gettext('Maine'), code: 'ME' },
+    { name: gettext('Maryland'), code: 'MD' },
+    { name: gettext('Massachusetts'), code: 'MA' },
+    { name: gettext('Michigan'), code: 'MI' },
+    { name: gettext('Minnesota'), code: 'MN' },
+    { name: gettext('Mississippi'), code: 'MS' },
+    { name: gettext('Missouri'), code: 'MO' },
+    { name: gettext('Montana'), code: 'MT' },
+    { name: gettext('Nebraska'), code: 'NE' },
+    { name: gettext('Nevada'), code: 'NV' },
+    { name: gettext('New Hampshire'), code: 'NH' },
+    { name: gettext('New Jersey'), code: 'NJ' },
+    { name: gettext('New Mexico'), code: 'NM' },
+    { name: gettext('New York'), code: 'NY' },
+    { name: gettext('North Carolina'), code: 'NC' },
+    { name: gettext('North Dakota'), code: 'ND' },
+    { name: gettext('Ohio'), code: 'OH' },
+    { name: gettext('Oklahoma'), code: 'OK' },
+    { name: gettext('Oregon'), code: 'OR' },
+    { name: gettext('Pennsylvania'), code: 'PA' },
+    { name: gettext('Rhode Island'), code: 'RI' },
+    { name: gettext('South Carolina'), code: 'SC' },
+    { name: gettext('South Dakota'), code: 'SD' },
+    { name: gettext('Tennessee'), code: 'TN' },
+    { name: gettext('Texas'), code: 'TX' },
+    { name: gettext('Utah'), code: 'UT' },
+    { name: gettext('Vermont'), code: 'VT' },
+    { name: gettext('Virginia'), code: 'VA' },
+    { name: gettext('Washington'), code: 'WA' },
+    { name: gettext('West Virginia'), code: 'WV' },
+    { name: gettext('Wisconsin'), code: 'WI' },
+    { name: gettext('Wyoming'), code: 'WY' }
 ]);
 
 angular.module('enplug.sdk.utils').constant('years', function () {
@@ -2663,17 +2678,17 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/alert.tpl",
         "<div class=alert><i ng-hide=notice class=\"ion-alert-circled alert-icon\"></i> <i ng-show=notice class=\"ion-information-circled alert-icon\"></i><ng-transclude class=alert-body></ng-transclude></div>");
     $templateCache.put("sdk-utils/background-picker.tpl",
-        "<div class=\"clearfix background-picker\"><div><button class=upload-image ng-hide=imageData.BgUrl ng-click=promptImageUpload() translate>Upload Image</button><div class=\"upload-image uploaded\" ng-show=imageData.BgUrl><span class=filename title={{imageData.BgFilename}} translate>{{imageData.BgFilename}}</span> <a class=remove ng-click=removeUploadedFile()>✕</a></div></div><div ng-show=imageData.BgUrl class=image-position><div class=\"one-third clearfix\"><ul class=\"alignement-widget clearfix\"><li class=top-left ng-click=\"imageData.BgPosition='top-left'\" ng-class=\"{ active: imageData.BgPosition=='top-left', disabled:isDisabled('top-left') }\"></li><li class=top ng-click=\"imageData.BgPosition='top'\" ng-class=\"{ active: imageData.BgPosition=='top', disabled:isDisabled('top') }\"></li><li class=top-right ng-click=\"imageData.BgPosition='top-right'\" ng-class=\"{ active: imageData.BgPosition=='top-right', disabled:isDisabled('top-right') }\"></li><li class=left ng-click=\"imageData.BgPosition='left'\" ng-class=\"{ active: imageData.BgPosition=='left', disabled:isDisabled('left') }\"></li><li class=center ng-click=\"imageData.BgPosition='center'\" ng-class=\"{ active: imageData.BgPosition=='center', disabled:isDisabled('center') }\"></li><li class=right ng-click=\"imageData.BgPosition='right'\" ng-class=\"{ active: imageData.BgPosition=='right', disabled:isDisabled('right') }\"></li><li class=bottom-left ng-click=\"imageData.BgPosition='bottom-left'\" ng-class=\"{ active: imageData.BgPosition=='bottom-left', disabled:isDisabled('bottom-left') }\"></li><li class=bottom ng-click=\"imageData.BgPosition='bottom'\" ng-class=\"{ active: imageData.BgPosition=='bottom', disabled:isDisabled('bottom') }\"></li><li class=bottom-right ng-click=\"imageData.BgPosition='bottom-right'\" ng-class=\"{ active: imageData.BgPosition=='bottom-right', disabled:isDisabled('bottom-right') }\"></li></ul><p translate>Position</p></div><div class=\"two-thirds clearfix\"><div class=\"full-width half-height\" ng-click=\"imageData.BgSize='contain'\" ng-class=\"{ active: imageData.BgSize=='contain' }\"><p class=\"icon icon-contain\" translate>Contain</p></div><div class=\"full-width half-height\" ng-click=\"imageData.BgSize='cover'\" ng-class=\"{ active: imageData.BgSize=='cover' }\"><p class=\"icon icon-cover\" translate>Cover<span class=sub-icon></span></p></div></div></div></div>");
+        "<div class=\"clearfix background-picker\"><div><button class=upload-image ng-hide=imageData.BgUrl ng-click=promptImageUpload() translate>Upload Image</button><div class=\"upload-image uploaded\" ng-show=imageData.BgUrl><span class=filename title={{imageData.BgFilename}}>{{imageData.BgFilename}}</span> <a class=remove ng-click=removeUploadedFile()>✕</a></div></div><div ng-show=imageData.BgUrl class=image-position><div class=\"one-third clearfix\"><ul class=\"alignement-widget clearfix\"><li class=top-left ng-click=\"imageData.BgPosition='top-left'\" ng-class=\"{ active: imageData.BgPosition=='top-left', disabled:isDisabled('top-left') }\"></li><li class=top ng-click=\"imageData.BgPosition='top'\" ng-class=\"{ active: imageData.BgPosition=='top', disabled:isDisabled('top') }\"></li><li class=top-right ng-click=\"imageData.BgPosition='top-right'\" ng-class=\"{ active: imageData.BgPosition=='top-right', disabled:isDisabled('top-right') }\"></li><li class=left ng-click=\"imageData.BgPosition='left'\" ng-class=\"{ active: imageData.BgPosition=='left', disabled:isDisabled('left') }\"></li><li class=center ng-click=\"imageData.BgPosition='center'\" ng-class=\"{ active: imageData.BgPosition=='center', disabled:isDisabled('center') }\"></li><li class=right ng-click=\"imageData.BgPosition='right'\" ng-class=\"{ active: imageData.BgPosition=='right', disabled:isDisabled('right') }\"></li><li class=bottom-left ng-click=\"imageData.BgPosition='bottom-left'\" ng-class=\"{ active: imageData.BgPosition=='bottom-left', disabled:isDisabled('bottom-left') }\"></li><li class=bottom ng-click=\"imageData.BgPosition='bottom'\" ng-class=\"{ active: imageData.BgPosition=='bottom', disabled:isDisabled('bottom') }\"></li><li class=bottom-right ng-click=\"imageData.BgPosition='bottom-right'\" ng-class=\"{ active: imageData.BgPosition=='bottom-right', disabled:isDisabled('bottom-right') }\"></li></ul><p translate>Position</p></div><div class=\"two-thirds clearfix\"><div class=\"full-width half-height\" ng-click=\"imageData.BgSize='contain'\" ng-class=\"{ active: imageData.BgSize=='contain' }\"><p class=\"icon icon-contain\" translate>Contain</p></div><div class=\"full-width half-height\" ng-click=\"imageData.BgSize='cover'\" ng-class=\"{ active: imageData.BgSize=='cover' }\"><p class=\"icon icon-cover\"><translate>Cover</translate><span class=sub-icon></span></p></div></div></div></div>");
     $templateCache.put("sdk-utils/color-picker.tpl",
-        "<div class=color-picker ng-blur=close()><div class=swatch ng-style=\"{ 'background-color': '#' + hex }\" ng-click=toggle()></div><div class=transcluded ng-transclude ng-click=toggle()></div><div class=palette ng-class=\"{ 'opened': opened }\"><div class=saturation ng-class=\"{ 'no-alpha': noAlpha }\" ng-style=\"{ 'background-color': '#' + getHueColor() }\"><div class=cursor></div></div><div class=preview ng-style=\"{ 'background-color': '#' + hex }\"></div><div class=hue><div class=cursor></div></div><div class=numbers><ul class=clearfix ng-class=\"{ 'show-as-hex': showAs=='hex', 'show-as-rgb': showAs=='rgb'  }\"><li class=\"\"><label translate translate-comment=\"{{R}} represents red to select rgb color\">R:</label><input class=channel-red type=number name=channel-red min=0 max=255 ng-model=red ng-change=watchRGBInputChange()></li><li class=\"\"><label translate translate-comment=\"{{G}} represents green to select rgb color\">G:</label><input class=channel-green type=number name=channel-green min=0 max=255 ng-model=green ng-change=watchRGBInputChange()></li><li class=\"\"><label translate translate-comment=\"{{B}} represents blue to select rgb color\">B:</label><input class=channel-blue type=number name=channel-blue min=0 max=255 ng-model=blue ng-change=watchRGBInputChange()></li><li class=iconic ng-click=toggleShowAs()><i class=\"icon ion-android-options\"></i></li><li class=hex-values><label>#</label><input class=hex-input name=hex-input maxlength=6 ng-model=hexInput ng-change=watchHEXInputChange()></li></ul></div><div class=alpha ng-hide=noAlpha><div class=field><label translate translate-comment=\"{A}} represents, or is short for Alpha\">A:</label><input class=channel-alpha type=number name=channel-alpha min=0 max=100 ng-model=alphaPercent></div><div class=alpha-slider ng-style=\"{ 'background-color': '#' + hex }\"><div class=cursor></div></div></div></div></div>");
+        "<div class=color-picker ng-blur=close()><div class=swatch ng-style=\"{ 'background-color': '#' + hex }\" ng-click=toggle()></div><div class=transcluded ng-transclude ng-click=toggle()></div><div class=palette ng-class=\"{ 'opened': opened }\"><div class=saturation ng-class=\"{ 'no-alpha': noAlpha }\" ng-style=\"{ 'background-color': '#' + getHueColor() }\"><div class=cursor></div></div><div class=preview ng-style=\"{ 'background-color': '#' + hex }\"></div><div class=hue><div class=cursor></div></div><div class=numbers><ul class=clearfix ng-class=\"{ 'show-as-hex': showAs=='hex', 'show-as-rgb': showAs=='rgb'  }\"><li class=\"\"><label translate translate-comment=\"R represents 'red' in rgb\">R:</label><input class=channel-red type=number name=channel-red min=0 max=255 ng-model=red ng-change=watchRGBInputChange()></li><li class=\"\"><label translate translate-comment=\"G represents 'green' in rgb\">G:</label><input class=channel-green type=number name=channel-green min=0 max=255 ng-model=green ng-change=watchRGBInputChange()></li><li class=\"\"><label translate translate-comment=\"B represents 'blue' in rgb\">B:</label><input class=channel-blue type=number name=channel-blue min=0 max=255 ng-model=blue ng-change=watchRGBInputChange()></li><li class=iconic ng-click=toggleShowAs()><i class=\"icon ion-android-options\"></i></li><li class=hex-values><label>#</label><input class=hex-input name=hex-input maxlength=6 ng-model=hexInput ng-change=watchHEXInputChange()></li></ul></div><div class=alpha ng-hide=noAlpha><div class=field><label translate translate-comment=\"A represents 'Alpha'\">A:</label><input class=channel-alpha type=number name=channel-alpha min=0 max=100 ng-model=alphaPercent></div><div class=alpha-slider ng-style=\"{ 'background-color': '#' + hex }\"><div class=cursor></div></div></div></div></div>");
     $templateCache.put("sdk-utils/custom-duration-slider.tpl",
         "<div class=duration-slider-directive><div class=\"slider-container clearfix\"><div class=slider><div class=slider-cursor><i ng-show=ratio class=\"icon on ion-record\"><span>||</span></i> <i ng-hide=ratio class=\"icon on ion-record icon-undefined\"><span>&mdash;</span></i></div></div></div><input maxlength=5 ng-model=ratio placeholder={{placeholder}} class=slider-duration-input ng-blur=checkRatioValue() ng-focus=clearUndefined() ng-keydown=handleKeyDown($event)></div>");
     $templateCache.put("sdk-utils/display-counter.tpl",
-        "<div class=display-counter><span ng-bind=\"count | translate\" class=binding></span></div>");
+        "<div class=display-counter><span ng-bind=count class=binding></span></div>");
     $templateCache.put("sdk-utils/duration-slider.tpl",
         "<div class=duration-slider><div class=slider-cursor><span>{{formatLabel(ratio)}}</span></div></div>");
     $templateCache.put("sdk-utils/help-block.tpl",
-        "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i><translate translate-comment=\"The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'\">Need help? Go to the</translate><a href=http://support.enplug.com/hc/en-us target=_blank translate>Enplug Help Center</a></div></footer>");
+        "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i><translate translate-comment=\"The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'\">Need help? Go to the</translate><a href=http://support.enplug.com/hc/en-us target=_blank><translate>Enplug Help Center</translate></a></div></footer>");
     $templateCache.put("sdk-utils/layout-toggle.tpl",
         "<div class=\"btn-group layout-toggle\"><button ng-click=toggleLayout() ng-disabled=showGridLayout class=\"btn btn-default btn-icon btn-sm ion-android-apps grid-toggle\"></button> <button ng-click=toggleLayout() ng-disabled=!showGridLayout class=\"btn btn-default btn-icon btn-sm ion-navicon table-toggle\"></button></div>");
     $templateCache.put("sdk-utils/loading.tpl",
