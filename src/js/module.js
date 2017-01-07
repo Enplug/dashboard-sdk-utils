@@ -2,9 +2,8 @@ angular.module('enplug.sdk.utils', ['enplug.sdk.utils.templates', 'gettext']);
 
 angular.module('enplug.sdk.utils').run(function ($templateCache, gettextCatalog) {
 
-    // gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
-    gettextCatalog.setCurrentLanguage('es');
-    gettextCatalog.loadRemote(window.location.origin + "/dist/i18n/translations.json");
+    gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
+    gettextCatalog.setCurrentLanguage('pl');
     // When set to true, the untranslated strings will be displayed with [MISSING]
     // next to them.
     gettextCatalog.debug = false;
