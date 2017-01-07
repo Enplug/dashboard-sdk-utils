@@ -3,9 +3,6 @@ angular.module('enplug.sdk.utils', ['enplug.sdk.utils.templates', 'gettext']);
 angular.module('enplug.sdk.utils').run(['$templateCache', 'gettextCatalog', function ($templateCache, gettextCatalog) {
 
     gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
-    gettextCatalog.setCurrentLanguage('pl');
-    // When set to true, the untranslated strings will be displayed with [MISSING]
-    // next to them.
     gettextCatalog.debug = false;
 
     // Update default pagination template for Smart Table to use our directive and icons
