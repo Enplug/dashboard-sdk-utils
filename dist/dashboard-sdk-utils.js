@@ -5,6 +5,10 @@ angular.module('enplug.sdk.utils').run(['$templateCache', 'gettextCatalog', func
     gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
     gettextCatalog.debug = false;
 
+    // Ng class that fixes broken formatting on default text. If currentLanguage different than default, value is set to false.
+
+    $scope.isDefaultLang  = gettextCatalog.currentLanguage.match(/en/g) ? true : false
+
     // Update default pagination template for Smart Table to use our directive and icons
     $templateCache.put('template/smart-table/pagination.html',
         '<div ng-if="pages.length >= 2">' +
@@ -2690,7 +2694,7 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
     $templateCache.put("sdk-utils/duration-slider.tpl",
         "<div class=duration-slider><div class=slider-cursor><span>{{formatLabel(ratio)}}</span></div></div>");
     $templateCache.put("sdk-utils/help-block.tpl",
-        "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i><translate translate-comment=\"The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'\">Need help? Go to the</translate><a href=http://support.enplug.com/hc/en-us target=_blank><translate>Enplug Help Center</translate></a></div></footer>");
+        "<footer class=\"footer-help block-center\"><div class=\"info-message text-gray\"><i class=\"ion-help-circled text-primary\"></i><translate translate-comment=\"The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'\">Need help? Go to the</translate><a href=http://support.enplug.com/hc/en-us target=_blank ng-class=\"{'translate-directive': isDefaultLang}\"><translate>Enplug Help Center</translate></a></div></footer>");
     $templateCache.put("sdk-utils/layout-toggle.tpl",
         "<div class=\"btn-group layout-toggle\"><button ng-click=toggleLayout() ng-disabled=showGridLayout class=\"btn btn-default btn-icon btn-sm ion-android-apps grid-toggle\"></button> <button ng-click=toggleLayout() ng-disabled=!showGridLayout class=\"btn btn-default btn-icon btn-sm ion-navicon table-toggle\"></button></div>");
     $templateCache.put("sdk-utils/loading.tpl",
