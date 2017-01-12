@@ -181,11 +181,3 @@ $padding-sm:    5px;
 /* Transitions
 ========================================================================== */
 .transition       { transition: all $transition-speed $transition-timing; }
-
-
-/* Translate Directive Formatting Helper
-========================================================================== */
-.translate-directive {
-    margin-left: 3px;
-    margin-right: 3px;
-}
