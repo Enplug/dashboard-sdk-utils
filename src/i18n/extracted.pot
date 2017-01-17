@@ -142,7 +142,7 @@ msgstr ""
 msgid "During your life, never stop dreaming. No one can take away your dreams."
 msgstr ""
 
-#: ./src/templates/help-block.tpl.html:3
+#: ./src/templates/help-block.tpl.html:5
 msgid "Enplug Help Center"
 msgstr ""
 
@@ -381,7 +381,7 @@ msgid "Nebraska"
 msgstr ""
 
 #. The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'
-#: ./src/templates/help-block.tpl.html:3
+#: ./src/templates/help-block.tpl.html:4
 msgid "Need help? Go to the"
 msgstr ""
 

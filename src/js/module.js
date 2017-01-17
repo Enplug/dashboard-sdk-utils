@@ -5,9 +5,11 @@ angular.module('enplug.sdk.utils').run(function ($rootScope, $templateCache, get
     gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
     gettextCatalog.debug = false;
 
-    // Ng class that fixes broken formatting on default text. If currentLanguage different than default, value is set to false.
+    console.log($rootScope);
+    $rootScope.currentLanguage;
+    console.log($rootScope.currentLanguage);
 
-    $rootScope.isDefaultLang  = gettextCatalog.currentLanguage.match(/en/g) ? true : false
+    // Ng class that fixes broken formatting on default text. If currentLanguage different than default, value is set to false.
 
     // Update default pagination template for Smart Table to use our directive and icons
     $templateCache.put('template/smart-table/pagination.html',
