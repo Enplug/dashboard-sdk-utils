@@ -2,12 +2,8 @@ angular.module('enplug.sdk.utils', ['enplug.sdk.utils.templates', 'gettext']);
 
 angular.module('enplug.sdk.utils').run(function ($rootScope, $templateCache, gettextCatalog) {
 
-    gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
-    gettextCatalog.debug = false;
-
-    console.log($rootScope);
-    $rootScope.currentLanguage;
-    console.log($rootScope.currentLanguage);
+    // gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
+    // gettextCatalog.debug = false;
 
     // Ng class that fixes broken formatting on default text. If currentLanguage different than default, value is set to false.
 
