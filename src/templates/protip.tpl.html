@@ -1,9 +1,9 @@
 <div class="pro-tip">
     <i class="ion-flash text-primary"></i>
-    <strong>ProTip: </strong>
-    <span ng-bind="::config.tip"></span>
+    <strong translate>ProTip: </strong>
+    <span ng-bind="config.tip | translate"></span>
     <a ng-if="::config.link"
        dynamic-click="::config.link.action"
        dynamic-href="::config.link.location"
-       ng-bind="::config.link.text"></a>
+       ng-bind="config.link.text | translate"></a>
 </div>

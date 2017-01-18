@@ -13,8 +13,8 @@
  * For better ways to do a lot of this, look to: https://github.com/angular/material/blob/master/src/components/input/input.js
  *
  */
-angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile', '$parse', '$document', 'GUID',
-    function ($log, $compile, $parse, $document, GUID) {
+angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile', '$parse', '$document', 'GUID', 'gettext',
+    function ($log, $compile, $parse, $document, GUID, gettextCatalog) {
         'use strict';
 
         return {
@@ -35,6 +35,7 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
 
                 $scope.id = id; // better to use name?
                 $scope.label = $attrs.label;
+                $element.removeAttr('label');
                 $element.removeAttr('label');
                 input.setAttribute('name', id);
 

@@ -8,7 +8,8 @@
         "uglify:build",
         "sass:build",
         "postcss:build",
-        "cssmin:build"
+        "cssmin:build",
+        "copy:i18n"
     ],
     "version": [
         "checkbranch:master",

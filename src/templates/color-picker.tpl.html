@@ -13,20 +13,20 @@
 
             <ul class="clearfix" ng-class="{ 'show-as-hex': showAs=='hex', 'show-as-rgb': showAs=='rgb'  }">
                 <li class="">
-                    <label>R:</label>
-                    <input class="channel-red" type="number" name="channel-red" min="0" max="255" 
+                    <label translate translate-comment="R represents 'red' in rgb">R:</label>
+                    <input class="channel-red" type="number" name="channel-red" min="0" max="255"
                            ng-model="red"
                            ng-change="watchRGBInputChange()">
                 </li>
                 <li class="">
-                    <label>G:</label>
-                    <input class="channel-green" type="number" name="channel-green" min="0" max="255" 
+                    <label translate translate-comment="G represents 'green' in rgb">G:</label>
+                    <input class="channel-green" type="number" name="channel-green" min="0" max="255"
                            ng-model="green"
                            ng-change="watchRGBInputChange()">
                 </li>
                 <li class="">
-                    <label>B:</label>
-                    <input class="channel-blue" type="number" name="channel-blue" min="0" max="255" 
+                    <label translate translate-comment="B represents 'blue' in rgb">B:</label>
+                    <input class="channel-blue" type="number" name="channel-blue" min="0" max="255"
                            ng-model="blue"
                            ng-change="watchRGBInputChange()">
                 </li>
@@ -35,8 +35,8 @@
                 </li>
                 <li class="hex-values">
                     <label>#</label>
-                    <input class="hex-input" type="text" name="hex-input" maxlength="6" 
-                           ng-model="hexInput" 
+                    <input class="hex-input" type="text" name="hex-input" maxlength="6"
+                           ng-model="hexInput"
                            ng-change="watchHEXInputChange()">
                 </li>
             </ul>
@@ -45,9 +45,9 @@
 
         <div class="alpha" ng-hide="noAlpha" >
             <div class="field">
-                <label>A:</label>
-                <input class="channel-alpha" 
-                       type="number" name="channel-alpha" 
+                <label translate translate-comment="A represents 'Alpha'">A:</label>
+                <input class="channel-alpha"
+                       type="number" name="channel-alpha"
                        min="0" max="100"
                        ng-model="alphaPercent">
             </div>
@@ -55,7 +55,7 @@
                 <div class="cursor"></div>
             </div>
         </div>
-        <!-- DEBUG:        
+        <!-- DEBUG:
         <p class="debug">alpha:{{alpha}} <br> hex:{{hex}} <br> rgb:{{rgb}} <br> r:{{red}} <br> g:{{green}} <br> b:{{blue}} <br> h:{{hue}} <br> s:{{saturation}} <br> l:{{brightness}}</p>
         -->
     </div>
