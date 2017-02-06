@@ -15,7 +15,9 @@
     "i18n:compile": "angular-gettext-cli --files \"./src/**/*.+(po)\" --dest ./src/i18n/translations.js     --compile"
   },
   "dependencies": {
-    "lodash": "~3.10.0",
+    "lodash": "~3.10.0"
+  },
+   "peerDependencies": {
     "angular-gettext": "^2.3.8",
     "angular-gettext-cli": "^1.0.7"
   },
