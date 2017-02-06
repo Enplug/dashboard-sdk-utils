@@ -5,9 +5,6 @@
   "authors": [
     "Alex Ross <alex@enplug.com>"
   ],
-  "devDependencies": {
-      "angular-gettext": "^2.3.8"
-  },
   "description": "Helper classes for internal Enplug app development",
   "main": [
     "dist/dashboard-sdk-utils.js",

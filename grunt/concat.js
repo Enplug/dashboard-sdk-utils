@@ -1,16 +1,27 @@
 module.exports = {
-    // Build modules first for registering components on them
+    // Build
+    libs: {
+        src: [
+            'node_modules/angular-gettext/dist/angular-gettext.min.js'
+        ],
+        dest: 'tmp/libs.js'
+    },
+    // Build modules for registering components on them
     modules: {
-        src: ['src/**/module.js'],
+        src: [
+            'src/**/module.js'
+        ],
         dest: 'tmp/modules.js'
     },
     // Exclude modules from second round, include templates file
     components: {
         src: [
+            'tmp/libs.js',
             'tmp/modules.js',
             'src/**/*.js',
             'tmp/templates.js',
-            '!src/**/module.js'],
+            '!src/**/module.js'
+        ],
         dest: 'dist/<%= pkg.name %>.js'
     },
     sass: {
