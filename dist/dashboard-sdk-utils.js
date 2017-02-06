@@ -1557,8 +1557,8 @@ angular.module('enplug.sdk.utils').directive('materialCheckbox', ['$log', '$comp
  * For better ways to do a lot of this, look to: https://github.com/angular/material/blob/master/src/components/input/input.js
  *
  */
-angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile', '$parse', '$document', 'GUID',
-    function ($log, $compile, $parse, $document, GUID) {
+angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile', '$parse', '$document', 'GUID', 'gettext',
+    function ($log, $compile, $parse, $document, GUID, gettextCatalog) {
         'use strict';
 
         return {
