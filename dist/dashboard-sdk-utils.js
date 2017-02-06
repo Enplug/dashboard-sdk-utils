@@ -1,6 +1,6 @@
-angular.module('enplug.sdk.utils', ['enplug.sdk.utils.templates']);
+angular.module('enplug.sdk.utils', ['enplug.sdk.utils.templates', 'gettext']);
 
-angular.module('enplug.sdk.utils').run(['$rootScope', '$templateCache', function ($rootScope, $templateCache) {
+angular.module('enplug.sdk.utils').run(['$rootScope', '$templateCache', 'gettextCatalog', function ($rootScope, $templateCache, gettextCatalog) {
 
     // gettextCatalog.setCurrentLanguage(navigator.browserLanguage || navigator.language);
     // gettextCatalog.debug = false;
