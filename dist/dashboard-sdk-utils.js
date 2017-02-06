@@ -697,7 +697,7 @@ angular.module('enplug.sdk.utils').directive('alert', function () {
 
 
 
-angular.module('enplug.sdk.utils').directive('backgroundPicker', ['$enplugDashboard', function ($enplugDashboard) {
+angular.module('enplug.sdk.utils').directive('backgroundPicker', ['$enplugDashboard', 'gettext', function ($enplugDashboard, gettext) {
     return {
         restrict: 'E',
         scope: {
@@ -761,7 +761,7 @@ angular.module('enplug.sdk.utils').directive('backgroundPicker', ['$enplugDashbo
                         scope.imageData.BgHeight = img.height;
                         scope.imageData.BgFilename = img.filename;
                     } else {
-                        $enplugDashboard.errorIndicator(('Something went wrong, please try again.'));
+                        $enplugDashboard.errorIndicator(gettext('Something went wrong, please try again.'));
                     }
                 });
             }
