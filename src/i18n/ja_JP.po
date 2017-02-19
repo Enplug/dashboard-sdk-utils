@@ -1,0 +1,665 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: ja\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: src/js/constants/quotes.js:145
+msgid "A lot of times, people don't know what they want until you show it to them."
+msgstr "人々は、提示されるまで自分が何を望んでいるのかをわかっていないことがよくあります。"
+
+#: src/js/constants/quotes.js:85
+msgid "A person who never made a mistake never tried anything new."
+msgstr "失敗したことのない人は、新しいことを試みたことがない人です。"
+
+#: src/js/constants/quotes.js:273
+msgid "A pessimist sees the difficulty in every opportunity; an optimist sees the opportunity in every difficulty."
+msgstr "悲観主義者はあらゆる機会に困難を見出し、楽観主義者はあらゆる困難に機会を見出す。"
+
+#. A represents 'Alpha'
+#: src/templates/color-picker.tpl.html:48
+msgid "A:"
+msgstr "A:"
+
+#: src/templates/tag-input.tpl.html:10
+msgid "Add tags"
+msgstr "タグを追加"
+
+#: src/js/constants/states.js:7
+msgid "Alabama"
+msgstr "アラバマ"
+
+#: src/js/constants/states.js:8
+msgid "Alaska"
+msgstr "アラスカ"
+
+#: src/js/constants/quotes.js:13
+msgid "All great achievements require time."
+msgstr "大きな成果には時間が必要です。"
+
+#: src/js/constants/quotes.js:233
+msgid "All our dreams can come true, if we have the courage to pursue them."
+msgstr "夢を追い求める勇気を持っているならば、夢はすべて実現します。"
+
+#: src/js/constants/quotes.js:137
+msgid "Amateurs practice until they get it right. Professionals practice until they can't get it wrong."
+msgstr "アマチュアは、成功するまで練習する。プロフェッショナルは、失敗できなくなるまで練習する。"
+
+#: src/js/constants/quotes.js:197
+msgid "Ambition should be made of sterner stuff."
+msgstr "野心はもっと冷酷な心から生まれる。"
+
+#: src/js/constants/quotes.js:57
+msgid "An ant on the move does more than a dozing ox."
+msgstr "動いている蟻は寝ている牡牛よりも多くのことをする。"
+
+#: src/js/constants/months.js:10
+msgid "Apr"
+msgstr "4月"
+
+#: src/js/constants/months.js:10
+msgid "April"
+msgstr "4月"
+
+#: src/js/constants/states.js:9
+msgid "Arizona"
+msgstr "アリゾナ"
+
+#: src/js/constants/states.js:10
+msgid "Arkansas"
+msgstr "アーカンサス"
+
+#: src/js/constants/quotes.js:33
+msgid "At the age of six I wanted to be a cook. At seven I wanted to be Napoleon. And my ambition has been growing steadily ever since."
+msgstr "6歳の時に私は料理人になりたいと思っていました。7歳の時にはナポレオンになりたかった。それ以来、私の野心は着実に成長しています。"
+
+#: src/js/constants/months.js:14
+msgid "Aug"
+msgstr "８月"
+
+#: src/js/constants/months.js:14
+msgid "August"
+msgstr "８月"
+
+#. B represents 'blue' in rgb
+#: src/templates/color-picker.tpl.html:28
+msgid "B:"
+msgstr "B:"
+
+#: src/js/constants/states.js:11
+msgid "California"
+msgstr "カリフォルニア"
+
+#: src/js/constants/quotes.js:281
+msgid "Carpe diem, seize the day boys, make your lives extraordinary."
+msgstr "カーペ・ディエム。今を生きろ、若者たちよ。素晴らしい人生をつかめ。"
+
+#: src/js/constants/states.js:12
+msgid "Colorado"
+msgstr "コロラド"
+
+#: src/js/constants/states.js:13
+msgid "Connecticut"
+msgstr "コネチカット"
+
+#: src/templates/background-picker.tpl.html:48
+msgid "Contain"
+msgstr "含む"
+
+#: src/templates/background-picker.tpl.html:53
+msgid "Cover"
+msgstr "カバー"
+
+#: src/js/constants/quotes.js:45
+msgid "Creativity is allowing yourself to make mistakes. Art is knowing which ones to keep."
+msgstr "創造性とは自分自身に失敗を許すことである。芸術とはどちらを残すべきかを知ることである。"
+
+#: src/js/constants/months.js:18
+msgid "Dec"
+msgstr "12月"
+
+#: src/js/constants/months.js:18
+msgid "December"
+msgstr "12月"
+
+#: src/js/constants/states.js:14
+msgid "Delaware"
+msgstr "デラウェア"
+
+#: src/js/constants/states.js:15
+msgid "District of Columbia"
+msgstr "ワシントンD.C."
+
+#: src/js/constants/quotes.js:265
+msgid "Do things that have never been done before."
+msgstr "これまでしたことのないことをせよ。"
+
+#: src/js/constants/quotes.js:285
+msgid "Doing the best at this moment puts you in the best place for the next moment."
+msgstr "今この瞬間に最善を尽くすことによって、次の瞬間に最善の場所に行くことができる。"
+
+#: src/js/constants/quotes.js:189
+msgid "During your life, never stop dreaming. No one can take away your dreams."
+msgstr "生きている間は夢見ることをやめてはならない。誰もあなたの夢を奪えない。"
+
+#: src/templates/help-block.tpl.html:3
+msgid "Enplug Help Center"
+msgstr "Enplugヘルプセンター"
+
+#: src/js/constants/quotes.js:69
+msgid "Every act of creation is first of all an act of destruction."
+msgstr "いかなる創造活動も、はじめは破壊活動である。"
+
+#: src/js/constants/quotes.js:129
+msgid "Everything comes to him who hustles while he waits."
+msgstr "待っている間もがんばる人にすべてのものはやってくる。"
+
+#: src/js/constants/months.js:8
+msgid "Feb"
+msgstr "2月"
+
+#: src/js/constants/months.js:8
+msgid "February"
+msgstr "2月"
+
+#: src/js/constants/states.js:16
+msgid "Florida"
+msgstr "フロリダ"
+
+#: src/js/constants/quotes.js:113
+msgid "Focus is a matter of deciding what things you're not going to do."
+msgstr "集中するとは、何をやらないかを決めることである。"
+
+#: src/js/constants/quotes.js:97
+msgid "For every dark night, there's a brigher day."
+msgstr "暗い夜のために、明るい昼がある。"
+
+#: src/js/constants/quotes.js:73
+msgid "Fun is good."
+msgstr "楽しいことは良いことである。"
+
+#. G represents 'green' in rgb
+#: src/templates/color-picker.tpl.html:22
+msgid "G:"
+msgstr "G:"
+
+#: src/js/constants/quotes.js:141
+msgid "Genius is one percent inspiration and ninety-nine percent perspiration."
+msgstr "天才とは、1パーセントのひらめきと、99パーセントの努力である。"
+
+#: src/js/constants/states.js:17
+msgid "Georgia"
+msgstr "ジョージア"
+
+#: src/js/constants/quotes.js:121
+msgid "HULK SMASH!"
+msgstr "ハルク、暴れろ！"
+
+#: src/js/constants/states.js:18
+msgid "Hawaii"
+msgstr "ハワイ"
+
+#: src/js/constants/quotes.js:277
+msgid "He who hesitates is lost."
+msgstr "ためらうものは失敗する"
+
+#: src/js/constants/quotes.js:149
+msgid "I don't know where I'm going, but I'm on my way."
+msgstr "どこに向かっているかはわからないが、道の途中にいる。"
+
+#: src/js/constants/quotes.js:261
+msgid "I hated every minute of training, but I said, 'Dont quit. Suffer now and live the rest of your life as a champion'."
+msgstr "俺はトレーニングが大嫌いだった。でも、自分に言い聞かせた。「絶対にあきらめるな。今は耐えろ。そして残りの人生をチャンピオンとして生きろ」"
+
+#: src/js/constants/quotes.js:293
+msgid "I have no special talent. I am only passionately curious."
+msgstr "私には特別な才能はない。ただ情熱的な好奇心があるだけだ。"
+
+#: src/js/constants/quotes.js:225
+msgid "I have not failed. I've just found 10,000 ways that won't work."
+msgstr "私は失敗したことがない。うまく行かない方法を10000通り見つけただけだ。"
+
+#: src/js/constants/quotes.js:161
+msgid "I pay no attention whatever to anybody's praise or blame. I simply follow my own feelings."
+msgstr "他人の賞賛や非難など一切気にしない。自分自身の感性に従うのみだ。"
+
+#: src/js/constants/quotes.js:117 src/js/constants/quotes.js:25
+msgid "I play to win, whether during practice or a real game."
+msgstr "練習でも試合でも、勝つためにプレイする。"
+
+#: src/js/constants/quotes.js:77
+msgid "I steal from every movie ever made."
+msgstr "これまで作られた全映画から盗んだ。"
+
+#: src/js/constants/quotes.js:269
+msgid "I've failed over and over and over again in my life and that is why I succeed."
+msgstr "人生で何度も失敗してきた。それが成功の秘訣だ。"
+
+#: src/js/constants/quotes.js:245
+msgid "I've got a theory that if you give 100% all the time, somehow things will work out in the end."
+msgstr "つねに100％の力を尽くしていれば、物事は最終的にうまくいく。"
+
+#: src/js/constants/states.js:19
+msgid "Idaho"
+msgstr "アイダホ"
+
+#: src/js/constants/quotes.js:101
+msgid "If you love life, don't waste time, for time is what life is made up of."
+msgstr "人生を愛しているならば、時間を無駄にするな。人生は時間でできている。"
+
+#: src/js/constants/quotes.js:201
+msgid "If you spend too much time thinking about a thing, you'll never get it done."
+msgstr "何かについて考えてばかりいると、それをやり遂げることはできない。"
+
+#: src/js/constants/states.js:20
+msgid "Illinois"
+msgstr "イリノイ"
+
+#: src/js/constants/states.js:21
+msgid "Indiana"
+msgstr "インディアナ"
+
+#: src/js/constants/states.js:22
+msgid "Iowa"
+msgstr "アイオワ"
+
+#: src/js/constants/quotes.js:81
+msgid "It is the working man who is the happy man. It is the idle man who is the miserable man."
+msgstr "幸福な者とは働いている者である。不幸な者とは怠惰な者である。"
+
+#: src/js/constants/quotes.js:229
+msgid "It's lack of faith that makes people afraid of meeting challenges, and I believed in myself."
+msgstr "人間が困難に立ち向かう時、恐怖を抱くのは信頼が欠如しているからだ。私は自分を信じる。"
+
+#: src/js/constants/months.js:7
+msgid "Jan"
+msgstr "1月"
+
+#: src/js/constants/months.js:7
+msgid "January"
+msgstr "1月"
+
+#: src/js/constants/months.js:13
+msgid "Jul"
+msgstr "7月"
+
+#: src/js/constants/months.js:13
+msgid "July"
+msgstr "7月"
+
+#: src/js/constants/months.js:12
+msgid "Jun"
+msgstr "6月"
+
+#: src/js/constants/months.js:12
+msgid "June"
+msgstr "6月"
+
+#: src/js/constants/states.js:23
+msgid "Kansa"
+msgstr "カンザス"
+
+#: src/js/constants/states.js:24
+msgid "Kentucky"
+msgstr "ケンタッキー"
+
+#: src/js/constants/quotes.js:221
+msgid "Live long and prosper."
+msgstr "長寿と繁栄を。"
+
+#: src/js/constants/quotes.js:153
+msgid "Lost time is never found again."
+msgstr "失った時間は戻らない。"
+
+#: src/js/constants/states.js:25
+msgid "Lousiana"
+msgstr "ルイジアナ"
+
+#: src/js/constants/quotes.js:289
+msgid "Luck is preparation meeting opportunity."
+msgstr "幸運とは、準備がチャンスに巡り会うこと。"
+
+#: src/js/constants/states.js:26
+msgid "Maine"
+msgstr "メイン"
+
+#: src/js/constants/quotes.js:237
+msgid "Make everything as simple as possible, but not simpler."
+msgstr "何事もできる限り単純化すべきだが、必要以上に単純化してはならない。"
+
+#: src/js/constants/quotes.js:29
+msgid "Many of life's failures are people who did not realize how close they were to success when they gave up."
+msgstr "人生に失敗した人の多くは、諦めたときに自分がどれほど成功に近づいていたか気づかなかった人たちだ。"
+
+#: src/js/constants/months.js:9
+msgid "Mar"
+msgstr "3月"
+
+#: src/js/constants/months.js:9
+msgid "March"
+msgstr "3月"
+
+#: src/js/constants/states.js:27
+msgid "Maryland"
+msgstr "メリーランド"
+
+#: src/js/constants/states.js:28
+msgid "Massachusetts"
+msgstr "マサチューセッツ"
+
+#: src/js/constants/months.js:11
+msgid "May"
+msgstr "5月"
+
+#: src/js/constants/quotes.js:253
+msgid "May the Force be with you."
+msgstr "フォースと共にあらんことを。"
+
+#: src/js/constants/states.js:29
+msgid "Michigan"
+msgstr "ミシガン"
+
+#: src/js/constants/states.js:30
+msgid "Minnesota"
+msgstr "ミネソタ"
+
+#: src/js/constants/states.js:31
+msgid "Mississippi"
+msgstr "ミシシッピ"
+
+#: src/js/constants/states.js:32
+msgid "Missouri"
+msgstr "ミズーリ"
+
+#: src/js/constants/states.js:33
+msgid "Montana"
+msgstr "モンタナ"
+
+#: src/js/constants/states.js:34
+msgid "Nebraska"
+msgstr "ネブラスカ"
+
+#. The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'
+#: src/templates/help-block.tpl.html:3
+msgid "Need help? Go to the"
+msgstr "ヘルプが必要ですか？をご覧ください"
+
+#: src/js/constants/states.js:35
+msgid "Nevada"
+msgstr "ネバダ"
+
+#: src/js/constants/states.js:36
+msgid "New Hampshire"
+msgstr "ニューハンプシャー"
+
+#: src/js/constants/states.js:37
+msgid "New Jersey"
+msgstr "ニュージャージー"
+
+#: src/js/constants/states.js:38
+msgid "New Mexico"
+msgstr "ニューメキシコ"
+
+#: src/js/constants/states.js:39
+msgid "New York"
+msgstr "ニューヨーク"
+
+#: src/js/constants/states.js:40
+msgid "North Carolina"
+msgstr "ノースカロライナ"
+
+#: src/js/constants/states.js:41
+msgid "North Dakota"
+msgstr "ノースダコタ"
+
+#: src/js/constants/quotes.js:49
+msgid "Nothing will work unless you do."
+msgstr "自分でしない限り何も上手くいかない。"
+
+#: src/js/constants/months.js:17
+msgid "Nov"
+msgstr "11月"
+
+#: src/js/constants/months.js:17
+msgid "November"
+msgstr "11月"
+
+#: src/js/constants/months.js:16
+msgid "Oct"
+msgstr "10月"
+
+#: src/js/constants/months.js:16
+msgid "October"
+msgstr "10月"
+
+#: src/js/constants/states.js:42
+msgid "Ohio"
+msgstr "オハイオ"
+
+#: src/js/constants/states.js:43
+msgid "Oklahoma"
+msgstr "オクラホマ"
+
+#: src/js/constants/states.js:44
+msgid "Oregon"
+msgstr "オレゴン"
+
+#: src/js/constants/quotes.js:65
+msgid "Our greatest glory is not in never failing, but in rising up every time we fail."
+msgstr "偉大な栄光とは失敗しないことではない。失敗するたびに立ち上がることにある。"
+
+#: src/templates/material-input.tpl.html:6
+msgid "Passwords must match."
+msgstr "パスワードが一致する必要があります。"
+
+#: src/js/constants/states.js:45
+msgid "Pennsylvania"
+msgstr "ペンシルバニア"
+
+#: src/templates/material-input.tpl.html:5
+msgid "Please enter a valid URL starting with http:// or https://"
+msgstr "http:// または https:// で始まる有効なURLを入力してください"
+
+#: src/templates/material-input.tpl.html:4
+msgid "Please enter a valid email address."
+msgstr "有効なメールアドレスを入力してください。"
+
+#: src/templates/background-picker.tpl.html:41
+msgid "Position"
+msgstr "ポジション"
+
+#: src/templates/protip.tpl.html:3
+msgid "ProTip:"
+msgstr "ProTip:"
+
+#: src/js/constants/quotes.js:37
+msgid "Quality is more important than quantity. One home run is much better than two doubles."
+msgstr "質は量より重要だ。1本のホームランは2本のツーベースヒットより貴重だ。"
+
+#. R represents 'red' in rgb
+#: src/templates/color-picker.tpl.html:16
+msgid "R:"
+msgstr "R:"
+
+#: src/js/constants/states.js:46
+msgid "Rhode Island"
+msgstr "ロードアイランド"
+
+#: src/js/constants/months.js:15
+msgid "Sep"
+msgstr "9月"
+
+#: src/js/constants/months.js:15
+msgid "September"
+msgstr "9月"
+
+#: src/js/constants/quotes.js:61
+msgid "Show me a thoroughly satisfied man and I will show you a failure."
+msgstr "完全に満足しきった人がいたら、それは落伍者だ。"
+
+#: src/js/constants/quotes.js:177
+msgid "Simplify, simplify, simplify."
+msgstr "とにかく単純化せよ。"
+
+#: src/js/constants/quotes.js:241
+msgid "Some people want it to happen, some wish it would happen, others make it happen."
+msgstr "実現したいと願う人もいれば、夢想する人もいる。そして、みずから実現する人もいる。"
+
+#: src/js/directives/background-picker.js:81
+msgid "Something went wrong, please try again."
+msgstr "エラーが発生しました、もう一度お試しください。"
+
+#: src/js/constants/states.js:47
+msgid "South Carolina"
+msgstr "サウスカロライナ"
+
+#: src/js/constants/states.js:48
+msgid "South Dakota"
+msgstr "サウスダコタ"
+
+#: src/js/constants/quotes.js:205
+msgid "Success breeds success."
+msgstr "成功は成功を育てる。"
+
+#: src/js/constants/states.js:49
+msgid "Tennessee"
+msgstr "テネシー"
+
+#: src/js/constants/states.js:50
+msgid "Texas"
+msgstr "テキサス"
+
+#: src/js/constants/quotes.js:41
+msgid "That's one small step for man, one giant leap for mankind."
+msgstr "これは一人の人間にとっては小さな一歩だが、人類にとっては偉大な飛躍である。"
+
+#: src/js/constants/quotes.js:53
+msgid "The best way out is always through."
+msgstr "終わらせる一番の方法は、やり遂げることだ。"
+
+#: src/js/constants/quotes.js:125
+msgid "The harder the conflict, the more glorious the triumph."
+msgstr "戦いが激しければ激しいほど、勝利は輝かしいものとなる。"
+
+#: src/js/constants/quotes.js:21
+msgid "The perfect is the enemy of the good."
+msgstr "完璧は善の敵。"
+
+#: src/js/constants/quotes.js:249
+msgid "The problem with the future is that it keeps turning into the present."
+msgstr "未来の問題は、それが現在に変わっていくということです。"
+
+#: src/js/constants/quotes.js:173
+msgid "The value of an idea lies in the using of it."
+msgstr "アイデアの価値はそれを使うことにある。"
+
+#: src/js/constants/quotes.js:93
+msgid "The way to get started is to quit talking and begin doing."
+msgstr "スタートをきる方法は、しゃべるのをやめて動き始めることだ。"
+
+#: src/js/constants/quotes.js:217
+msgid "There is no substitute for hard work."
+msgstr "努力に勝るものはない。"
+
+#: src/templates/loading.tpl.html:8
+msgid "There was an error."
+msgstr "エラーが発生しました。"
+
+#: src/js/constants/quotes.js:181
+msgid "There's a way to do it better - find it."
+msgstr "もっと良い方法がある。探せ。"
+
+#: src/js/constants/quotes.js:193
+msgid "Things do not happen. Things are made to happen."
+msgstr "物事は起こるのではなく、起こさせるものだ。"
+
+#: src/templates/material-input.tpl.html:3
+msgid "This is required."
+msgstr "これは必要です。"
+
+#: src/js/constants/quotes.js:89
+msgid "To be idle is a short road to death and to be diligent is a way of life."
+msgstr "怠惰は死への近道であり、勤勉は生きる術である。"
+
+#: src/js/constants/quotes.js:169
+msgid "To have a great idea, have a lot of them."
+msgstr "良いアイデアを生むには多くのアイデアが必要だ。"
+
+#: src/templates/background-picker.tpl.html:3
+msgid "Upload Image"
+msgstr "画像をアップロード"
+
+#: src/js/constants/states.js:51
+msgid "Utah"
+msgstr "ユタ"
+
+#: src/js/constants/states.js:52
+msgid "Vermont"
+msgstr "バーモント"
+
+#: src/js/constants/quotes.js:257
+msgid "Victory belongs to the most persevering."
+msgstr "勝利は、もっとも忍耐強い人にもたらされる。"
+
+#: src/js/constants/states.js:53
+msgid "Virginia"
+msgstr "バージニア"
+
+#: src/js/constants/states.js:54
+msgid "Washington"
+msgstr "ワシントン"
+
+#: src/js/constants/states.js:55
+msgid "West Virginia"
+msgstr "ウェストバージニア"
+
+#: src/js/constants/quotes.js:185
+msgid "When it is obvious that the goals cannot be reached, don't adjust the goals, adjust the steps."
+msgstr "目標に到達できないことが明らかな場合は、目標を変えるのではなく、その過程を変えよ。"
+
+#: src/js/constants/quotes.js:213
+msgid "When you stop doing things for fun, you might as well be dead."
+msgstr "楽しくないのならば、死んだほうがマシだ。"
+
+#: src/js/constants/states.js:56
+msgid "Wisconsin"
+msgstr "ウィスコンシン"
+
+#: src/js/constants/quotes.js:157
+msgid "Without pain, without sacrifice, we would have nothing."
+msgstr "苦痛がなければ、犠牲がなければ何も得られない。"
+
+#: src/js/constants/quotes.js:109
+msgid "Work spares us from three evils: boredom, vice and need."
+msgstr "仕事は3つの悪から人間を守る。それは退屈、悪徳、必要だ。"
+
+#: src/js/constants/states.js:57
+msgid "Wyoming"
+msgstr "ワイオミング"
+
+#: src/js/constants/quotes.js:209
+msgid "You are never too old to set another goal or to dream a new dream."
+msgstr "何歳になっても、新しい目標を立てたり、新しい夢を見つけたりできる。"
+
+#: src/js/constants/quotes.js:105
+msgid "You can never quit. Winners never quit, and quitters never win."
+msgstr "歩みを止めることはできない。勝者は止まらず、止まる者が勝つことはない。"
+
+#: src/js/constants/quotes.js:17
+msgid "You can't wait for inspiration. You have to go after it with a club."
+msgstr "インスピレーションはやっては来ない。 こん棒を持ってでも追いかけなければ。"
+
+#: src/js/constants/quotes.js:165
+msgid "You miss 100% of the shots you don't take."
+msgstr "打たないシュートは、100％外れる。"
+
+#: src/js/constants/quotes.js:133
+msgid "You've got to jump off cliffs and build your wings on the way down."
+msgstr "まず崖から飛び降りて、落ちていく間に自分の翼を作らなければいけない。"

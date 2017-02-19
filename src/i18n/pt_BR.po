@@ -1,31 +1,34 @@
 msgid ""
 msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.11\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
 
 #: src/js/constants/quotes.js:145
 msgid ""
 "A lot of times, people don't know what they want until you show it to them."
 msgstr ""
+"Muitas vezes as pessoas não sabem o que querem até você mostrar a elas."
 
 #: src/js/constants/quotes.js:85
 msgid "A person who never made a mistake never tried anything new."
-msgstr ""
+msgstr "Uma pessoa que nunca cometeu um erro nunca tentou nada novo."
 
 #: src/js/constants/quotes.js:273
 msgid ""
 "A pessimist sees the difficulty in every opportunity; an optimist sees the "
 "opportunity in every difficulty."
 msgstr ""
+"Um pessimista vê a dificuldade em cada oportunidade; um otimista vê a "
+"oportunidade em cada dificuldade."
 
 #. A represents 'Alpha'
 #: src/templates/color-picker.tpl.html:48
@@ -34,67 +37,72 @@ msgstr "A:"
 
 #: src/templates/tag-input.tpl.html:10
 msgid "Add tags"
-msgstr "Agregar etiquetas"
+msgstr "Adicionar etiquetas"
 
 #: src/js/constants/states.js:7
 msgid "Alabama"
-msgstr ""
+msgstr "Alabama"
 
 #: src/js/constants/states.js:8
 msgid "Alaska"
-msgstr ""
+msgstr "Alasca"
 
 #: src/js/constants/quotes.js:13
 msgid "All great achievements require time."
-msgstr ""
+msgstr "Todas as grandes conquistas exigem tempo."
 
 #: src/js/constants/quotes.js:233
 msgid "All our dreams can come true, if we have the courage to pursue them."
 msgstr ""
+"Todos os nossos sonhos se realizam, se temos a coragem de persegui-los."
 
 #: src/js/constants/quotes.js:137
 msgid ""
 "Amateurs practice until they get it right. Professionals practice until they "
 "can't get it wrong."
 msgstr ""
+"Amadores praticam até eles acertarem. Profissionais praticam até eles não se "
+"enganarem."
 
 #: src/js/constants/quotes.js:197
 msgid "Ambition should be made of sterner stuff."
-msgstr ""
+msgstr "Ambição deve ser feita de material mais duro."
 
 #: src/js/constants/quotes.js:57
 msgid "An ant on the move does more than a dozing ox."
-msgstr ""
+msgstr "Uma formiga em movimento faz mais do que um boi cochilando."
 
 #: src/js/constants/months.js:10
 msgid "Apr"
-msgstr ""
+msgstr "Abr"
 
 #: src/js/constants/months.js:10
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 #: src/js/constants/states.js:9
 msgid "Arizona"
-msgstr ""
+msgstr "Arizona"
 
 #: src/js/constants/states.js:10
 msgid "Arkansas"
-msgstr ""
+msgstr "Arcansas"
 
 #: src/js/constants/quotes.js:33
 msgid ""
 "At the age of six I wanted to be a cook. At seven I wanted to be Napoleon. "
 "And my ambition has been growing steadily ever since."
 msgstr ""
+"Aos seis anos de idade eu queria ser um cozinheiro. Aos sete, queria ser "
+"Napoleão. E minha ambição tem crescido constantemente desde então."
 
 #: src/js/constants/months.js:14
 msgid "Aug"
-msgstr ""
+msgstr "Ago"
 
 #: src/js/constants/months.js:14
 msgid "August"
-msgstr ""
+msgstr "Agosto"
 
 #. B represents 'blue' in rgb
 #: src/templates/color-picker.tpl.html:28
@@ -103,99 +111,104 @@ msgstr "B:"
 
 #: src/js/constants/states.js:11
 msgid "California"
-msgstr ""
+msgstr "California"
 
 #: src/js/constants/quotes.js:281
 msgid "Carpe diem, seize the day boys, make your lives extraordinary."
 msgstr ""
+"Carpe diem, aproveite o dia, rapazes, façam as suas vidas extraordinárias."
 
 #: src/js/constants/states.js:12
 msgid "Colorado"
-msgstr ""
+msgstr "Colorado"
 
 #: src/js/constants/states.js:13
 msgid "Connecticut"
-msgstr ""
+msgstr "Connecticut"
 
 #: src/templates/background-picker.tpl.html:48
 msgid "Contain"
-msgstr "Contiene"
+msgstr "Contém"
 
 #: src/templates/background-picker.tpl.html:53
 msgid "Cover"
-msgstr ""
+msgstr "Capa"
 
 #: src/js/constants/quotes.js:45
 msgid ""
 "Creativity is allowing yourself to make mistakes. Art is knowing which ones "
 "to keep."
-msgstr ""
+msgstr "Criatividade é permitir-se cometer erros. Arte é saber quais manter."
 
 #: src/js/constants/months.js:18
 msgid "Dec"
-msgstr ""
+msgstr "Dez"
 
 #: src/js/constants/months.js:18
 msgid "December"
-msgstr ""
+msgstr "Dezembro"
 
 #: src/js/constants/states.js:14
 msgid "Delaware"
-msgstr ""
+msgstr "Delaware"
 
 #: src/js/constants/states.js:15
 msgid "District of Columbia"
-msgstr ""
+msgstr "Distrito de Columbia"
 
 #: src/js/constants/quotes.js:265
 msgid "Do things that have never been done before."
-msgstr ""
+msgstr "Fazer coisas que nunca foram feitas antes."
 
 #: src/js/constants/quotes.js:285
 msgid ""
 "Doing the best at this moment puts you in the best place for the next moment."
 msgstr ""
+"Fazer o melhor neste momento o coloca no melhor lugar para o momento seguinte"
 
 #: src/js/constants/quotes.js:189
 msgid ""
 "During your life, never stop dreaming. No one can take away your dreams."
 msgstr ""
+"Durante sua vida, nunca pare de sonhar. Ninguém pode tirar seus sonhos."
 
 #: src/templates/help-block.tpl.html:3
 msgid "Enplug Help Center"
-msgstr "Centro apoyo de Enplug "
+msgstr "Central de Ajuda Enplug"
 
 #: src/js/constants/quotes.js:69
 msgid "Every act of creation is first of all an act of destruction."
-msgstr ""
+msgstr "Todo ato de criação é antes de tudo um ato de destruição."
 
 #: src/js/constants/quotes.js:129
 msgid "Everything comes to him who hustles while he waits."
-msgstr ""
+msgstr "Tudo alcança aquele que trabalha duro enquanto espera."
 
 #: src/js/constants/months.js:8
 msgid "Feb"
-msgstr ""
+msgstr "Fev"
 
 #: src/js/constants/months.js:8
 msgid "February"
-msgstr ""
+msgstr "Fevereiro"
 
 #: src/js/constants/states.js:16
 msgid "Florida"
-msgstr ""
+msgstr "Florida"
 
 #: src/js/constants/quotes.js:113
 msgid "Focus is a matter of deciding what things you're not going to do."
-msgstr ""
+msgstr "Foco é uma questão de decidir que coisas que você não vai fazer."
 
+# brigher = brighter 
 #: src/js/constants/quotes.js:97
+#, fuzzy
 msgid "For every dark night, there's a brigher day."
-msgstr ""
+msgstr "Para cada noite escura, há um dia brilhante."
 
 #: src/js/constants/quotes.js:73
 msgid "Fun is good."
-msgstr ""
+msgstr "Diversão é bom."
 
 #. G represents 'green' in rgb
 #: src/templates/color-picker.tpl.html:22
@@ -204,316 +217,339 @@ msgstr "G:"
 
 #: src/js/constants/quotes.js:141
 msgid "Genius is one percent inspiration and ninety-nine percent perspiration."
-msgstr ""
+msgstr "Talento é 1% inspiração e 99% transpiração."
 
 #: src/js/constants/states.js:17
 msgid "Georgia"
-msgstr ""
+msgstr "Georgia"
 
+# translate?
 #: src/js/constants/quotes.js:121
 msgid "HULK SMASH!"
 msgstr ""
 
 #: src/js/constants/states.js:18
 msgid "Hawaii"
-msgstr ""
+msgstr "Havaí"
 
 #: src/js/constants/quotes.js:277
 msgid "He who hesitates is lost."
-msgstr ""
+msgstr "Ele, que hesita, está perdido."
 
 #: src/js/constants/quotes.js:149
 msgid "I don't know where I'm going, but I'm on my way."
-msgstr ""
+msgstr "Não sei onde eu vou, mas eu estou no meu caminho."
 
 #: src/js/constants/quotes.js:261
 msgid ""
 "I hated every minute of training, but I said, 'Dont quit. Suffer now and "
 "live the rest of your life as a champion'."
 msgstr ""
+"Odiei cada minuto de treino, mas eu disse, 'Não saia. Sofra agora e viva o "
+"resto de sua vida como um campeão'."
 
 #: src/js/constants/quotes.js:293
 msgid "I have no special talent. I am only passionately curious."
 msgstr ""
+"Eu não tenho nenhum talento especial. Sou apenas apaixonadamente curioso."
 
 #: src/js/constants/quotes.js:225
 msgid "I have not failed. I've just found 10,000 ways that won't work."
-msgstr ""
+msgstr "Eu não falhei. Apenas encontrei 10.000 maneiras que não vão funcionar."
 
 #: src/js/constants/quotes.js:161
 msgid ""
 "I pay no attention whatever to anybody's praise or blame. I simply follow my "
 "own feelings."
 msgstr ""
+"Eu não presto atenção em tudo o que alguém elogia ou reclama. Eu "
+"simplesmente sigo os meus próprios sentimentos."
 
 #: src/js/constants/quotes.js:117 src/js/constants/quotes.js:25
 msgid "I play to win, whether during practice or a real game."
-msgstr ""
+msgstr "Jogo para ganhar, durante a prática ou um jogo de verdade."
 
 #: src/js/constants/quotes.js:77
 msgid "I steal from every movie ever made."
-msgstr ""
+msgstr "Eu roubo de cada filme feito."
 
 #: src/js/constants/quotes.js:269
 msgid ""
 "I've failed over and over and over again in my life and that is why I "
 "succeed."
 msgstr ""
+"Eu falhei várias e várias vezes na minha vida e esse é o motivo do meu "
+"sucesso."
 
 #: src/js/constants/quotes.js:245
 msgid ""
 "I've got a theory that if you give 100% all the time, somehow things will "
 "work out in the end."
 msgstr ""
+"Eu tenho uma teoria que se você der 100% o tempo todo, de alguma forma, tudo "
+"vai dar certo no final."
 
 #: src/js/constants/states.js:19
 msgid "Idaho"
-msgstr ""
+msgstr "Idaho"
 
 #: src/js/constants/quotes.js:101
 msgid ""
 "If you love life, don't waste time, for time is what life is made up of."
 msgstr ""
+"Se você ama a vida, não perca tempo, pois tempo é do que a vida é feita."
 
 #: src/js/constants/quotes.js:201
 msgid ""
 "If you spend too much time thinking about a thing, you'll never get it done."
 msgstr ""
+"Se você gastar muito tempo pensando sobre uma coisa, você nunca terá feito."
 
 #: src/js/constants/states.js:20
 msgid "Illinois"
-msgstr ""
+msgstr "Ilinois"
 
 #: src/js/constants/states.js:21
 msgid "Indiana"
-msgstr ""
+msgstr "Indiana"
 
 #: src/js/constants/states.js:22
 msgid "Iowa"
-msgstr ""
+msgstr "Iowa"
 
 #: src/js/constants/quotes.js:81
 msgid ""
 "It is the working man who is the happy man. It is the idle man who is the "
 "miserable man."
 msgstr ""
+"É o trabalhador que é o homem feliz. O homem ocioso é um homem miserável."
 
 #: src/js/constants/quotes.js:229
 msgid ""
 "It's lack of faith that makes people afraid of meeting challenges, and I "
 "believed in myself."
 msgstr ""
+"A falta de fé que faz as pessoas terem medo de enfrentar desafios e eu "
+"acreditei em mim mesmo."
 
 #: src/js/constants/months.js:7
 msgid "Jan"
-msgstr ""
+msgstr "Jan"
 
 #: src/js/constants/months.js:7
 msgid "January"
-msgstr ""
+msgstr "Janeiro"
 
 #: src/js/constants/months.js:13
 msgid "Jul"
-msgstr ""
+msgstr "Jul"
 
 #: src/js/constants/months.js:13
 msgid "July"
-msgstr ""
+msgstr "Julho"
 
 #: src/js/constants/months.js:12
 msgid "Jun"
-msgstr ""
+msgstr "Jun"
 
 #: src/js/constants/months.js:12
 msgid "June"
-msgstr ""
+msgstr "Junho"
 
 #: src/js/constants/states.js:23
 msgid "Kansa"
-msgstr ""
+msgstr "Kansa"
 
 #: src/js/constants/states.js:24
 msgid "Kentucky"
-msgstr ""
+msgstr "Kentucky"
 
 #: src/js/constants/quotes.js:221
 msgid "Live long and prosper."
-msgstr ""
+msgstr "Vida longa e próspera."
 
 #: src/js/constants/quotes.js:153
 msgid "Lost time is never found again."
-msgstr ""
+msgstr "Tempo perdido nunca é encontrado novamente"
 
 #: src/js/constants/states.js:25
 msgid "Lousiana"
-msgstr ""
+msgstr "Lousiana"
 
 #: src/js/constants/quotes.js:289
 msgid "Luck is preparation meeting opportunity."
-msgstr ""
+msgstr "Sorte é a preparação encontrando a oportunidade."
 
 #: src/js/constants/states.js:26
 msgid "Maine"
-msgstr ""
+msgstr "Maine"
 
 #: src/js/constants/quotes.js:237
 msgid "Make everything as simple as possible, but not simpler."
-msgstr ""
+msgstr "Faça tudo o mais simples possível, mas não singelo."
 
 #: src/js/constants/quotes.js:29
 msgid ""
 "Many of life's failures are people who did not realize how close they were "
 "to success when they gave up."
 msgstr ""
+"Muitos dos fracassos da vida são pessoas que não percebem quão perto estavam "
+"ao sucesso quando desistiram."
 
 #: src/js/constants/months.js:9
 msgid "Mar"
-msgstr ""
+msgstr "Mar"
 
 #: src/js/constants/months.js:9
 msgid "March"
-msgstr ""
+msgstr "Março"
 
 #: src/js/constants/states.js:27
 msgid "Maryland"
-msgstr ""
+msgstr "Maryland"
 
 #: src/js/constants/states.js:28
 msgid "Massachusetts"
-msgstr ""
+msgstr "Massachusetts"
 
 #: src/js/constants/months.js:11
 msgid "May"
-msgstr ""
+msgstr "Maio"
 
 #: src/js/constants/quotes.js:253
 msgid "May the Force be with you."
-msgstr ""
+msgstr "Que a Força esteja com você."
 
 #: src/js/constants/states.js:29
 msgid "Michigan"
-msgstr ""
+msgstr "Michigan"
 
 #: src/js/constants/states.js:30
 msgid "Minnesota"
-msgstr ""
+msgstr "Minesota"
 
 #: src/js/constants/states.js:31
 msgid "Mississippi"
-msgstr ""
+msgstr "Mississippi"
 
 #: src/js/constants/states.js:32
 msgid "Missouri"
-msgstr ""
+msgstr "Missuri"
 
 #: src/js/constants/states.js:33
 msgid "Montana"
-msgstr ""
+msgstr "Montana"
 
 #: src/js/constants/states.js:34
 msgid "Nebraska"
-msgstr ""
+msgstr "Nebrasca"
 
 #. The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'
 #: src/templates/help-block.tpl.html:3
 msgid "Need help? Go to the"
-msgstr "¿Necesitas ayuda? Ir a la "
+msgstr "Precisa de ajuda? Vá para a"
 
 #: src/js/constants/states.js:35
 msgid "Nevada"
-msgstr ""
+msgstr "Nevada"
 
 #: src/js/constants/states.js:36
 msgid "New Hampshire"
-msgstr ""
+msgstr "New Hampshire"
 
 #: src/js/constants/states.js:37
 msgid "New Jersey"
-msgstr ""
+msgstr "Nova Jersey"
 
 #: src/js/constants/states.js:38
 msgid "New Mexico"
-msgstr ""
+msgstr "Novo México"
 
 #: src/js/constants/states.js:39
 msgid "New York"
-msgstr ""
+msgstr "Nova York"
 
 #: src/js/constants/states.js:40
 msgid "North Carolina"
-msgstr ""
+msgstr "North Carolina"
 
 #: src/js/constants/states.js:41
 msgid "North Dakota"
-msgstr ""
+msgstr "North Dakota"
 
 #: src/js/constants/quotes.js:49
 msgid "Nothing will work unless you do."
-msgstr ""
+msgstr "Nada vai funcionar a menos que você faça."
 
 #: src/js/constants/months.js:17
 msgid "Nov"
-msgstr ""
+msgstr "Nov"
 
 #: src/js/constants/months.js:17
 msgid "November"
-msgstr ""
+msgstr "Novembro"
 
 #: src/js/constants/months.js:16
 msgid "Oct"
-msgstr ""
+msgstr "Out"
 
 #: src/js/constants/months.js:16
 msgid "October"
-msgstr ""
+msgstr "Outubro"
 
 #: src/js/constants/states.js:42
 msgid "Ohio"
-msgstr ""
+msgstr "Ohio"
 
 #: src/js/constants/states.js:43
 msgid "Oklahoma"
-msgstr ""
+msgstr "Oklahoma"
 
 #: src/js/constants/states.js:44
 msgid "Oregon"
-msgstr ""
+msgstr "Oregon"
 
 #: src/js/constants/quotes.js:65
 msgid ""
 "Our greatest glory is not in never failing, but in rising up every time we "
 "fail."
 msgstr ""
+"Nossa maior glória não está em nunca falhar, mas em melhorar a cada vez que "
+"falhamos."
 
 #: src/templates/material-input.tpl.html:6
 msgid "Passwords must match."
-msgstr "No se encontraron coincidencias."
+msgstr "As senhas devem ser iguais"
 
 #: src/js/constants/states.js:45
 msgid "Pennsylvania"
-msgstr ""
+msgstr "Pennsylvania"
 
 #: src/templates/material-input.tpl.html:5
 msgid "Please enter a valid URL starting with http:// or https://"
-msgstr "Ingresa una URL válida empezando por http: // o https: //"
+msgstr "Por favor, introduza uma URL válida começando com http:// ou https://"
 
 #: src/templates/material-input.tpl.html:4
 msgid "Please enter a valid email address."
-msgstr "Ingresa una URL válida empezando."
+msgstr "Por favor, insira um e-mail válido."
 
 #: src/templates/background-picker.tpl.html:41
 msgid "Position"
-msgstr "Posición"
+msgstr "Posição"
 
 #: src/templates/protip.tpl.html:3
 msgid "ProTip:"
-msgstr "ProTip:"
+msgstr "Dica Pro:"
 
+# Não fiz uma frase equivalente em pt-br, apenas traduzi.
 #: src/js/constants/quotes.js:37
+#, fuzzy
 msgid ""
 "Quality is more important than quantity. One home run is much better than "
 "two doubles."
 msgstr ""
+"Qualidade é mais importante do que quantidade. Um home run é muito melhor do "
+"que duas duplas."
 
 #. R represents 'red' in rgb
 #: src/templates/color-picker.tpl.html:16
@@ -522,184 +558,198 @@ msgstr "R:"
 
 #: src/js/constants/states.js:46
 msgid "Rhode Island"
-msgstr ""
+msgstr "Rhode Island"
 
 #: src/js/constants/months.js:15
 msgid "Sep"
-msgstr ""
+msgstr "Set"
 
 #: src/js/constants/months.js:15
 msgid "September"
-msgstr ""
+msgstr "Setembro"
 
 #: src/js/constants/quotes.js:61
 msgid "Show me a thoroughly satisfied man and I will show you a failure."
 msgstr ""
+"Mostre-me um homem completamente satisfeito e eu lhe mostrarei um fracassado."
 
 #: src/js/constants/quotes.js:177
 msgid "Simplify, simplify, simplify."
-msgstr ""
+msgstr "Simplificar, simplificar, simplificar."
 
 #: src/js/constants/quotes.js:241
 msgid ""
 "Some people want it to happen, some wish it would happen, others make it "
 "happen."
 msgstr ""
+"Algumas pessoas querem que aconteça, alguns desejam que aconteça, outros "
+"fazem acontecer"
 
 #: src/js/directives/background-picker.js:81
 msgid "Something went wrong, please try again."
-msgstr "Algo salió mal. Por favor, vuelva a intentarlo."
+msgstr "Algo deu errado, por favor, tente novamente."
 
 #: src/js/constants/states.js:47
 msgid "South Carolina"
-msgstr ""
+msgstr "South Carolina"
 
 #: src/js/constants/states.js:48
 msgid "South Dakota"
-msgstr ""
+msgstr "South Dakota"
 
 #: src/js/constants/quotes.js:205
 msgid "Success breeds success."
-msgstr ""
+msgstr "Sucesso gera sucesso."
 
 #: src/js/constants/states.js:49
 msgid "Tennessee"
-msgstr ""
+msgstr "Tennessee"
 
 #: src/js/constants/states.js:50
 msgid "Texas"
-msgstr ""
+msgstr "Texas"
 
 #: src/js/constants/quotes.js:41
 msgid "That's one small step for man, one giant leap for mankind."
 msgstr ""
+"Isso é um pequeno passo para o homem, um salto gigante para a humanidade."
 
 #: src/js/constants/quotes.js:53
 msgid "The best way out is always through."
-msgstr ""
+msgstr "A melhor saída é sempre passar por."
 
 #: src/js/constants/quotes.js:125
 msgid "The harder the conflict, the more glorious the triumph."
-msgstr ""
+msgstr "Quando mais duro o conflito, mais glorioso o triunfo."
 
 #: src/js/constants/quotes.js:21
 msgid "The perfect is the enemy of the good."
-msgstr ""
+msgstr "O perfeito é inimigo do bom."
 
 #: src/js/constants/quotes.js:249
 msgid "The problem with the future is that it keeps turning into the present."
-msgstr ""
+msgstr "O problema com o futuro é que ele continua a virar para o presente."
 
 #: src/js/constants/quotes.js:173
 msgid "The value of an idea lies in the using of it."
-msgstr ""
+msgstr "O valor de uma ideia reside na utilização da mesma."
 
 #: src/js/constants/quotes.js:93
 msgid "The way to get started is to quit talking and begin doing."
-msgstr ""
+msgstr "A maneira de começar é parar de falar e começar a fazer."
 
 #: src/js/constants/quotes.js:217
 msgid "There is no substitute for hard work."
-msgstr ""
+msgstr "Não há substituto para o trabalho duro."
 
 #: src/templates/loading.tpl.html:8
 msgid "There was an error."
-msgstr "Hubo un error."
+msgstr "Ocorreu um erro."
 
 #: src/js/constants/quotes.js:181
 msgid "There's a way to do it better - find it."
-msgstr ""
+msgstr "Há uma maneira de fazer melhor - encontre-a."
 
 #: src/js/constants/quotes.js:193
 msgid "Things do not happen. Things are made to happen."
-msgstr ""
+msgstr "As coisas não acontecem. As coisas são feitas para acontecer."
 
 #: src/templates/material-input.tpl.html:3
 msgid "This is required."
-msgstr "Esto es necesario."
+msgstr "Este é obrigatório."
 
 #: src/js/constants/quotes.js:89
 msgid ""
 "To be idle is a short road to death and to be diligent is a way of life."
 msgstr ""
+"Ser ocioso é uma pequena estrada à morte e ser aplicado é um modo de vida."
 
 #: src/js/constants/quotes.js:169
 msgid "To have a great idea, have a lot of them."
-msgstr ""
+msgstr "Para ter uma ótima ideia, tenho um monte."
 
 #: src/templates/background-picker.tpl.html:3
 msgid "Upload Image"
-msgstr "Cargar imagen"
+msgstr "Enviar Imagem"
 
 #: src/js/constants/states.js:51
 msgid "Utah"
-msgstr ""
+msgstr "Utah"
 
 #: src/js/constants/states.js:52
 msgid "Vermont"
-msgstr ""
+msgstr "Vermont"
 
 #: src/js/constants/quotes.js:257
 msgid "Victory belongs to the most persevering."
-msgstr ""
+msgstr "A vitória pertence ao mais perseverante."
 
 #: src/js/constants/states.js:53
 msgid "Virginia"
-msgstr ""
+msgstr "Virginia"
 
 #: src/js/constants/states.js:54
 msgid "Washington"
-msgstr ""
+msgstr "Washington"
 
 #: src/js/constants/states.js:55
 msgid "West Virginia"
-msgstr ""
+msgstr "West Virginia"
 
 #: src/js/constants/quotes.js:185
 msgid ""
 "When it is obvious that the goals cannot be reached, don't adjust the goals, "
 "adjust the steps."
 msgstr ""
+"Quando é óbvio que os objetivos não podem ser alcançados, não ajuste os "
+"objetivos, ajustar os passos."
 
 #: src/js/constants/quotes.js:213
 msgid "When you stop doing things for fun, you might as well be dead."
 msgstr ""
+"Quando você parar de fazer coisas para se divertir, você também pode estar "
+"morto."
 
 #: src/js/constants/states.js:56
 msgid "Wisconsin"
-msgstr ""
+msgstr "Wisconsin"
 
 #: src/js/constants/quotes.js:157
 msgid "Without pain, without sacrifice, we would have nothing."
-msgstr ""
+msgstr "Sem dor, sem sacrifício, não teríamos nada."
 
 #: src/js/constants/quotes.js:109
 msgid "Work spares us from three evils: boredom, vice and need."
-msgstr ""
+msgstr "Trabalho nos poupa de três males: tédio, vício e necessidade."
 
 #: src/js/constants/states.js:57
 msgid "Wyoming"
-msgstr ""
+msgstr "Wyoming"
 
 #: src/js/constants/quotes.js:209
 msgid "You are never too old to set another goal or to dream a new dream."
 msgstr ""
+"Você nunca é velho demais para definir outro objetivo ou um novo sonho."
 
 #: src/js/constants/quotes.js:105
 msgid "You can never quit. Winners never quit, and quitters never win."
 msgstr ""
+"Você nunca pode parar. Vencedores nunca desistem e desistentes nunca ganham."
 
+# Não consegui traduzir.
 #: src/js/constants/quotes.js:17
+#, fuzzy
 msgid "You can't wait for inspiration. You have to go after it with a club."
 msgstr ""
+"Você não pode esperar a inspiração. Você tem que ir atrás dele com um clube."
 
+# Sem tradução.
 #: src/js/constants/quotes.js:165
+#, fuzzy
 msgid "You miss 100% of the shots you don't take."
-msgstr ""
+msgstr "Você perde 100% dos tiros que não levas."
 
 #: src/js/constants/quotes.js:133
 msgid "You've got to jump off cliffs and build your wings on the way down."
 msgstr ""
-
-#~ msgid "Cover<span class=\"sub-icon\"></span>"
-#~ msgstr "Cubierta <span class = \"sub-icon\"> </ span>"
+"Você tem que saltar de penhascos e construir suas asas no caminho para baixo."
