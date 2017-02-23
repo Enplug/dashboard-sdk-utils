@@ -504,6 +504,11 @@ msgstr "9月"
 msgid "Show me a thoroughly satisfied man and I will show you a failure."
 msgstr "完全に満足しきった人がいたら、それは落伍者だ。"
 
+#: ./src/js/directives/tables/st-summary.js:25
+#: ./src/js/directives/tables/st-summary.js:28
+msgid "Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
+msgstr "見せる {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
+
 #: src/js/constants/quotes.js:177
 msgid "Simplify, simplify, simplify."
 msgstr "とにかく単純化せよ。"
