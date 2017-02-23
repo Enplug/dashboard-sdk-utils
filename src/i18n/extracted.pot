@@ -499,7 +499,7 @@ msgid "Show me a thoroughly satisfied man and I will show you a failure."
 msgstr ""
 
 #: ./src/js/directives/tables/st-summary.js:32
-msgid "Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
+msgid "Showing"
 msgstr ""
 
 #: ./src/js/constants/quotes.js:177
@@ -660,4 +660,8 @@ msgstr ""
 
 #: ./src/js/constants/quotes.js:133
 msgid "You've got to jump off cliffs and build your wings on the way down."
+msgstr ""
+
+#: ./src/js/directives/tables/st-summary.js:32
+msgid "of"
 msgstr ""

@@ -29,7 +29,7 @@ angular.module('enplug.sdk.utils').directive('stSummary', [function () {
                 $scope.stRange.from = $stTable.tableState().pagination.start + 1;
                 $scope.stRange.to = $scope.currentPage === $scope.numPages ? $scope.size : ($scope.stRange.from + $scope.stItemsByPage - 1);
 
-                $scope.paginationLabel = gettext("Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}", {stRangeFrom: $scope.stRange.from, stRangeTo: $scope.stRange.to, size: $scope.size})
+                $scope.paginationLabel = gettext("Showing") + $scope.stRange.from + "-" + $scope.stRange.to + gettext("of") +  $scope.size;
             });
         }
     };

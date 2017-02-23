@@ -509,6 +509,10 @@ msgstr "完全に満足しきった人がいたら、それは落伍者だ。"
 msgid "Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
 msgstr "見せる {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
 
+#: ./src/js/directives/tables/st-summary.js:32
+msgid "Showing"
+msgstr "見せる"
+
 #: src/js/constants/quotes.js:177
 msgid "Simplify, simplify, simplify."
 msgstr "とにかく単純化せよ。"
@@ -668,3 +672,7 @@ msgstr "打たないシュートは、100％外れる。"
 #: src/js/constants/quotes.js:133
 msgid "You've got to jump off cliffs and build your wings on the way down."
 msgstr "まず崖から飛び降りて、落ちていく間に自分の翼を作らなければいけない。"
+
+#: ./src/js/directives/tables/st-summary.js:32
+msgid "of"
+msgstr "of"

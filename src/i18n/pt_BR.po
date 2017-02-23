@@ -578,6 +578,10 @@ msgstr ""
 msgid "Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
 msgstr "Mostrando {{ stRangeFrom }}-{{ stRangeTo}} de {{size}}"
 
+#: ./src/js/directives/tables/st-summary.js:32
+msgid "Showing"
+msgstr "Mostrando"
+
 #: src/js/constants/quotes.js:177
 msgid "Simplify, simplify, simplify."
 msgstr "Simplificar, simplificar, simplificar."
@@ -758,3 +762,7 @@ msgstr "Você perde 100% dos tiros que não levas."
 msgid "You've got to jump off cliffs and build your wings on the way down."
 msgstr ""
 "Você tem que saltar de penhascos e construir suas asas no caminho para baixo."
+
+#: ./src/js/directives/tables/st-summary.js:32
+msgid "of"
+msgstr "de"
