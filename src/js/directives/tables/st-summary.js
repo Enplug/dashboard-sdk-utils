@@ -7,7 +7,7 @@ angular.module('enplug.sdk.utils').directive('stSummary', [function () {
     return {
         restrict: 'E',
         require: '^stTable',
-        template: '<div class="summary">{{ paginationLabel }}</div>',
+        template: '<div class="summary">{{ paginationLabel | translate }}</div>',
         link: function ($scope, $element, $attrs, $stTable) {
 
             $scope.paginationLabel;
