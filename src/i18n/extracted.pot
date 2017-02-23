@@ -498,7 +498,7 @@ msgstr ""
 msgid "Show me a thoroughly satisfied man and I will show you a failure."
 msgstr ""
 
-#: ./src/js/directives/tables/st-summary.js:32
+#: ./src/js/directives/tables/st-summary.js:17
 msgid "Showing"
 msgstr ""
 
@@ -662,6 +662,6 @@ msgstr ""
 msgid "You've got to jump off cliffs and build your wings on the way down."
 msgstr ""
 
-#: ./src/js/directives/tables/st-summary.js:32
+#: ./src/js/directives/tables/st-summary.js:19
 msgid "of"
 msgstr ""
