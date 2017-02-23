@@ -2152,7 +2152,7 @@ angular.module('enplug.sdk.utils').filter('stNestedSort', [function() {
     };
 }]);
 
-angular.module('enplug.sdk.utils').directive('stSummary', 'gettextCatalog', [function (gettextCatalog) {
+angular.module('enplug.sdk.utils').directive('stSummary', [function (gettext, gettextCatalog) {
     return {
         restrict: 'E',
         require: '^stTable',
@@ -2161,7 +2161,7 @@ angular.module('enplug.sdk.utils').directive('stSummary', 'gettextCatalog', [fun
 
             $scope.paginationLabel;
 
-            console.log('Get text catalog: ', gettextCatalog)
+            console.log('Get text catalog: ', gettextCatalog, gettext)
 
             // Watch for updates to data
             $scope.$watch($stTable.getFilteredCollection, function  (val) {
