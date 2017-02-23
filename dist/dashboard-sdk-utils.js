@@ -2161,7 +2161,7 @@ angular.module('enplug.sdk.utils').directive('stSummary', [function () {
     return {
         restrict: 'E',
         require: '^stTable',
-        template: '<div class="summary">{{ paginationLabel | translate }} + {{stRange.from}}-{{stRange.to}} +  {{ paginationLabel2 | translate }} +  {{ size }}</div>',
+        template: '<div class="summary">{{ paginationLabel | translate }} {{stRange.from}}-{{stRange.to}} {{ paginationLabel2 | translate }} {{ size }}</div>',
         link: function ($scope, $element, $attrs, $stTable) {
 
             $scope.paginationLabel;
