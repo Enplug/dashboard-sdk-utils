@@ -2156,7 +2156,7 @@ angular.module('enplug.sdk.utils').directive('stSummary', [function (gettextCata
     return {
         restrict: 'E',
         require: '^stTable',
-        template: '<div class="summary">{{ paginationLabe l}}</div>',
+        template: '<div class="summary">{{ paginationLabel }}</div>',
         link: function ($scope, $element, $attrs, $stTable) {
 
             $scope.paginationLabel;
