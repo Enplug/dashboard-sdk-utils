@@ -498,8 +498,8 @@ msgstr ""
 msgid "Show me a thoroughly satisfied man and I will show you a failure."
 msgstr ""
 
-#: ./src/js/directives/tables/st-summary.js:25
-#: ./src/js/directives/tables/st-summary.js:28
+#: ./src/js/directives/tables/st-summary.js:32
+#: ./src/js/directives/tables/st-summary.js:35
 msgid "Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
 msgstr ""
 
