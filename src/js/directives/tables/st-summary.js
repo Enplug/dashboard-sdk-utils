@@ -31,9 +31,6 @@ angular.module('enplug.sdk.utils').directive('stSummary', [function () {
 
                 $scope.paginationLabel = gettext("Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}", {stRangeFrom: $scope.stRange.from, stRangeTo: $scope.stRange.to, size: $scope.size})
             });
-
-            $scope.paginationLabel = gettext("Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}", {stRangeFrom: $scope.stRange.from, stRangeTo: $scope.stRange.to, size: $scope.size})
-
         }
     };
 }]);
