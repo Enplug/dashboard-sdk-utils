@@ -2152,12 +2152,17 @@ angular.module('enplug.sdk.utils').filter('stNestedSort', [function() {
     };
 }]);
 
+// Extracting Strings for Translating
+var gettext = function(s) {
+    return s;
+};
+
 angular.module('enplug.sdk.utils').directive('stSummary', [function (gettext, gettextCatalog) {
     return {
         restrict: 'E',
         require: '^stTable',
         template: '<div class="summary">{{ paginationLabel }}</div>',
-        link: function ($scope, $element, $attrs, $stTable) {
+        link: function ($scope, $element, $attrs, $stTable, gettext, gettextCatalog) {
 
             $scope.paginationLabel;
 
