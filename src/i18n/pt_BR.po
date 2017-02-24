@@ -200,7 +200,7 @@ msgstr "Florida"
 msgid "Focus is a matter of deciding what things you're not going to do."
 msgstr "Foco é uma questão de decidir que coisas que você não vai fazer."
 
-# brigher = brighter 
+# brigher = brighter
 #: src/js/constants/quotes.js:97
 #, fuzzy
 msgid "For every dark night, there's a brigher day."
@@ -573,6 +573,15 @@ msgid "Show me a thoroughly satisfied man and I will show you a failure."
 msgstr ""
 "Mostre-me um homem completamente satisfeito e eu lhe mostrarei um fracassado."
 
+#: ./src/js/directives/tables/st-summary.js:25
+#: ./src/js/directives/tables/st-summary.js:28
+msgid "Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
+msgstr "Mostrando {{ stRangeFrom }}-{{ stRangeTo}} de {{size}}"
+
+#: ./src/js/directives/tables/st-summary.js:32
+msgid "Showing"
+msgstr "Mostrando"
+
 #: src/js/constants/quotes.js:177
 msgid "Simplify, simplify, simplify."
 msgstr "Simplificar, simplificar, simplificar."
@@ -753,3 +762,7 @@ msgstr "Você perde 100% dos tiros que não levas."
 msgid "You've got to jump off cliffs and build your wings on the way down."
 msgstr ""
 "Você tem que saltar de penhascos e construir suas asas no caminho para baixo."
+
+#: ./src/js/directives/tables/st-summary.js:32
+msgid "of"
+msgstr "de"
