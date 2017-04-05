@@ -52,8 +52,6 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
                     if (themeIndex > -1) {
                         scope.customThemes.splice(themeIndex, 1);
                         scope.asset.ThemeId = null;
-                        // Select default theme after one has been deleted
-                        // scope.selectTheme( $filter('themeFilter')(scope.enplugThemes, 'Name', 'Grape') );
                     }
                 });
             }
@@ -69,6 +67,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             }
             // Copying default theme values
             scope.copyTheme = function( theme ) {
+
                 var copy = scope.defaultTheme;
                 copy.Name = gettextCatalog.getString('Copy of {{themeName}}', {themeName: theme.Name});
                 copy.Value = theme.Value;
@@ -77,7 +76,6 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
                      .then( function(newTheme) {
                          scope.customThemes.push(newTheme);
                          scope.selectTheme(newTheme);
-
                      });
             }
             // Editing theme
@@ -95,11 +93,11 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             }
             // Filtering background style for themes
             scope.filterStyle = function( theme ) {
+
                 var themeContent = theme.Value.content;
                 // Prevents undefined error if creating new theme is delayed before
                 if( themeContent ) {
                     var style = $filter('themePickerStyle')(themeContent, themeContent.background.backgroundImage);
-                    console.log(style);
                     return style[themeContent.background.gradient];
                 }
             }
