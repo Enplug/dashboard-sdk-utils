@@ -3952,7 +3952,7 @@ dropdown-menu:not(.dropdown-wrap) {
         transition: all linear .5s;
         margin-left: 2.5%; }
         .themes-directive .themes-flexbox .enplug-themes-container .custom-themes .template {
-          min-width: 100px;
+          min-width: 150px;
           min-height: 130px;
           max-height: 130px;
           overflow: hidden;
