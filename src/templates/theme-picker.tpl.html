@@ -5,7 +5,7 @@
         <div class="enplug-themes-container">
             <div ng-class="{'selected': selectedTheme.Id == theme.Id}"
                 ng-style="filterStyle(theme)"
-                ng-click="selectTheme(theme)" ng-repeat="theme in enplugThemes | orderDefaultTheme: enplugThemes" class="custom-themes">
+                ng-click="selectTheme(theme)" ng-repeat="theme in defaultThemes | orderDefaultTheme: defaultThemes" class="custom-themes">
                 <div class="template">
                     <div class="mini-template" ng-style="filterStyle(theme)" ng-transclude>
                         <!--THUMBNAIL TEXT OR CONTENT GOES HERE  -->
