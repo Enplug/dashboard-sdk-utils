@@ -2307,7 +2307,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             customThemes: '=',
             defaultThemes: '=',
             themeDefinition: '=',
-            appUrl: '=',
+            previewUrl: '=',
             previewAsset: '='
         },
         templateUrl: 'sdk-utils/theme-picker.tpl',
@@ -2346,7 +2346,9 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             // Creating new theme
             scope.createNewTheme = function() {
 
-                saveTheme(scope.defaultTheme)
+                var newTheme = scope.defaultTheme ? scope.defaultTheme : scope.defaultThemes[0];
+
+                saveTheme(newTheme)
                      .then( function(newTheme) {
                          scope.customThemes.push(newTheme);
                          scope.selectTheme(newTheme);
@@ -2355,9 +2357,10 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             // Copying default theme values
             scope.copyTheme = function( theme ) {
 
-                var copy = scope.defaultTheme;
+                var copy = theme;
+                copy.Id = null;
                 copy.Name = gettextCatalog.getString('Copy of {{themeName}}', {themeName: theme.Name});
-                copy.Value = theme.Value;
+                copy.isDefault = false;
 
                 saveTheme(copy)
                      .then( function(newTheme) {
@@ -2390,7 +2393,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             }
             // Function used to create, edit, and copy default theme to save
             function saveTheme( theme ) {
-                return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.appUrl, scope.previewAsset);
+                return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset);
             }
         }
     };
