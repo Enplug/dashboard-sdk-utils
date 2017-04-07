@@ -3873,36 +3873,40 @@ dropdown-menu:not(.dropdown-wrap) {
   box-sizing: content-box; }
   .themes-directive .themes-flexbox {
     margin-top: 3%;
-    display: -ms-flexbox;
-    display: flex;
+    height: auto;
     -ms-flex-pack: start;
         justify-content: flex-start;
+    display: -ms-flexbox;
+    display: flex;
+    -moz-flex-direction: column;
     -ms-flex-direction: column;
-        flex-direction: column;
-    height: auto; }
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    flex-direction: column; }
     .themes-directive .themes-flexbox .flexbox-header {
-      -ms-flex: 1;
-          flex: 1;
       margin-bottom: 2%;
       margin-top: 2%;
       font-size: 14px;
       height: auto;
       font-weight: 500;
-      color: #96a5b2; }
+      color: #96a5b2;
+      -ms-flex: 1;
+      flex: 1; }
     .themes-directive .themes-flexbox .enplug-themes-container {
       -ms-flex-pack: start;
           justify-content: flex-start;
-      display: -ms-flexbox;
-      display: flex;
       -ms-flex-flow: wrap;
           flex-flow: wrap;
+      -webkit-flex-wrap: wrap;
       -ms-flex-align: center;
           align-items: center;
       -ms-flex: 1;
-          flex: 1; }
+      flex: 1;
+      display: -ms-flexbox;
+      display: flex; }
       .themes-directive .themes-flexbox .enplug-themes-container .enplug-themes {
         -ms-flex: 0 0 22.5%;
-            flex: 0 0 22.5%;
+        flex: 0 0 22.5%;
         width: 150px;
         min-height: 130px;
         max-height: 130px;
@@ -3938,7 +3942,7 @@ dropdown-menu:not(.dropdown-wrap) {
             transition: all 0.5s ease; }
       .themes-directive .themes-flexbox .enplug-themes-container .custom-themes {
         -ms-flex: 0 1 22.5%;
-            flex: 0 1 22.5%;
+        flex: 0 1 22.5%;
         width: 150px;
         min-height: 130px;
         max-height: 130px;

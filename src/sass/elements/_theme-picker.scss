@@ -1,39 +1,68 @@
 $selected-theme-border: 8px solid #4078C0 !important;
 $border-theme-width: 8px;
 
+
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flexboxColumn() {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    flex-direction: column;
+}
+
 .themes-directive {
     box-sizing: content-box;
 
     .themes-flexbox {
         margin-top: 3%;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
         height: auto;
+        justify-content: flex-start;
+        @include flexbox;
+        @include flexboxColumn;
 
         .flexbox-header {
-            flex: 1;
             margin-bottom: 2%;
             margin-top: 2%;
             font-size: 14px;
             height: auto;
             font-weight: 500;
             color: #96a5b2;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
         }
 
         .enplug-themes-container {
             justify-content: flex-start;
-            display: flex;
             flex-flow: wrap;
+            -webkit-flex-wrap: wrap;
             align-items: center;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
             flex: 1;
+            @include flexbox;
 
             // Enplug Themes Section
             .enplug-themes {
+                -webkit-box-flex: 0 0 22.5%;
+                -moz-box-flex: 0 0 22.5%;
+                -webkit-flex: 0 0 22.5%;
+                -ms-flex: 0 0 22.5%;
                 flex: 0 0 22.5%;
                 width: 150px;
                 min-height: 130px;
@@ -84,6 +113,10 @@ $border-theme-width: 8px;
             }
             // Custom Theme Section
             .custom-themes {
+                -webkit-box-flex: 0 1 22.5%;
+                -moz-box-flex: 0 1 22.5%;
+                -webkit-flex: 0 1 22.5%;
+                -ms-flex: 0 1 22.5%;
                 flex: 0 1 22.5%;
                 width: 150px;
                 min-height: 130px;
