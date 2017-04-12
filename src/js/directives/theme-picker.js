@@ -76,7 +76,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
 
                 if( scope.previewIsValid ) {
 
-                    var copy = theme;
+                    var copy = angular.copy(theme);
                     copy.Id = null;
                     copy.Name = gettextCatalog.getString('Copy of {{themeName}}', {themeName: theme.Name});
                     copy.isDefault = false;
