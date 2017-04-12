@@ -28,8 +28,6 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
 
         link: function (scope, element, attrs, arg) {
 
-            console.log(scope.previewIsValid);
-
             // Method to select theme
             scope.selectTheme = function( theme ) {
 
@@ -41,6 +39,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
 
             // Removing theme
             scope.removeTheme = function( theme ) {
+
                 $enplugDashboard.openConfirm({
                     title: 'Delete "' +  theme.Name + '" ?',
                     text: 'Are you sure you want to cancel the changes you\'ve made? This action is not recoverable.',
@@ -62,46 +61,44 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             // Creating new theme
             scope.createNewTheme = function() {
 
-                var newTheme = scope.defaultTheme ? scope.defaultTheme : scope.defaultThemes[0];
+                if( scope.previewIsValid ) {
 
-                saveTheme(newTheme)
-                     .then( function(newTheme) {
-                         scope.customThemes.push(newTheme);
-                         scope.selectTheme(newTheme);
-                     });
+                    var newTheme = scope.defaultTheme ? scope.defaultTheme : scope.defaultThemes[0];
+
+                    saveTheme(newTheme).then( function(newTheme) {
+                        scope.customThemes.push(newTheme);
+                        scope.selectTheme(newTheme);
+                    });
+                }
             }
             // Copying default theme values
             scope.copyTheme = function( theme ) {
 
-                var copy = theme;
-                copy.Id = null;
-                copy.Name = gettextCatalog.getString('Copy of {{themeName}}', {themeName: theme.Name});
-                copy.isDefault = false;
+                if( scope.previewIsValid ) {
 
-                saveTheme(copy)
-                     .then( function(newTheme) {
-                         scope.customThemes.push(newTheme);
-                         scope.selectTheme(newTheme);
-                     });
+                    var copy = theme;
+                    copy.Id = null;
+                    copy.Name = gettextCatalog.getString('Copy of {{themeName}}', {themeName: theme.Name});
+                    copy.isDefault = false;
+
+                    saveTheme(copy).then( function(newTheme) {
+                        scope.customThemes.push(newTheme);
+                        scope.selectTheme(newTheme);
+                    });
+                 }
             }
             // Editing theme
             scope.editTheme = function( theme ) {
-                saveTheme(theme)
-                     .then( function(theme) {
 
+                if( scope.previewIsValid ) {
+
+                    saveTheme(theme).then( function(theme) {
                          var themeIndex = scope.customThemes.indexOf(theme);
                          var updatedTheme = angular.copy(theme);
                          scope.customThemes.splice(themeIndex, 1, updatedTheme);
                          scope.selectTheme(updatedTheme);
-                     });
-            }
-
-            scope.checkForTest = function() {
-
-                var isValid = false;
-
-                var isValid = scope.previewIsValid();
-
+                    });
+                }
             }
             // Filtering background style for themes
             scope.filterStyle = function( theme ) {
@@ -116,10 +113,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             // Function used to create, edit, and copy default theme to save
             function saveTheme( theme ) {
 
-                if( scope.previewIsValid ) {
-
-                    return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset);
-                }
+                return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset);
             }
         }
     };
