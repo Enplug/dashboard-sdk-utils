@@ -21,11 +21,14 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             defaultThemes: '=',
             themeDefinition: '=',
             previewUrl: '=',
-            previewAsset: '='
+            previewAsset: '=',
+            previewIsValid: '=?previewIsValid'
         },
         templateUrl: 'sdk-utils/theme-picker.tpl',
 
         link: function (scope, element, attrs, arg) {
+
+            console.log(scope.previewIsValid);
 
             // Method to select theme
             scope.selectTheme = function( theme ) {
@@ -83,7 +86,6 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             }
             // Editing theme
             scope.editTheme = function( theme ) {
-
                 saveTheme(theme)
                      .then( function(theme) {
 
@@ -91,8 +93,15 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
                          var updatedTheme = angular.copy(theme);
                          scope.customThemes.splice(themeIndex, 1, updatedTheme);
                          scope.selectTheme(updatedTheme);
-
                      });
+            }
+
+            scope.checkForTest = function() {
+
+                var isValid = false;
+
+                var isValid = scope.previewIsValid();
+
             }
             // Filtering background style for themes
             scope.filterStyle = function( theme ) {
@@ -106,7 +115,11 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             }
             // Function used to create, edit, and copy default theme to save
             function saveTheme( theme ) {
-                return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset);
+
+                if( scope.previewIsValid ) {
+
+                    return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset);
+                }
             }
         }
     };
