@@ -2309,7 +2309,8 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             themeDefinition: '=',
             previewUrl: '=',
             previewAsset: '=',
-            previewIsValid: '=?previewIsValid'
+            previewCheck: '&',
+            previewIsValid: '=?previewIsValid',
         },
         templateUrl: 'sdk-utils/theme-picker.tpl',
 
@@ -2361,6 +2362,10 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             // Copying default theme values
             scope.copyTheme = function( theme ) {
 
+                if( scope.previewCheck ) {
+                    scope.previewCheck();
+                }
+
                 if( scope.previewIsValid ) {
 
                     var copy = angular.copy(theme);
@@ -2376,6 +2381,10 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             }
             // Editing theme
             scope.editTheme = function( theme ) {
+
+                if( scope.previewCheck ) {
+                    scope.previewCheck();
+                }
 
                 if( scope.previewIsValid ) {
 
