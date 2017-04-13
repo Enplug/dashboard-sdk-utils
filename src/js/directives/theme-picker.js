@@ -8,7 +8,9 @@
 * @param themeDefinition {Object constant of theme sections}
 * @param customThemes {Array of saved custom themes}
 * @param defaultThemes {Array of default enplug themes}
-* @param asset {Object current asset}
+* @param previewUrl {Url of current app}
+* @param previewAsset {Object of current asset being used in preview editor}
+* @param previewCheck {Promise, when available will only open theme preview if resolved}
 */
 angular.module('enplug.sdk.utils').directive('themePicker', function ($document, $enplugDashboard, $enplugAccount, gettextCatalog, $filter, $route) {
     return {
