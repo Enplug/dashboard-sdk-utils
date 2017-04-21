@@ -1,4 +1,4 @@
-angular.module("gettext",[]),angular.module("gettext").constant("gettext",function(a){return a}),angular.module("gettext").factory("gettextCatalog",["gettextPlurals","gettextFallbackLanguage","$http","$cacheFactory","$interpolate","$rootScope",function(a,b,c,d,e,f){function g(){f.$broadcast("gettextLanguageChanged")}var h,i="$$noContext",j='<span id="test" title="test" class="tested">test</span>',k=angular.element("<span>"+j+"</span>").html()!==j,l=function(a){return h.debug&&h.currentLanguage!==h.baseLanguage?h.debugPrefix+a:a},m=function(a){return h.showTranslatedMarkers?h.translatedMarkerPrefix+a+h.translatedMarkerSuffix:a};return h={debug:!1,debugPrefix:"[MISSING]: ",showTranslatedMarkers:!1,translatedMarkerPrefix:"[",translatedMarkerSuffix:"]",strings:{},baseLanguage:"en",currentLanguage:"en",cache:d("strings"),setCurrentLanguage:function(a){this.currentLanguage=a,g()},getCurrentLanguage:function(){return this.currentLanguage},setStrings:function(b,c){this.strings[b]||(this.strings[b]={});var d=a(b,1);for(var e in c){var f=c[e];if(k&&(e=angular.element("<span>"+e+"</span>").html()),angular.isString(f)||angular.isArray(f)){var h={};h[i]=f,f=h}for(var j in f){var l=f[j];angular.isArray(l)||(f[j]=[],f[j][d]=l)}this.strings[b][e]=f}g()},getStringFormFor:function(b,c,d,e){if(!b)return null;var f=this.strings[b]||{},g=f[c]||{},h=g[e||i]||[];return h[a(b,d)]},getString:function(a,c,d){var f=b(this.currentLanguage);return a=this.getStringFormFor(this.currentLanguage,a,1,d)||this.getStringFormFor(f,a,1,d)||l(a),a=c?e(a)(c):a,m(a)},getPlural:function(a,c,d,f,g){var h=b(this.currentLanguage);return c=this.getStringFormFor(this.currentLanguage,c,a,g)||this.getStringFormFor(h,c,a,g)||l(1===a?c:d),f&&(f.$count=a,c=e(c)(f)),m(c)},loadRemote:function(a){return c({method:"GET",url:a,cache:h.cache}).then(function(a){var b=a.data;for(var c in b)h.setStrings(c,b[c]);return a})}}}]),angular.module("gettext").directive("translate",["gettextCatalog","$parse","$animate","$compile","$window","gettextUtil",function(a,b,c,d,e,f){function g(a){return f.lcFirst(a.replace(j,""))}function h(a,b,c){var d=Object.keys(b).filter(function(a){return f.startsWith(a,j)&&a!==j});if(!d.length)return null;var e=angular.extend({},a),h=[];return d.forEach(function(d){var f=a.$watch(b[d],function(a){var b=g(d);e[b]=a,c(e)});h.push(f)}),a.$on("$destroy",function(){h.forEach(function(a){a()})}),e}var i=parseInt((/msie (\d+)/.exec(angular.lowercase(e.navigator.userAgent))||[])[1],10),j="translateParams";return{restrict:"AE",terminal:!0,compile:function(e,g){f.assert(!g.translatePlural||g.translateN,"translate-n","translate-plural"),f.assert(!g.translateN||g.translatePlural,"translate-plural","translate-n");var j=f.trim(e.html()),k=g.translatePlural,l=g.translateContext;return 8>=i&&"<!--IE fix-->"===j.slice(-13)&&(j=j.slice(0,-13)),{post:function(e,g,i){function m(b){b=b||null;var h;k?(e=o||(o=e.$new()),e.$count=n(e),h=a.getPlural(e.$count,j,k,b,l)):h=a.getString(j,b,l);var i=g.contents();if(0!==i.length){if(h===f.trim(i.html()))return void(p&&d(i)(e));var m=angular.element("<span>"+h+"</span>");d(m.contents())(e);var q=m.contents();c.enter(q,g),c.leave(i)}}var n=b(i.translateN),o=null,p=!0,q=h(e,i,m);m(q),p=!1,i.translateN&&e.$watch(i.translateN,function(){m(q)}),e.$on("gettextLanguageChanged",function(){m(q)})}}}}}]),angular.module("gettext").factory("gettextFallbackLanguage",function(){var a={},b=/([^_]+)_[^_]+$/;return function(c){if(a[c])return a[c];var d=b.exec(c);return d?(a[c]=d[1],d[1]):null}}),angular.module("gettext").filter("translate",["gettextCatalog",function(a){function b(b,c){return a.getString(b,null,c)}return b.$stateful=!0,b}]),angular.module("gettext").factory("gettextPlurals",function(){function a(a){return b[a]||(b[a]=a.split(/\-|_/).shift()),b[a]}var b={pt_BR:"pt_BR","pt-BR":"pt_BR"};return function(b,c){switch(a(b)){case"ay":case"bo":case"cgg":case"dz":case"fa":case"id":case"ja":case"jbo":case"ka":case"kk":case"km":case"ko":case"ky":case"lo":case"ms":case"my":case"sah":case"su":case"th":case"tt":case"ug":case"vi":case"wo":case"zh":return 0;case"is":return c%10!=1||c%100==11?1:0;case"jv":return 0!=c?1:0;case"mk":return 1==c||c%10==1?0:1;case"ach":case"ak":case"am":case"arn":case"br":case"fil":case"fr":case"gun":case"ln":case"mfe":case"mg":case"mi":case"oc":case"pt_BR":case"tg":case"ti":case"tr":case"uz":case"wa":case"zh":return c>1?1:0;case"lv":return c%10==1&&c%100!=11?0:0!=c?1:2;case"lt":return c%10==1&&c%100!=11?0:c%10>=2&&(10>c%100||c%100>=20)?1:2;case"be":case"bs":case"hr":case"ru":case"sr":case"uk":return c%10==1&&c%100!=11?0:c%10>=2&&4>=c%10&&(10>c%100||c%100>=20)?1:2;case"mnk":return 0==c?0:1==c?1:2;case"ro":return 1==c?0:0==c||c%100>0&&20>c%100?1:2;case"pl":return 1==c?0:c%10>=2&&4>=c%10&&(10>c%100||c%100>=20)?1:2;case"cs":case"sk":return 1==c?0:c>=2&&4>=c?1:2;case"sl":return c%100==1?1:c%100==2?2:c%100==3||c%100==4?3:0;case"mt":return 1==c?0:0==c||c%100>1&&11>c%100?1:c%100>10&&20>c%100?2:3;case"gd":return 1==c||11==c?0:2==c||12==c?1:c>2&&20>c?2:3;case"cy":return 1==c?0:2==c?1:8!=c&&11!=c?2:3;case"kw":return 1==c?0:2==c?1:3==c?2:3;case"ga":return 1==c?0:2==c?1:7>c?2:11>c?3:4;case"ar":return 0==c?0:1==c?1:2==c?2:c%100>=3&&10>=c%100?3:c%100>=11?4:5;default:return 1!=c?1:0}}}),angular.module("gettext").factory("gettextUtil",function(){function a(a,b,c){if(!a)throw new Error("You should add a "+b+" attribute whenever you add a "+c+" attribute.")}function b(a,b){return 0===a.indexOf(b)}function c(a){var b=a.charAt(0).toLowerCase();return b+a.substr(1)}var d=function(){return String.prototype.trim?function(a){return"string"==typeof a?a.trim():a}:function(a){return"string"==typeof a?a.replace(/^\s*/,"").replace(/\s*$/,""):a}}();return{trim:d,assert:a,startsWith:b,lcFirst:c}});
+angular.module("gettext",[]),angular.module("gettext").constant("gettext",function(a){return a}),angular.module("gettext").factory("gettextCatalog",["gettextPlurals","gettextFallbackLanguage","$http","$cacheFactory","$interpolate","$rootScope",function(a,b,c,d,e,f){function g(){f.$broadcast("gettextLanguageChanged")}var h,i="$$noContext",j='<span id="test" title="test" class="tested">test</span>',k=angular.element("<span>"+j+"</span>").html()!==j,l=function(a){return h.debug&&h.currentLanguage!==h.baseLanguage?h.debugPrefix+a:a},m=function(a){return h.showTranslatedMarkers?h.translatedMarkerPrefix+a+h.translatedMarkerSuffix:a};return h={debug:!1,debugPrefix:"[MISSING]: ",showTranslatedMarkers:!1,translatedMarkerPrefix:"[",translatedMarkerSuffix:"]",strings:{},baseLanguage:"en",currentLanguage:"en",cache:d("strings"),setCurrentLanguage:function(a){this.currentLanguage=a,g()},getCurrentLanguage:function(){return this.currentLanguage},setStrings:function(b,c){this.strings[b]||(this.strings[b]={});var d=a(b,1);for(var e in c){var f=c[e];if(k&&(e=angular.element("<span>"+e+"</span>").html()),angular.isString(f)||angular.isArray(f)){var h={};h[i]=f,f=h}this.strings[b][e]||(this.strings[b][e]={});for(var j in f){var l=f[j];angular.isArray(l)?this.strings[b][e][j]=l:(this.strings[b][e][j]=[],this.strings[b][e][j][d]=l)}}g()},getStringFormFor:function(b,c,d,e){if(!b)return null;var f=this.strings[b]||{},g=f[c]||{},h=g[e||i]||[];return h[a(b,d)]},getString:function(a,c,d){var f=b(this.currentLanguage);return a=this.getStringFormFor(this.currentLanguage,a,1,d)||this.getStringFormFor(f,a,1,d)||l(a),a=c?e(a)(c):a,m(a)},getPlural:function(a,c,d,f,g){var h=b(this.currentLanguage);return c=this.getStringFormFor(this.currentLanguage,c,a,g)||this.getStringFormFor(h,c,a,g)||l(1===a?c:d),f&&(f.$count=a,c=e(c)(f)),m(c)},loadRemote:function(a){return c({method:"GET",url:a,cache:h.cache}).then(function(a){var b=a.data;for(var c in b)h.setStrings(c,b[c]);return a})}}}]),angular.module("gettext").directive("translate",["gettextCatalog","$parse","$animate","$compile","$window","gettextUtil",function(a,b,c,d,e,f){function g(a){return f.lcFirst(a.replace(j,""))}function h(a,b,c){var d=Object.keys(b).filter(function(a){return f.startsWith(a,j)&&a!==j});if(!d.length)return null;var e=angular.extend({},a),h=[];return d.forEach(function(d){var f=a.$watch(b[d],function(a){var b=g(d);e[b]=a,c(e)});h.push(f)}),a.$on("$destroy",function(){h.forEach(function(a){a()})}),e}var i=parseInt((/msie (\d+)/.exec(angular.lowercase(e.navigator.userAgent))||[])[1],10),j="translateParams";return{restrict:"AE",terminal:!0,compile:function(e,g){f.assert(!g.translatePlural||g.translateN,"translate-n","translate-plural"),f.assert(!g.translateN||g.translatePlural,"translate-plural","translate-n");var j=f.trim(e.html()),k=g.translatePlural,l=g.translateContext;return 8>=i&&"<!--IE fix-->"===j.slice(-13)&&(j=j.slice(0,-13)),{post:function(e,g,i){function m(b){b=b||null;var h;k?(e=o||(o=e.$new()),e.$count=n(e),h=a.getPlural(e.$count,j,k,b,l)):h=a.getString(j,b,l);var i=g.contents();if(0!==i.length){if(h===f.trim(i.html()))return void(p&&d(i)(e));var m=angular.element("<span>"+h+"</span>");d(m.contents())(e);var q=m.contents();c.enter(q,g),c.leave(i)}}var n=b(i.translateN),o=null,p=!0,q=h(e,i,m);m(q),p=!1,i.translateN&&e.$watch(i.translateN,function(){m(q)}),e.$on("gettextLanguageChanged",function(){m(q)})}}}}}]),angular.module("gettext").factory("gettextFallbackLanguage",function(){var a={},b=/([^_]+)_[^_]+$/;return function(c){if(a[c])return a[c];var d=b.exec(c);return d?(a[c]=d[1],d[1]):null}}),angular.module("gettext").filter("translate",["gettextCatalog",function(a){function b(b,c){return a.getString(b,null,c)}return b.$stateful=!0,b}]),angular.module("gettext").factory("gettextPlurals",function(){function a(a){return b[a]||(b[a]=a.split(/\-|_/).shift()),b[a]}var b={pt_BR:"pt_BR","pt-BR":"pt_BR"};return function(b,c){switch(a(b)){case"ay":case"bo":case"cgg":case"dz":case"fa":case"id":case"ja":case"jbo":case"ka":case"kk":case"km":case"ko":case"ky":case"lo":case"ms":case"my":case"sah":case"su":case"th":case"tt":case"ug":case"vi":case"wo":case"zh":return 0;case"is":return c%10!=1||c%100==11?1:0;case"jv":return 0!=c?1:0;case"mk":return 1==c||c%10==1?0:1;case"ach":case"ak":case"am":case"arn":case"br":case"fil":case"fr":case"gun":case"ln":case"mfe":case"mg":case"mi":case"oc":case"pt_BR":case"tg":case"ti":case"tr":case"uz":case"wa":case"zh":return c>1?1:0;case"lv":return c%10==1&&c%100!=11?0:0!=c?1:2;case"lt":return c%10==1&&c%100!=11?0:c%10>=2&&(10>c%100||c%100>=20)?1:2;case"be":case"bs":case"hr":case"ru":case"sr":case"uk":return c%10==1&&c%100!=11?0:c%10>=2&&4>=c%10&&(10>c%100||c%100>=20)?1:2;case"mnk":return 0==c?0:1==c?1:2;case"ro":return 1==c?0:0==c||c%100>0&&20>c%100?1:2;case"pl":return 1==c?0:c%10>=2&&4>=c%10&&(10>c%100||c%100>=20)?1:2;case"cs":case"sk":return 1==c?0:c>=2&&4>=c?1:2;case"sl":return c%100==1?1:c%100==2?2:c%100==3||c%100==4?3:0;case"mt":return 1==c?0:0==c||c%100>1&&11>c%100?1:c%100>10&&20>c%100?2:3;case"gd":return 1==c||11==c?0:2==c||12==c?1:c>2&&20>c?2:3;case"cy":return 1==c?0:2==c?1:8!=c&&11!=c?2:3;case"kw":return 1==c?0:2==c?1:3==c?2:3;case"ga":return 1==c?0:2==c?1:7>c?2:11>c?3:4;case"ar":return 0==c?0:1==c?1:2==c?2:c%100>=3&&10>=c%100?3:c%100>=11?4:5;default:return 1!=c?1:0}}}),angular.module("gettext").factory("gettextUtil",function(){function a(a,b,c){if(!a)throw new Error("You should add a "+b+" attribute whenever you add a "+c+" attribute.")}function b(a,b){return 0===a.indexOf(b)}function c(a){var b=a.charAt(0).toLowerCase();return b+a.substr(1)}var d=function(){return String.prototype.trim?function(a){return"string"==typeof a?a.trim():a}:function(a){return"string"==typeof a?a.replace(/^\s*/,"").replace(/\s*$/,""):a}}();return{trim:d,assert:a,startsWith:b,lcFirst:c}});
 angular.module('enplug.sdk.utils', [
 	'gettext',
 	'enplug.sdk.utils.templates'
@@ -2286,6 +2286,158 @@ angular.module('enplug.sdk.utils').directive('tagSelect', function () {
 });
 
 /**
+* @ngdoc directive
+* @name themePicker
+* @module enplug.sdk.utils
+*
+* @param selectedTheme {Object selected theme}
+* @param defaultTheme {Object default or new theme to use as templatee}
+* @param themeDefinition {Object constant of theme sections}
+* @param customThemes {Array of saved custom themes}
+* @param defaultThemes {Array of default enplug themes}
+* @param previewUrl {Url of current app}
+* @param previewAsset {Object of current asset being used in preview editor}
+* @param previewCheck {Promise, when available will only open theme preview if resolved}
+*/
+angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enplugDashboard', '$enplugAccount', 'gettextCatalog', '$filter', '$route', function ($document, $enplugDashboard, $enplugAccount, gettextCatalog, $filter, $route) {
+    return {
+        restrict: 'E',
+        transclude: true,
+        scope: {
+            selectedTheme: '=',
+            defaultTheme: '=',
+            customThemes: '=',
+            defaultThemes: '=',
+            themeDefinition: '=',
+            previewUrl: '=',
+            previewAsset: '=',
+            previewCheck: '&'
+        },
+        templateUrl: 'sdk-utils/theme-picker.tpl',
+
+        link: function (scope, element, attrs, arg) {
+
+            // Method to select theme
+            scope.selectTheme = function( theme ) {
+
+                if( typeof theme.Value == 'string' ) {
+                    theme.Value = JSON.parse(theme.Value);
+                }
+                scope.selectedTheme = theme;
+            }
+
+            // Removing theme
+            scope.removeTheme = function( theme ) {
+
+                $enplugDashboard.openConfirm({
+                    title: 'Delete "' +  theme.Name + '" ?',
+                    text: 'Are you sure you want to cancel the changes you\'ve made? This action is not recoverable.',
+                    confirmText: 'Delete',
+                    cancelText: 'Cancel'
+                }).then(function(){
+
+                    $enplugAccount.deleteTheme(theme.Id);
+
+                    var themeIndex = scope.customThemes.indexOf(theme);
+
+                    if (themeIndex > -1) {
+                        scope.customThemes.splice(themeIndex, 1);
+                        scope.selectTheme(scope.defaultThemes[0]);
+                    }
+                });
+            }
+
+            // Creating new theme
+            scope.createNewTheme = function() {
+
+                var newTheme = scope.defaultTheme ? scope.defaultTheme : scope.defaultThemes[0];
+
+                if( scope.previewCheck ) {
+
+                    scope.previewCheck().then(function() {
+                        saveTheme(newTheme).then( function(newTheme) {
+                            scope.customThemes.push(newTheme);
+                            scope.selectTheme(newTheme);
+                        });
+                    });
+
+
+                } else {
+
+                    saveTheme(newTheme).then( function(newTheme) {
+                        scope.customThemes.push(newTheme);
+                        scope.selectTheme(newTheme);
+                    });
+                }
+            }
+            // Copying default theme values
+            scope.copyTheme = function( theme ) {
+
+                var copy = angular.copy(theme);
+                copy.Id = null;
+                copy.Name = gettextCatalog.getString('Copy of {{themeName}}', {themeName: theme.Name});
+                copy.isDefault = false;
+
+                if( scope.previewCheck ) {
+
+                    scope.previewCheck().then(function() {
+                        saveTheme(copy).then( function(newTheme) {
+                            scope.customThemes.push(newTheme);
+                            scope.selectTheme(newTheme);
+                        });
+                    });
+
+                } else {
+
+                    saveTheme(copy).then( function(newTheme) {
+                        scope.customThemes.push(newTheme);
+                        scope.selectTheme(newTheme);
+                    });
+                }
+            }
+            // Editing theme
+            scope.editTheme = function( theme ) {
+
+                if( scope.previewCheck ) {
+
+                    scope.previewCheck().then(function() {
+                        saveTheme(theme).then( function(theme) {
+                             var themeIndex = scope.customThemes.indexOf(theme);
+                             var updatedTheme = angular.copy(theme);
+                             scope.customThemes.splice(themeIndex, 1, updatedTheme);
+                             scope.selectTheme(updatedTheme);
+                        });
+                    });
+                } else {
+
+                    saveTheme(theme).then( function(theme) {
+                         var themeIndex = scope.customThemes.indexOf(theme);
+                         var updatedTheme = angular.copy(theme);
+                         scope.customThemes.splice(themeIndex, 1, updatedTheme);
+                         scope.selectTheme(updatedTheme);
+                    });
+                }
+            }
+            // Filtering background style for themes
+            scope.filterStyle = function( theme ) {
+
+                var themeContent = theme.Value.content;
+                // Prevents undefined error if creating new theme is delayed before
+                if( themeContent ) {
+                    var style = $filter('themePickerStyle')(themeContent, themeContent.background.backgroundImage);
+                    return style[themeContent.background.gradient];
+                }
+            }
+            // Function used to create, edit, and copy default theme to save
+            function saveTheme( theme ) {
+
+                return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset);
+            }
+        }
+    };
+}]);
+
+/**
  * @ngdoc directive
  * @name tooltip
  * @module enplug.sdk.utils
@@ -2325,6 +2477,94 @@ angular.module('enplug.sdk.utils').directive('tooltip', ['Tooltips', function (T
         }
     };
 }]);
+
+angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
+
+    return function(theme, backgroundImage) {
+
+        // COLOR ONLY SELECTED
+        if (theme.background.backgroundTypes[0] && theme.background.backgroundTypes[1] && backgroundImage) {
+                return  {
+
+                    'Solid': {
+                        'background': 'linear-gradient(rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' +
+                        theme.background.rgb[2] + ', ' + theme.background.backgroundAlpha + ') , rgba(' + theme.background.rgb[0] + ',' +
+                        theme.background.rgb[1] + ',' + theme.background.rgb[2] + ',' + theme.background.backgroundAlpha + ')), url(' +
+                        backgroundImage +') no-repeat center 100%'
+                    },
+
+                    'Vertical Gradient': {
+                        'background': 'linear-gradient(rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' +
+                        theme.background.rgb[2] + ', ' + theme.background.backgroundAlpha + ') , rgba(' + theme.background.rgb2[0] + ',' +
+                        theme.background.rgb2[1] + ',' + theme.background.rgb2[2] + ',' + theme.background.backgroundAlpha2 + ')), url(' +
+                        backgroundImage +') no-repeat center 100%'
+                    },
+
+                    'Horizontal Gradient': {
+                        'background': 'linear-gradient(-90deg, rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
+                        ',' + theme.background.rgb[2] + ',' + theme.background.backgroundAlpha + ') , rgba(' + theme.background.rgb2[0] + ',' + theme.background.rgb2[1] +
+                        ',' + theme.background.rgb2[2] + ',' + theme.background.backgroundAlpha2 + ')), url(' +
+                        backgroundImage + ') no-repeat center 100%'
+                    },
+
+                    'Radial Gradient': {
+                      'background': 'radial-gradient(50vw at 50% 50%, rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' + theme.background.rgb[2] + ',' + theme.background.backgroundAlpha2 +'), rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
+                      ',' + theme.background.rgb[2] + ','+ theme.background.backgroundAlpha +') , rgba(' + theme.background.rgb2[0] + ',' +
+                       theme.background.rgb2[1] + ',' + theme.background.rgb2[2] + ',' + theme.background.backgroundAlpha2 +')), url(' +
+                       backgroundImage +') no-repeat center 100%'
+                    }
+                }
+        }   else if( theme.background.backgroundTypes[0] ) {
+
+                return {
+
+                    'Solid': {
+                      'background': 'rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
+                      ',' + theme.background.rgb[2] + ')'
+                    },
+
+                    'Vertical Gradient': {
+                      'background': 'linear-gradient(rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' +
+                      theme.background.rgb[2] + ') , rgb(' + theme.background.rgb2[0] + ',' +
+                      theme.background.rgb2[1] + ',' + theme.background.rgb2[2] + ')'
+                    },
+
+                    'Horizontal Gradient': {
+                      'background': 'linear-gradient(-90deg, rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
+                      ',' + theme.background.rgb[2] + ') , rgb(' + theme.background.rgb2[0] + ',' + theme.background.rgb2[1] +
+                      ',' + theme.background.rgb2[2] + ')'
+                    },
+
+                    'Radial Gradient': {
+                      'background': 'radial-gradient(50vw at 50% 50%, rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' + theme.background.rgb[2] + '), rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
+                      ',' + theme.background.rgb[2] + ') , rgb(' + theme.background.rgb2[0] + ',' +
+                       theme.background.rgb2[1] + ',' + theme.background.rgb2[2] +')'
+                    }
+                }
+      // IMAGE ONLY SELECTED
+  } else if ( theme.background.backgroundTypes[1] && !theme.background.backgroundTypes[0] ) {
+
+            return {
+
+                'Solid': {
+                  'background': '#'+ theme.background.backgroundColor + ' url(' + backgroundImage +') no-repeat center'
+                },
+
+                'Vertical Gradient': {
+                  'background': '#'+ theme.background.backgroundColor + ' url(' + backgroundImage +') no-repeat center'
+                },
+
+                'Horizontal Gradient': {
+                  'background': '#'+ theme.background.backgroundColor + ' url(' + backgroundImage +') no-repeat center'
+                },
+
+                'Radial Gradient': {
+                  'background': '#'+ theme.background.backgroundColor + ' url(' + backgroundImage +') no-repeat center'
+                }
+            }
+        }
+    }
+});
 
 /**
  * @ngdoc service
@@ -2726,6 +2966,10 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
         "<div class=\"tag-input clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\">{{tag}} <i ng-click=deleteTag(tag) class=\"icon ion-android-close\"></i></li><li><input name=fname placeholder=\"{{ 'Add tags' | translate }}\" ng-model=input ng-change=handleTextChange() ng-keypress=handleKeyPress($event)></li></ul></div>");
     $templateCache.put("sdk-utils/tag-select.tpl",
         "<div class=\"tag-select clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\" ng-click=toggleSelection(tag) ng-class=\"{ 'selected': isSelected(tag) }\">{{tag}}</li></ul></div>");
+    $templateCache.put("sdk-utils/theme-picker.tpl",
+        "<div class=themes-directive><div class=themes-flexbox><h3 class=flexbox-header><translate>Enplug Themes</translate></h3><div class=enplug-themes-container><div ng-class=\"{'selected': selectedTheme.Id == theme.Id}\" ng-style=filterStyle(theme) ng-click=selectTheme(theme) ng-repeat=\"theme in defaultThemes | orderDefaultTheme: defaultThemes\" class=custom-themes><div class=template><div class=mini-template ng-style=filterStyle(theme) ng-transclude></div></div><span class=label>{{theme.Name}}</span><div ng-hide=false class=roll-over><button class=\"btn theme-edit-button theme-copy-button\" ng-click=\"\n" +
+        "                        copyTheme(theme)\"><translate>Edit Copy</translate></button></div></div></div></div><div class=themes-flexbox><h3 class=flexbox-header translate>Custom Themes</h3><div class=enplug-themes-container><div ng-class=\"{'selected': selectedTheme.Id == theme.Id}\" ng-style=filterStyle(theme) ng-click=selectTheme(theme) ng-repeat=\"theme in customThemes\" class=custom-themes><div class=template><div class=mini-template ng-style=filterStyle(theme) ng-transclude></div></div><span class=label>{{theme.Name}}</span><div ng-hide=false class=roll-over><button class=\"btn theme-edit-button\" ng-click=\"\n" +
+        "                    editTheme(theme)\"><translate>Edit</translate></button> <button class=\"btn theme-delete-button\" ng-click=removeTheme(theme)><translate>Delete</translate></button></div></div><div ng-click=createNewTheme() ng-class=\"{'selected': selected == newTheme}\" class=\"custom-themes new-theme\"><img class=new-theme-img ng-src=./img/new-theme.png> <span class=label>{{newTheme.Name}}</span></div></div></div></div>");
     $templateCache.put("sdk-utils/tooltip.tpl",
         "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=tipText ng-show=::config.tooltip ng-bind=\"config.tooltip | translate\"></span><span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span ng-if=config.title class=\"tipTitle text-gd\" ng-bind=\"config.title | translate\"></span> <span class=\"tipBody text-reset\" ng-bind=\"config.text | translate\" ng-class=\"{ pt: !config.title, pb: !config.link }\"></span> <a ng-if=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" ng-bind=\"config.link.title | translate\"></a> <span class=tipArrow></span></span></span></span>");
 }]);
