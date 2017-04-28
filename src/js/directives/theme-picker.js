@@ -24,7 +24,8 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             themeDefinition: '=',
             previewUrl: '=',
             previewAsset: '=',
-            previewCheck: '&'
+            previewCheck: '&',
+            layout: '='
         },
         templateUrl: 'sdk-utils/theme-picker.tpl',
 
@@ -144,7 +145,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             // Function used to create, edit, and copy default theme to save
             function saveTheme( theme ) {
 
-                return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset);
+                return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset, scope.layout);
             }
         }
     };
