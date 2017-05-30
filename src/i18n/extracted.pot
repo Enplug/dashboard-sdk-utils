@@ -106,12 +106,20 @@ msgstr ""
 msgid "Contain"
 msgstr ""
 
+#: ./src/js/directives/theme-picker.js:92
+msgid "Copy of {{themeName}}"
+msgstr ""
+
 #: ./src/templates/background-picker.tpl.html:53
 msgid "Cover"
 msgstr ""
 
 #: ./src/js/constants/quotes.js:45
 msgid "Creativity is allowing yourself to make mistakes. Art is knowing which ones to keep."
+msgstr ""
+
+#: ./src/templates/theme-picker.tpl.html:27
+msgid "Custom Themes"
 msgstr ""
 
 #: ./src/js/constants/months.js:18
@@ -124,6 +132,10 @@ msgstr ""
 
 #: ./src/js/constants/states.js:14
 msgid "Delaware"
+msgstr ""
+
+#: ./src/templates/theme-picker.tpl.html:45
+msgid "Delete"
 msgstr ""
 
 #: ./src/js/constants/states.js:15
@@ -142,8 +154,20 @@ msgstr ""
 msgid "During your life, never stop dreaming. No one can take away your dreams."
 msgstr ""
 
+#: ./src/templates/theme-picker.tpl.html:42
+msgid "Edit"
+msgstr ""
+
+#: ./src/templates/theme-picker.tpl.html:19
+msgid "Edit Copy"
+msgstr ""
+
 #: ./src/templates/help-block.tpl.html:5
 msgid "Enplug Help Center"
+msgstr ""
+
+#: ./src/templates/theme-picker.tpl.html:4
+msgid "Enplug Themes"
 msgstr ""
 
 #: ./src/js/constants/quotes.js:69

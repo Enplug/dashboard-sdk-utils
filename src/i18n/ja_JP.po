@@ -151,7 +151,7 @@ msgstr "生きている間は夢見ることをやめてはならない。誰も
 
 #: src/templates/help-block.tpl.html:3
 msgid "Enplug Help Center"
-msgstr "Enplugヘルプセンター"
+msgstr "Enplug ヘルプセンターをご覧ください"
 
 #: src/js/constants/quotes.js:69
 msgid "Every act of creation is first of all an act of destruction."
@@ -389,7 +389,7 @@ msgstr "ネブラスカ"
 #. The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'
 #: src/templates/help-block.tpl.html:3
 msgid "Need help? Go to the"
-msgstr "ヘルプが必要ですか？をご覧ください"
+msgstr "ヘルプが必要ですか？"
 
 #: src/js/constants/states.js:35
 msgid "Nevada"
