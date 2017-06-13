@@ -12,7 +12,7 @@
 * @param previewAsset {Object of current asset being used in preview editor}
 * @param previewCheck {Promise, when available will only open theme preview if resolved}
 */
-angular.module('enplug.sdk.utils').directive('themePicker', function ($document, $enplugDashboard, $enplugAccount, gettextCatalog, $filter, $route) {
+angular.module('enplug.sdk.utils').directive('themePicker', function ($document, $enplugDashboard, $enplugAccount, gettextCatalog, $filter, $route, $timeout) {
     return {
         restrict: 'E',
         transclude: true,
@@ -31,14 +31,28 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
 
         link: function (scope, element, attrs, arg) {
 
+            scope.customThemeStyles = [];
+
             // Method to select theme
             scope.selectTheme = function( theme ) {
-
-                if( typeof theme.Value == 'string' ) {
-                    theme.Value = JSON.parse(theme.Value);
-                }
+                theme = parseJSON(theme);
                 scope.selectedTheme = theme;
             }
+
+            // Filtering background style for themes
+            scope.filterStyle = function( theme ) {
+                theme = parseJSON(theme);
+                var themeContent = theme.Value.content;
+                // Prevents undefined error if creating new theme is delayed before
+                if( themeContent ) {
+                    var style = $filter('themePickerStyle')(themeContent, themeContent.background.backgroundImage);
+                    return style[themeContent.background.gradient];
+                }
+            }
+
+            scope.customThemes.forEach(function(theme) {
+                scope.customThemeStyles.push(scope.filterStyle(theme));
+            });
 
             // Removing theme
             scope.removeTheme = function( theme ) {
@@ -56,6 +70,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
 
                     if (themeIndex > -1) {
                         scope.customThemes.splice(themeIndex, 1);
+                        scope.customThemeStyles.splice(themeIndex, 1);
                         scope.selectTheme(scope.defaultThemes[0]);
                     }
                 });
@@ -71,6 +86,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
                     scope.previewCheck().then(function() {
                         saveTheme(newTheme).then( function(newTheme) {
                             scope.customThemes.push(newTheme);
+                            scope.customThemeStyles.push(scope.filterStyle(newTheme));
                             scope.selectTheme(newTheme);
                         });
                     });
@@ -80,6 +96,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
 
                     saveTheme(newTheme).then( function(newTheme) {
                         scope.customThemes.push(newTheme);
+                        scope.customThemeStyles.push(scope.filterStyle(newTheme));
                         scope.selectTheme(newTheme);
                     });
                 }
@@ -97,6 +114,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
                     scope.previewCheck().then(function() {
                         saveTheme(copy).then( function(newTheme) {
                             scope.customThemes.push(newTheme);
+                            scope.customThemeStyles.push(scope.filterStyle(newTheme))
                             scope.selectTheme(newTheme);
                         });
                     });
@@ -105,46 +123,52 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
 
                     saveTheme(copy).then( function(newTheme) {
                         scope.customThemes.push(newTheme);
+                        scope.customThemeStyles.push(scope.filterStyle(newTheme))
                         scope.selectTheme(newTheme);
                     });
                 }
             }
             // Editing theme
             scope.editTheme = function( theme ) {
-
                 if( scope.previewCheck ) {
 
                     scope.previewCheck().then(function() {
                         saveTheme(theme).then( function(theme) {
-                             var themeIndex = scope.customThemes.indexOf(theme);
-                             var updatedTheme = angular.copy(theme);
-                             scope.customThemes.splice(themeIndex, 1, updatedTheme);
-                             scope.selectTheme(updatedTheme);
+                            scope.selectTheme(theme);
+                            applyUpdates(theme);
                         });
                     });
                 } else {
 
                     saveTheme(theme).then( function(theme) {
-                         var themeIndex = scope.customThemes.indexOf(theme);
-                         var updatedTheme = angular.copy(theme);
-                         scope.customThemes.splice(themeIndex, 1, updatedTheme);
-                         scope.selectTheme(updatedTheme);
+                          scope.selectTheme(theme);
+                          applyUpdates(theme);
                     });
                 }
             }
-            // Filtering background style for themes
-            scope.filterStyle = function( theme ) {
 
-                var themeContent = theme.Value.content;
-                // Prevents undefined error if creating new theme is delayed before
-                if( themeContent ) {
-                    var style = $filter('themePickerStyle')(themeContent, themeContent.background.backgroundImage);
-                    return style[themeContent.background.gradient];
+            function parseJSON(theme) {
+
+                if( typeof theme.Value == 'string' ) {
+                    theme.Value = JSON.parse(theme.Value);
                 }
+
+                return theme;
             }
-            // Function used to create, edit, and copy default theme to save
+
+            function applyUpdates(updatedTheme) {
+
+              for (var i = 0; i < scope.customThemes.length; i++) {
+
+                  if( scope.customThemes[i].Id == updatedTheme.Id ) {
+                      scope.customThemes[i] = updatedTheme;
+                      scope.customThemeStyles[i] = scope.filterStyle(updatedTheme);
+                  }
+              }
+            }
+
+            // Functioen used to create, edit, and copy default theme to save
             function saveTheme( theme ) {
-                console.log('Layout ', scope.layout);
                 return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset, scope.layout);
             }
         }
