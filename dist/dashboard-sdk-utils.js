@@ -2299,7 +2299,7 @@ angular.module('enplug.sdk.utils').directive('tagSelect', function () {
 * @param previewAsset {Object of current asset being used in preview editor}
 * @param previewCheck {Promise, when available will only open theme preview if resolved}
 */
-angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enplugDashboard', '$enplugAccount', 'gettextCatalog', '$filter', '$route', '$timeout', function ($document, $enplugDashboard, $enplugAccount, gettextCatalog, $filter, $route, $timeout) {
+angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enplugDashboard', '$enplugAccount', 'gettextCatalog', '$filter', '$route', function ($document, $enplugDashboard, $enplugAccount, gettextCatalog, $filter, $route) {
     return {
         restrict: 'E',
         transclude: true,
@@ -2325,7 +2325,6 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
                 theme = parseJSON(theme);
                 scope.selectedTheme = theme;
             }
-
             // Filtering background style for themes
             scope.filterStyle = function( theme ) {
                 theme = parseJSON(theme);
@@ -2340,17 +2339,14 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             scope.customThemes.forEach(function(theme) {
                 scope.customThemeStyles.push(scope.filterStyle(theme));
             });
-
             // Removing theme
             scope.removeTheme = function( theme ) {
-
                 $enplugDashboard.openConfirm({
                     title: 'Delete "' +  theme.Name + '" ?',
                     text: 'Are you sure you want to cancel the changes you\'ve made? This action is not recoverable.',
                     confirmText: 'Delete',
                     cancelText: 'Cancel'
                 }).then(function(){
-
                     $enplugAccount.deleteTheme(theme.Id);
 
                     var themeIndex = scope.customThemes.indexOf(theme);
@@ -2362,14 +2358,11 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
                     }
                 });
             }
-
             // Creating new theme
             scope.createNewTheme = function() {
-
                 var newTheme = scope.defaultTheme ? scope.defaultTheme : scope.defaultThemes[0];
 
                 if( scope.previewCheck ) {
-
                     scope.previewCheck().then(function() {
                         saveTheme(newTheme).then( function(newTheme) {
                             scope.customThemes.push(newTheme);
@@ -2380,7 +2373,6 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
 
 
                 } else {
-
                     saveTheme(newTheme).then( function(newTheme) {
                         scope.customThemes.push(newTheme);
                         scope.customThemeStyles.push(scope.filterStyle(newTheme));
@@ -2390,7 +2382,6 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             }
             // Copying default theme values
             scope.copyTheme = function( theme ) {
-
                 var copy = angular.copy(theme);
                 copy.Id = null;
                 copy.Name = gettextCatalog.getString('Copy of {{themeName}}', {themeName: theme.Name});
@@ -2435,7 +2426,6 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             }
 
             function parseJSON(theme) {
-
                 if( typeof theme.Value == 'string' ) {
                     theme.Value = JSON.parse(theme.Value);
                 }
@@ -2444,7 +2434,6 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             }
 
             function applyUpdates(updatedTheme) {
-
               for (var i = 0; i < scope.customThemes.length; i++) {
 
                   if( scope.customThemes[i].Id == updatedTheme.Id ) {
@@ -2453,7 +2442,6 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
                   }
               }
             }
-
             // Functioen used to create, edit, and copy default theme to save
             function saveTheme( theme ) {
                 return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset, scope.layout);
