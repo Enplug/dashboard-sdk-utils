@@ -2309,6 +2309,7 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             customThemes: '=',
             defaultThemes: '=',
             themeDefinition: '=',
+            previewFonts: '=',
             previewUrl: '=',
             previewAsset: '=',
             previewCheck: '&',
@@ -2442,9 +2443,9 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
                   }
               }
             }
-            // Functioen used to create, edit, and copy default theme to save
+            // Function used to create, edit, and copy default theme to save
             function saveTheme( theme ) {
-                return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset, scope.layout);
+                return $enplugAccount.editTheme(scope.themeDefinition, theme, scope.previewUrl, scope.previewAsset, scope.layout, scope.previewFonts);
             }
         }
     };
