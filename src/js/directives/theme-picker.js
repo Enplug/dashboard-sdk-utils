@@ -12,7 +12,7 @@
 * @param previewAsset {Object of current asset being used in preview editor}
 * @param previewCheck {Promise, when available will only open theme preview if resolved}
 */
-angular.module('enplug.sdk.utils').directive('themePicker', function ($document, $enplugDashboard, $enplugAccount, gettextCatalog, $filter, $route) {
+angular.module('enplug.sdk.utils').directive('themePicker', function ($document, $enplugDashboard, $enplugAccount, gettextCatalog, $filter, $route, $q) {
     return {
         restrict: 'E',
         transclude: true,
@@ -25,19 +25,15 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             previewFonts: '=',
             previewUrl: '=',
             previewAsset: '=',
-            previewCheck: '&',
+            previewCheck: '&?',
             layout: '='
         },
         templateUrl: 'sdk-utils/theme-picker.tpl',
 
         link: function (scope, element, attrs, arg) {
 
-            scope.customThemeStyles = [];
-
-            // Method to select theme
-            scope.selectTheme = function( theme ) {
-                theme = parseJSON(theme);
-                scope.selectedTheme = theme;
+            if (!scope.previewCheck) {
+              scope.previewCheck = function() { return $q.resolve() };
             }
             // Filtering background style for themes
             scope.filterStyle = function( theme ) {
@@ -49,10 +45,17 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
                     return style[themeContent.background.gradient];
                 }
             }
+            // CSS styles array for each theme
+            scope.customThemeStyles = [];
 
             scope.customThemes.forEach(function(theme) {
                 scope.customThemeStyles.push(scope.filterStyle(theme));
             });
+            // Method to select theme
+            scope.selectTheme = function( theme ) {
+              theme = parseJSON(theme);
+              scope.selectedTheme = theme;
+            }
             // Removing theme
             scope.removeTheme = function( theme ) {
                 $enplugDashboard.openConfirm({
@@ -76,23 +79,13 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             scope.createNewTheme = function() {
                 var newTheme = scope.defaultTheme ? scope.defaultTheme : scope.defaultThemes[0];
 
-                if( scope.previewCheck ) {
-                    scope.previewCheck().then(function() {
-                        saveTheme(newTheme).then( function(newTheme) {
-                            scope.customThemes.push(newTheme);
-                            scope.customThemeStyles.push(scope.filterStyle(newTheme));
-                            scope.selectTheme(newTheme);
-                        });
-                    });
-
-
-                } else {
-                    saveTheme(newTheme).then( function(newTheme) {
-                        scope.customThemes.push(newTheme);
-                        scope.customThemeStyles.push(scope.filterStyle(newTheme));
-                        scope.selectTheme(newTheme);
-                    });
-                }
+                  scope.previewCheck().then(function() {
+                      saveTheme(newTheme).then( function(newTheme) {
+                          scope.customThemes.push(newTheme);
+                          scope.customThemeStyles.push(scope.filterStyle(newTheme));
+                          scope.selectTheme(newTheme);
+                      });
+                  });
             }
             // Copying default theme values
             scope.copyTheme = function( theme ) {
@@ -101,42 +94,23 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
                 copy.Name = gettextCatalog.getString('Copy of {{themeName}}', {themeName: theme.Name});
                 copy.isDefault = false;
 
-                if( scope.previewCheck ) {
-
-                    scope.previewCheck().then(function() {
-                        saveTheme(copy).then( function(newTheme) {
-                            scope.customThemes.push(newTheme);
-                            scope.customThemeStyles.push(scope.filterStyle(newTheme))
-                            scope.selectTheme(newTheme);
-                        });
-                    });
-
-                } else {
-
+                scope.previewCheck().then(function() {
                     saveTheme(copy).then( function(newTheme) {
                         scope.customThemes.push(newTheme);
                         scope.customThemeStyles.push(scope.filterStyle(newTheme))
                         scope.selectTheme(newTheme);
                     });
-                }
+                });
+
             }
             // Editing theme
             scope.editTheme = function( theme ) {
-                if( scope.previewCheck ) {
-
-                    scope.previewCheck().then(function() {
-                        saveTheme(theme).then( function(theme) {
-                            scope.selectTheme(theme);
-                            applyUpdates(theme);
-                        });
-                    });
-                } else {
-
+                scope.previewCheck().then(function() {
                     saveTheme(theme).then( function(theme) {
-                          scope.selectTheme(theme);
-                          applyUpdates(theme);
+                        scope.selectTheme(theme);
+                        applyUpdates(theme);
                     });
-                }
+                });
             }
 
             function parseJSON(theme) {
