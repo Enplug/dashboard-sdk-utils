@@ -2299,7 +2299,7 @@ angular.module('enplug.sdk.utils').directive('tagSelect', function () {
 * @param previewAsset {Object of current asset being used in preview editor}
 * @param previewCheck {Promise, when available will only open theme preview if resolved}
 */
-angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enplugDashboard', '$enplugAccount', 'gettextCatalog', '$filter', '$route', function ($document, $enplugDashboard, $enplugAccount, gettextCatalog, $filter, $route) {
+angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enplugDashboard', '$enplugAccount', 'gettextCatalog', '$filter', '$route', '$q', function ($document, $enplugDashboard, $enplugAccount, gettextCatalog, $filter, $route, $q) {
     return {
         restrict: 'E',
         transclude: true,
@@ -2312,19 +2312,15 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             previewFonts: '=',
             previewUrl: '=',
             previewAsset: '=',
-            previewCheck: '&',
+            previewCheck: '&?',
             layout: '='
         },
         templateUrl: 'sdk-utils/theme-picker.tpl',
 
         link: function (scope, element, attrs, arg) {
 
-            scope.customThemeStyles = [];
-
-            // Method to select theme
-            scope.selectTheme = function( theme ) {
-                theme = parseJSON(theme);
-                scope.selectedTheme = theme;
+            if (!scope.previewCheck) {
+              scope.previewCheck = function() { return $q.resolve() };
             }
             // Filtering background style for themes
             scope.filterStyle = function( theme ) {
@@ -2336,10 +2332,17 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
                     return style[themeContent.background.gradient];
                 }
             }
+            // CSS styles array for each theme
+            scope.customThemeStyles = [];
 
             scope.customThemes.forEach(function(theme) {
                 scope.customThemeStyles.push(scope.filterStyle(theme));
             });
+            // Method to select theme
+            scope.selectTheme = function( theme ) {
+              theme = parseJSON(theme);
+              scope.selectedTheme = theme;
+            }
             // Removing theme
             scope.removeTheme = function( theme ) {
                 $enplugDashboard.openConfirm({
@@ -2363,23 +2366,13 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             scope.createNewTheme = function() {
                 var newTheme = scope.defaultTheme ? scope.defaultTheme : scope.defaultThemes[0];
 
-                if( scope.previewCheck ) {
-                    scope.previewCheck().then(function() {
-                        saveTheme(newTheme).then( function(newTheme) {
-                            scope.customThemes.push(newTheme);
-                            scope.customThemeStyles.push(scope.filterStyle(newTheme));
-                            scope.selectTheme(newTheme);
-                        });
-                    });
-
-
-                } else {
-                    saveTheme(newTheme).then( function(newTheme) {
-                        scope.customThemes.push(newTheme);
-                        scope.customThemeStyles.push(scope.filterStyle(newTheme));
-                        scope.selectTheme(newTheme);
-                    });
-                }
+                  scope.previewCheck().then(function() {
+                      saveTheme(newTheme).then( function(newTheme) {
+                          scope.customThemes.push(newTheme);
+                          scope.customThemeStyles.push(scope.filterStyle(newTheme));
+                          scope.selectTheme(newTheme);
+                      });
+                  });
             }
             // Copying default theme values
             scope.copyTheme = function( theme ) {
@@ -2388,42 +2381,23 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
                 copy.Name = gettextCatalog.getString('Copy of {{themeName}}', {themeName: theme.Name});
                 copy.isDefault = false;
 
-                if( scope.previewCheck ) {
-
-                    scope.previewCheck().then(function() {
-                        saveTheme(copy).then( function(newTheme) {
-                            scope.customThemes.push(newTheme);
-                            scope.customThemeStyles.push(scope.filterStyle(newTheme))
-                            scope.selectTheme(newTheme);
-                        });
-                    });
-
-                } else {
-
+                scope.previewCheck().then(function() {
                     saveTheme(copy).then( function(newTheme) {
                         scope.customThemes.push(newTheme);
                         scope.customThemeStyles.push(scope.filterStyle(newTheme))
                         scope.selectTheme(newTheme);
                     });
-                }
+                });
+
             }
             // Editing theme
             scope.editTheme = function( theme ) {
-                if( scope.previewCheck ) {
-
-                    scope.previewCheck().then(function() {
-                        saveTheme(theme).then( function(theme) {
-                            scope.selectTheme(theme);
-                            applyUpdates(theme);
-                        });
-                    });
-                } else {
-
+                scope.previewCheck().then(function() {
                     saveTheme(theme).then( function(theme) {
-                          scope.selectTheme(theme);
-                          applyUpdates(theme);
+                        scope.selectTheme(theme);
+                        applyUpdates(theme);
                     });
-                }
+                });
             }
 
             function parseJSON(theme) {
@@ -2982,7 +2956,7 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
         "<div class=\"tag-select clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\" ng-click=toggleSelection(tag) ng-class=\"{ 'selected': isSelected(tag) }\">{{tag}}</li></ul></div>");
     $templateCache.put("sdk-utils/theme-picker.tpl",
         "<div class=themes-directive><div class=themes-flexbox><h3 class=flexbox-header><translate>Enplug Themes</translate></h3><div class=enplug-themes-container><div ng-class=\"{'selected': selectedTheme.Id == theme.Id}\" ng-style=filterStyle(theme) ng-click=selectTheme(theme) ng-repeat=\"theme in defaultThemes | orderDefaultTheme: defaultThemes\" class=custom-themes><div class=template><div class=mini-template ng-style=filterStyle(theme) ng-transclude></div></div><span class=label>{{theme.Name}}</span><div ng-hide=false class=roll-over><button class=\"btn theme-edit-button theme-copy-button\" ng-click=\"\n" +
-        "                        copyTheme(theme)\"><translate>Edit Copy</translate></button></div></div></div></div><div class=themes-flexbox><h3 class=flexbox-header translate>Custom Themes</h3><div class=enplug-themes-container><div ng-class=\"{'selected': selectedTheme.Id == theme.Id}\" ng-style=filterStyle(theme) ng-click=selectTheme(theme) ng-repeat=\"theme in customThemes\" class=custom-themes><div class=template><div class=mini-template ng-style=filterStyle(theme) ng-transclude></div></div><span class=label>{{theme.Name}}</span><div ng-hide=false class=roll-over><button class=\"btn theme-edit-button\" ng-click=\"\n" +
+        "                        copyTheme(theme)\"><translate>Edit Theme</translate></button></div></div></div></div><div class=themes-flexbox><h3 class=flexbox-header translate>Custom Themes</h3><div class=enplug-themes-container><div ng-class=\"{'selected': selectedTheme.Id == theme.Id}\" ng-style=filterStyle(theme) ng-click=selectTheme(theme) ng-repeat=\"theme in customThemes\" class=custom-themes><div class=template><div class=mini-template ng-style=filterStyle(theme) ng-transclude></div></div><span class=label>{{theme.Name}}</span><div ng-hide=false class=roll-over><button class=\"btn theme-edit-button\" ng-click=\"\n" +
         "                    editTheme(theme)\"><translate>Edit</translate></button> <button class=\"btn theme-delete-button\" ng-click=removeTheme(theme)><translate>Delete</translate></button></div></div><div ng-click=createNewTheme() ng-class=\"{'selected': selected == newTheme}\" class=\"custom-themes new-theme\"><img class=new-theme-img ng-src=./img/new-theme.png> <span class=label>{{newTheme.Name}}</span></div></div></div></div>");
     $templateCache.put("sdk-utils/tooltip.tpl",
         "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=tipText ng-show=::config.tooltip ng-bind=\"config.tooltip | translate\"></span><span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span ng-if=config.title class=\"tipTitle text-gd\" ng-bind=\"config.title | translate\"></span> <span class=\"tipBody text-reset\" ng-bind=\"config.text | translate\" ng-class=\"{ pt: !config.title, pb: !config.link }\"></span> <a ng-if=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" ng-bind=\"config.link.title | translate\"></a> <span class=tipArrow></span></span></span></span>");
