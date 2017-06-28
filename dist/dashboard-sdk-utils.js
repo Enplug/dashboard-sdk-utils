@@ -2346,10 +2346,10 @@ angular.module('enplug.sdk.utils').directive('themePicker', ['$document', '$enpl
             // Removing theme
             scope.removeTheme = function( theme ) {
                 $enplugDashboard.openConfirm({
-                    title: 'Delete "' +  theme.Name + '" ?',
-                    text: 'Are you sure you want to cancel the changes you\'ve made? This action is not recoverable.',
-                    confirmText: 'Delete',
-                    cancelText: 'Cancel'
+                    title: gettextCatalog.getString('Delete "{{themeName}}" ?', {themeName: theme.Name}),
+                    text: gettextCatalog.getString('Are you sure you want to cancel the changes you\'ve made? This action is not recoverable.'),
+                    confirmText: gettextCatalog.getString('Delete'),
+                    cancelText: gettextCatalog.getString('Cancel')
                 }).then(function(){
                     $enplugAccount.deleteTheme(theme.Id);
 
@@ -2956,7 +2956,7 @@ angular.module('enplug.sdk.utils.templates', []).run(['$templateCache', function
         "<div class=\"tag-select clearfix\"><ul class=\"list clearfix\"><li class=tag ng-repeat=\"tag in tags track by $index\" ng-click=toggleSelection(tag) ng-class=\"{ 'selected': isSelected(tag) }\">{{tag}}</li></ul></div>");
     $templateCache.put("sdk-utils/theme-picker.tpl",
         "<div class=themes-directive><div class=themes-flexbox><h3 class=flexbox-header><translate>Enplug Themes</translate></h3><div class=enplug-themes-container><div ng-class=\"{'selected': selectedTheme.Id == theme.Id}\" ng-style=filterStyle(theme) ng-click=selectTheme(theme) ng-repeat=\"theme in defaultThemes | orderDefaultTheme: defaultThemes\" class=custom-themes><div class=template><div class=mini-template ng-style=filterStyle(theme) ng-transclude></div></div><span class=label>{{theme.Name}}</span><div ng-hide=false class=roll-over><button class=\"btn theme-edit-button theme-copy-button\" ng-click=\"\n" +
-        "                        copyTheme(theme)\"><translate>Edit Theme</translate></button></div></div></div></div><div class=themes-flexbox><h3 class=flexbox-header translate>Custom Themes</h3><div class=enplug-themes-container><div ng-class=\"{'selected': selectedTheme.Id == theme.Id}\" ng-style=filterStyle(theme) ng-click=selectTheme(theme) ng-repeat=\"theme in customThemes\" class=custom-themes><div class=template><div class=mini-template ng-style=filterStyle(theme) ng-transclude></div></div><span class=label>{{theme.Name}}</span><div ng-hide=false class=roll-over><button class=\"btn theme-edit-button\" ng-click=\"\n" +
+        "                        copyTheme(theme)\"><translate>Edit Theme</translate></button></div></div></div></div><div class=themes-flexbox><h3 class=flexbox-header><translate>Custom Themes</translate></h3><div class=enplug-themes-container><div ng-class=\"{'selected': selectedTheme.Id == theme.Id}\" ng-style=filterStyle(theme) ng-click=selectTheme(theme) ng-repeat=\"theme in customThemes\" class=custom-themes><div class=template><div class=mini-template ng-style=filterStyle(theme) ng-transclude></div></div><span class=label>{{theme.Name}}</span><div ng-hide=false class=roll-over><button class=\"btn theme-edit-button\" ng-click=\"\n" +
         "                    editTheme(theme)\"><translate>Edit</translate></button> <button class=\"btn theme-delete-button\" ng-click=removeTheme(theme)><translate>Delete</translate></button></div></div><div ng-click=createNewTheme() ng-class=\"{'selected': selected == newTheme}\" class=\"custom-themes new-theme\"><img class=new-theme-img ng-src=./img/new-theme.png> <span class=label>{{newTheme.Name}}</span></div></div></div></div>");
     $templateCache.put("sdk-utils/tooltip.tpl",
         "<span class=glossaryTip><sup ng-hide=::config.tooltip class=\"icon ion-help-circled text-gray-light\"></sup> <span class=tipText ng-show=::config.tooltip ng-bind=\"config.tooltip | translate\"></span><span class=tip ng-class=::config.position><span class=\"tip-content radius shadow\"><span ng-if=config.title class=\"tipTitle text-gd\" ng-bind=\"config.title | translate\"></span> <span class=\"tipBody text-reset\" ng-bind=\"config.text | translate\" ng-class=\"{ pt: !config.title, pb: !config.link }\"></span> <a ng-if=::config.link class=link-reset ng-href=\"{{ ::config.link.location }}\" ng-bind=\"config.link.title | translate\"></a> <span class=tipArrow></span></span></span></span>");

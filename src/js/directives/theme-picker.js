@@ -59,10 +59,10 @@ angular.module('enplug.sdk.utils').directive('themePicker', function ($document,
             // Removing theme
             scope.removeTheme = function( theme ) {
                 $enplugDashboard.openConfirm({
-                    title: 'Delete "' +  theme.Name + '" ?',
-                    text: 'Are you sure you want to cancel the changes you\'ve made? This action is not recoverable.',
-                    confirmText: 'Delete',
-                    cancelText: 'Cancel'
+                    title: gettextCatalog.getString('Delete "{{themeName}}" ?', {themeName: theme.Name}),
+                    text: gettextCatalog.getString('Are you sure you want to cancel the changes you\'ve made? This action is not recoverable.'),
+                    confirmText: gettextCatalog.getString('Delete'),
+                    cancelText: gettextCatalog.getString('Cancel')
                 }).then(function(){
                     $enplugAccount.deleteTheme(theme.Id);
 
