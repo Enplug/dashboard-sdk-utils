@@ -61,6 +61,10 @@ msgstr ""
 msgid "April"
 msgstr ""
 
+#: ./src/js/directives/theme-picker.js:63
+msgid "Are you sure you want to cancel the changes you've made? This action is not recoverable."
+msgstr ""
+
 #: ./src/js/constants/states.js:9
 msgid "Arizona"
 msgstr ""
@@ -90,6 +94,10 @@ msgstr ""
 msgid "California"
 msgstr ""
 
+#: ./src/js/directives/theme-picker.js:65
+msgid "Cancel"
+msgstr ""
+
 #: ./src/js/constants/quotes.js:281
 msgid "Carpe diem, seize the day boys, make your lives extraordinary."
 msgstr ""
@@ -106,7 +114,7 @@ msgstr ""
 msgid "Contain"
 msgstr ""
 
-#: ./src/js/directives/theme-picker.js:92
+#: ./src/js/directives/theme-picker.js:94
 msgid "Copy of {{themeName}}"
 msgstr ""
 
@@ -134,8 +142,13 @@ msgstr ""
 msgid "Delaware"
 msgstr ""
 
+#: ./src/js/directives/theme-picker.js:64
 #: ./src/templates/theme-picker.tpl.html:45
 msgid "Delete"
+msgstr ""
+
+#: ./src/js/directives/theme-picker.js:62
+msgid "Delete \"{{themeName}}\" ?"
 msgstr ""
 
 #: ./src/js/constants/states.js:15
@@ -159,7 +172,7 @@ msgid "Edit"
 msgstr ""
 
 #: ./src/templates/theme-picker.tpl.html:19
-msgid "Edit Copy"
+msgid "Edit Theme"
 msgstr ""
 
 #: ./src/templates/help-block.tpl.html:5
