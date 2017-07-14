@@ -2468,7 +2468,8 @@ angular.module('enplug.sdk.utils').directive('tooltip', ['Tooltips', function (T
 
 angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
 
-  return function(theme, backgroundImage) {
+    return function(theme, backgroundImage) {
+
       // Both image and color selected
       if (theme.background.backgroundTypes[0] &&
           theme.background.backgroundTypes[1] &&
@@ -2516,10 +2517,8 @@ angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
                   }
               }
       }  // Only color selected, Or both are selected but no background image has been uploaded yet
-        else if( theme.background.backgroundTypes[0] &&
-                (!theme.background.backgroundTypes[1] ||
-                  theme.background.backgroundTypes[1] && !backgroundImage)) {
-
+        else if(theme.background.backgroundTypes[0] ||
+                !backgroundImage) {
                 return {
 
                     'Solid': {
@@ -2545,11 +2544,9 @@ angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
                        theme.background.rgb2[1] + ',' + theme.background.rgb2[2] +')'
                     }
                 }
-      // IMAGE ONLY SELECTED
-    }
-      else if ( !theme.background.backgroundTypes[0] &&
-              theme.background.backgroundTypes[1] &&
-              backgroundImage) {
+
+    } // Only image selected. No color selected
+      else if (theme.background.backgroundTypes[1]) {
 
           return  {
               'Solid': {
