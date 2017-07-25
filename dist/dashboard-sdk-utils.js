@@ -2471,7 +2471,7 @@ angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
     function hexToRGB(color) {
         return color.match(/[A-Za-z0-9]{2}/g)
           .map(function(hexValue){
-            parseInt(hexValue, 16)
+            return parseInt(hexValue, 16)
           });
     }
 
