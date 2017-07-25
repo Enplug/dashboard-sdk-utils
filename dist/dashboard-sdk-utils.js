@@ -2468,7 +2468,17 @@ angular.module('enplug.sdk.utils').directive('tooltip', ['Tooltips', function (T
 
 angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
 
+    function hexToRGB(color) {
+        return color.match(/[A-Za-z0-9]{2}/g)
+          .map(function(hexValue){
+            parseInt(hexValue, 16)
+          });
+    }
+
     return function(theme, backgroundImage) {
+
+      theme.background.rgb = hexToRGB(theme.background.backgroundColor);
+      theme.background.rgb2 = hexToRGB(theme.background.backgroundColor2);
 
       // Both image and color selected
       if (theme.background.backgroundTypes[0] &&
