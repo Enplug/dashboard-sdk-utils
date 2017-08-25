@@ -1,0 +1,41 @@
+@function _assignPrimaryDefault($color: null) {
+  // CHECK PARAMS
+  @if (type-of($color) == string) {
+      @return $brand-primary;
+  }
+  @return $color;
+}
+
+@mixin variable($prop, $var, $default) {
+  #{$prop}: $default;
+  #{$prop}: var($var);
+}
+
+:root {
+  --border-radius:         2px;
+  --transition-speed:      0.15s; // global transition speed for consistent animations
+  --transition-timing:     ease-out;
+  --box-shadow:            0 0 0 1px rgba(39,44,48,0.05), 0 2px 7px 1px rgba(39,44,48,0.16);
+
+  /* Colors
+  ========================================================================== */
+  --brand-primary:         #4078C0 ; // we need a rich blue
+  --brand-success:         #6CC644 ;
+  --brand-info:            #23b7e5 ;
+  --brand-warning:         #ff902b ;
+  --brand-danger:          #ff5d5d ;
+  --brand-inverse:         #1D242C ;
+  --brand-selected:        #FFFBE9 ;
+
+  --gray:                  #798c9c;
+  --gray-dark:             #31373D;
+  --border-color:          #ebeef0;
+
+  /* Text
+  ========================================================================== */
+  --text-size:             13px;
+  --text-sm:               11px;
+  --text-md:               16px;
+  --text-lg:               24px;
+  --line-height:           1.42857143;
+}
