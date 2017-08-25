@@ -1,6 +1,6 @@
 
 .color-picker {
-    
+
 
     $saturation-gradient: url(data:image/png;base64,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);
     $hue-bar: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAABCAYAAAAVSWrbAAAA2ElEQVQYlVXK227aUBCF4W8wJJRtDE1ylfd/rj5AVRRsbEeowpOLbanpkn7NOkzMb13mbVD1Tr4SHTq0Qke+0JzIQh7ZFpxFnqvPInWiaf3NvSmYFsaFOZhxXeiDeWFS+x63YH7UnxmfwafK/UE+Ec/EkTizORCFaFd/YndmU2jaf+x+rrewOdZ9e6TZ36VBmqSenGqOD1wxSjdykC644AO/8Uv6X4EGWzxhh2fsV1oU/MBhpcXpWy4oQVnYTuRITuRAzhjIHrc1j3XT183aGTGRVw5/uOz4AmDlXvmKFOkvAAAAAElFTkSuQmCC);
@@ -22,7 +22,7 @@
 
     position: relative;
     cursor: pointer;
-    
+
     .swatch {
         width: 24px;
         height: 24px;
@@ -42,7 +42,7 @@
         width: 220px;
         height: 170px;
         position: absolute;
-        top:32px; 
+        top:32px;
         left:0;
         display: block;
         border-radius: 3px;
@@ -77,14 +77,14 @@
         .saturation {
             width:100%;
             height: calc(100% - 90px);
-            &.no-alpha { 
+            &.no-alpha {
                 height: calc(100% - 58px);
             }
-            background-color: red; 
-            background-image: $saturation-gradient; 
+            background-color: red;
+            background-image: $saturation-gradient;
             background-size: 100% 100%;
             background-repeat: no-repeat;
-            background-position: center; 
+            background-position: center;
             cursor: pointer;
             position: relative;
             overflow: hidden;
@@ -120,11 +120,11 @@
             cursor: pointer;
             position: relative;
 
-            background-color: transparent; 
-            background-image: $hue-bar; 
+            background-color: transparent;
+            background-image: $hue-bar;
             background-size: 100% 100%;
             background-repeat: repeat-y;
-            background-position: center; 
+            background-position: center;
 
             .cursor {
                 @include cursor;
@@ -143,7 +143,7 @@
                 height:30px;
                 float:left;
                 margin: 5px 3px;
-                label, 
+                label,
                 input {
                     display: inline;
                 }
@@ -157,11 +157,11 @@
                 margin: 8px 10px 8px 5px;
                 cursor: pointer;
                 position: relative;
-                background-color: red; 
-                background-image: $alpha-bar; 
+                background-color: red;
+                background-image: $alpha-bar;
                 background-size: 100% 100%;
                 background-repeat: repeat-y;
-                background-position: center; 
+                background-position: center;
 
                 .cursor {
                     @include cursor;
@@ -199,7 +199,7 @@
                     margin-top: 5px;
                     border-left: 1px solid #F7F7F7;
                     line-height: 13px;
-                    
+
                     &:first-child {
                         border-left: none;
                     }
@@ -259,13 +259,14 @@
         text-transform:uppercase;
         padding: 2px;
         border: none;
-        border-bottom: 1px solid #F7F7F7; 
+        border-bottom: 1px solid #F7F7F7;
         &:focus {
             border:none;
-            border-bottom: 2px solid #4078C0; 
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            @include variable(border-bottom-color, --brand-primary, $brand-primary);
         }
 
     }
-                    
-}
 
+}

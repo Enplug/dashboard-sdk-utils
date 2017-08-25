@@ -1,5 +1,6 @@
 /* Tab list
 ========================================================================== */
+
 .tab-list {
     padding: 0;
     margin: 0;
@@ -50,15 +51,16 @@
             font-weight: normal;
             &:focus, &:hover {
                 outline: none;
-                color: $brand-primary;
                 text-decoration: none;
+                @include variable(color, --brand-primary, $brand-primary);
             }
             &.active {
-                color: $brand-primary;
                 font-weight: bold;
+                // TODO: Check on this below
                 box-shadow: 0 3px 0 $brand-primary;
                 cursor: default;
                 text-decoration: none;
+                @include variable(color, --brand-primary, $brand-primary);
             }
         }
         &.tab-select {
@@ -68,7 +70,7 @@
             align-items: center;
             &:hover {
                 span {
-                    color: $brand-primary;
+                    @include variable(color, --brand-primary, $brand-primary);
                 }
             }
             span {
@@ -78,7 +80,7 @@
                     content: '\f123';
                     margin-left: 10px;
                     font-size: 12px;
-                    color: $brand-primary;
+                    @include variable(color, --brand-primary, $brand-primary);
                 }
             }
             select {

@@ -1,12 +1,22 @@
-@function _assignPrimaryDefault($color: null) {
-  // CHECK PARAMS
-  @if (type-of($color) == string) {
-      @return $brand-primary;
-  }
-  @return $color;
-}
+// @function _assignPrimaryDefault($color: null) {
+//   // CHECK PARAMS
+//   @if (type-of($color) == string) {
+//       @return $brand-primary;
+//   }
+//   @return $color;
+// }
 
 @mixin variable($prop, $var, $default) {
+  #{$prop}: $default;
+  #{$prop}: var($var) !important;
+}
+
+@mixin variableDarken($prop, $var, $default) {
+  #{$prop}: $default;
+  #{$prop}: var($var);
+}
+
+@mixin variableLighten($prop, $var, $default) {
   #{$prop}: $default;
   #{$prop}: var($var);
 }

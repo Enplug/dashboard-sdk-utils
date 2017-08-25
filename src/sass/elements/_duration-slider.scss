@@ -1,6 +1,5 @@
 $text-color:white;
 $border-color:#ebeef0;
-$primary-color:#4078C0;
 $cursor-width:60px;
 
 @mixin no-user-select {
@@ -54,7 +53,6 @@ $cursor-width:60px;
     .slider-cursor {
         width:$cursor-width;
         text-align: center;
-        background: $primary-color;
         margin-top: -12px;
         height: 24px;
         line-height: 24px;
@@ -64,16 +62,19 @@ $cursor-width:60px;
         margin-left: 0px;
         border-radius: 2px;
         z-index: 9;
+        @include variable(background, --brand-primary, $brand-primary);
 
         &:before {
             @include make-a-triangle;
-            border-right: 4px solid $primary-color;
+            border-right: 4px solid $brand-primary;
+            @include variable(border-right-color, --brand-primary, $brand-primary);
             left: -4px;
         }
 
         &:after {
             @include make-a-triangle;
-            border-left: 4px solid $primary-color;
+            border-left: 4px solid $brand-primary;
+            @include variable(border-left-color, --brand-primary, $brand-primary);
             right: -4px;
         }
 

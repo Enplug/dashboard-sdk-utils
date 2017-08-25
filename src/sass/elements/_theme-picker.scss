@@ -1,5 +1,12 @@
-$selected-theme-border: 8px solid #4078C0 !important;
+// TODO: Check on this below
+$selected-theme-border: 8px solid $brand-primary !important;
 $border-theme-width: 8px;
+
+@mixin borderStyling() {
+  border-width: $border-theme-width;
+  border-style: solid;
+  @include variable(border-color, --brand-primary, $brand-primary);
+}
 
 @mixin flexbox() {
     display: -webkit-box;
@@ -88,6 +95,7 @@ $border-theme-width: 8px;
 
                 &.selected img {
                     border: $selected-theme-border;
+                    @include variable(border-color, --brand-primary, $brand-primary);
                 }
 
                 span.label {
@@ -105,8 +113,8 @@ $border-theme-width: 8px;
                     img {
                         width: 100%;
                         height: auto;
-                        border: $border-theme-width solid $brand-primary;
                         transition: all 0.5s ease;
+                        @include borderStyling;
                     }
                 }
             }
@@ -138,7 +146,7 @@ $border-theme-width: 8px;
                 }
 
                 &.selected .template {
-                    border: $border-theme-width solid #4078C0 !important;;
+                    @include borderStyling;
                 }
 
                 span.label {
@@ -168,6 +176,7 @@ $border-theme-width: 8px;
                         &:hover {
                             opacity: 1.0;
                             border: $selected-theme-border;
+                            @include variable(border-color, --brand-primary, $brand-primary);
                         }
                     }
 
@@ -187,7 +196,7 @@ $border-theme-width: 8px;
                     transition: all linear .5s;
 
                     .template {
-                        border: $border-theme-width solid $brand-primary;
+                        @include borderStyling;
                     }
 
                     .btn {
@@ -220,15 +229,17 @@ $border-theme-width: 8px;
 
     .btn {
         position: absolute;
-        border-radius: 2px;
-        border: 1px solid $brand-primary;
-        color: $brand-primary;
         position: absolute;
         background: rgba(255,255,255,0.8);
         opacity: 0;
         font-size: 14px;
         width: 49%;
         bottom: 20px;
+        border-radius: 2px;
+        border-width: 1px;
+        border-style: solid;
+        @include variable(color, --brand-primary, $brand-primary);
+        @include variable(border-color, --brand-primary, $brand-primary);
     }
 
     .theme-edit-button {

@@ -2,7 +2,6 @@
 
     $grey: #798c9c;
     $light-grey: #bcc8d0;
-    $blue: #4078C0;
 
     @mixin no-space {
         margin: 0;
@@ -22,12 +21,12 @@
 
     @mixin link-style {
         font-weight: 500;
-        color: $blue;
+        @include variable(color, --brand-primary, $brand-primary);
     }
 
     @include no-space;
     width: 100%;
-    
+
     ul.list {
         @include no-space;
         width: 100%;
@@ -40,7 +39,7 @@
             list-style: none;
             border-radius: 2px;
             box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.07);
-                
+
             transition: all linear 300ms;
             background-color:transparent;
             &:hover {
@@ -53,7 +52,7 @@
                 @include float-left;
                 /*border: 1px solid red;*/
                 width:100%;
-                min-height: 44px; 
+                min-height: 44px;
                 border-radius: 2px;
                 display: flex;
                 justify-content: flex-start;
@@ -65,7 +64,7 @@
                     transition: all linear 200ms;
                     background-color: rgba(185, 216, 255, 0.05);
                 }
-                
+
 
                 &.width-5 { width:5%; }
                 &.width-10 { width:10%; }
@@ -87,17 +86,17 @@
                 &.width-85 { width:85%; }
                 &.width-90 { width:90%; }
                 &.width-95 { width:95%; }
-                &.btn { 
-                    text-align: center; 
-                    justify-content: center; 
+                &.btn {
+                    text-align: center;
+                    justify-content: center;
                     @include link-style;
                     .icon {
                         font-size: 30px; } }
-                &.text { 
-                    text-align: left; 
+                &.text {
+                    text-align: left;
                     padding-left: 5px; }
-                &.center { 
-                    text-align: center; 
+                &.center {
+                    text-align: center;
                     justify-content: center;
                     adding-left: 0; }
                 &.disabled {
@@ -115,7 +114,7 @@
             &.header {
                 border-top: none;
                 box-shadow: none;
-                
+
                 &:hover { background-color: transparent; }
 
                 .section {
@@ -129,5 +128,5 @@
             }
 
         }
-    }   
+    }
 }
