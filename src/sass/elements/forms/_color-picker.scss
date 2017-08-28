@@ -264,7 +264,7 @@
             border:none;
             border-bottom-width: 2px;
             border-bottom-style: solid;
-            @include variable(border-bottom-color, --brand-primary, $brand-primary);
+            @include resolveVariable(border-bottom-color, --brand-primary, $brand-primary);
         }
 
     }

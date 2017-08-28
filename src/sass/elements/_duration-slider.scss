@@ -62,19 +62,19 @@ $cursor-width:60px;
         margin-left: 0px;
         border-radius: 2px;
         z-index: 9;
-        @include variable(background, --brand-primary, $brand-primary);
+        @include resolveVariable(background, --brand-primary, $brand-primary);
 
         &:before {
             @include make-a-triangle;
             border-right: 4px solid $brand-primary;
-            @include variable(border-right-color, --brand-primary, $brand-primary);
+            @include resolveVariable(border-right-color, --brand-primary, $brand-primary);
             left: -4px;
         }
 
         &:after {
             @include make-a-triangle;
             border-left: 4px solid $brand-primary;
-            @include variable(border-left-color, --brand-primary, $brand-primary);
+            @include resolveVariable(border-left-color, --brand-primary, $brand-primary);
             right: -4px;
         }
 

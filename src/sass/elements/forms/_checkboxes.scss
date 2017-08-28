@@ -95,7 +95,7 @@
                         opacity: 0;
                         transform: scale(0);
                         transition: all $checkbox-animation-duration;
-                        @include variable(color, --brand-primary, $brand-primary);
+                        @include resolveVariable(color, --brand-primary, $brand-primary);
 
                     }
                 }

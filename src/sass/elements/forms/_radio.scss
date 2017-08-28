@@ -46,7 +46,7 @@
                 border-radius: 50%;
                 transform: scale(0);
                 transition: all $radio-transition-duration;
-                @include variable(background-color, --brand-primary, $brand-primary);
+                @include resolveVariable(background-color, --brand-primary, $brand-primary);
 
             }
 
@@ -57,7 +57,7 @@
             input[type=radio]:checked ~ .radio-off {
                 border-width: 2px;
                 border-style: solid;
-                @include variable(border-color, --brand-primary, $brand-primary);
+                @include resolveVariable(border-color, --brand-primary, $brand-primary);
             }
         }
     }

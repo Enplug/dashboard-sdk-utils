@@ -11,7 +11,7 @@
         width: 24px;
         vertical-align: middle;
         font-size: 28px;
-        @include variable(color, --brand-primary, $brand-primary);
+        @include resolveVariable(color, --brand-primary, $brand-primary);
     }
     .alert-body {
         display: table-cell;

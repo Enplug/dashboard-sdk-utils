@@ -1,7 +1,7 @@
 @mixin applyBorderStyling() {
   border-width: 1px;
   border-style: solid;
-  @include variable(border-color, --brand-primary, $brand-primary);
+  @include resolveVariable(border-color, --brand-primary, $brand-primary);
 }
 
 .background-picker {
@@ -65,7 +65,7 @@
                     right: 28px;
                     top: 17px;
                     z-index: 2;
-                    @include variable(background, --brand-primary, $brand-primary);
+                    @include resolveVariable(background, --brand-primary, $brand-primary);
                 }
             }
 
@@ -78,7 +78,7 @@
                     right: 22px;
                     top: 17px;
                     z-index: 3;
-                    @include variable(background, --brand-primary, $brand-primary);
+                    @include resolveVariable(background, --brand-primary, $brand-primary);
                 }
                 &:after {
                     content: " ";
@@ -105,8 +105,8 @@
                     border-top-style: solid;
                     border-bottom-width: 4px;
                     border-bottom-style: solid;
-                    @include variable(border-top-color, --brand-primary, $brand-primary);
-                    @include variable(border-bottom-color, --brand-primary, $brand-primary);
+                    @include resolveVariable(border-top-color, --brand-primary, $brand-primary);
+                    @include resolveVariable(border-bottom-color, --brand-primary, $brand-primary);
                 }
             }
         }
@@ -179,7 +179,7 @@
             display: inline-block;
             position: relative;
             position: relative;
-            @include variable(color, --brand-primary, $brand-primary);
+            @include resolveVariable(color, --brand-primary, $brand-primary);
 
             &:after {
                 content: "\F105";
@@ -203,7 +203,7 @@
 
             &.active{
                 color:white;
-                @include variable(background, --brand-primary, $brand-primary);
+                @include resolveVariable(background, --brand-primary, $brand-primary);
 
             }
             &.disabled {

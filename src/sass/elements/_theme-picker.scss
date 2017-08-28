@@ -5,7 +5,7 @@ $border-theme-width: 8px;
 @mixin borderStyling() {
   border-width: $border-theme-width;
   border-style: solid;
-  @include variable(border-color, --brand-primary, $brand-primary);
+  @include resolveVariable(border-color, --brand-primary, $brand-primary);
 }
 
 @mixin flexbox() {
@@ -95,7 +95,7 @@ $border-theme-width: 8px;
 
                 &.selected img {
                     border: $selected-theme-border;
-                    @include variable(border-color, --brand-primary, $brand-primary);
+                    @include resolveVariable(border-color, --brand-primary, $brand-primary);
                 }
 
                 span.label {
@@ -176,7 +176,7 @@ $border-theme-width: 8px;
                         &:hover {
                             opacity: 1.0;
                             border: $selected-theme-border;
-                            @include variable(border-color, --brand-primary, $brand-primary);
+                            @include resolveVariable(border-color, --brand-primary, $brand-primary);
                         }
                     }
 
@@ -238,8 +238,8 @@ $border-theme-width: 8px;
         border-radius: 2px;
         border-width: 1px;
         border-style: solid;
-        @include variable(color, --brand-primary, $brand-primary);
-        @include variable(border-color, --brand-primary, $brand-primary);
+        @include resolveVariable(color, --brand-primary, $brand-primary);
+        @include resolveVariable(border-color, --brand-primary, $brand-primary);
     }
 
     .theme-edit-button {

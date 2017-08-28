@@ -64,13 +64,13 @@
     &.btn-default {
         background: #fff;
         border-color: #d3dbe2;
-        @include variable(color, --brand-primary, $brand-primary);
+        @include resolveVariable(color, --brand-primary, $brand-primary);
         &:hover, &:active, &.active, &:focus, &.focus {
             border-color: #d3dbe2;
             background-color: #f5f6f7;
             text-decoration: none;
             outline: none;
-            @include variable(color, --brand-primary, $brand-primary);
+            @include resolveVariable(color, --brand-primary, $brand-primary);
         }
         &:active, &.active {
             box-shadow: 0 3px 6px rgba(0,0,0,0.1) inset;
@@ -82,20 +82,21 @@
     ========================================================================== */
     &.btn-primary {
         color: #fff;
-        @include variable(background-color, --brand-primary, $brand-primary);
-        @include variable(border-color, --brand-primary, $brand-primary);
+        @include resolveVariable(background-color, --brand-primary, $brand-primary);
+        @include resolveVariable(border-color, --brand-primary, $brand-primary);
         &:hover {
             // TODO: Check Darken / Lighten
-            // background-color: darken($brand-primary, 5);
-            // border-color: darken($brand-primary, 5);
-            @include variable(background-color, --brand-primary, darken($brand-primary, 5));
-            @include variable(border-color, --brand-primary, darken($brand-primary, 5));
+            background-color: darken($brand-primary, 5);
+            border-color: darken($brand-primary, 5);
+            // @include resolveVariable(background-color, --brand-primary, darken($brand-primary, 5));
+            // @include resolveVariable(border-color, --brand-primary, darken($brand-primary, 5));
 
         }
         &:active {
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) inset;
-            @include variable(background-color, --brand-primary, darken($brand-primary, 5));
-            @include variable(border-color, --brand-primary, darken($brand-primary, 5));
+            color: #fff;
+            // @include resolveVariable(background-color, --brand-primary, darken($brand-primary, 5));
+            // @include resolveVariable(border-color, --brand-primary, darken($brand-primary, 5));
 
         }
     }

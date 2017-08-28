@@ -21,7 +21,7 @@
 
     @mixin link-style {
         font-weight: 500;
-        @include variable(color, --brand-primary, $brand-primary);
+        @include resolveVariable(color, --brand-primary, $brand-primary);
     }
 
     @include no-space;

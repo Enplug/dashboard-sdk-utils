@@ -52,15 +52,15 @@
             &:focus, &:hover {
                 outline: none;
                 text-decoration: none;
-                @include variable(color, --brand-primary, $brand-primary);
+                @include resolveVariable(color, --brand-primary, $brand-primary);
             }
             &.active {
                 font-weight: bold;
                 // TODO: Check on this below
-                box-shadow: 0 3px 0 $brand-primary;
+                box-shadow: 0 3px 0;
                 cursor: default;
                 text-decoration: none;
-                @include variable(color, --brand-primary, $brand-primary);
+                @include resolveVariable(color, --brand-primary, $brand-primary);
             }
         }
         &.tab-select {
@@ -70,7 +70,7 @@
             align-items: center;
             &:hover {
                 span {
-                    @include variable(color, --brand-primary, $brand-primary);
+                    @include resolveVariable(color, --brand-primary, $brand-primary);
                 }
             }
             span {
@@ -80,7 +80,7 @@
                     content: '\f123';
                     margin-left: 10px;
                     font-size: 12px;
-                    @include variable(color, --brand-primary, $brand-primary);
+                    @include resolveVariable(color, --brand-primary, $brand-primary);
                 }
             }
             select {

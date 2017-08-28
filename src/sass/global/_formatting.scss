@@ -110,7 +110,7 @@ $padding-sm:    5px;
 .bb             { border-bottom: 1px solid $border-color !important; }
 .b, .ba         { border: 1px solid $border-color !important; }
 
-.b-p            { @include variable(border-color, --brand-primary, $brand-primary); }
+.b-p            { @include resolveVariable(border-color, --brand-primary, $brand-primary); }
 
 /* Border radius
 ========================================================================== */

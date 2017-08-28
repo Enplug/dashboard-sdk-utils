@@ -22,7 +22,7 @@
     &:focus {
         outline: 0;
         box-shadow: none;
-        @include variable(border-color, --brand-primary, $brand-primary);
+        @include resolveVariable(border-color, --brand-primary, $brand-primary);
     }
 }
 
@@ -103,19 +103,19 @@
             // Color change when focused
             background-color: transparent;
             // TODO: Check on box shadow!!
-            box-shadow: 0 2px 0 $brand-primary;
-            @include variable(color, --brand-primary, $brand-primary);
+            box-shadow: 0 2px 0;
+            @include resolveVariable(color, --brand-primary, $brand-primary);
 
             ~label {
-                @include variable(color, --brand-primary, $brand-primary);
+                @include resolveVariable(color, --brand-primary, $brand-primary);
             }
             ~.input-group-addon {
                 // TODO: Check on box shadow!!
-                box-shadow: 0 2px 0 $brand-primary;
-                @include variable(color, --brand-primary, $brand-primary);
+                box-shadow: 0 2px 0;
+                @include resolveVariable(color, --brand-primary, $brand-primary);
 
                 i {
-                    @include variable(color, --brand-primary, $brand-primary);
+                    @include resolveVariable(color, --brand-primary, $brand-primary);
                 }
             }
         }
@@ -179,6 +179,6 @@ input {
     &:focus {
         border-width: 1px;
         border-style: solid;
-        @include variable(border-color, --brand-primary, $brand-primary);
+        @include resolveVariable(border-color, --brand-primary, $brand-primary);
     }
 }

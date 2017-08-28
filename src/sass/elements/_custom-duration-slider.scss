@@ -85,14 +85,14 @@ $slider-content-width: 500px;
                     position: relative;
                     line-height: 26px;
                     font-size: 26px;
-                    @include variable(color, --brand-primary, $brand-primary);
+                    @include resolveVariable(color, --brand-primary, $brand-primary);
                 }
                 .icon-undefined {
                     position: relative;
                     text-align: middle;
                     line-height: 26px;
                     font-size: 26px;
-                    @include variable(color, --brand-primary, $brand-primary);
+                    @include resolveVariable(color, --brand-primary, $brand-primary);
                 }
                 span {
                     @include no-user-select;
@@ -123,7 +123,7 @@ $slider-content-width: 500px;
         border: none;
         margin-bottom: $cursor-margin;
         border-bottom: 1px solid rgb(212, 212, 212);
-        @include variable(color, --brand-primary, $brand-primary);
+        @include resolveVariable(color, --brand-primary, $brand-primary);
 
         &:focus {
             outline: 0 none;
