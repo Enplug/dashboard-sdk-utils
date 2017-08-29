@@ -1,19 +1,18 @@
 @mixin resolveVariable($prop, $var, $default) {
   #{$prop}: $default;
-  #{$prop}: var($var) !important;
+  #{$prop}: var($var);
 }
 
 :root {
 
   /* Brand Colors
   ========================================================================== */
-  --brand-primary:         $brand-primary; // we need a rich blue
-  --brand-inverse:         $brand-warning;
-  --brand-selected:        $brand-selected;
-  --gray :                 $gray;
+  --brand-primary:         #4078C0; // we need a rich blue
+  --brand-inverse:         #212529;
+  --brand-selected:        #FFFBE9;
+  --gray:                  #798c9c;
 
   /* Card Colors
   ========================================================================== */
-  --card-primary:          $card-primary;
-
+  --card-primary:          #fff;
 }
