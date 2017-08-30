@@ -4226,16 +4226,14 @@ dropdown-menu:not(.dropdown-wrap) {
       font-weight: 500; }
     .form-material .form-group input.form-control:focus {
       background-color: transparent;
-      box-shadow: 0 2px 0;
-      color: #4078C0;
-      color: var(--brand-primary); }
+      box-shadow: 0 2px 0 #4078C0;
+      box-shadow: 0 2px 0 var(--brand-primary); }
       .form-material .form-group input.form-control:focus ~ label {
         color: #4078C0;
         color: var(--brand-primary); }
       .form-material .form-group input.form-control:focus ~ .input-group-addon {
-        box-shadow: 0 2px 0;
-        color: #4078C0;
-        color: var(--brand-primary); }
+        box-shadow: 0 2px 0 #4078C0;
+        box-shadow: 0 2px 0 var(--brand-primary); }
         .form-material .form-group input.form-control:focus ~ .input-group-addon i {
           color: #4078C0;
           color: var(--brand-primary); }

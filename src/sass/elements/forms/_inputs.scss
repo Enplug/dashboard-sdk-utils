@@ -103,16 +103,16 @@
             // Color change when focused
             background-color: transparent;
             // TODO: Check on box shadow!!
-            box-shadow: 0 2px 0;
-            @include resolveVariable(color, --brand-primary, $brand-primary);
+            box-shadow: 0 2px 0 $brand-primary;
+            box-shadow: 0 2px 0 var(--brand-primary);
 
             ~label {
                 @include resolveVariable(color, --brand-primary, $brand-primary);
             }
             ~.input-group-addon {
                 // TODO: Check on box shadow!!
-                box-shadow: 0 2px 0;
-                @include resolveVariable(color, --brand-primary, $brand-primary);
+                box-shadow: 0 2px 0 $brand-primary;
+                box-shadow: 0 2px 0 var(--brand-primary);
 
                 i {
                     @include resolveVariable(color, --brand-primary, $brand-primary);
