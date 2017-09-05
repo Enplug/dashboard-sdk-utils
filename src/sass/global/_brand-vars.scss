@@ -4,14 +4,11 @@
 }
 
 :root {
-
   /* Brand Colors
   ========================================================================== */
   --brand-primary:         #4078C0; // we need a rich blue
-  --brand-inverse:         #212529;
-  --brand-selected:        #FFFBE9;
-  --gray:                  #798c9c;
-
+  --brand-primary-dark:    $brand-primary-dark;
+  --gray:                  $gray;
   /* Card Colors
   ========================================================================== */
   --card-primary:          #fff;

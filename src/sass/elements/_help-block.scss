@@ -1,6 +1,9 @@
 .footer-help {
     margin-top: 50px;
     margin-bottom: 30px;
+    overflow: hidden;
+    word-break: break-word;
+
     i {
         font-size: 28px;
         position: absolute;
@@ -19,5 +22,17 @@
         a:after {
             display: none; // remove external link icon to make it cleaner
         }
+    }
+
+    .customization {
+        box-sizing: border-box;
+        display: inline-block;
+        text-align: left;
+        padding: 13px 13px 13px 13px;
+        position: relative;
+        margin: 0 auto;
+        a:after {
+            display: none; // remove external link icon to make it cleaner
+          }
     }
 }

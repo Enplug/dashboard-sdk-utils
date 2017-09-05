@@ -1659,8 +1659,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
   /* Brand Colors
   ========================================================================== */
   --brand-primary: #4078C0;
-  --brand-inverse: #212529;
-  --brand-selected: #FFFBE9;
+  --brand-primary-dark: #396cad;
   --gray: #798c9c;
   /* Card Colors
   ========================================================================== */
@@ -2511,7 +2510,9 @@ hr {
     border-color: var(--brand-primary); }
     .btn.btn-primary:hover {
       background-color: #396cad;
-      border-color: #396cad; }
+      background-color: var(--brand-primary-dark);
+      border-color: #396cad;
+      border-color: var(--brand-primary-dark); }
     .btn.btn-primary:active {
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) inset;
       color: #fff; }
@@ -3111,7 +3112,9 @@ dropdown-menu:not(.dropdown-wrap) {
 
 .footer-help {
   margin-top: 50px;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  overflow: hidden;
+  word-break: break-word; }
   .footer-help i {
     font-size: 28px;
     position: absolute;
@@ -3127,6 +3130,15 @@ dropdown-menu:not(.dropdown-wrap) {
     position: relative;
     margin: 0 auto; }
     .footer-help .info-message a:after {
+      display: none; }
+  .footer-help .customization {
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: left;
+    padding: 13px 13px 13px 13px;
+    position: relative;
+    margin: 0 auto; }
+    .footer-help .customization a:after {
       display: none; }
 
 /* Tab list
