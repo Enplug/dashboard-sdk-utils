@@ -42,7 +42,8 @@
             stroke-dashoffset: 0;
             animation: loadingdash 1.5s ease-in-out infinite;
             stroke-linecap: round;
-            stroke: #428bca;
+            // stroke: #428bca;
+            @include resolveVariable(stroke, --brand-primary, #428bca);
         }
     }
 }
