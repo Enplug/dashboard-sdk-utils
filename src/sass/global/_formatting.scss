@@ -153,10 +153,13 @@ $padding-sm:    5px;
    &::-webkit-scrollbar-thumb {
       border-radius: 0;
       background-color: $gray-light;
+      @include resolveVariable(background-color, --brand-secondary-light, $brand-secondary-light);
    }
 
    &::-webkit-scrollbar-track {
       border-left: 1px solid $border-color;
+      @include resolveVariable(border-left, --brand-secondary-light, $brand-secondary-light);
+
    }
 
    &::-webkit-scrollbar {

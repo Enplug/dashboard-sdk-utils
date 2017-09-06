@@ -6,9 +6,15 @@
 :root {
   /* Brand Colors
   ========================================================================== */
-  --brand-primary:         #4078C0; // we need a rich blue
-  --brand-primary-dark:    $brand-primary-dark;
-  --gray:                  $gray;
+  --brand-primary:                #4078C0; // we need a rich blue
+  --brand-primary-dark:           $brand-primary-dark;
+  --gray:                         $gray;
+  --brand-secondary:              $brand-secondary;
+  --brand-secondary-dark:         $brand-secondary-dark;
+  --brand-secondary-darker:       $brand-secondary-darker;
+  --brand-secondary-light:        $brand-secondary-light;
+  --brand-secondary-lighter:      $brand-secondary-lighter;
+  --brand-secondary-light-medium: $brand-secondary-light-medium;
   /* Card Colors
   ========================================================================== */
   --card-primary:          #fff;

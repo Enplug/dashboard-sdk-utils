@@ -19,11 +19,11 @@
         padding: 13px 13px 13px 49px;
         position: relative;
         margin: 0 auto;
+        @include resolveVariable(color, --brand-secondary, $brand-secondary)
         a:after {
             display: none; // remove external link icon to make it cleaner
         }
     }
-
     .customization {
         box-sizing: border-box;
         display: inline-block;

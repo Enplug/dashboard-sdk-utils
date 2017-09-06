@@ -45,10 +45,11 @@
             padding: 20px 8px;
             font-size: 14px;
             text-decoration: none;
-            color: $gray;
             text-align: center;
             cursor: pointer;
             font-weight: normal;
+            // color: $gray;
+            @include resolveVariable(color, --brand-secondary, $brand-secondary);
             &:focus, &:hover {
                 outline: none;
                 text-decoration: none;

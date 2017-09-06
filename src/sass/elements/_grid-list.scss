@@ -100,8 +100,9 @@
                     justify-content: center;
                     adding-left: 0; }
                 &.disabled {
-                    color: $light-grey;
                     pointer-events: none; }
+                    // color: $light-grey;
+                    @include resolveVariable(color, --brand-secondary-light, $brand-secondary-light);
                 .truncate {
                     width: 100%;
                     min-height: 15px;

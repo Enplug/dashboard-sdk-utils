@@ -27,8 +27,11 @@
 
     sup {
         font-size: 14px;
+        @include resolveVariable(color, --brand-secondary-light, $brand-secondary-light);
+
         &:hover {
-            color: $gray-dark;
+            // color: $gray-dark;
+            @include resolveVariable(color, --brand-secondary-dark, $brand-secondary-dark);
         }
     }
 
