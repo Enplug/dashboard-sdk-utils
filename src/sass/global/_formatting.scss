@@ -110,7 +110,7 @@ $padding-sm:    5px;
 .bb             { border-bottom: 1px solid $border-color !important; }
 .b, .ba         { border: 1px solid $border-color !important; }
 
-.b-p            { border-color: #4078C0 !important; }
+.b-p            { @include resolveVariable(border-color, --brand-primary, $brand-primary); }
 
 /* Border radius
 ========================================================================== */
@@ -153,10 +153,13 @@ $padding-sm:    5px;
    &::-webkit-scrollbar-thumb {
       border-radius: 0;
       background-color: $gray-light;
+      @include resolveVariable(background-color, --brand-secondary-light, $brand-secondary-light);
    }
 
    &::-webkit-scrollbar-track {
       border-left: 1px solid $border-color;
+      @include resolveVariable(border-left, --brand-secondary-light, $brand-secondary-light);
+
    }
 
    &::-webkit-scrollbar {

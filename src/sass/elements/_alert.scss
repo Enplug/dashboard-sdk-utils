@@ -10,8 +10,8 @@
         display: table-cell;
         width: 24px;
         vertical-align: middle;
-        color: $brand-primary;
         font-size: 28px;
+        @include resolveVariable(color, --brand-primary, $brand-primary);
     }
     .alert-body {
         display: table-cell;

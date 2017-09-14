@@ -63,14 +63,14 @@
     ========================================================================== */
     &.btn-default {
         background: #fff;
-        color: $brand-primary;
         border-color: #d3dbe2;
+        @include resolveVariable(color, --brand-primary, $brand-primary);
         &:hover, &:active, &.active, &:focus, &.focus {
-            color: $brand-primary;
             border-color: #d3dbe2;
             background-color: #f5f6f7;
             text-decoration: none;
             outline: none;
+            @include resolveVariable(color, --brand-primary, $brand-primary);
         }
         &:active, &.active {
             box-shadow: 0 3px 6px rgba(0,0,0,0.1) inset;
@@ -82,16 +82,21 @@
     ========================================================================== */
     &.btn-primary {
         color: #fff;
-        background-color: $brand-primary;
-        border-color: $brand-primary;
+        @include resolveVariable(background-color, --brand-primary, $brand-primary);
+        @include resolveVariable(border-color, --brand-primary, $brand-primary);
         &:hover {
-            background-color: darken($brand-primary, 5);
-            border-color: darken($brand-primary, 5);
+            // TODO: Check Darken / Lighten
+            // background-color: darken($brand-primary, 5);
+            // border-color: darken($brand-primary, 5);
+            @include resolveVariable(background-color, --brand-primary-dark, $brand-primary-dark);
+            @include resolveVariable(border-color, --brand-primary-dark, $brand-primary-dark);
         }
         &:active {
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2) inset;
-            background-color: darken($brand-primary, 5);
-            border-color: darken($brand-primary, 5);
+            color: #fff;
+            // @include resolveVariable(background-color, --brand-primary, darken($brand-primary, 5));
+            // @include resolveVariable(border-color, --brand-primary, darken($brand-primary, 5));
+
         }
     }
 

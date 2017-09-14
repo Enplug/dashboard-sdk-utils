@@ -97,13 +97,13 @@ dropdown-menu:not(.dropdown-wrap) {
             a {
                 color: $gray-dark;
                 &.active {
-                    color: $brand-primary;
+                    @include resolveVariable(color, --brand-primary, $brand-primary);
                 }
                 &.text-gl {
                     color: $gray-light
                 }
                 &:hover {
-                    color: $brand-primary;
+                  @include resolveVariable(color, --brand-primary, $brand-primary);
                 }
             }
         }

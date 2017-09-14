@@ -68,7 +68,7 @@ label.material-switch {
 
         // Active bar
         &:after {
-            background: $brand-primary;
+            @include resolveVariable(background, --brand-primary, $brand-primary);
         }
     }
 
@@ -117,4 +117,3 @@ label.material-switch {
     }
 
 }
-

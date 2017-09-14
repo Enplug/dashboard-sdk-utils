@@ -1,6 +1,11 @@
+@mixin applyBorderStyling() {
+  border-width: 1px;
+  border-style: solid;
+  @include resolveVariable(border-color, --brand-primary, $brand-primary);
+}
+
 .background-picker {
 
-    $blue: #4078C0;
     $border: #356bba;
     $border-grey: #d3dbe2;
     $grey-bg: #f2f5f8;
@@ -47,20 +52,20 @@
                     height: 25px;
                     position: absolute;
                     background: white;
-                    border: 1px solid $blue;
                     right: 20px;
                     top: 15px;
                     z-index: 1;
+                    @include applyBorderStyling;
                 }
                 &:after {
                     content: " ";
                     width: 24px;
                     height: 21px;
                     position: absolute;
-                    background: $blue;
                     right: 28px;
                     top: 17px;
                     z-index: 2;
+                    @include resolveVariable(background, --brand-primary, $brand-primary);
                 }
             }
 
@@ -70,10 +75,10 @@
                     width: 36px;
                     height: 21px;
                     position: absolute;
-                    background: $blue;
                     right: 22px;
                     top: 17px;
                     z-index: 3;
+                    @include resolveVariable(background, --brand-primary, $brand-primary);
                 }
                 &:after {
                     content: " ";
@@ -81,10 +86,10 @@
                     height: 25px;
                     position: absolute;
                     background: white;
-                    border: 1px solid $blue;
                     right: 20px;
                     top: 15px;
                     z-index: 2;
+                    @include applyBorderStyling;
                 }
                 span {
                     content: " ";
@@ -96,15 +101,19 @@
                     top: 10px;
                     z-index: 1;
                     box-sizing: border-box;
-                    border-top: 4px solid $blue;
-                    border-bottom: 4px solid $blue;
+                    border-top-width: 4px;
+                    border-top-style: solid;
+                    border-bottom-width: 4px;
+                    border-bottom-style: solid;
+                    @include resolveVariable(border-top-color, --brand-primary, $brand-primary);
+                    @include resolveVariable(border-bottom-color, --brand-primary, $brand-primary);
                 }
             }
-        } 
+        }
     }
 
     .image-position {
-        margin-top: 10px;    
+        margin-top: 10px;
         display: flex;
         flex-direction: row;
         border: 1px solid $border-grey;
@@ -116,7 +125,7 @@
             display: flex !important;
             opacity: 0;
         }
-        
+
         .one-third {
             flex-grow: 0.4;
             border: 0;
@@ -139,7 +148,7 @@
 
                 &:first-child{
                     border-bottom: 1px solid $border-grey;
-                }   
+                }
 
                 &.active {
                     background-color: $grey-bg;
@@ -169,8 +178,8 @@
             float: left;
             display: inline-block;
             position: relative;
-            color: $blue;
             position: relative;
+            @include resolveVariable(color, --brand-primary, $brand-primary);
 
             &:after {
                 content: "\F105";
@@ -179,7 +188,7 @@
                 position: absolute;
                 transform-origin: center;
 
-                
+
             }
             &.top-left:after { transform: rotate(135deg); }
             &.top:after { transform: rotate(180deg); }
@@ -193,8 +202,9 @@
 
 
             &.active{
-                background: $blue;
                 color:white;
+                @include resolveVariable(background, --brand-primary, $brand-primary);
+
             }
             &.disabled {
                 background: rgba(211, 211, 211, 0.28);

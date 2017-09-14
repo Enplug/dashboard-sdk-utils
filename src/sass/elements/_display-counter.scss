@@ -5,7 +5,7 @@
     $blue: #618FCA;
 
     cursor: pointer;
-    user-select: none; 
+    user-select: none;
     display: inline-block;
     border: 1px $blue solid;
     width: 34px;
@@ -14,6 +14,7 @@
     margin: 0 5px;
     background-color: white;
     position: relative;
+    @include resolveVariable(border-color, --brand-primary, $brand-primary);
 
     &:after {
         content: "";
@@ -21,13 +22,15 @@
         height:1px;
         display: block;
         position: absolute;
-        background-color: $blue;
+        // background-color: $blue;
+        @include resolveVariable(background-color, --brand-primary, $brand-primary);
         left:5px;
         bottom:-3px;
     }
 
     span.binding {
-        color: $blue;
+        // color: $blue;
+        @include resolveVariable(color, --brand-primary, $brand-primary);
         font-size: 12px;
         line-height: 16px;
     }
@@ -35,11 +38,14 @@
     &.disabled {
         cursor: default;
         border:1px $gray solid;
+        @include resolveVariable(border-color, --brand-secondary, $brand-secondary);
         &:after {
-            background-color: $gray;
+            // background-color: $gray;
+            @include resolveVariable(background-color, --brand-secondary, $brand-secondary);
         }
         span.binding {
-            color: $graydark;
+            // color: $graydark;
+            @include resolveVariable(color, --brand-secondary-dark, $brand-secondary-dark);
         }
     }
 
@@ -58,22 +64,27 @@
         width: 24px;
         height: 30px;
         border: 1px $blue solid;
-        
+        background-color: white;
+        @include resolveVariable(border-color, --brand-primary, $brand-primary);
+
         &:after {
             content: none;
         }
         span.binding {
-            color: $blue;
+            // color: $blue;
             line-height: 26px;
+            @include resolveVariable(color, --brand-primary, $brand-primary);
         }
 
         &.disabled {
             border:1px $gray solid;
             &:after {
-                background-color: $gray;
+                // background-color: $gray;
+                @include resolveVariable(background-color, --brand-secondary, $brand-secondary);
             }
             span.binding {
-                color: $graydark;
+                // color: $graydark;
+                @include resolveVariable(color, --brand-secondary-dark, $brand-secondary-dark);
             }
         }
 
@@ -85,5 +96,3 @@
         }
     }
 }
-
-
