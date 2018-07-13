@@ -1,6 +1,9 @@
+const sass = require('node-sass');
+
 module.exports = {
      options: {
-         sourceMap: false
+         sourceMap: false,
+         implementation: sass,
      },
     build: {
         files: {
