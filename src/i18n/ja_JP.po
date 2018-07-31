@@ -1,27 +1,34 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"MIME-Version: 1.0\n"
 "Language: ja\n"
-"X-Generator: Poedit 1.8.11\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #: src/js/constants/quotes.js:145
-msgid "A lot of times, people don't know what they want until you show it to them."
-msgstr "人々は、提示されるまで自分が何を望んでいるのかをわかっていないことがよくあります。"
+msgid ""
+"A lot of times, people don't know what they want until you show it to them."
+msgstr ""
+"人々は、提示されるまで自分が何を望んでいるのかをわかっていないことがよくあり"
+"ます。"
 
 #: src/js/constants/quotes.js:85
 msgid "A person who never made a mistake never tried anything new."
 msgstr "失敗したことのない人は、新しいことを試みたことがない人です。"
 
 #: src/js/constants/quotes.js:273
-msgid "A pessimist sees the difficulty in every opportunity; an optimist sees the opportunity in every difficulty."
-msgstr "悲観主義者はあらゆる機会に困難を見出し、楽観主義者はあらゆる困難に機会を見出す。"
+msgid ""
+"A pessimist sees the difficulty in every opportunity; an optimist sees the "
+"opportunity in every difficulty."
+msgstr ""
+"悲観主義者はあらゆる機会に困難を見出し、楽観主義者はあらゆる困難に機会を見出"
+"す。"
 
 #. A represents 'Alpha'
 #: src/templates/color-picker.tpl.html:48
@@ -49,8 +56,12 @@ msgid "All our dreams can come true, if we have the courage to pursue them."
 msgstr "夢を追い求める勇気を持っているならば、夢はすべて実現します。"
 
 #: src/js/constants/quotes.js:137
-msgid "Amateurs practice until they get it right. Professionals practice until they can't get it wrong."
-msgstr "アマチュアは、成功するまで練習する。プロフェッショナルは、失敗できなくなるまで練習する。"
+msgid ""
+"Amateurs practice until they get it right. Professionals practice until they "
+"can't get it wrong."
+msgstr ""
+"アマチュアは、成功するまで練習する。プロフェッショナルは、失敗できなくなるま"
+"で練習する。"
 
 #: src/js/constants/quotes.js:197
 msgid "Ambition should be made of sterner stuff."
@@ -68,6 +79,12 @@ msgstr "4月"
 msgid "April"
 msgstr "4月"
 
+#: src/js/directives/theme-picker.js:63
+msgid ""
+"Are you sure you want to cancel the changes you've made? This action is not "
+"recoverable."
+msgstr ""
+
 #: src/js/constants/states.js:9
 msgid "Arizona"
 msgstr "アリゾナ"
@@ -77,8 +94,12 @@ msgid "Arkansas"
 msgstr "アーカンサス"
 
 #: src/js/constants/quotes.js:33
-msgid "At the age of six I wanted to be a cook. At seven I wanted to be Napoleon. And my ambition has been growing steadily ever since."
-msgstr "6歳の時に私は料理人になりたいと思っていました。7歳の時にはナポレオンになりたかった。それ以来、私の野心は着実に成長しています。"
+msgid ""
+"At the age of six I wanted to be a cook. At seven I wanted to be Napoleon. "
+"And my ambition has been growing steadily ever since."
+msgstr ""
+"6歳の時に私は料理人になりたいと思っていました。7歳の時にはナポレオンになりた"
+"かった。それ以来、私の野心は着実に成長しています。"
 
 #: src/js/constants/months.js:14
 msgid "Aug"
@@ -97,6 +118,10 @@ msgstr "B:"
 msgid "California"
 msgstr "カリフォルニア"
 
+#: src/js/directives/theme-picker.js:65
+msgid "Cancel"
+msgstr ""
+
 #: src/js/constants/quotes.js:281
 msgid "Carpe diem, seize the day boys, make your lives extraordinary."
 msgstr "カーペ・ディエム。今を生きろ、若者たちよ。素晴らしい人生をつかめ。"
@@ -113,13 +138,25 @@ msgstr "コネチカット"
 msgid "Contain"
 msgstr "含む"
 
+#: src/js/directives/theme-picker.js:94
+msgid "Copy of {{themeName}}"
+msgstr ""
+
 #: src/templates/background-picker.tpl.html:53
 msgid "Cover"
 msgstr "カバー"
 
 #: src/js/constants/quotes.js:45
-msgid "Creativity is allowing yourself to make mistakes. Art is knowing which ones to keep."
-msgstr "創造性とは自分自身に失敗を許すことである。芸術とはどちらを残すべきかを知ることである。"
+msgid ""
+"Creativity is allowing yourself to make mistakes. Art is knowing which ones "
+"to keep."
+msgstr ""
+"創造性とは自分自身に失敗を許すことである。芸術とはどちらを残すべきかを知るこ"
+"とである。"
+
+#: src/templates/theme-picker.tpl.html:27
+msgid "Custom Themes"
+msgstr ""
 
 #: src/js/constants/months.js:18
 msgid "Dec"
@@ -133,6 +170,14 @@ msgstr "12月"
 msgid "Delaware"
 msgstr "デラウェア"
 
+#: src/js/directives/theme-picker.js:64 src/templates/theme-picker.tpl.html:45
+msgid "Delete"
+msgstr ""
+
+#: src/js/directives/theme-picker.js:62
+msgid "Delete \"{{themeName}}\" ?"
+msgstr ""
+
 #: src/js/constants/states.js:15
 msgid "District of Columbia"
 msgstr "ワシントンD.C."
@@ -142,16 +187,32 @@ msgid "Do things that have never been done before."
 msgstr "これまでしたことのないことをせよ。"
 
 #: src/js/constants/quotes.js:285
-msgid "Doing the best at this moment puts you in the best place for the next moment."
-msgstr "今この瞬間に最善を尽くすことによって、次の瞬間に最善の場所に行くことができる。"
+msgid ""
+"Doing the best at this moment puts you in the best place for the next moment."
+msgstr ""
+"今この瞬間に最善を尽くすことによって、次の瞬間に最善の場所に行くことができ"
+"る。"
 
 #: src/js/constants/quotes.js:189
-msgid "During your life, never stop dreaming. No one can take away your dreams."
+msgid ""
+"During your life, never stop dreaming. No one can take away your dreams."
 msgstr "生きている間は夢見ることをやめてはならない。誰もあなたの夢を奪えない。"
 
-#: src/templates/help-block.tpl.html:3
+#: src/templates/theme-picker.tpl.html:42
+msgid "Edit"
+msgstr ""
+
+#: src/templates/theme-picker.tpl.html:19
+msgid "Edit Theme"
+msgstr ""
+
+#: src/templates/help-block.tpl.html:5
 msgid "Enplug Help Center"
 msgstr "Enplug ヘルプセンターをご覧ください"
+
+#: src/templates/theme-picker.tpl.html:4
+msgid "Enplug Themes"
+msgstr ""
 
 #: src/js/constants/quotes.js:69
 msgid "Every act of creation is first of all an act of destruction."
@@ -215,8 +276,12 @@ msgid "I don't know where I'm going, but I'm on my way."
 msgstr "どこに向かっているかはわからないが、道の途中にいる。"
 
 #: src/js/constants/quotes.js:261
-msgid "I hated every minute of training, but I said, 'Dont quit. Suffer now and live the rest of your life as a champion'."
-msgstr "俺はトレーニングが大嫌いだった。でも、自分に言い聞かせた。「絶対にあきらめるな。今は耐えろ。そして残りの人生をチャンピオンとして生きろ」"
+msgid ""
+"I hated every minute of training, but I said, 'Dont quit. Suffer now and "
+"live the rest of your life as a champion'."
+msgstr ""
+"俺はトレーニングが大嫌いだった。でも、自分に言い聞かせた。「絶対にあきらめる"
+"な。今は耐えろ。そして残りの人生をチャンピオンとして生きろ」"
 
 #: src/js/constants/quotes.js:293
 msgid "I have no special talent. I am only passionately curious."
@@ -227,7 +292,9 @@ msgid "I have not failed. I've just found 10,000 ways that won't work."
 msgstr "私は失敗したことがない。うまく行かない方法を10000通り見つけただけだ。"
 
 #: src/js/constants/quotes.js:161
-msgid "I pay no attention whatever to anybody's praise or blame. I simply follow my own feelings."
+msgid ""
+"I pay no attention whatever to anybody's praise or blame. I simply follow my "
+"own feelings."
 msgstr "他人の賞賛や非難など一切気にしない。自分自身の感性に従うのみだ。"
 
 #: src/js/constants/quotes.js:117 src/js/constants/quotes.js:25
@@ -239,11 +306,15 @@ msgid "I steal from every movie ever made."
 msgstr "これまで作られた全映画から盗んだ。"
 
 #: src/js/constants/quotes.js:269
-msgid "I've failed over and over and over again in my life and that is why I succeed."
+msgid ""
+"I've failed over and over and over again in my life and that is why I "
+"succeed."
 msgstr "人生で何度も失敗してきた。それが成功の秘訣だ。"
 
 #: src/js/constants/quotes.js:245
-msgid "I've got a theory that if you give 100% all the time, somehow things will work out in the end."
+msgid ""
+"I've got a theory that if you give 100% all the time, somehow things will "
+"work out in the end."
 msgstr "つねに100％の力を尽くしていれば、物事は最終的にうまくいく。"
 
 #: src/js/constants/states.js:19
@@ -251,11 +322,13 @@ msgid "Idaho"
 msgstr "アイダホ"
 
 #: src/js/constants/quotes.js:101
-msgid "If you love life, don't waste time, for time is what life is made up of."
+msgid ""
+"If you love life, don't waste time, for time is what life is made up of."
 msgstr "人生を愛しているならば、時間を無駄にするな。人生は時間でできている。"
 
 #: src/js/constants/quotes.js:201
-msgid "If you spend too much time thinking about a thing, you'll never get it done."
+msgid ""
+"If you spend too much time thinking about a thing, you'll never get it done."
 msgstr "何かについて考えてばかりいると、それをやり遂げることはできない。"
 
 #: src/js/constants/states.js:20
@@ -271,12 +344,18 @@ msgid "Iowa"
 msgstr "アイオワ"
 
 #: src/js/constants/quotes.js:81
-msgid "It is the working man who is the happy man. It is the idle man who is the miserable man."
+msgid ""
+"It is the working man who is the happy man. It is the idle man who is the "
+"miserable man."
 msgstr "幸福な者とは働いている者である。不幸な者とは怠惰な者である。"
 
 #: src/js/constants/quotes.js:229
-msgid "It's lack of faith that makes people afraid of meeting challenges, and I believed in myself."
-msgstr "人間が困難に立ち向かう時、恐怖を抱くのは信頼が欠如しているからだ。私は自分を信じる。"
+msgid ""
+"It's lack of faith that makes people afraid of meeting challenges, and I "
+"believed in myself."
+msgstr ""
+"人間が困難に立ち向かう時、恐怖を抱くのは信頼が欠如しているからだ。私は自分を"
+"信じる。"
 
 #: src/js/constants/months.js:7
 msgid "Jan"
@@ -335,8 +414,12 @@ msgid "Make everything as simple as possible, but not simpler."
 msgstr "何事もできる限り単純化すべきだが、必要以上に単純化してはならない。"
 
 #: src/js/constants/quotes.js:29
-msgid "Many of life's failures are people who did not realize how close they were to success when they gave up."
-msgstr "人生に失敗した人の多くは、諦めたときに自分がどれほど成功に近づいていたか気づかなかった人たちだ。"
+msgid ""
+"Many of life's failures are people who did not realize how close they were "
+"to success when they gave up."
+msgstr ""
+"人生に失敗した人の多くは、諦めたときに自分がどれほど成功に近づいていたか気づ"
+"かなかった人たちだ。"
 
 #: src/js/constants/months.js:9
 msgid "Mar"
@@ -387,7 +470,7 @@ msgid "Nebraska"
 msgstr "ネブラスカ"
 
 #. The full paragraph for this string is the following: 'Need help? Go to the Enplug Help Center'
-#: src/templates/help-block.tpl.html:3
+#: src/templates/help-block.tpl.html:4
 msgid "Need help? Go to the"
 msgstr "ヘルプが必要ですか？"
 
@@ -452,8 +535,11 @@ msgid "Oregon"
 msgstr "オレゴン"
 
 #: src/js/constants/quotes.js:65
-msgid "Our greatest glory is not in never failing, but in rising up every time we fail."
-msgstr "偉大な栄光とは失敗しないことではない。失敗するたびに立ち上がることにある。"
+msgid ""
+"Our greatest glory is not in never failing, but in rising up every time we "
+"fail."
+msgstr ""
+"偉大な栄光とは失敗しないことではない。失敗するたびに立ち上がることにある。"
 
 #: src/templates/material-input.tpl.html:6
 msgid "Passwords must match."
@@ -480,7 +566,9 @@ msgid "ProTip:"
 msgstr "ProTip:"
 
 #: src/js/constants/quotes.js:37
-msgid "Quality is more important than quantity. One home run is much better than two doubles."
+msgid ""
+"Quality is more important than quantity. One home run is much better than "
+"two doubles."
 msgstr "質は量より重要だ。1本のホームランは2本のツーベースヒットより貴重だ。"
 
 #. R represents 'red' in rgb
@@ -504,12 +592,7 @@ msgstr "9月"
 msgid "Show me a thoroughly satisfied man and I will show you a failure."
 msgstr "完全に満足しきった人がいたら、それは落伍者だ。"
 
-#: ./src/js/directives/tables/st-summary.js:25
-#: ./src/js/directives/tables/st-summary.js:28
-msgid "Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
-msgstr "見せる {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
-
-#: ./src/js/directives/tables/st-summary.js:32
+#: src/js/directives/tables/st-summary.js:17
 msgid "Showing"
 msgstr "見せる"
 
@@ -518,8 +601,12 @@ msgid "Simplify, simplify, simplify."
 msgstr "とにかく単純化せよ。"
 
 #: src/js/constants/quotes.js:241
-msgid "Some people want it to happen, some wish it would happen, others make it happen."
-msgstr "実現したいと願う人もいれば、夢想する人もいる。そして、みずから実現する人もいる。"
+msgid ""
+"Some people want it to happen, some wish it would happen, others make it "
+"happen."
+msgstr ""
+"実現したいと願う人もいれば、夢想する人もいる。そして、みずから実現する人もい"
+"る。"
 
 #: src/js/directives/background-picker.js:81
 msgid "Something went wrong, please try again."
@@ -547,7 +634,8 @@ msgstr "テキサス"
 
 #: src/js/constants/quotes.js:41
 msgid "That's one small step for man, one giant leap for mankind."
-msgstr "これは一人の人間にとっては小さな一歩だが、人類にとっては偉大な飛躍である。"
+msgstr ""
+"これは一人の人間にとっては小さな一歩だが、人類にとっては偉大な飛躍である。"
 
 #: src/js/constants/quotes.js:53
 msgid "The best way out is always through."
@@ -594,7 +682,8 @@ msgid "This is required."
 msgstr "これは必要です。"
 
 #: src/js/constants/quotes.js:89
-msgid "To be idle is a short road to death and to be diligent is a way of life."
+msgid ""
+"To be idle is a short road to death and to be diligent is a way of life."
 msgstr "怠惰は死への近道であり、勤勉は生きる術である。"
 
 #: src/js/constants/quotes.js:169
@@ -630,8 +719,12 @@ msgid "West Virginia"
 msgstr "ウェストバージニア"
 
 #: src/js/constants/quotes.js:185
-msgid "When it is obvious that the goals cannot be reached, don't adjust the goals, adjust the steps."
-msgstr "目標に到達できないことが明らかな場合は、目標を変えるのではなく、その過程を変えよ。"
+msgid ""
+"When it is obvious that the goals cannot be reached, don't adjust the goals, "
+"adjust the steps."
+msgstr ""
+"目標に到達できないことが明らかな場合は、目標を変えるのではなく、その過程を変"
+"えよ。"
 
 #: src/js/constants/quotes.js:213
 msgid "When you stop doing things for fun, you might as well be dead."
@@ -663,7 +756,8 @@ msgstr "歩みを止めることはできない。勝者は止まらず、止ま
 
 #: src/js/constants/quotes.js:17
 msgid "You can't wait for inspiration. You have to go after it with a club."
-msgstr "インスピレーションはやっては来ない。 こん棒を持ってでも追いかけなければ。"
+msgstr ""
+"インスピレーションはやっては来ない。 こん棒を持ってでも追いかけなければ。"
 
 #: src/js/constants/quotes.js:165
 msgid "You miss 100% of the shots you don't take."
@@ -673,6 +767,9 @@ msgstr "打たないシュートは、100％外れる。"
 msgid "You've got to jump off cliffs and build your wings on the way down."
 msgstr "まず崖から飛び降りて、落ちていく間に自分の翼を作らなければいけない。"
 
-#: ./src/js/directives/tables/st-summary.js:32
+#: src/js/directives/tables/st-summary.js:19
 msgid "of"
 msgstr "of"
+
+#~ msgid "Showing {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
+#~ msgstr "見せる {{ stRangeFrom }}-{{ stRangeTo}} of {{size}}"
