@@ -28,7 +28,8 @@ angular.module('enplug.sdk.utils').directive('materialSelect', function ($timeou
 
             // Take the label from an attribute instead of scope because it'll usually just be a simple
             // string that doesn't need to be bound to
-            scope.label = attrs.label;
+            var placeholder = attrs.label;
+            scope.label = placeholder;
             element.removeAttr('label');
 
             transclude(function (clone) {
@@ -50,6 +51,9 @@ angular.module('enplug.sdk.utils').directive('materialSelect', function ($timeou
                                 // element
                                 scope.label = select[0].options[select[0].selectedIndex].label
                             });
+                        } else {
+                          scope.label = placeholder;
+                          element.removeClass('selected');
                         }
                     });
                 } else {
