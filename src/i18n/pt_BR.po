@@ -210,12 +210,12 @@ msgid "Edit Theme"
 msgstr "Editar tema"
 
 #: src/templates/help-block.tpl.html:5
-msgid "Enplug Help Center"
-msgstr "Central de Ajuda Enplug"
+msgid "Help Center"
+msgstr "Central de Ajuda"
 
 #: src/templates/theme-picker.tpl.html:4
-msgid "Enplug Themes"
-msgstr "Temas Enplug"
+msgid "Default Themes"
+msgstr "Temas"
 
 #: src/js/constants/quotes.js:69
 msgid "Every act of creation is first of all an act of destruction."
