@@ -196,11 +196,11 @@ msgid "Edit Theme"
 msgstr "Bearbeiten"
 
 #: src/templates/help-block.tpl.html:5
-msgid "Enplug Help Center"
+msgid "Help Center"
 msgstr "Hilfezentrum"
 
 #: src/templates/theme-picker.tpl.html:4
-msgid "Enplug Themes"
+msgid "Default Themes"
 msgstr "Voreingestellten Farbschemas"
 
 #: src/js/constants/quotes.js:69

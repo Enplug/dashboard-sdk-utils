@@ -5,7 +5,7 @@ angular.module('enplug.sdk.utils').directive('helpBlock', function () {
         restrict: 'E',
         transclude: true,
         scope: {
-          customization: '=?customization'
+          supportUrl: '=?supportUrl'
         },
         link: function (scope) {
 
