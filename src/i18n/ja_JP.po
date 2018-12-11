@@ -207,11 +207,11 @@ msgid "Edit Theme"
 msgstr ""
 
 #: src/templates/help-block.tpl.html:5
-msgid "Enplug Help Center"
-msgstr "Enplug ヘルプセンターをご覧ください"
+msgid "Help Center"
+msgstr "ヘルプセンターをご覧ください"
 
 #: src/templates/theme-picker.tpl.html:4
-msgid "Enplug Themes"
+msgid "Default Themes"
 msgstr ""
 
 #: src/js/constants/quotes.js:69

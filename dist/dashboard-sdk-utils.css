@@ -173,7 +173,7 @@ td, th {
 
 html {
   font-size: 10px;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: transparent; }
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1658,18 +1658,18 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 :root {
   /* Brand Colors
   ========================================================================== */
-  --brand-primary:                #4078C0;
-  --brand-primary-dark:           #396cad;
-  --gray:                         #798c9c;
-  --brand-secondary:              #798c9c;
-  --brand-secondary-dark:         #31373D;
-  --brand-secondary-darker:       #2a3239;
-  --brand-secondary-light:        #96a5b2;
-  --brand-secondary-lighter:      #eef1f3;
+  --brand-primary: #4078C0;
+  --brand-primary-dark: #396cad;
+  --gray: #798c9c;
+  --brand-secondary: #798c9c;
+  --brand-secondary-dark: #31373D;
+  --brand-secondary-darker: #2a3239;
+  --brand-secondary-light: #96a5b2;
+  --brand-secondary-lighter: #eef1f3;
   --brand-secondary-light-medium: #c2cbd2;
   /* Card Colors
   ========================================================================== */
-  --card-primary:                 #fff; }
+  --card-primary: #fff; }
 
 /* ==========================================================================
    Custom font loading
@@ -3150,15 +3150,6 @@ dropdown-menu:not(.dropdown-wrap) {
     color: #798c9c;
     color: var(--brand-secondary); }
     .footer-help .info-message a:after {
-      display: none; }
-  .footer-help .customization {
-    box-sizing: border-box;
-    display: inline-block;
-    text-align: left;
-    padding: 13px 13px 13px 13px;
-    position: relative;
-    margin: 0 auto; }
-    .footer-help .customization a:after {
       display: none; }
 
 /* Tab list
