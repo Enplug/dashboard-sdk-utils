@@ -3128,30 +3128,6 @@ dropdown-menu:not(.dropdown-wrap) {
   to {
     transform: rotate(359deg); } }
 
-.footer-help {
-  margin-top: 50px;
-  margin-bottom: 30px;
-  overflow: hidden;
-  word-break: break-word; }
-  .footer-help i {
-    font-size: 28px;
-    position: absolute;
-    top: 50%;
-    margin-top: -20px;
-    left: 16px; }
-  .footer-help .info-message {
-    box-sizing: border-box;
-    display: inline-block;
-    text-align: left;
-    border: 1px solid #d3dbe2;
-    padding: 13px 13px 13px 49px;
-    position: relative;
-    margin: 0 auto;
-    color: #798c9c;
-    color: var(--brand-secondary); }
-    .footer-help .info-message a:after {
-      display: none; }
-
 /* Tab list
 ========================================================================== */
 .tab-list {
