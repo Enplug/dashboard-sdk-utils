@@ -16,7 +16,8 @@ angular.module('enplug.sdk.utils').directive('displayCounter', function () {
             count: '=',
             showDanger: '=?',
             vertical: '=?',
-            disabled: '=?'
+            disabled: '=?',
+            hasPriorityPlay: '=?'
         },
 
         templateUrl: 'sdk-utils/display-counter.tpl',
@@ -39,6 +40,9 @@ angular.module('enplug.sdk.utils').directive('displayCounter', function () {
             }
             if ( 'disabled' in scope && scope.disabled === true ) {
                 element.addClass('disabled');
+            }
+            if ( 'hasPriorityPlay' in scope && scope.hasPriorityPlay === true ) {
+                element.addClass('priority-play');
             }
 
             scope.$watch('count', function(){

@@ -95,4 +95,15 @@
             }
         }
     }
+
+    &.priority-play {
+        border:1px $brand-danger solid;
+        background-color: $brand-danger;
+        &:after {
+            background-color: $brand-danger;
+        }
+        span.binding {
+            color: white;
+        }
+    }
 }
