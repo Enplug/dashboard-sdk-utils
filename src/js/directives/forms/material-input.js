@@ -21,7 +21,8 @@ angular.module('enplug.sdk.utils').directive('materialInput', ['$log', '$compile
             restrict: 'E',
             require: '^form',
             scope: {
-                model: '=field'
+                model: '=field',
+                label: '@'
             },
             transclude: true, // Allows us to wrap up custom html
             templateUrl: 'sdk-utils/material-input.tpl',
