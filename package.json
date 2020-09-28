@@ -1,6 +1,6 @@
 {
   "name": "@enplug/dashboard-sdk-utils",
-  "version": "2.2.24",
+  "version": "2.2.25",
   "license": "MIT",
   "main": "dist/dashboard-sdk-utils.js",
   "repository": {
