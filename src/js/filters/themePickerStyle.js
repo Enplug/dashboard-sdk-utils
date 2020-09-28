@@ -64,26 +64,26 @@ angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
                 return {
 
                     'Solid': {
-                      'background': 'rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
-                      ',' + theme.background.rgb[2] + ')'
+                      'background': 'rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
+                      ',' + theme.background.rgb[2] + ', ' + theme.background.backgroundAlpha + ')'
                     },
 
                     'Vertical Gradient': {
-                      'background': 'linear-gradient(rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' +
-                      theme.background.rgb[2] + ') , rgb(' + theme.background.rgb2[0] + ',' +
-                      theme.background.rgb2[1] + ',' + theme.background.rgb2[2] + ')'
+                      'background': 'linear-gradient(rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' +
+                      theme.background.rgb[2] + ',' + theme.background.backgroundAlpha + ') , rgba(' + theme.background.rgb2[0] + ',' +
+                      theme.background.rgb2[1] + ',' + theme.background.rgb2[2] + ', ' + theme.background.backgroundAlpha2 + ')'
                     },
 
                     'Horizontal Gradient': {
-                      'background': 'linear-gradient(-90deg, rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
-                      ',' + theme.background.rgb[2] + ') , rgb(' + theme.background.rgb2[0] + ',' + theme.background.rgb2[1] +
-                      ',' + theme.background.rgb2[2] + ')'
+                      'background': 'linear-gradient(-90deg, rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
+                      ',' + theme.background.rgb[2] + ',' + theme.background.backgroundAlpha + ') , rgba(' + theme.background.rgb2[0] + ',' + theme.background.rgb2[1] +
+                      ',' + theme.background.rgb2[2] + ', ' + theme.background.backgroundAlpha2 + ')'
                     },
 
                     'Radial Gradient': {
-                      'background': 'radial-gradient(70vw at 50% 50%, rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' + theme.background.rgb[2] + '), rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
-                      ',' + theme.background.rgb[2] + ') , rgb(' + theme.background.rgb2[0] + ',' +
-                       theme.background.rgb2[1] + ',' + theme.background.rgb2[2] +')'
+                      'background': 'radial-gradient(70vw at 50% 50%, rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' + theme.background.rgb[2] + '), rgb(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
+                      ',' + theme.background.rgb[2] + ', ' + theme.background.backgroundAlpha + ') , rgba(' + theme.background.rgb2[0] + ',' +
+                       theme.background.rgb2[1] + ',' + theme.background.rgb2[2] + ', ' + theme.background.backgroundAlpha2 +')'
                     }
                 }
 
@@ -93,8 +93,8 @@ angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
           return  {
               'Solid': {
                   'background': 'linear-gradient(rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' +
-                  theme.background.rgb[2] + ',' + 0 + ') , rgba(' + theme.background.rgb[0] + ',' +
-                  theme.background.rgb[1] + ',' + theme.background.rgb[2] + ',' + 0 + ')), url(' +
+                  theme.background.rgb[2] + ',' + theme.background.backgroundAlpha + ') , rgba(' + theme.background.rgb[0] + ',' +
+                  theme.background.rgb[1] + ',' + theme.background.rgb[2] + ',' + theme.background.backgroundAlpha2 + ')), url(' +
                   backgroundImage +')',
                   'background-repeat': 'no-repeat',
                   'background-position': 'center',
@@ -103,8 +103,8 @@ angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
 
               'Vertical Gradient': {
                   'background': 'linear-gradient(rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' +
-                  theme.background.rgb[2] + ', ' + 0 + ') , rgba(' + theme.background.rgb2[0] + ',' +
-                  theme.background.rgb2[1] + ',' + theme.background.rgb2[2] + ',' + 0 + ')), url(' +
+                  theme.background.rgb[2] + ', ' + theme.background.backgroundAlpha + ') , rgba(' + theme.background.rgb2[0] + ',' +
+                  theme.background.rgb2[1] + ',' + theme.background.rgb2[2] + ',' + theme.background.backgroundAlpha2 + ')), url(' +
                   backgroundImage +')',
                   'background-repeat': 'no-repeat',
                   'background-position': 'center',
@@ -113,8 +113,8 @@ angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
 
               'Horizontal Gradient': {
                   'background': 'linear-gradient(-90deg, rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
-                  ',' + theme.background.rgb[2] + ',' + 0 + ') , rgba(' + theme.background.rgb2[0] + ',' + theme.background.rgb2[1] +
-                  ',' + theme.background.rgb2[2] + ',' + 0 + ')), url(' +
+                  ',' + theme.background.rgb[2] + ',' + theme.background.backgroundAlpha + ') , rgba(' + theme.background.rgb2[0] + ',' + theme.background.rgb2[1] +
+                  ',' + theme.background.rgb2[2] + ',' + theme.background.backgroundAlpha2 + ')), url(' +
                   backgroundImage + ')',
                   'background-repeat': 'no-repeat',
                   'background-position': 'center',
@@ -123,8 +123,8 @@ angular.module('enplug.sdk.utils').filter('themePickerStyle', function() {
 
               'Radial Gradient': {
                 'background': 'radial-gradient(70vw at 50% 50%, rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] + ',' + theme.background.rgb[2] + ',' + theme.background.backgroundAlpha2 +'), rgba(' + theme.background.rgb[0] + ',' + theme.background.rgb[1] +
-                ',' + theme.background.rgb[2] + ','+ 0 +') , rgba(' + theme.background.rgb2[0] + ',' +
-                 theme.background.rgb2[1] + ',' + theme.background.rgb2[2] + ',' + 0 +')), url(' +
+                ',' + theme.background.rgb[2] + ','+ theme.background.backgroundAlpha +') , rgba(' + theme.background.rgb2[0] + ',' +
+                 theme.background.rgb2[1] + ',' + theme.background.rgb2[2] + ',' + theme.background.backgroundAlpha2 +')), url(' +
                  backgroundImage +')',
                  'background-repeat': 'no-repeat',
                  'background-position': 'center',
