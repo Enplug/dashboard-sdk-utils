@@ -93,10 +93,10 @@ angular-gettext-tools@^2:
     lodash "^4.0.0"
     pofile "~1.0.0"
 
-angular-gettext@^2.3.8:
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/angular-gettext/-/angular-gettext-2.3.9.tgz#80ac5877c44814a004846c37e00e086f24cdac5a"
-  integrity sha1-gKxYd8RIFKAEhGw34A4IbyTNrFo=
+angular-gettext@^2.4.1:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/angular-gettext/-/angular-gettext-2.4.2.tgz#e5dde8df91493f826fd7eb8b5d6125a10cc0b681"
+  integrity sha512-J9Zy76VmN5otw6GyIqJjoLjl+0wwsZSCUPgPfQwM4Mx//hP3leqyS/fgf2MDiMLLyKgoHWkMMzzWbP4iH3+5vQ==
 
 ansi-escapes@^1.1.0:
   version "1.4.0"
@@ -3519,6 +3519,16 @@ uglify-js@2.7.x:
     uglify-to-browserify "~1.0.0"
     yargs "~3.10.0"
 
+uglify-js@^2.4.19:
+  version "2.8.29"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
+  integrity sha1-KcVzMUgFe7Th913zW3qcty5qWd0=
+  dependencies:
+    source-map "~0.5.1"
+    yargs "~3.10.0"
+  optionalDependencies:
+    uglify-to-browserify "~1.0.0"
+
 uglify-js@^2.4.24:
   version "2.8.21"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.21.tgz#1733f669ae6f82fc90c7b25ec0f5c783ee375314"
@@ -3702,9 +3712,9 @@ xmlbuilder@0.4.2:
   integrity sha1-F3bWXz/brUcKCNhgTN6xxOVA/4M=
 
 y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
-  integrity sha1-bRX7qITAhnnA136I53WegR4H+kE=
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.2.tgz#85c901bd6470ce71fc4bb723ad209b70f7f28696"
+  integrity sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ==
 
 yallist@^2.0.0:
   version "2.1.2"
