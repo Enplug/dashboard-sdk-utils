@@ -93,10 +93,10 @@ angular-gettext-tools@^2:
     lodash "^4.0.0"
     pofile "~1.0.0"
 
-angular-gettext@^2.3.8:
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/angular-gettext/-/angular-gettext-2.3.9.tgz#80ac5877c44814a004846c37e00e086f24cdac5a"
-  integrity sha1-gKxYd8RIFKAEhGw34A4IbyTNrFo=
+angular-gettext@^2.4.1:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/angular-gettext/-/angular-gettext-2.4.2.tgz#e5dde8df91493f826fd7eb8b5d6125a10cc0b681"
+  integrity sha512-J9Zy76VmN5otw6GyIqJjoLjl+0wwsZSCUPgPfQwM4Mx//hP3leqyS/fgf2MDiMLLyKgoHWkMMzzWbP4iH3+5vQ==
 
 ansi-escapes@^1.1.0:
   version "1.4.0"
@@ -2088,15 +2088,15 @@ lodash.mergewith@^4.6.0:
   resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
   integrity sha512-eWw5r+PYICtEBgrBE5hhlT6aAa75f411bgDz/ZL2KZqYV03USvucsxcHUIlGTDTECs1eunpI7HOV7U+WLDvNdQ==
 
-lodash@^3.10.1, lodash@^3.2.0, lodash@^3.3.1, lodash@~3.10.0:
+lodash@^3.10.1, lodash@^3.2.0, lodash@^3.3.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
   integrity sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y=
 
-lodash@^4.0.0:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
-  integrity sha1-eCA6TRwyiuHYbcpkYONptX9AVa4=
+lodash@^4.0.0, lodash@~4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 lodash@~0.9.2:
   version "0.9.2"
@@ -3518,6 +3518,16 @@ uglify-js@2.7.x:
     source-map "~0.5.1"
     uglify-to-browserify "~1.0.0"
     yargs "~3.10.0"
+
+uglify-js@^2.4.19:
+  version "2.8.29"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
+  integrity sha1-KcVzMUgFe7Th913zW3qcty5qWd0=
+  dependencies:
+    source-map "~0.5.1"
+    yargs "~3.10.0"
+  optionalDependencies:
+    uglify-to-browserify "~1.0.0"
 
 uglify-js@^2.4.24:
   version "2.8.21"
